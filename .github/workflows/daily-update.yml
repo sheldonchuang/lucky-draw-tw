@@ -1,0 +1,35 @@
+name: Daily Lottery Events Update
+
+on:
+  schedule:
+    # 每天台灣時間早上 08:00 (UTC 00:00) 自動執行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 支援在 GitHub 網頁手動一鍵觸發更新
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Crawler
+        run: |
+          python scripts/crawler.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'LuckyGo Bot'
+          git config --global user.email 'bot@luckygo.tw'
+          git add events.json data.js
+          if git diff --staged --quiet; then
+            echo "沒有新活動資料，略過提交。"
+          else
+            git commit -m "chore(auto): 每日自動更新最新官方抽獎活動 [skip ci]"
+            git push
+          fi
