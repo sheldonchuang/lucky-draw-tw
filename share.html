@@ -224,9 +224,14 @@
 
   <div class="container">
     <div class="header-box">
-      <div class="header-badge"><i class="fa-brands fa-threads"></i> Threads 快速發布工具</div>
+      <div class="header-badge" id="todayBadge"><i class="fa-brands fa-threads"></i> 今日最新文案已自動生成</div>
       <h1>一鍵分享至 Threads 海巡推廣</h1>
-      <p class="subtitle">點擊「直通 Threads 發文」會自動開啟 Threads 並填入貼文內容，您只需點擊發布即可！</p>
+      <p class="subtitle">系統每天依據最新活動與倒數截止日自動更新貼文草稿，點擊即可直通發文！</p>
+      <div style="margin-top: 1rem;">
+        <button class="btn btn-copy" onclick="regenerateDailyPosts()" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #FFFFFF;">
+          <i class="fa-solid fa-arrows-rotate"></i> 重新載入今日最新活動文案
+        </button>
+      </div>
     </div>
 
     <!-- 範本 1：超商族發票共鳴款 -->
@@ -326,7 +331,90 @@
     <i class="fa-solid fa-circle-check"></i> 已成功複製內文到剪貼簿！
   </div>
 
+  <script src="./data.js"></script>
   <script>
+    let allEvents = window.INITIAL_EVENTS || [];
+
+    // 計算剩餘天數 (基準以今日 2026/11/23 為準)
+    function getRemainingDays(deadlineStr) {
+      if (!deadlineStr) return null;
+      try {
+        const parts = deadlineStr.split('/');
+        if (parts.length === 3) {
+          const target = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+          const now = new Date(2026, 10, 23); // 2026-11-23
+          const diffTime = target - now;
+          return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        }
+      } catch (e) {
+        return null;
+      }
+      return null;
+    }
+
+    function isExpired(deadlineStr) {
+      const days = getRemainingDays(deadlineStr);
+      return days !== null && days < 0;
+    }
+
+    // 每日自動生成最新文案邏輯
+    function regenerateDailyPosts() {
+      // 排除已截止的活動
+      const activeEvents = allEvents.filter(e => !isExpired(e.deadline));
+
+      // 1. 取得即將截止的 TOP 3
+      const urgentEvents = [...activeEvents].sort((a, b) => {
+        const daysA = getRemainingDays(a.deadline) ?? 999;
+        const daysB = getRemainingDays(b.deadline) ?? 999;
+        return daysA - daysB;
+      }).slice(0, 3);
+
+      // 2. 取得免消費即抽的 TOP 3
+      const freeEvents = activeEvents.filter(e => e.tags.includes('免消費即抽')).slice(0, 3);
+
+      // 3. 取得抽 iPhone / 家電的 TOP 3
+      const gadgetEvents = activeEvents.filter(e => e.tags.includes('抽iPhone') || e.tags.includes('抽家電')).slice(0, 4);
+
+      // 4. 取得當前日期
+      const now = new Date(2026, 10, 23);
+      const todayStr = `${now.getMonth() + 1}月${now.getDate()}日`;
+      const dateBadge = document.getElementById('todayBadge');
+      if (dateBadge) {
+        dateBadge.innerHTML = `<i class="fa-brands fa-threads"></i> 今日 ${todayStr} 專屬文案已自動更新`;
+      }
+
+      // 生成範本 1：超商族發票共鳴款
+      let urgentListText = '';
+      urgentEvents.forEach((e, idx) => {
+        const days = getRemainingDays(e.deadline);
+        const dayStr = days !== null ? `（倒數剩 ${days} 天截止）` : '';
+        urgentListText += `${idx + 1}. 【${e.brand}】${e.title}${dayStr}\n`;
+      });
+
+      document.getElementById('text-1').value = `大家在超商買完東西，發票千萬不要順手丟掉……\n\n【${todayStr} 最新快報】今天盤點全台灣目前快截止的超商與品牌抽獎，很多人都不知道現在能登錄：\n\n${urgentListText.trim()}\n\n越快截止的我直接排在最上面了，還有分出「完全不用花錢就能抽」的專區！\n\n查自己手邊發票能不能抽 👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+
+      // 生成範本 2：免消費好康款
+      let freeListText = '';
+      freeEvents.forEach(e => {
+        freeListText += `• 【${e.brand}】${e.title}（大獎：${e.prizes[0] || '官方大獎'}）\n`;
+      });
+
+      document.getElementById('text-2').value = `討厭登錄發票但想抽大獎的看這篇 ✈️\n\n【${todayStr} 最新整理】目前全台 ${activeEvents.filter(e => e.tags.includes('免消費即抽')).length} 檔【完全免消費、免買東西】就能參加的官方抽獎：\n\n${freeListText.trim()}\n\n已經把過期的通通濾掉了，只留現在能抽的，直接點進去就是原廠官方登錄頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議先存到手機主畫面，每天上去看一下有沒有新大獎）`;
+
+      // 生成範本 3：iPhone & 家電大獎倒數款
+      let gadgetListText = '';
+      gadgetEvents.forEach(e => {
+        const days = getRemainingDays(e.deadline);
+        const dayStr = days !== null ? `（剩 ${days} 天）` : '';
+        gadgetListText += `- 【${e.brand}】${e.title} ${dayStr}\n`;
+      });
+
+      document.getElementById('text-3').value = `想換 iPhone 或抽家電的注意了 📱\n\n【${todayStr} 抽獎盤點】全台目前有 ${activeEvents.filter(e => e.tags.includes('抽iPhone')).length} 檔抽 iPhone、${activeEvents.filter(e => e.tags.includes('抽家電')).length} 檔抽家電的大獎活動：\n\n${gadgetListText.trim()}\n\n越快截止的排在越前面，過期的都直接拿掉了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+
+      // 生成範本 4：生活誌工具分享款
+      document.getElementById('text-4').value = `之前覺得各大品牌的抽獎網頁分散在四處超難找，常常看到時都已經過期…\n\n乾脆自己做了一個台灣抽獎情報小站，介面做成日系生活誌的樣子，每頁排 9 個乾淨俐落，每天早上 8 點會自動爬最新官方活動。\n\n包含抽機票、抽 iPhone、抽家電都有分類，歡迎常抽獎的朋友拿去用，完全免費無廣告干擾：\n🔗 https://sheldonchuang.github.io/lucky-draw-tw/`;
+    }
+
     // 直通 Threads 發文 (使用 Threads 官方 Web Intent)
     function postToThreads(textareaId) {
       const text = document.getElementById(textareaId).value;
@@ -341,7 +429,6 @@
       navigator.clipboard.writeText(textarea.value).then(() => {
         showToast();
       }).catch(err => {
-        // Fallback
         document.execCommand('copy');
         showToast();
       });
@@ -354,6 +441,11 @@
         toast.classList.remove('show');
       }, 2500);
     }
+
+    // 頁面載入時自動執行生成今日專屬文案
+    window.addEventListener('DOMContentLoaded', () => {
+      regenerateDailyPosts();
+    });
   </script>
 </body>
 </html>
