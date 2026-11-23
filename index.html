@@ -366,6 +366,30 @@
       color: white;
     }
 
+    .filter-btn-expired {
+      border-color: #E2E8F0;
+      color: #94A3B8;
+    }
+    .filter-btn-expired.active {
+      background: #64748B !important;
+      border-color: #64748B !important;
+      color: white !important;
+      box-shadow: 0 4px 12px rgba(100, 116, 139, 0.25) !important;
+    }
+
+    .event-card.is-expired {
+      opacity: 0.82;
+      background: #FAFBFD;
+      border-color: #E2E8F0;
+    }
+    .event-card.is-expired .btn-direct {
+      background: #64748B;
+      box-shadow: none;
+    }
+    .event-card.is-expired .btn-direct:hover {
+      background: #475569;
+    }
+
     /* 主內容區與統計 */
     main {
       flex: 1;
@@ -892,6 +916,10 @@
           <i class="fa-solid fa-hourglass-half"></i> 即將截止
           <span class="filter-count" id="count-urgent">0</span>
         </button>
+        <button class="filter-btn filter-btn-expired" data-tag="過期活動">
+          <i class="fa-solid fa-box-archive"></i> 過期活動
+          <span class="filter-count" id="count-expired">0</span>
+        </button>
       </div>
     </div>
   </section>
@@ -982,6 +1010,12 @@
       return null;
     }
 
+    // 判斷活動是否已截止過期
+    function isExpired(deadlineStr) {
+      const days = getRemainingDays(deadlineStr);
+      return days !== null && days < 0;
+    }
+
     // 取得標籤樣式
     function getTagBadge(tag) {
       if (tag === '超商專區') return `<span class="tag-badge tag-convenience"><i class="fa-solid fa-store"></i> 超商專屬</span>`;
@@ -1008,7 +1042,19 @@
 
         if (!matchSearch) return false;
 
-        // 標籤過濾
+        const expired = isExpired(event.deadline);
+
+        // 若當前標籤是「過期活動」：只顯示已經截止的活動
+        if (currentFilter === '過期活動') {
+          return expired;
+        }
+
+        // 其餘所有分類（全部活動、免消費即抽、抽機票等）：一律排除已經截止的活動！
+        if (expired) {
+          return false;
+        }
+
+        // 進行中活動的標籤過濾
         if (currentFilter === 'ALL') return true;
         if (currentFilter === '即將截止') {
           const days = getRemainingDays(event.deadline);
@@ -1044,10 +1090,11 @@
 
       pageEvents.forEach(item => {
         const remainingDays = getRemainingDays(item.deadline);
+        const expired = remainingDays !== null && remainingDays < 0;
         let countdownHtml = '';
         if (remainingDays !== null) {
-          if (remainingDays < 0) {
-            countdownHtml = `<span class="countdown-pill" style="background:#E2E8F0; color:#64748B;"><i class="fa-regular fa-clock"></i> 已截止</span>`;
+          if (expired) {
+            countdownHtml = `<span class="countdown-pill" style="background:#E2E8F0; color:#64748B;"><i class="fa-solid fa-ban"></i> 活動已截止</span>`;
           } else if (remainingDays <= 3) {
             countdownHtml = `<span class="countdown-pill urgent"><i class="fa-solid fa-fire"></i> 剩 ${remainingDays} 天截止</span>`;
           } else {
@@ -1061,7 +1108,7 @@
         const targetUrl = item.activityUrl || item.officialUrl || '#';
 
         const card = document.createElement('div');
-        card.className = 'event-card';
+        card.className = `event-card ${expired ? 'is-expired' : ''}`;
         card.innerHTML = `
           <div class="card-thumb-wrapper">
             <img src="${imgUrl}" alt="${item.title}" class="card-thumb" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80';">
@@ -1086,7 +1133,7 @@
                 <i class="fa-solid fa-circle-info"></i> 詳情規則
               </button>
               <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="btn-direct">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往抽獎 ↗
+                <i class="fa-solid ${expired ? 'fa-box-archive' : 'fa-arrow-up-right-from-square'}"></i> ${expired ? '檢視活動存檔 ↗' : '前往抽獎 ↗'}
               </a>
             </div>
           </div>
@@ -1115,7 +1162,8 @@
 
       const currentStart = (currentPage - 1) * PAGE_SIZE + 1;
       const currentEnd = Math.min(currentPage * PAGE_SIZE, totalCount);
-      info.innerText = `第 ${currentPage} 頁，共 ${totalPages} 頁（本頁顯示第 ${currentStart} ~ ${currentEnd} 檔，共 ${totalCount} 檔活動）`;
+      const labelText = currentFilter === '過期活動' ? '過期歷史活動' : '進行中抽獎活動';
+      info.innerText = `第 ${currentPage} 頁，共 ${totalPages} 頁（本頁顯示第 ${currentStart} ~ ${currentEnd} 檔，共 ${totalCount} 檔${labelText}）`;
 
       if (totalPages <= 1) {
         return;
@@ -1167,19 +1215,23 @@
       bar.appendChild(nextBtn);
     }
 
-    // 更新計數
+    // 更新計數 (進行中活動與過期活動分開統計)
     function updateCounts() {
-      document.getElementById('count-ALL').innerText = allEvents.length;
-      document.getElementById('count-free').innerText = allEvents.filter(e => e.tags.includes('免消費即抽')).length;
-      document.getElementById('count-flight').innerText = allEvents.filter(e => e.tags.includes('抽機票')).length;
-      document.getElementById('count-phone').innerText = allEvents.filter(e => e.tags.includes('抽iPhone')).length;
-      document.getElementById('count-appliance').innerText = allEvents.filter(e => e.tags.includes('抽家電')).length;
-      document.getElementById('count-invoice').innerText = allEvents.filter(e => e.tags.includes('登錄發票即抽')).length;
-      document.getElementById('count-store').innerText = allEvents.filter(e => e.tags.includes('超商專區')).length;
-      document.getElementById('count-urgent').innerText = allEvents.filter(e => {
+      const activeEvents = allEvents.filter(e => !isExpired(e.deadline));
+      const expiredEvents = allEvents.filter(e => isExpired(e.deadline));
+
+      document.getElementById('count-ALL').innerText = activeEvents.length;
+      document.getElementById('count-free').innerText = activeEvents.filter(e => e.tags.includes('免消費即抽')).length;
+      document.getElementById('count-flight').innerText = activeEvents.filter(e => e.tags.includes('抽機票')).length;
+      document.getElementById('count-phone').innerText = activeEvents.filter(e => e.tags.includes('抽iPhone')).length;
+      document.getElementById('count-appliance').innerText = activeEvents.filter(e => e.tags.includes('抽家電')).length;
+      document.getElementById('count-invoice').innerText = activeEvents.filter(e => e.tags.includes('登錄發票即抽')).length;
+      document.getElementById('count-store').innerText = activeEvents.filter(e => e.tags.includes('超商專區')).length;
+      document.getElementById('count-urgent').innerText = activeEvents.filter(e => {
         const d = getRemainingDays(e.deadline);
         return d !== null && d >= 0 && d <= 5;
       }).length;
+      document.getElementById('count-expired').innerText = expiredEvents.length;
     }
 
     // Modal 控制
