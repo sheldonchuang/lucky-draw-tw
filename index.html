@@ -626,6 +626,72 @@
       transform: scale(0.98);
     }
 
+    /* 分頁控制元件 */
+    .pagination-wrapper {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pagination-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .page-btn {
+      min-width: 40px;
+      height: 40px;
+      padding: 0 0.75rem;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .page-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .page-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      background: #F1F5F9;
+    }
+
+    .page-ellipsis {
+      padding: 0 0.5rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .page-info-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
     /* 空狀態 */
     .empty-state {
       grid-column: 1 / -1;
@@ -840,6 +906,12 @@
     <div class="card-grid" id="eventsGrid">
       <!-- 卡片將由 JS 動態生成 -->
     </div>
+
+    <!-- 分頁導航區 (每10個一頁) -->
+    <div class="pagination-wrapper" id="paginationWrapper">
+      <div class="pagination-bar" id="paginationBar"></div>
+      <div class="page-info-text" id="pageInfoText"></div>
+    </div>
   </main>
 
   <!-- 詳情 Modal -->
@@ -890,6 +962,8 @@
     let allEvents = window.INITIAL_EVENTS || [];
     let currentFilter = 'ALL';
     let searchQuery = '';
+    const PAGE_SIZE = 10; // 每頁固定 10 檔抽獎活動
+    let currentPage = 1;
 
     // 計算剩餘天數 (基準以今日 2026/11/23 為準)
     function getRemainingDays(deadlineStr) {
@@ -945,6 +1019,11 @@
 
       document.getElementById('currentCount').innerText = filtered.length;
 
+      const totalPages = Math.ceil(filtered.length / PAGE_SIZE) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const paginationWrapper = document.getElementById('paginationWrapper');
+
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="empty-state">
@@ -953,10 +1032,17 @@
             <p>請嘗試更換關鍵字或切換標籤</p>
           </div>
         `;
+        paginationWrapper.style.display = 'none';
         return;
       }
 
-      filtered.forEach(item => {
+      paginationWrapper.style.display = 'flex';
+
+      // 取得當頁 10 個活動 (每10個一頁)
+      const startIndex = (currentPage - 1) * PAGE_SIZE;
+      const pageEvents = filtered.slice(startIndex, startIndex + PAGE_SIZE);
+
+      pageEvents.forEach(item => {
         const remainingDays = getRemainingDays(item.deadline);
         let countdownHtml = '';
         if (remainingDays !== null) {
@@ -1007,6 +1093,78 @@
         `;
         grid.appendChild(card);
       });
+
+      renderPagination(filtered.length, totalPages);
+    }
+
+    // 切換分頁並平滑捲動回列表頂端
+    function changePage(newPage) {
+      currentPage = newPage;
+      renderEvents();
+      const targetElement = document.getElementById('eventsGrid');
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // 渲染分頁按鈕列
+    function renderPagination(totalCount, totalPages) {
+      const bar = document.getElementById('paginationBar');
+      const info = document.getElementById('pageInfoText');
+      bar.innerHTML = '';
+
+      const currentStart = (currentPage - 1) * PAGE_SIZE + 1;
+      const currentEnd = Math.min(currentPage * PAGE_SIZE, totalCount);
+      info.innerText = `第 ${currentPage} 頁，共 ${totalPages} 頁（本頁顯示第 ${currentStart} ~ ${currentEnd} 檔，共 ${totalCount} 檔活動）`;
+
+      if (totalPages <= 1) {
+        return;
+      }
+
+      // 上一頁按鈕
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i> 上一頁';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => changePage(currentPage - 1);
+      bar.appendChild(prevBtn);
+
+      // 計算顯示的頁碼
+      let pages = [];
+      if (totalPages <= 7) {
+        for (let i = 1; i <= totalPages; i++) pages.push(i);
+      } else {
+        if (currentPage <= 4) {
+          pages = [1, 2, 3, 4, 5, '...', totalPages];
+        } else if (currentPage >= totalPages - 3) {
+          pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+        } else {
+          pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+        }
+      }
+
+      pages.forEach(p => {
+        if (p === '...') {
+          const span = document.createElement('span');
+          span.className = 'page-ellipsis';
+          span.innerText = '…';
+          bar.appendChild(span);
+        } else {
+          const btn = document.createElement('button');
+          btn.className = `page-btn ${p === currentPage ? 'active' : ''}`;
+          btn.innerText = p;
+          btn.onclick = () => changePage(p);
+          bar.appendChild(btn);
+        }
+      });
+
+      // 下一頁按鈕
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.innerHTML = '下一頁 <i class="fa-solid fa-chevron-right"></i>';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => changePage(currentPage + 1);
+      bar.appendChild(nextBtn);
     }
 
     // 更新計數
@@ -1058,12 +1216,14 @@
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentFilter = btn.getAttribute('data-tag');
+        currentPage = 1; // 切換分類時重置回第 1 頁
         renderEvents();
       });
     });
 
     document.getElementById('searchInput').addEventListener('input', (e) => {
       searchQuery = e.target.value.trim().toLowerCase();
+      currentPage = 1; // 搜尋時重置回第 1 頁
       renderEvents();
     });
 
