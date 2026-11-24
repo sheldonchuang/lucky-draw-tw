@@ -567,8 +567,11 @@
     <!-- ==================== 1. 每日進站人數統計看板 ==================== -->
     <div id="analyticsSection" class="dashboard-panel">
       <div class="panel-header">
-        <div class="panel-title">
-          <i class="fa-solid fa-chart-column" style="color: var(--primary);"></i> 每日進站人次分析
+        <div class="panel-title" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span><i class="fa-solid fa-chart-column" style="color: var(--primary);"></i> 每日進站人次分析</span>
+          <span style="font-size: 0.75rem; background: #EAF2EC; color: #2D5A3C; padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 500; font-family: var(--font-sans);">
+            <i class="fa-solid fa-circle-check"></i> 開站日：2026-11-23（真實進站紀錄累積中）
+          </span>
         </div>
 
         <!-- 自選日期選擇器 (哪一天 到 哪一天) -->
@@ -583,9 +586,10 @@
           </div>
           <button class="btn-apply-date" onclick="applyCustomDateRange()">查詢</button>
           
-          <button class="quick-date-btn active" onclick="setQuickRange(7)">近7天</button>
-          <button class="quick-date-btn" onclick="setQuickRange(14)">近14天</button>
-          <button class="quick-date-btn" onclick="setQuickRange(30)">近30天</button>
+          <button class="quick-date-btn active" id="btnQuickLaunch" onclick="setLaunchRange()">開站至今</button>
+          <button class="quick-date-btn" id="btnQuickToday" onclick="setQuickRange(1)">今日</button>
+          <button class="quick-date-btn" id="btnQuick7" onclick="setQuickRange(7)">近7天</button>
+          <button class="quick-date-btn" id="btnQuick30" onclick="setQuickRange(30)">近30天</button>
         </div>
       </div>
 
@@ -732,7 +736,9 @@
       return `${y}-${m}-${d}`;
     }
 
-    // 取得自然連續的流量數據庫 (真實存儲 + 智能平滑累計)
+    const SITE_LAUNCH_DATE = '2026-11-23'; // 網站正式開站日
+
+    // 取得真實流量數據 (嚴格自開站日 2026-11-23 統計，不摻入任何模擬假數據)
     function getTrafficData(startDateStr, endDateStr) {
       const stored = JSON.parse(localStorage.getItem('luckygo_traffic_history') || '{}');
       const start = new Date(startDateStr);
@@ -745,27 +751,18 @@
         const key = formatDateKey(d);
         const dayOfWeek = daysOfWeek[d.getDay()];
 
-        // 若 localStorage 內有真實數據則以真實數據為主；若無則依歷史模擬合理流量基線
         let pv = 0;
         let uv = 0;
         let threads = 0;
         let direct = 0;
 
-        if (stored[key]) {
+        // 若日期早於開站日 (2026-11-23)，網站尚未上線，流量一律為 0
+        // 若日期在開站日之後，只讀取 localStorage 中的真實統計數據，無造訪即為 0
+        if (key >= SITE_LAUNCH_DATE && stored[key]) {
           pv = stored[key].pv || 0;
-          uv = stored[key].uv || Math.max(1, Math.round(pv * 0.72));
-          threads = stored[key].threads || Math.round(pv * 0.65);
-          direct = pv - threads;
-        } else {
-          // 依星期產生自然波動的基準流量 (平日約 65~140，假日約 110~195)
-          const seed = (d.getFullYear() * 10000) + ((d.getMonth() + 1) * 100) + d.getDate();
-          const pseudoRand = ((seed * 9301 + 49297) % 233280) / 233280;
-          const isWeekend = (d.getDay() === 0 || d.getDay() === 6);
-          const base = isWeekend ? 130 : 85;
-          pv = Math.round(base + (pseudoRand * 65));
-          uv = Math.round(pv * (0.68 + (pseudoRand * 0.1)));
-          threads = Math.round(pv * (0.62 + (pseudoRand * 0.15)));
-          direct = pv - threads;
+          uv = stored[key].uv || (pv > 0 ? 1 : 0);
+          threads = stored[key].threads || 0;
+          direct = stored[key].direct || 0;
         }
 
         results.push({
@@ -775,7 +772,8 @@
           pv: pv,
           uv: uv,
           threads: threads,
-          direct: direct
+          direct: direct,
+          isBeforeLaunch: key < SITE_LAUNCH_DATE
         });
       }
 
@@ -790,7 +788,7 @@
       // 1. 計算 KPI 指標
       const totalPV = data.reduce((sum, item) => sum + item.pv, 0);
       const totalUV = data.reduce((sum, item) => sum + item.uv, 0);
-      const avgPV = Math.round(totalPV / data.length);
+      const avgPV = data.length > 0 ? Math.round(totalPV / data.length) : 0;
       const totalThreads = data.reduce((sum, item) => sum + item.threads, 0);
       const threadsRate = totalPV > 0 ? Math.round((totalThreads / totalPV) * 100) : 0;
 
@@ -802,8 +800,12 @@
       document.getElementById('kpiTotalPV').innerText = totalPV.toLocaleString();
       document.getElementById('kpiAvgPV').innerText = `區間平均每日 ${avgPV.toLocaleString()} 人次`;
       document.getElementById('kpiTotalUV').innerText = totalUV.toLocaleString();
-      document.getElementById('kpiPeakPV').innerText = peakItem.pv.toLocaleString();
-      document.getElementById('kpiPeakDate').innerText = `最高紀錄：${peakItem.shortDate} (${peakItem.pv} 人次)`;
+      document.getElementById('kpiPeakPV').innerText = peakItem ? peakItem.pv.toLocaleString() : '0';
+      if (peakItem && peakItem.pv > 0) {
+        document.getElementById('kpiPeakDate').innerText = `最高紀錄：${peakItem.shortDate} (${peakItem.pv} 人次)`;
+      } else {
+        document.getElementById('kpiPeakDate').innerText = '尚無進站人次紀錄';
+      }
       document.getElementById('kpiThreadsRate').innerText = `${threadsRate}%`;
 
       // 2. 渲染柱狀圖
@@ -812,12 +814,12 @@
       const maxPV = Math.max(...data.map(d => d.pv), 1);
 
       data.forEach(item => {
-        const heightPercent = Math.max(8, Math.round((item.pv / maxPV) * 100));
+        const heightPercent = item.pv > 0 ? Math.max(8, Math.round((item.pv / maxPV) * 100)) : 4;
         const col = document.createElement('div');
         col.className = 'bar-column';
         col.innerHTML = `
           <div class="bar-tooltip">${item.pv}</div>
-          <div class="bar-pill" style="height: ${heightPercent}%;" title="${item.date} (${item.dayOfWeek})：${item.pv} 人次 (UV: ${item.uv})"></div>
+          <div class="bar-pill" style="height: ${heightPercent}%; ${item.pv === 0 ? 'background:#E8E5DF; opacity:0.6;' : ''}" title="${item.date} (${item.dayOfWeek})：${item.pv} 人次 (UV: ${item.uv})"></div>
           <div class="bar-date-label">${item.shortDate}</div>
         `;
         chart.appendChild(col);
@@ -830,24 +832,49 @@
 
       reversedData.forEach(item => {
         const tr = document.createElement('tr');
-        const threadsPercent = Math.round((item.threads / item.pv) * 100);
+        const threadsPercent = item.pv > 0 ? Math.round((item.threads / item.pv) * 100) : 0;
+        let statusBadge = '<span style="color:var(--text-muted); font-size:0.75rem;">無造訪</span>';
+        if (item.isBeforeLaunch) {
+          statusBadge = '<span style="color:var(--text-muted); font-size:0.75rem;">開站前</span>';
+        } else if (item.pv > 0 && peakItem && item.pv === peakItem.pv) {
+          statusBadge = '<span style="color:#C59B63; font-weight:700;"><i class="fa-solid fa-crown"></i> 區間最高</span>';
+        } else if (item.pv > 0) {
+          statusBadge = '<span style="color:var(--success);">正常</span>';
+        }
+
         tr.innerHTML = `
           <td style="font-weight: 600;">${item.date}</td>
           <td style="color: var(--text-muted);">${item.dayOfWeek}</td>
-          <td><strong style="color: var(--primary);">${item.pv.toLocaleString()}</strong> 人次</td>
+          <td><strong style="color: ${item.pv > 0 ? 'var(--primary)' : 'var(--text-muted)'};">${item.pv.toLocaleString()}</strong> 人次</td>
           <td>${item.uv.toLocaleString()} 人</td>
-          <td><span class="traffic-badge"><i class="fa-brands fa-threads"></i> Threads ${threadsPercent}%</span></td>
-          <td>${item.pv === peakItem.pv ? '<span style="color:#C59B63; font-weight:700;"><i class="fa-solid fa-crown"></i> 區間最高</span>' : '<span style="color:var(--success);">正常</span>'}</td>
+          <td>${item.pv > 0 ? `<span class="traffic-badge"><i class="fa-brands fa-threads"></i> Threads ${threadsPercent}%</span>` : '<span style="color:var(--text-muted); font-size:0.75rem;">-</span>'}</td>
+          <td>${statusBadge}</td>
         `;
         tbody.appendChild(tr);
       });
     }
 
-    // 快捷日期設定 (近 7 天 / 近 14 天 / 近 30 天)
+    // 快捷日期設定：開站至今 (2026-11-23 起)
+    function setLaunchRange() {
+      document.querySelectorAll('.quick-date-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('btnQuickLaunch');
+      if (btn) btn.classList.add('active');
+
+      const startKey = SITE_LAUNCH_DATE;
+      const endKey = formatDateKey(BASE_DATE);
+
+      document.getElementById('startDate').value = startKey;
+      document.getElementById('endDate').value = endKey;
+
+      renderAnalytics(startKey, endKey);
+    }
+
+    // 快捷日期設定 (今日 / 近 7 天 / 近 30 天)
     function setQuickRange(days) {
       document.querySelectorAll('.quick-date-btn').forEach(b => b.classList.remove('active'));
-      const activeBtn = event ? event.target : null;
-      if (activeBtn) activeBtn.classList.add('active');
+      if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+      }
 
       const end = new Date(BASE_DATE);
       const start = new Date(BASE_DATE);
@@ -993,9 +1020,9 @@
       }, 2500);
     }
 
-    // 初始化頁面：預設載入近 7 天進站人數與今日文案
+    // 初始化頁面：預設載入開站至今 (2026-11-23 至 今日) 的真實流量與今日最新推廣文案
     window.addEventListener('DOMContentLoaded', () => {
-      setQuickRange(7);
+      setLaunchRange();
       regenerateDailyPosts();
     });
   </script>
