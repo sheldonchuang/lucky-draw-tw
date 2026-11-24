@@ -341,7 +341,8 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.burgerking.com.tw/"
         },
 
-        # === 3. 當月「壽星免費好康指南」 ===
+        # === 3. 當月「壽星免費好康指南」（各大遊樂園門票免費/半價與連鎖餐飲慶生盛宴） ===
+        # --- 連鎖餐飲龍頭 ---
         {
             "id": "ext-bday-101",
             "title": f"王品集團當月壽星專屬禮遇・下載王品瘋美食 App 領四大品牌同行五折與免費生日主餐甜點",
@@ -349,7 +350,7 @@ def get_dynamic_free_intelligence(today):
             "tags": ["壽星好康", "熱門好康"],
             "time": f"當月壽星專屬 (本期至 {month_end_str})",
             "deadline": month_end_str,
-            "qualification": "免費下載『王品瘋美食』App 註冊會員，於生日當月即可獲得全品牌生日禮券包（包含王品牛排贈私房生蠔/法式甜點、西堤牛排當月單客單人套餐66折、聚日式鍋物富士肉肉山免費升級等）。",
+            "qualification": "免費下載『王品瘋美食』App 註冊會員，於生日當月即可獲得全品牌生日禮券包（包含王品牛排贈私房法式甜點/私房菜、西堤牛排當月單客單人套餐66折、聚日式鍋物富士肉肉山免費升級、原燒海鮮招待等）。",
             "prizes": ["王品牛排私房菜生日招待", "西堤套餐單客半價折價券", "夏慕尼主廚招待精緻生日甜點"],
             "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.wowprime.com/",
@@ -359,7 +360,7 @@ def get_dynamic_free_intelligence(today):
             "id": "ext-bday-102",
             "title": f"饗賓集團饗食天堂 / 饗饗・當月壽星會員享精緻生乳捲生日蛋糕免費送與 95 折抵用券",
             "brand": "饗食天堂",
-            "tags": ["壽星好康"],
+            "tags": ["壽星好康", "熱門好康"],
             "time": f"當月壽星專屬 (本期至 {month_end_str})",
             "deadline": month_end_str,
             "qualification": "加入『iEAT饗愛吃』App 免費會員，生日當月即可領取專屬生日禮券（饗食天堂、小福利、開飯川食堂），用餐出示會員再獲官方特製當季生乳蛋糕整份免費送！",
@@ -369,10 +370,90 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.feastogether.com.tw/"
         },
         {
+            "id": "ext-bday-dine-01",
+            "title": f"漢來美食（漢來海港自助餐廳）・壽星專屬平日 7 折 / 假日 85 折大口爽嗑頂級生蠔海鮮吃到飽",
+            "brand": "漢來海港",
+            "tags": ["壽星好康", "熱門好康"],
+            "time": f"當月壽星專屬 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "下載『來美食 APP』並完成會員註冊，生日當月自動發放漢來海港壽星生日折扣券（平日享 7 折、假日享 85 折優惠，同行親友享全台最受歡迎海鮮Buffet）！",
+            "prizes": ["漢來海港平日 7 折吃到飽優惠券", "假日 85 折優惠券", "來美食全品牌生日折抵金"],
+            "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.hilai-foods.com/",
+            "officialUrl": "https://www.hilai-foods.com/"
+        },
+        {
+            "id": "ext-bday-dine-02",
+            "title": f"金色三麥 SUNMAI・當日壽星提前預訂免費招待「6吋精緻生日蛋糕」整顆帶回家！",
+            "brand": "金色三麥",
+            "tags": ["壽星好康"],
+            "time": f"當月壽星專屬 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "加入金色三麥官方會員，於生日當天或當月預約到店慶生（需提前 3 天預訂並告知有壽星），金色三麥直接免費贈送主廚特製「6吋精緻生日蛋糕」乙整顆！",
+            "prizes": ["6吋精緻生日蛋糕整顆免費送", "壽星專屬慶生互動舉牌活動", "會員生日禮抵用金"],
+            "imageUrl": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.lebledor.com/",
+            "officialUrl": "https://www.lebledor.com/"
+        },
+        {
+            "id": "ext-bday-dine-03",
+            "title": f"薄多義 Bite 2 Eat・傳奇「幾歲生日送幾隻炸雞翅」壽星派對狂歡狂嗑炸雞翅山",
+            "brand": "薄多義",
+            "tags": ["壽星好康"],
+            "time": f"當月壽星專屬 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "加入薄多義會員，於慶生日前完成官方預約（需至少4人同行），當日壽星幾歲就免費送幾隻香酥炸雞翅（炸雞翅山無上限）！",
+            "prizes": ["幾歲生日免費送幾隻炸雞翅（無上限）", "壽星專屬慶生立牌拍照服務", "義式餐點折價券"],
+            "imageUrl": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.bite2eatpizza.com/",
+            "officialUrl": "https://www.bite2eatpizza.com/"
+        },
+        {
+            "id": "ext-bday-dine-04",
+            "title": f"千葉火鍋 / 享千葉・VIP 壽星狂享 5 折半價吃到飽！一般壽星憑身分證享 75 折超值特惠",
+            "brand": "千葉火鍋",
+            "tags": ["壽星好康"],
+            "time": f"當月壽星專屬 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "持享味卡會員當月壽星本人享 5 折（半價吃到飽！）；非會員出示身分證亦享當月 75 折~85 折專屬慶生特惠，無限量享用豐富火鍋料、現切肉品與甜點Buffet。",
+            "prizes": ["VIP 壽星 5 折半價吃到飽", "一般壽星 75 折優惠", "壽星專屬哈根達斯冰淇淋加碼"],
+            "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.chien-yen.com.tw/",
+            "officialUrl": "https://www.chien-yen.com.tw/"
+        },
+        {
+            "id": "ext-bday-dine-05",
+            "title": f"乾杯集團（乾杯燒肉居酒屋 / 老乾杯）・壽星免費招待超人氣「燒肉蛋糕」或頂級澳洲和牛",
+            "brand": "乾杯燒肉",
+            "tags": ["壽星好康"],
+            "time": f"當月壽星專屬 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "加入『KANPAI GO CLUB』官方會員，生日當月至全台乾杯燒肉居酒屋或老乾杯用餐，出示 APP 會員即免費獲贈超人氣「特製燒肉蛋糕」乙份或壽星專屬頂級和牛料理招待！",
+            "prizes": ["特製燒肉蛋糕乙份免費招待", "頂級澳洲和牛生日兌換券", "會員點數加倍送"],
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.kanpai.com.tw/",
+            "officialUrl": "https://www.kanpai.com.tw/"
+        },
+        {
+            "id": "ext-bday-dine-06",
+            "title": f"海底撈火鍋・會員當月壽星專屬生日禮券折抵、生日限定果盤與慶生燈牌驚喜嗨唱",
+            "brand": "海底撈火鍋",
+            "tags": ["壽星好康"],
+            "time": f"當月壽星專屬 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "註冊海底撈會員，生日當月登入海底撈 APP 即送專屬生日折價抵用券；用餐時告知店員，現場免費贈送精緻水果拼盤、慶生燈牌與川劇變臉慶祝服務！",
+            "prizes": ["海底撈專屬生日抵用金", "主廚特製壽星水果拼盤免費贈", "全場慶生嗨歌與慶生紀念小禮物"],
+            "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.haidilao.com/",
+            "officialUrl": "https://www.haidilao.com/"
+        },
+
+        # --- 全台各大主題遊樂園 ---
+        {
             "id": "ext-bday-103",
             "title": "六福村主題遊樂園・當日壽星本人免費入園！當月壽星享半價 599 元暢玩整天",
             "brand": "六福村",
-            "tags": ["壽星好康"],
+            "tags": ["壽星好康", "熱門好康"],
             "time": f"即日起 ~ {year_end_str}",
             "deadline": year_end_str,
             "qualification": "生日當天憑身分證或健保卡臨櫃購票，壽星本人享門票 0 元完全免費入園！同行親友享特惠 750 元；若為當月壽星本人亦享半價 599 元超值優惠。",
@@ -380,6 +461,58 @@ def get_dynamic_free_intelligence(today):
             "imageUrl": "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.leofoovillage.com.tw/",
             "officialUrl": "https://www.leofoovillage.com.tw/"
+        },
+        {
+            "id": "ext-bday-park-01",
+            "title": "義大遊樂世界・「當日壽星免費入園！」全台唯一希臘情境主題樂園 0 元暢玩，當月壽星再享超殺優惠價",
+            "brand": "義大遊樂世界",
+            "tags": ["壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {year_end_str}",
+            "deadline": year_end_str,
+            "qualification": "憑身分證或健保卡臨櫃購票，當日壽星本人 0 元免費入園（需搭配 1 名購全票者），當月壽星本人亦享超低門票特惠與義大摩天輪免費搭乘！",
+            "prizes": ["當日壽星 0 元免費入園", "當月壽星超值門票折抵", "摩天輪免費搭乘"],
+            "imageUrl": "https://images.unsplash.com/photo-1508873696983-2df5293cb325?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.edathemepark.com.tw/",
+            "officialUrl": "https://www.edathemepark.com.tw/"
+        },
+        {
+            "id": "ext-bday-park-02",
+            "title": "劍湖山世界・當月壽星超殺專屬優惠 399 元（原價 999 現省 600 元）暢玩摩天樂園與驚險設施",
+            "brand": "劍湖山世界",
+            "tags": ["壽星好康"],
+            "time": f"即日起 ~ {year_end_str}",
+            "deadline": year_end_str,
+            "qualification": "憑中華民國身分證臨櫃購票，當月壽星門票享破盤價 399 元（原價 999 元，現省 600 元！），當日壽星更享驚喜破盤特惠！",
+            "prizes": ["當月壽星門票 399 元特惠（現省600元）", "園區餐飲優惠折價券", "園區設施快速通關禮遇"],
+            "imageUrl": "https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.janfusun.com.tw/",
+            "officialUrl": "https://www.janfusun.com.tw/"
+        },
+        {
+            "id": "ext-bday-park-03",
+            "title": "麗寶樂園渡假區・探索世界 / 馬拉灣當月壽星 450 元超值入園，再送專屬慶生摩天輪體驗",
+            "brand": "麗寶樂園",
+            "tags": ["壽星好康"],
+            "time": f"即日起 ~ {year_end_str}",
+            "deadline": year_end_str,
+            "qualification": "憑身分證臨櫃購票，當月壽星暢玩探索世界或馬拉灣水樂園只要 450 元（原價 899 元），天空之夢摩天輪亦享壽星特惠價！",
+            "prizes": ["探索世界/馬拉灣當月壽星 450 元入園", "天空之夢摩天輪 150 元特惠搭乘", "壽星專屬慶生貼紙與禮物"],
+            "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.lihpaoresort.com/",
+            "officialUrl": "https://www.lihpaoresort.com/"
+        },
+        {
+            "id": "ext-bday-park-04",
+            "title": "遠雄海洋公園・當月壽星花蓮太平洋遊樂狂歡！壽星專屬優惠入園再贈海洋慶生大禮包",
+            "brand": "遠雄海洋公園",
+            "tags": ["壽星好康"],
+            "time": f"即日起 ~ {year_end_str}",
+            "deadline": year_end_str,
+            "qualification": "出示身分證件，當月壽星享門票特惠 590 元（原價 990 元），入園服務台加碼贈送壽星專屬海洋徽章與餐飲商品抵用券。",
+            "prizes": ["當月壽星門票現折 400 元", "壽星海洋專屬紀念徽章", "園區餐飲商品抵用券"],
+            "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.farglory-oceanpark.com.tw/",
+            "officialUrl": "https://www.farglory-oceanpark.com.tw/"
         },
         {
             "id": "ext-bday-104",
