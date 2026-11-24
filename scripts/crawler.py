@@ -710,4 +710,18 @@ if __name__ == '__main__':
     with open(data_js_path, 'w', encoding='utf-8') as f:
         f.write(js_content)
 
+    # 8. 自動更新 index.html 與 share.html 的快取版本標記，保證訪客手機即時讀取最新資料
+    v_str = today.strftime('%Y%m%d%H%M')
+    for html_file in ['index.html', 'share.html']:
+        h_path = os.path.join(repo_dir, html_file)
+        if os.path.exists(h_path):
+            try:
+                with open(h_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                new_content = re.sub(r'data\.js\?v=[a-zA-Z0-9_]+', f'data.js?v={v_str}', content)
+                with open(h_path, 'w', encoding='utf-8') as f:
+                    f.write(new_content)
+            except Exception as ex:
+                print(f"更新 {html_file} 快取標記失敗: {ex}")
+
     print(f"=== 成功更新！共 {len(active_events)} 檔有效活動，已依截止日期由近至遠排序！===")
