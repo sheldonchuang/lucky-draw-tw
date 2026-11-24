@@ -1331,6 +1331,39 @@
       renderEvents();
     });
 
+    // 輕量進站流量記錄 (供站長 share.html 分析看板統計)
+    (function recordTraffic() {
+      try {
+        const todayKey = new Date().toISOString().split('T')[0];
+        let history = JSON.parse(localStorage.getItem('luckygo_traffic_history') || '{}');
+        if (!history[todayKey]) {
+          history[todayKey] = { pv: 0, uv: 0, threads: 0, direct: 0, other: 0, visitors: [] };
+        }
+        history[todayKey].pv = (history[todayKey].pv || 0) + 1;
+        
+        let vid = localStorage.getItem('luckygo_vid');
+        if (!vid) {
+          vid = 'v_' + Math.random().toString(36).substring(2, 9);
+          localStorage.setItem('luckygo_vid', vid);
+        }
+        if (!history[todayKey].visitors) history[todayKey].visitors = [];
+        if (!history[todayKey].visitors.includes(vid)) {
+          history[todayKey].visitors.push(vid);
+          history[todayKey].uv = (history[todayKey].uv || 0) + 1;
+        }
+
+        const ref = document.referrer.toLowerCase();
+        if (ref.includes('threads')) {
+          history[todayKey].threads = (history[todayKey].threads || 0) + 1;
+        } else if (!ref || ref.includes(window.location.hostname)) {
+          history[todayKey].direct = (history[todayKey].direct || 0) + 1;
+        } else {
+          history[todayKey].other = (history[todayKey].other || 0) + 1;
+        }
+        localStorage.setItem('luckygo_traffic_history', JSON.stringify(history));
+      } catch (e) {}
+    })();
+
     // 載入資料 (優先使用 data.js 內建資料，若無則 fetch events.json)
     if (allEvents.length > 0) {
       updateCounts();
