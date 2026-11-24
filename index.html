@@ -47,114 +47,221 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* 頂部贊助商廣告欄 (典雅墨綠亞麻風格) */
+    /* 頂部贊助商廣告欄 (典雅墨綠底金飾，文字大氣顯眼，3秒平滑輪播) */
     .top-sponsor-bar {
-      background: #1E3128;
+      background: #172820;
       color: #F8FAFC;
-      border-bottom: 1px solid #C59B63;
-      padding: 0.75rem 1.5rem;
+      border-bottom: 2px solid #C59B63;
+      padding: 0.85rem 1rem 0.65rem;
       position: relative;
     }
 
-    .sponsor-container {
-      max-width: 1240px;
+    .sponsor-wrapper {
+      max-width: 1260px;
       margin: 0 auto;
       display: flex;
       align-items: center;
+      gap: 0.65rem;
+      position: relative;
+    }
+
+    .sponsor-slider-viewport {
+      flex: 1;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .sponsor-slider-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .sponsor-slide {
+      width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
+      gap: 1.25rem;
       flex-wrap: wrap;
-      gap: 1rem;
+      padding: 0 0.5rem;
     }
 
     .sponsor-brand {
       display: flex;
       align-items: center;
-      gap: 0.875rem;
+      gap: 1rem;
     }
 
     .sponsor-medal-img {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       object-fit: contain;
-      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35));
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
       transition: transform 0.3s ease;
       flex-shrink: 0;
     }
     .sponsor-medal-img:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
+    }
+    .sponsor-logo-img {
+      background: #FFFFFF;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .sponsor-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.25rem;
+      flex-wrap: wrap;
     }
 
     .sponsor-badge {
-      background: #C59B63;
-      color: #1E3128;
-      font-size: 0.675rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.22rem 0.65rem;
       border-radius: 4px;
       letter-spacing: 0.05em;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    }
+    .sponsor-badge-gold {
+      background: #D4AF37;
+      color: #14241B;
+    }
+    .sponsor-badge-oedo {
+      background: #E89A3C;
+      color: #14241B;
+    }
+    .sponsor-badge-eepi {
+      background: #2E8B57;
+      color: #FFFFFF;
     }
 
+    /* 顯眼加粗字體 */
     .sponsor-title-link {
       color: #FFFFFF;
       text-decoration: none;
       font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.01em;
-      display: flex;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
       transition: color 0.2s ease;
     }
     .sponsor-title-link:hover {
-      color: #F5E5C9;
+      color: #F8E2B8;
+    }
+    .title-ext-icon {
+      font-size: 0.8rem;
+      opacity: 0.85;
     }
 
     .sponsor-desc {
-      color: #9FB8AC;
-      font-size: 0.8rem;
-      margin-top: 2px;
+      color: #E2ECE5;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
     }
 
     .sponsor-actions {
       display: flex;
       align-items: center;
-      gap: 0.875rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
 
     .sponsor-contact-text {
       font-size: 0.825rem;
-      color: #D3E0D8;
-      font-weight: 400;
+      color: #DFECE4;
+      font-weight: 500;
     }
 
     .sponsor-contact-email {
-      color: #F5E5C9;
-      font-weight: 600;
+      color: #F8E2B8;
+      font-weight: 700;
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
     .btn-sponsor-visit {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #FFFFFF;
-      padding: 0.35rem 0.75rem;
+      background: #C59B63;
+      border: 1px solid #DDB67F;
+      color: #16261E;
+      padding: 0.45rem 0.95rem;
       border-radius: 6px;
-      font-size: 0.775rem;
-      font-weight: 500;
+      font-size: 0.825rem;
+      font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.375rem;
+      gap: 0.4rem;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .btn-sponsor-visit:hover {
-      background: rgba(255, 255, 255, 0.15);
+      background: #E0B579;
+      color: #0E1813;
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .sponsor-nav-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .sponsor-nav-btn:hover {
+      background: #C59B63;
+      color: #16261E;
       border-color: #C59B63;
-      color: #F5E5C9;
+      transform: scale(1.08);
+    }
+
+    .sponsor-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.45rem;
+    }
+
+    .sponsor-dot {
+      width: 24px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.25);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+    .sponsor-dot.active {
+      background: #C59B63;
+      width: 36px;
     }
 
     /* 頂部柔和暖白導航欄 */
@@ -889,36 +996,119 @@
     </div>
   </header>
 
-  <!-- 頂部贊助商廣告欄 (Nutrition Selections) -->
-  <div class="top-sponsor-bar">
-    <div class="sponsor-container">
-      <div class="sponsor-brand">
-        <a href="https://www.nutrition-selection.org/" target="_blank" rel="noopener noreferrer" title="點擊查看 Nutrition Selections 2027 官方評鑑">
-          <img src="assets/award-gold-2027.webp" alt="Nutrition Selections 2027 金賞獎章" class="sponsor-medal-img" onerror="this.onerror=null;this.src='https://www.nutrition-selection.org/assets/award-gold-2027.webp';">
-        </a>
-        <div>
-          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
-            <span class="sponsor-badge"><i class="fa-solid fa-crown"></i> 榮譽贊助</span>
-            <a href="https://www.nutrition-selection.org/" target="_blank" rel="noopener noreferrer" class="sponsor-title-link">
-              Nutrition Selections | FUNCTIONAL VALUE AWARD 2027 國際品質大賞
-              <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
-            </a>
+  <!-- 頂部贊助商廣告欄 (三家贊助商 3 秒自動平滑輪播) -->
+  <div class="top-sponsor-bar" id="topSponsorBar">
+    <div class="sponsor-wrapper">
+      <!-- 上一個按鈕 -->
+      <button class="sponsor-nav-btn prev" onclick="prevSponsor()" aria-label="上一家贊助商">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <!-- 輪播可視區 -->
+      <div class="sponsor-slider-viewport" id="sponsorViewport">
+        <div class="sponsor-slider-track" id="sponsorSliderTrack">
+          
+          <!-- 贊助商 1: Nutrition Selections 國際品質大賞 -->
+          <div class="sponsor-slide">
+            <div class="sponsor-brand">
+              <a href="https://www.nutrition-selection.org/" target="_blank" rel="noopener noreferrer" title="Nutrition Selections 2027 國際品質大賞">
+                <img src="assets/award-gold-2027.webp" alt="Nutrition Selections 2027 金賞獎章" class="sponsor-medal-img" onerror="this.onerror=null;this.src='https://www.nutrition-selection.org/assets/award-gold-2027.webp';">
+              </a>
+              <div>
+                <div class="sponsor-title-row">
+                  <span class="sponsor-badge sponsor-badge-gold"><i class="fa-solid fa-crown"></i> 榮譽首獎贊助</span>
+                  <a href="https://www.nutrition-selection.org/" target="_blank" rel="noopener noreferrer" class="sponsor-title-link">
+                    Nutrition Selections ｜ FUNCTIONAL VALUE AWARD 2027 國際品質大賞
+                    <i class="fa-solid fa-arrow-up-right-from-square title-ext-icon"></i>
+                  </a>
+                </div>
+                <div class="sponsor-desc">食品・健康食品・化粧品機能價值認證評鑑官方平台</div>
+              </div>
+            </div>
+
+            <div class="sponsor-actions">
+              <div class="sponsor-contact-text">
+                活動刊登・廣告贊助：
+                <a href="mailto:sheldonchuang@gmail.com?subject=LuckyGo%20廣告贊助洽詢" class="sponsor-contact-email">sheldonchuang@gmail.com</a>
+              </div>
+              <a href="https://www.nutrition-selection.org/" target="_blank" rel="noopener noreferrer" class="btn-sponsor-visit">
+                前往評鑑官網 ↗
+              </a>
+            </div>
           </div>
-          <div class="sponsor-desc">食品・健康食品・化粧品機能價值認證評鑑官方平台</div>
+
+          <!-- 贊助商 2: 大江戶健康物語 -->
+          <div class="sponsor-slide">
+            <div class="sponsor-brand">
+              <a href="https://oedo.yasueki.com/" target="_blank" rel="noopener noreferrer" title="大江戶健康物語 日本生活選品">
+                <img src="assets/oedo-logo.png" alt="大江戶健康物語 Logo" class="sponsor-medal-img sponsor-logo-img" onerror="this.onerror=null;this.src='https://cdn-general.cybassets.com/media/W1siZiIsIjI4MTg0L2F0dGFjaGVkX3Bob3Rvcy8xNzEyOTEwMjk4X3lhc3Vla2kgbG9nby5wbmcucG5nIl1d.png?convert=false&sha=4433f5dcc969f311';">
+              </a>
+              <div>
+                <div class="sponsor-title-row">
+                  <span class="sponsor-badge sponsor-badge-oedo"><i class="fa-solid fa-award"></i> 特約品牌贊助</span>
+                  <a href="https://oedo.yasueki.com/" target="_blank" rel="noopener noreferrer" class="sponsor-title-link">
+                    大江戶健康物語 ｜ 日本原裝選品・健康生活好物
+                    <i class="fa-solid fa-arrow-up-right-from-square title-ext-icon"></i>
+                  </a>
+                </div>
+                <div class="sponsor-desc">探索日本嚴選食品、機能保健與日常生活商品，日本原裝直送健康生活美學</div>
+              </div>
+            </div>
+
+            <div class="sponsor-actions">
+              <div class="sponsor-contact-text">
+                活動刊登・廣告贊助：
+                <a href="mailto:sheldonchuang@gmail.com?subject=LuckyGo%20廣告贊助洽詢" class="sponsor-contact-email">sheldonchuang@gmail.com</a>
+              </div>
+              <a href="https://oedo.yasueki.com/" target="_blank" rel="noopener noreferrer" class="btn-sponsor-visit">
+                前往選品商城 ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- 贊助商 3: 壹品藥局 EEPI RX -->
+          <div class="sponsor-slide">
+            <div class="sponsor-brand">
+              <a href="https://eepirx.com.tw/" target="_blank" rel="noopener noreferrer" title="壹品藥局 EEPI RX">
+                <img src="assets/eepirx-logo.png" alt="壹品藥局 Logo" class="sponsor-medal-img sponsor-logo-img" onerror="this.onerror=null;this.src='https://eepirx.com.tw/cdn/shop/files/LOGO-512.png?crop=center&height=128&v=1785217358&width=128';">
+              </a>
+              <div>
+                <div class="sponsor-title-row">
+                  <span class="sponsor-badge sponsor-badge-eepi"><i class="fa-solid fa-shield-heart"></i> 專業醫藥推薦</span>
+                  <a href="https://eepirx.com.tw/" target="_blank" rel="noopener noreferrer" class="sponsor-title-link">
+                    壹品藥局 EEPI RX ｜ 專業處方藥局・保健醫藥生活
+                    <i class="fa-solid fa-arrow-up-right-from-square title-ext-icon"></i>
+                  </a>
+                </div>
+                <div class="sponsor-desc">專業藥師嚴選把關，處方調劑、醫藥保健與全方位健康生活諮詢</div>
+              </div>
+            </div>
+
+            <div class="sponsor-actions">
+              <div class="sponsor-contact-text">
+                活動刊登・廣告贊助：
+                <a href="mailto:sheldonchuang@gmail.com?subject=LuckyGo%20廣告贊助洽詢" class="sponsor-contact-email">sheldonchuang@gmail.com</a>
+              </div>
+              <a href="https://eepirx.com.tw/" target="_blank" rel="noopener noreferrer" class="btn-sponsor-visit">
+                前往官方藥局 ↗
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="sponsor-actions">
-        <div class="sponsor-contact-text">
-          活動刊登、獎項報名、廣告贊助請來信洽詢：
-          <a href="mailto:sheldonchuang@gmail.com?subject=LuckyGo%20活動刊登與廣告贊助洽詢" class="sponsor-contact-email">
-            sheldonchuang@gmail.com
-          </a>
-        </div>
-        <a href="https://www.nutrition-selection.org/" target="_blank" rel="noopener noreferrer" class="btn-sponsor-visit">
-          前往評鑑官網 ↗
-        </a>
-      </div>
+      <!-- 下一個按鈕 -->
+      <button class="sponsor-nav-btn next" onclick="nextSponsor()" aria-label="下一家贊助商">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- 輪播指示點 (Dots) -->
+    <div class="sponsor-dots">
+      <button class="sponsor-dot active" onclick="goToSponsor(0)" aria-label="切換至 Nutrition Selections"></button>
+      <button class="sponsor-dot" onclick="goToSponsor(1)" aria-label="切換至 大江戶健康物語"></button>
+      <button class="sponsor-dot" onclick="goToSponsor(2)" aria-label="切換至 壹品藥局"></button>
     </div>
   </div>
 
@@ -1409,6 +1599,61 @@
       currentPage = 1; // 搜尋時重置回第 1 頁
       renderEvents();
     });
+
+    // 頂部贊助商 3 秒自動平滑輪播機制
+    let currentSponsorIndex = 0;
+    const totalSponsors = 3;
+    let sponsorAutoTimer = null;
+
+    function updateSponsorSlide() {
+      const track = document.getElementById('sponsorSliderTrack');
+      if (track) {
+        track.style.transform = `translateX(-${currentSponsorIndex * 100}%)`;
+      }
+      const dots = document.querySelectorAll('.sponsor-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSponsorIndex);
+      });
+    }
+
+    function nextSponsor() {
+      currentSponsorIndex = (currentSponsorIndex + 1) % totalSponsors;
+      updateSponsorSlide();
+    }
+
+    function prevSponsor() {
+      currentSponsorIndex = (currentSponsorIndex - 1 + totalSponsors) % totalSponsors;
+      updateSponsorSlide();
+    }
+
+    function goToSponsor(index) {
+      currentSponsorIndex = index;
+      updateSponsorSlide();
+      restartSponsorTimer();
+    }
+
+    function startSponsorTimer() {
+      if (sponsorAutoTimer) clearInterval(sponsorAutoTimer);
+      sponsorAutoTimer = setInterval(nextSponsor, 3000); // 每 3 秒自動往右滑動換下一位贊助商
+    }
+
+    function restartSponsorTimer() {
+      startSponsorTimer();
+    }
+
+    // 滑鼠懸停時暫停自動滑動，移開後恢復 3 秒輪播
+    const sponsorBarEl = document.getElementById('topSponsorBar');
+    if (sponsorBarEl) {
+      sponsorBarEl.addEventListener('mouseenter', () => {
+        if (sponsorAutoTimer) clearInterval(sponsorAutoTimer);
+      });
+      sponsorBarEl.addEventListener('mouseleave', () => {
+        startSponsorTimer();
+      });
+    }
+
+    // 啟動 3 秒輪播定時器
+    startSponsorTimer();
 
     // 輕量進站流量記錄 (供站長 share.html 分析看板統計)
     (function recordTraffic() {
