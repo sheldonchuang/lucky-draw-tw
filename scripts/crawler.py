@@ -274,7 +274,8 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.kctax.gov.tw/"
         },
 
-        # === 2. 超商與連鎖餐飲「買一送一＆隱藏優惠代碼」 ===
+        # === 2. 超商、速食龍頭、韓式炸雞與日式丼飯連鎖「買一送一＆折價神券」 ===
+        # --- 超商與咖啡茶飲 ---
         {
             "id": "ext-bogo-101",
             "title": "7-ELEVEN 超值五六日「週末特惠買一送一」・特大美式咖啡/現萃茶/哈根達斯限時半價",
@@ -302,6 +303,34 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.family.com.tw/"
         },
         {
+            "id": "ext-bogo-104",
+            "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
+            "brand": "星巴克",
+            "tags": ["買一送一", "免消費即抽"],
+            "time": f"即日起 ~ {(today + timedelta(days=12)).strftime('%Y/%m/%d')}",
+            "deadline": (today + timedelta(days=12)).strftime('%Y/%m/%d'),
+            "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
+            "prizes": ["全品項特大杯買一送一專屬券", "指定那堤第二杯半價", "節慶限定飲品單一特價券"],
+            "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://event.12done.com.tw/starbucks/",
+            "officialUrl": "https://www.starbucks.com.tw/"
+        },
+
+        # --- 速食巨頭專區（麥當勞、肯德基、摩斯漢堡、漢堡王） ---
+        {
+            "id": "ext-bogo-fast-01",
+            "title": "麥當勞 McDonald's・APP 天天轉盤刮刮樂抽「大薯 / 麥克鷄塊 / 冰炫風買一送一」・歡樂送專屬優惠碼",
+            "brand": "麥當勞",
+            "tags": ["買一送一", "免消費即抽", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "打開『麥當勞 APP』每天免費玩開運轉盤與刮刮樂，高機率現抽大薯買一送一、四塊麥克鷄塊買一送一、OREO 冰炫風買一送一券！歡樂送線上訂餐輸入專屬優惠代碼亦享大薯或雞塊同品項買一送一！",
+            "prizes": ["大薯買一送一神券", "四塊麥克鷄塊買一送一券", "OREO 冰炫風買一送一券"],
+            "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.mcdonalds.com.tw/",
+            "officialUrl": "https://www.mcdonalds.com.tw/"
+        },
+        {
             "id": "ext-bogo-103",
             "title": "肯德基 KFC 隱藏優惠代碼專區・神券【40565 / 40451】咔啦脆雞+原味蛋撻現省120元",
             "brand": "肯德基",
@@ -315,17 +344,17 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.kfcclub.com.tw/"
         },
         {
-            "id": "ext-bogo-104",
-            "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
-            "brand": "星巴克",
-            "tags": ["買一送一", "免消費即抽"],
-            "time": f"即日起 ~ {(today + timedelta(days=12)).strftime('%Y/%m/%d')}",
-            "deadline": (today + timedelta(days=12)).strftime('%Y/%m/%d'),
-            "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
-            "prizes": ["全品項特大杯買一送一專屬券", "指定那堤第二杯半價", "節慶限定飲品單一特價券"],
-            "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://event.12done.com.tw/starbucks/",
-            "officialUrl": "https://www.starbucks.com.tw/"
+            "id": "ext-bogo-fast-02",
+            "title": "摩斯漢堡 MOS Burger・MOS Order APP 專屬折價券・摩斯冰紅茶買一送一與元氣早餐第2套半價",
+            "brand": "摩斯漢堡",
+            "tags": ["買一送一", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載『MOS Order』APP 免費會員，每週點擊『安心取溫馨送/專屬優惠券』專區，即可臨櫃或手機點餐兌換大杯摩斯冰紅茶買一送一、摩斯蒟蒻禮盒買一送一、元氣早餐第 2 套半價！",
+            "prizes": ["摩斯招牌大杯冰紅茶買一送一", "蒟蒻禮盒買一送一優惠券", "人氣漢堡個人獨享餐現折券"],
+            "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.mos.com.tw/",
+            "officialUrl": "https://www.mos.com.tw/"
         },
         {
             "id": "ext-bogo-105",
@@ -339,6 +368,75 @@ def get_dynamic_free_intelligence(today):
             "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.burgerking.com.tw/",
             "officialUrl": "https://www.burgerking.com.tw/"
+        },
+
+        # --- 人氣韓式炸雞連鎖專區（bb.q CHICKEN、起家雞） ---
+        {
+            "id": "ext-bogo-korean-01",
+            "title": "bb.q CHICKEN 韓式炸雞・官方專屬優惠券・外帶全雞免費送「炸年糕與韓式醃蘿蔔」、指定韓式副食買一送一",
+            "brand": "bb.q CHICKEN",
+            "tags": ["買一送一", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "出示官方優惠券畫面或加入『享聚卡』會員，外帶點購經典去骨/半半炸雞，免費加碼贈送人氣炸年糕乙份，韓式醃蘿蔔無限量免費續加，指定韓式氣泡飲同品項買一送一！",
+            "prizes": ["外帶經典炸雞免費送香酥炸年糕", "韓式氣泡飲買一送一券", "會員專屬現折 50 元優惠券"],
+            "imageUrl": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://bbqchicken.com.tw/",
+            "officialUrl": "https://bbqchicken.com.tw/"
+        },
+        {
+            "id": "ext-bogo-korean-02",
+            "title": "起家雞 Cheogajip 韓式炸雞・品牌好康優惠券・外帶招牌去骨炸雞送經典配料，每月 7 號吃起家雞享專屬折價神券",
+            "brand": "起家雞",
+            "tags": ["買一送一", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入起家雞官方 LINE 會員領取當月折價神券，門市外帶全雞或去骨炸雞，免費贈送招牌地瓜條或炸年糕乙份，每月 7 號吃起家雞再享整筆訂單滿額折抵優惠！",
+            "prizes": ["招牌炸年糕/地瓜條免費贈送券", "起家雞全單滿額折價券", "韓式特調飲品買一送一"],
+            "imageUrl": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.cheogajip.com.tw/",
+            "officialUrl": "https://www.cheogajip.com.tw/"
+        },
+
+        # --- 知名日式丼飯連鎖專區（吉野家、松屋、すき家） ---
+        {
+            "id": "ext-bogo-donburi-01",
+            "title": "台灣吉野家 Yoshinoya・月度數位優惠神券・牛丼雙寶套餐現折 35 元、茶碗蒸與招牌檸檬紅茶買一送一",
+            "brand": "吉野家",
+            "tags": ["買一送一", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "結帳時出示台灣吉野家官方數位優惠券，即享招牌中碗牛丼套餐現省 35 元；點購指定定食享單點茶碗蒸、檸檬紅茶同品項買一送一特惠！",
+            "prizes": ["招牌牛丼套餐現折神券", "茶碗蒸買一送一優惠券", "檸檬紅茶同品項買一送一"],
+            "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.yoshinoya.com.tw/",
+            "officialUrl": "https://www.yoshinoya.com.tw/"
+        },
+        {
+            "id": "ext-bogo-donburi-02",
+            "title": "台灣松屋 Matsuya・人氣牛肉飯專屬折價券・點購主餐免費升級大盛碗、蔥香半熟蛋定食現折 20 元",
+            "brand": "台灣松屋",
+            "tags": ["買一送一", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入台灣松屋官方 LINE 好友，每月自動推播專屬折價神券！至全台松屋門市點購牛肉飯或燒肉定食，出示手機畫面即可免費升級大碗（大盛）或贈送半熟蛋/蔥花配料券！",
+            "prizes": ["主餐免費升級大盛碗優惠券", "特製燒肉定食現折 20 元券", "半熟蛋配料免費兌換券"],
+            "imageUrl": "https://images.unsplash.com/photo-1607301405390-d831c242f59b?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.matsuya-foods.com.tw/",
+            "officialUrl": "https://www.matsuya-foods.com.tw/"
+        },
+        {
+            "id": "ext-bogo-donburi-03",
+            "title": "すき家 SUKIYA 台灣・官方限定優惠專區・牛丼中碗青菜可樂餅超值特惠套餐、外帶線上點餐現折優惠券",
+            "brand": "すき家",
+            "tags": ["買一送一", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "於全台 SUKIYA 門市點餐出示官方優惠或使用線上外帶系統，享人氣牛丼搭配青菜可樂餅超殺組合價，期間限定鰻牛丼或咖哩新品現折 20 元專屬優惠碼！",
+            "prizes": ["牛丼青菜套餐組合超殺優惠", "新品定食現折優惠券", "外帶滿額折抵券"],
+            "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.sukiya-jp.com.tw/",
+            "officialUrl": "https://www.sukiya-jp.com.tw/"
         },
 
         # === 3. 當月「壽星免費好康指南」（各大遊樂園門票免費/半價與連鎖餐飲慶生盛宴） ===
