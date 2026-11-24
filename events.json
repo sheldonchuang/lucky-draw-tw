@@ -159,6 +159,46 @@
     "officialUrl": "https://www.starbucks.com.tw/"
   },
   {
+    "id": "ext-bogo-coffee-01",
+    "title": "伯朗咖啡館 Mr. Brown・每週一卡友日「全品項飲品買一送一」・香醇義式咖啡現省一杯",
+    "brand": "伯朗咖啡館",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "time": "每週一會員專屬日 (本期至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每週一持伯朗 Lounge 卡至全台伯朗咖啡館門市消費，全品項飲品不限品項、冰熱皆享「買一送一」（結帳以高價者計）！無論是經典美式、香草拿鐵或季節限定飲品皆享超值折扣！",
+    "prizes": [
+      "全品項飲品買一送一優惠",
+      "伯朗 Lounge 卡消費點數雙倍送",
+      "精選蛋糕下午茶加價折抵"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.mrbrown.com.tw/",
+    "officialUrl": "https://www.mrbrown.com.tw/"
+  },
+  {
+    "id": "ext-bogo-coffee-02",
+    "title": "路易莎咖啡 Louisa Coffee・黑卡會員專屬月度優惠・指定精品手沖 / 拿鐵享 85 折優惠券與 11 點前早餐超值折抵",
+    "brand": "路易莎咖啡",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "time": "黑卡專屬月度優惠 (本期至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "加入『路易莎黑卡』官方會員（LINE 帳號即可免費綁定），享每月指定單品手沖咖啡 75 折/85 折、上午 11:00 前超值活力早餐搭配任一飲品天天享折扣，黑卡消費再享點數翻倍累積！",
+    "prizes": [
+      "指定精品手沖咖啡 85 折神券",
+      "11點前活力早餐組合折價券",
+      "黑卡會員積點翻倍折現金"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.louisacoffee.co/",
+    "officialUrl": "https://www.louisacoffee.co/"
+  },
+  {
     "id": "ext-bogo-fast-01",
     "title": "麥當勞 McDonald's・APP 天天轉盤刮刮樂抽「大薯 / 麥克鷄塊 / 冰炫風買一送一」・歡樂送專屬優惠碼",
     "brand": "麥當勞",
