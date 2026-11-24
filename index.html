@@ -558,6 +558,26 @@
       background: #EAF2EC;
       color: #2D5A3C;
     }
+    .tag-voucher {
+      background: #F6F1EA;
+      color: #7D5A3C;
+    }
+    .tag-bogo {
+      background: #FBEFEA;
+      color: #944838;
+    }
+    .tag-birthday {
+      background: #F8ECF0;
+      color: #8B4168;
+    }
+    .tag-game {
+      background: #EBF0F5;
+      color: #2F587D;
+    }
+    .tag-points {
+      background: #EDF5EC;
+      color: #356D3B;
+    }
     .tag-invoice {
       background: #EFEFF7;
       color: #4B476D;
@@ -905,13 +925,13 @@
   <!-- Hero 區域 -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-subtitle-top">DAILY SELECTION · 台灣生活抽獎誌</div>
+      <div class="hero-subtitle-top">DAILY SELECTION · 台灣生活抽獎與免費情報誌</div>
       <h1 class="hero-title">在尋常日子裡，遇見<span>真實的好康驚喜</span></h1>
-      <p class="hero-desc">整理全台各大超商、品牌官網與免消費社群抽獎。拒絕虛浮，一鍵直達官方登錄。</p>
+      <p class="hero-desc">嚴選全台官方抽獎、發票換禮券、超商買一送一、壽星免費好康、限免遊戲與每日領點，一鍵直達官方登錄。</p>
       
       <div class="search-wrapper">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="searchInput" class="search-input" placeholder="搜尋品牌、大獎（如：機票、iPhone、全家、Switch）...">
+        <input type="text" id="searchInput" class="search-input" placeholder="搜尋好康（如：禮券、買一送一、壽星、Epic、機票、7-11）...">
       </div>
     </div>
 
@@ -919,12 +939,32 @@
     <div class="filters-section">
       <div class="tags-carousel" id="filterContainer">
         <button class="filter-btn active" data-tag="ALL">
-          <i class="fa-solid fa-layer-group"></i> 全部活動
+          <i class="fa-solid fa-layer-group"></i> 全部好康
           <span class="filter-count" id="count-ALL">0</span>
         </button>
         <button class="filter-btn" data-tag="免消費即抽">
           <i class="fa-solid fa-hand-holding-heart"></i> 免消費即抽
           <span class="filter-count" id="count-free">0</span>
+        </button>
+        <button class="filter-btn" data-tag="發票換禮券">
+          <i class="fa-solid fa-ticket"></i> 發票換禮券
+          <span class="filter-count" id="count-voucher">0</span>
+        </button>
+        <button class="filter-btn" data-tag="買一送一">
+          <i class="fa-solid fa-tags"></i> 買一送一/代碼
+          <span class="filter-count" id="count-bogo">0</span>
+        </button>
+        <button class="filter-btn" data-tag="壽星好康">
+          <i class="fa-solid fa-cake-candles"></i> 壽星好康
+          <span class="filter-count" id="count-birthday">0</span>
+        </button>
+        <button class="filter-btn" data-tag="限免遊戲">
+          <i class="fa-solid fa-gamepad"></i> 限免遊戲
+          <span class="filter-count" id="count-game">0</span>
+        </button>
+        <button class="filter-btn" data-tag="免費領點">
+          <i class="fa-solid fa-coins"></i> 免費領點
+          <span class="filter-count" id="count-points">0</span>
         </button>
         <button class="filter-btn" data-tag="抽機票">
           <i class="fa-solid fa-plane-departure"></i> 抽機票
@@ -951,7 +991,7 @@
           <span class="filter-count" id="count-urgent">0</span>
         </button>
         <button class="filter-btn filter-btn-expired" data-tag="過期活動">
-          <i class="fa-solid fa-box-archive"></i> 過期活動
+          <i class="fa-solid fa-box-archive"></i> 過期存檔
           <span class="filter-count" id="count-expired">0</span>
         </button>
       </div>
@@ -1052,8 +1092,13 @@
 
     // 取得標籤樣式
     function getTagBadge(tag) {
-      if (tag === '超商專區') return `<span class="tag-badge tag-convenience"><i class="fa-solid fa-store"></i> 超商專屬</span>`;
+      if (tag === '超商專區') return `<span class="tag-badge tag-convenience"><i class="fa-solid fa-store"></i> 超商專區</span>`;
       if (tag === '免消費即抽') return `<span class="tag-badge tag-free"><i class="fa-solid fa-gift"></i> 免消費即抽</span>`;
+      if (tag === '發票換禮券') return `<span class="tag-badge tag-voucher"><i class="fa-solid fa-ticket"></i> 發票換禮券</span>`;
+      if (tag === '買一送一') return `<span class="tag-badge tag-bogo"><i class="fa-solid fa-tags"></i> 買一送一/代碼</span>`;
+      if (tag === '壽星好康') return `<span class="tag-badge tag-birthday"><i class="fa-solid fa-cake-candles"></i> 壽星好康</span>`;
+      if (tag === '限免遊戲') return `<span class="tag-badge tag-game"><i class="fa-solid fa-gamepad"></i> 限免遊戲</span>`;
+      if (tag === '免費領點') return `<span class="tag-badge tag-points"><i class="fa-solid fa-coins"></i> 免費領點</span>`;
       if (tag === '登錄發票即抽') return `<span class="tag-badge tag-invoice"><i class="fa-solid fa-receipt"></i> 登錄發票</span>`;
       if (tag === '抽機票') return `<span class="tag-badge tag-flight"><i class="fa-solid fa-plane"></i> 抽機票</span>`;
       if (tag === '抽iPhone') return `<span class="tag-badge tag-phone"><i class="fa-solid fa-mobile-screen"></i> 抽iPhone</span>`;
@@ -1159,6 +1204,35 @@
         const imgUrl = item.imageUrl || 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80';
         const targetUrl = item.activityUrl || item.officialUrl || '#';
 
+        let prizeLabel = '焦點大獎';
+        let directBtnText = '前往抽獎 ↗';
+        let directBtnIcon = 'fa-arrow-up-right-from-square';
+
+        if (expired) {
+          directBtnText = '檢視活動存檔 ↗';
+          directBtnIcon = 'fa-box-archive';
+        } else if (item.tags.includes('發票換禮券')) {
+          prizeLabel = '可兌換好康';
+          directBtnText = '前往兌換禮券 ↗';
+          directBtnIcon = 'fa-ticket';
+        } else if (item.tags.includes('買一送一')) {
+          prizeLabel = '限定特惠內容';
+          directBtnText = '查看優惠神券 ↗';
+          directBtnIcon = 'fa-tag';
+        } else if (item.tags.includes('壽星好康')) {
+          prizeLabel = '壽星專屬禮';
+          directBtnText = '查看壽星禮遇 ↗';
+          directBtnIcon = 'fa-cake-candles';
+        } else if (item.tags.includes('限免遊戲')) {
+          prizeLabel = '限免正版遊戲';
+          directBtnText = '前往免費領取 ↗';
+          directBtnIcon = 'fa-download';
+        } else if (item.tags.includes('免費領點')) {
+          prizeLabel = '賺點好康';
+          directBtnText = '前往免費賺點 ↗';
+          directBtnIcon = 'fa-coins';
+        }
+
         const card = document.createElement('div');
         card.className = `event-card ${expired ? 'is-expired' : ''}`;
         card.innerHTML = `
@@ -1175,17 +1249,17 @@
             
             <div class="prize-box">
               <i class="fa-solid fa-trophy prize-icon"></i>
-              <span class="prize-text">焦點大獎：${mainPrize}</span>
+              <span class="prize-text">${prizeLabel}：${mainPrize}</span>
             </div>
 
-            <p class="qual-desc">${item.qualification || '請前往官方活動頁查看完整抽獎詳細資訊。'}</p>
+            <p class="qual-desc">${item.qualification || '請前往官方活動頁查看完整詳細資訊。'}</p>
 
             <div class="card-actions">
               <button class="btn-detail" onclick="openModal('${item.id}')">
                 <i class="fa-solid fa-circle-info"></i> 詳情規則
               </button>
               <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="btn-direct">
-                <i class="fa-solid ${expired ? 'fa-box-archive' : 'fa-arrow-up-right-from-square'}"></i> ${expired ? '檢視活動存檔 ↗' : '前往抽獎 ↗'}
+                <i class="fa-solid ${directBtnIcon}"></i> ${directBtnText}
               </a>
             </div>
           </div>
@@ -1214,7 +1288,7 @@
 
       const currentStart = (currentPage - 1) * PAGE_SIZE + 1;
       const currentEnd = Math.min(currentPage * PAGE_SIZE, totalCount);
-      const labelText = currentFilter === '過期活動' ? '過期歷史活動' : '進行中抽獎活動';
+      const labelText = currentFilter === '過期活動' ? '過期歷史活動' : '進行中生活好康';
       info.innerText = `第 ${currentPage} 頁，共 ${totalPages} 頁（本頁顯示第 ${currentStart} ~ ${currentEnd} 檔，共 ${totalCount} 檔${labelText}）`;
 
       if (totalPages <= 1) {
@@ -1274,6 +1348,11 @@
 
       document.getElementById('count-ALL').innerText = activeEvents.length;
       document.getElementById('count-free').innerText = activeEvents.filter(e => e.tags.includes('免消費即抽')).length;
+      document.getElementById('count-voucher').innerText = activeEvents.filter(e => e.tags.includes('發票換禮券')).length;
+      document.getElementById('count-bogo').innerText = activeEvents.filter(e => e.tags.includes('買一送一')).length;
+      document.getElementById('count-birthday').innerText = activeEvents.filter(e => e.tags.includes('壽星好康')).length;
+      document.getElementById('count-game').innerText = activeEvents.filter(e => e.tags.includes('限免遊戲')).length;
+      document.getElementById('count-points').innerText = activeEvents.filter(e => e.tags.includes('免費領點')).length;
       document.getElementById('count-flight').innerText = activeEvents.filter(e => e.tags.includes('抽機票')).length;
       document.getElementById('count-phone').innerText = activeEvents.filter(e => e.tags.includes('抽iPhone')).length;
       document.getElementById('count-appliance').innerText = activeEvents.filter(e => e.tags.includes('抽家電')).length;

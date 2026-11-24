@@ -704,12 +704,38 @@
       <div class="post-card">
         <div class="card-top">
           <span class="template-tag"><i class="fa-solid fa-mug-saucer"></i> 範本四：日系生活誌工具款</span>
-          <span class="template-desc">口碑極佳、容易被抽獎愛好者長期收藏</span>
+          <span class="template-desc">口碑極佳、容易被抽獎與省錢愛好者長期收藏</span>
         </div>
         <textarea id="text-4" class="textarea-box"></textarea>
         <div class="actions-bar">
           <button class="btn btn-copy" onclick="copyText('text-4')"><i class="fa-regular fa-copy"></i> 複製內文</button>
           <button class="btn btn-threads" onclick="postToThreads('text-4')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
+        </div>
+      </div>
+
+      <!-- 範本 5：雲端發票免費換禮券 & 超商買一送一神券款 -->
+      <div class="post-card">
+        <div class="card-top">
+          <span class="template-tag"><i class="fa-solid fa-ticket"></i> 範本五：發票換禮券＆買一送一神券款</span>
+          <span class="template-desc">不用抽獎保證有獎，小資上班族轉發率第一名</span>
+        </div>
+        <textarea id="text-5" class="textarea-box"></textarea>
+        <div class="actions-bar">
+          <button class="btn btn-copy" onclick="copyText('text-5')"><i class="fa-regular fa-copy"></i> 複製內文</button>
+          <button class="btn btn-threads" onclick="postToThreads('text-5')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
+        </div>
+      </div>
+
+      <!-- 範本 6：Epic 限免正版遊戲＆壽星免費好康款 -->
+      <div class="post-card">
+        <div class="card-top">
+          <span class="template-tag"><i class="fa-solid fa-gamepad"></i> 範本六：限免正版遊戲＆壽星好康款</span>
+          <span class="template-desc">年輕學生與壽星社群無腦狂讚</span>
+        </div>
+        <textarea id="text-6" class="textarea-box"></textarea>
+        <div class="actions-bar">
+          <button class="btn btn-copy" onclick="copyText('text-6')"><i class="fa-regular fa-copy"></i> 複製內文</button>
+          <button class="btn btn-threads" onclick="postToThreads('text-6')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
         </div>
       </div>
     </div>
@@ -990,7 +1016,35 @@
       document.getElementById('text-3').value = `想換 iPhone 或抽家電的注意了 📱\n\n【${todayStr} 抽獎盤點】全台目前有 ${activeEvents.filter(e => e.tags.includes('抽iPhone')).length} 檔抽 iPhone、${activeEvents.filter(e => e.tags.includes('抽家電')).length} 檔抽家電的大獎活動：\n\n${gadgetListText.trim()}\n\n越快截止的排在越前面，過期的都直接拿掉了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
 
       // 範本 4：生活誌工具分享款
-      document.getElementById('text-4').value = `之前覺得各大品牌的抽獎網頁分散在四處超難找，常常看到時都已經過期…\n\n乾脆自己做了一個台灣抽獎情報小站，介面做成日系生活誌的樣子，每頁排 9 個乾淨俐落，每天早上 8 點會自動爬最新官方活動。\n\n包含抽機票、抽 iPhone、抽家電都有分類，歡迎常抽獎的朋友拿去用，完全免費無廣告干擾：\n🔗 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-4').value = `之前覺得各大品牌的抽獎與好康網頁分散在四處超難找，常常看到時都已經過期…\n\n乾脆自己做了一個台灣抽獎與免費情報小站，介面做成日系生活誌的樣子，每頁排 9 個乾淨俐落，每天早上 8 點會自動爬最新官方活動。\n\n包含發票免費換禮券、超商買一送一神券、壽星好康、Epic限免遊戲都有分類，歡迎常抽獎與省錢的朋友拿去用，完全免費無廣告干擾：\n🔗 https://sheldonchuang.github.io/lucky-draw-tw/`;
+
+      // 範本 5：雲端發票換禮券 & 超商買一送一神券款
+      const voucherEvents = activeEvents.filter(e => e.tags.includes('發票換禮券')).slice(0, 2);
+      const bogoEvents = activeEvents.filter(e => e.tags.includes('買一送一')).slice(0, 2);
+      let voucherText = '';
+      voucherEvents.forEach(e => {
+        voucherText += `• 【${e.brand}】${e.title}\n`;
+      });
+      let bogoText = '';
+      bogoEvents.forEach(e => {
+        bogoText += `• 【${e.brand}】${e.title}\n`;
+      });
+
+      document.getElementById('text-5').value = `很多人不知道：手邊的雲端發票不用抽獎，就能直接免費換 7-11 與全聯商品券 🎫\n\n【${todayStr} 最新好康整理】\n\n📍 地方稅捐處發票換禮券專區（免抽獎保證換）：\n${voucherText.trim()}\n\n☕️ 本週超商週末特惠＆速食隱藏神券：\n${bogoText.trim()}\n\n詳細兌換步驟與官方頁面都整理在小站裡了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+
+      // 範本 6：Epic 限免正版遊戲＆壽星/領點款
+      const gameEvents = activeEvents.filter(e => e.tags.includes('限免遊戲')).slice(0, 2);
+      const bdayEvents = activeEvents.filter(e => e.tags.includes('壽星好康')).slice(0, 2);
+      let gameText = '';
+      gameEvents.forEach(e => {
+        gameText += `🎮 【${e.brand}】${e.title}\n`;
+      });
+      let bdayText = '';
+      bdayEvents.forEach(e => {
+        bdayText += `🎂 【${e.brand}】${e.title}\n`;
+      });
+
+      document.getElementById('text-6').value = `本週正版免費遊戲與壽星專屬好康整理 🎮🍰\n\n【${todayStr} 免費情報快報】\n\n${gameText.trim()}\n\n${bdayText.trim()}\n\n完全 0 元直接領取，不花冤枉錢！點進去就能直通官方領取頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議把網頁存到桌面，每週定期上去收割正版遊戲跟好康）`;
     }
 
     // 直通 Threads 發文
