@@ -752,7 +752,8 @@
   <script src="./data.js"></script>
   <script>
     let allEvents = window.INITIAL_EVENTS || [];
-    const BASE_DATE = new Date(2026, 10, 24); // 基準時間 2026-11-24
+    const BASE_DATE = new Date(); // 動態基準時間
+    BASE_DATE.setHours(0, 0, 0, 0);
 
     // 格式化日期 YYYY-MM-DD
     function formatDateKey(dateObj) {

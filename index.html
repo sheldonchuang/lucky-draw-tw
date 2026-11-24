@@ -1257,14 +1257,15 @@
     const PAGE_SIZE = 9; // 每頁固定 9 檔抽獎活動 (3x3 完美矩陣排版)
     let currentPage = 1;
 
-    // 計算剩餘天數 (基準以今日 2026/11/23 為準)
+    // 計算剩餘天數 (動態以當日凌晨為準)
     function getRemainingDays(deadlineStr) {
       if (!deadlineStr) return null;
       try {
         const parts = deadlineStr.split('/');
         if (parts.length === 3) {
           const target = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-          const now = new Date(2026, 10, 23); // 2026-11-23
+          const now = new Date();
+          now.setHours(0, 0, 0, 0);
           const diffTime = target - now;
           return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         }
