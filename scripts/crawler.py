@@ -885,15 +885,15 @@ def get_additional_verified_events():
 
 def get_remaining_days(deadline_str, base_date):
     if not deadline_str:
-        return 99999
+        return -99999  # 無明確截止日期的舊活動，一律歸類為已截止！
     parts = [int(p) for p in re.findall(r'\d+', deadline_str)[:3]]
     if len(parts) == 3:
         try:
             target = datetime(parts[0], parts[1], parts[2]).date()
             return (target - base_date).days
         except Exception:
-            return 99999
-    return 99999
+            return -99999
+    return -99999
 
 if __name__ == '__main__':
     today = datetime.now().date()
@@ -943,27 +943,35 @@ if __name__ == '__main__':
             seen_ids.add(e['id'])
             combined_events.append(e)
 
-    # 5. 【核心邏輯】：過期的就刪掉！
+    # 5. 【核心邏輯】：嚴格區隔「進行中活動」與「截止活動」
+    # 已經截止的活動絕不混入進行中分類，全數放入「截止活動」專屬分頁中
     active_events = []
     expired_events = []
 
     for e in combined_events:
         days = get_remaining_days(e.get('deadline'), today)
         if days >= 0:
+            e['is_expired'] = False
             active_events.append(e)
         else:
+            e['is_expired'] = True
             expired_events.append(e)
 
-    print(f"合併總數: {len(combined_events)} 檔，過期已刪除: {len(expired_events)} 檔，保留有效活動: {len(active_events)} 檔")
+    print(f"合併總數: {len(combined_events)} 檔，進行中有效好康: {len(active_events)} 檔，截止歷史存檔: {len(expired_events)} 檔")
 
-    # 6. 【核心邏輯】：越上面放越快到期的！（剩餘天數越小排在越前面）
+    # 6. 【智慧排序】：
+    # 進行中活動：越快到期的排在越前面
     active_events.sort(key=lambda e: get_remaining_days(e.get('deadline'), today))
+    # 截止活動：最近剛截止的排在前面
+    expired_events.sort(key=lambda e: get_remaining_days(e.get('deadline'), today), reverse=True)
 
-    # 7. 寫入 events.json 與 data.js
+    # 7. 合併寫入 events.json 與 data.js (進行中在前，截止存檔在後)
+    all_events_to_save = active_events + expired_events
+
     with open(events_json_path, 'w', encoding='utf-8') as f:
-        json.dump(active_events, f, ensure_ascii=False, indent=2)
+        json.dump(all_events_to_save, f, ensure_ascii=False, indent=2)
 
-    js_content = 'window.INITIAL_EVENTS = ' + json.dumps(active_events, ensure_ascii=False) + ';'
+    js_content = 'window.INITIAL_EVENTS = ' + json.dumps(all_events_to_save, ensure_ascii=False) + ';'
     with open(data_js_path, 'w', encoding='utf-8') as f:
         f.write(js_content)
 

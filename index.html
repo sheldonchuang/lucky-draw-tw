@@ -1180,8 +1180,8 @@
           <i class="fa-solid fa-hourglass-half"></i> 即將截止
           <span class="filter-count" id="count-urgent">0</span>
         </button>
-        <button class="filter-btn filter-btn-expired" data-tag="過期活動">
-          <i class="fa-solid fa-box-archive"></i> 過期存檔
+        <button class="filter-btn filter-btn-expired" data-tag="截止活動">
+          <i class="fa-solid fa-clock-rotate-left"></i> 截止活動
           <span class="filter-count" id="count-expired">0</span>
         </button>
       </div>
@@ -1275,8 +1275,15 @@
       return null;
     }
 
-    // 判斷活動是否已截止過期
-    function isExpired(deadlineStr) {
+    // 判斷活動是否已截止
+    function isExpired(item) {
+      if (!item) return false;
+      if (item.is_expired === true) return true;
+      if (item.is_expired === false) return false;
+
+      const deadlineStr = typeof item === 'string' ? item : item.deadline;
+      if (!deadlineStr) return true; // 無明確截止日期的舊活動一律視為已截止
+
       const days = getRemainingDays(deadlineStr);
       return days !== null && days < 0;
     }
@@ -1312,14 +1319,14 @@
 
         if (!matchSearch) return false;
 
-        const expired = isExpired(event.deadline);
+        const expired = isExpired(event);
 
-        // 若當前標籤是「過期活動」：只顯示已經截止的活動
-        if (currentFilter === '過期活動') {
+        // 若當前標籤是「截止活動」：只顯示已經截止的活動
+        if (currentFilter === '截止活動' || currentFilter === '過期活動') {
           return expired;
         }
 
-        // 其餘所有分類（全部活動、免消費即抽、抽機票等）：一律排除已經截止的活動！
+        // 其餘所有分類（全部好康、免消費即抽、抽機票等）：一律嚴格排除已經截止的活動！
         if (expired) {
           return false;
         }
@@ -1338,8 +1345,8 @@
         const daysA = getRemainingDays(a.deadline);
         const daysB = getRemainingDays(b.deadline);
 
-        if (currentFilter === '過期活動') {
-          // 過期活動：最近剛截止的排在最前 (例如 -1 天在 -30 天前)
+        if (currentFilter === '截止活動' || currentFilter === '過期活動') {
+          // 截止活動：最近剛截止的排在最前 (例如 -1 天在 -30 天前)
           const valA = daysA !== null ? daysA : -99999;
           const valB = daysB !== null ? daysB : -99999;
           return valB - valA;
@@ -1479,7 +1486,7 @@
 
       const currentStart = (currentPage - 1) * PAGE_SIZE + 1;
       const currentEnd = Math.min(currentPage * PAGE_SIZE, totalCount);
-      const labelText = currentFilter === '過期活動' ? '過期歷史活動' : '進行中生活好康';
+      const labelText = (currentFilter === '截止活動' || currentFilter === '過期活動') ? '截止存檔活動' : '進行中生活好康';
       info.innerText = `第 ${currentPage} 頁，共 ${totalPages} 頁（本頁顯示第 ${currentStart} ~ ${currentEnd} 檔，共 ${totalCount} 檔${labelText}）`;
 
       if (totalPages <= 1) {
@@ -1532,10 +1539,10 @@
       bar.appendChild(nextBtn);
     }
 
-    // 更新計數 (進行中活動與過期活動分開統計)
+    // 更新計數 (進行中活動與截止活動分開統計)
     function updateCounts() {
-      const activeEvents = allEvents.filter(e => !isExpired(e.deadline));
-      const expiredEvents = allEvents.filter(e => isExpired(e.deadline));
+      const activeEvents = allEvents.filter(e => !isExpired(e));
+      const expiredEvents = allEvents.filter(e => isExpired(e));
 
       document.getElementById('count-ALL').innerText = activeEvents.length;
       document.getElementById('count-free').innerText = activeEvents.filter(e => e.tags.includes('免消費即抽')).length;

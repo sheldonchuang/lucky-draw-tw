@@ -14,7 +14,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22475b.jpg",
     "activityUrl": "https://italiantaste.tw/lucky.html",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "ext-game-101",
@@ -33,7 +34,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
-    "officialUrl": "https://store.epicgames.com/"
+    "officialUrl": "https://store.epicgames.com/",
+    "is_expired": false
   },
   {
     "id": "ext-pts-101",
@@ -53,7 +55,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://points.line.me/",
-    "officialUrl": "https://line.me/tw/"
+    "officialUrl": "https://line.me/tw/",
+    "is_expired": false
   },
   {
     "id": "ext-pts-102",
@@ -73,7 +76,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1556742049-0a67e5572293?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://shopee.tw/shopee-coins",
-    "officialUrl": "https://shopee.tw/"
+    "officialUrl": "https://shopee.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-pts-103",
@@ -93,7 +97,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.jkopay.com/",
-    "officialUrl": "https://www.jkopay.com/"
+    "officialUrl": "https://www.jkopay.com/",
+    "is_expired": false
   },
   {
     "id": "ext-pts-104",
@@ -113,7 +118,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.momoshop.com.tw/",
-    "officialUrl": "https://www.momoshop.com.tw/"
+    "officialUrl": "https://www.momoshop.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-101",
@@ -133,7 +139,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.7-11.com.tw/",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-102",
@@ -153,7 +160,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.family.com.tw/",
-    "officialUrl": "https://www.family.com.tw/"
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-tax-104",
@@ -172,7 +180,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.ntbna.gov.tw/",
-    "officialUrl": "https://www.ntbna.gov.tw/"
+    "officialUrl": "https://www.ntbna.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-coffee-01",
@@ -192,7 +201,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.mrbrown.com.tw/",
-    "officialUrl": "https://www.mrbrown.com.tw/"
+    "officialUrl": "https://www.mrbrown.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-coffee-02",
@@ -212,7 +222,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.louisacoffee.co/",
-    "officialUrl": "https://www.louisacoffee.co/"
+    "officialUrl": "https://www.louisacoffee.co/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-fast-01",
@@ -233,7 +244,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.mcdonalds.com.tw/",
-    "officialUrl": "https://www.mcdonalds.com.tw/"
+    "officialUrl": "https://www.mcdonalds.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-103",
@@ -253,7 +265,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.kfcclub.com.tw/",
-    "officialUrl": "https://www.kfcclub.com.tw/"
+    "officialUrl": "https://www.kfcclub.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-fast-02",
@@ -273,7 +286,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.mos.com.tw/",
-    "officialUrl": "https://www.mos.com.tw/"
+    "officialUrl": "https://www.mos.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-105",
@@ -292,7 +306,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.burgerking.com.tw/",
-    "officialUrl": "https://www.burgerking.com.tw/"
+    "officialUrl": "https://www.burgerking.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-korean-01",
@@ -312,7 +327,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://bbqchicken.com.tw/",
-    "officialUrl": "https://bbqchicken.com.tw/"
+    "officialUrl": "https://bbqchicken.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-korean-02",
@@ -332,7 +348,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.cheogajip.com.tw/",
-    "officialUrl": "https://www.cheogajip.com.tw/"
+    "officialUrl": "https://www.cheogajip.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-donburi-01",
@@ -352,7 +369,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.yoshinoya.com.tw/",
-    "officialUrl": "https://www.yoshinoya.com.tw/"
+    "officialUrl": "https://www.yoshinoya.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-donburi-02",
@@ -372,7 +390,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1607301405390-d831c242f59b?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.matsuya-foods.com.tw/",
-    "officialUrl": "https://www.matsuya-foods.com.tw/"
+    "officialUrl": "https://www.matsuya-foods.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-donburi-03",
@@ -392,7 +411,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.sukiya-jp.com.tw/",
-    "officialUrl": "https://www.sukiya-jp.com.tw/"
+    "officialUrl": "https://www.sukiya-jp.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-101",
@@ -412,7 +432,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.wowprime.com/",
-    "officialUrl": "https://www.wowprime.com/"
+    "officialUrl": "https://www.wowprime.com/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-102",
@@ -432,7 +453,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.eatogether.com.tw/",
-    "officialUrl": "https://www.feastogether.com.tw/"
+    "officialUrl": "https://www.feastogether.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-dine-01",
@@ -452,7 +474,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.hilai-foods.com/",
-    "officialUrl": "https://www.hilai-foods.com/"
+    "officialUrl": "https://www.hilai-foods.com/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-dine-02",
@@ -471,7 +494,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.lebledor.com/",
-    "officialUrl": "https://www.lebledor.com/"
+    "officialUrl": "https://www.lebledor.com/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-dine-03",
@@ -490,7 +514,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.bite2eatpizza.com/",
-    "officialUrl": "https://www.bite2eatpizza.com/"
+    "officialUrl": "https://www.bite2eatpizza.com/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-dine-04",
@@ -509,7 +534,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.chien-yen.com.tw/",
-    "officialUrl": "https://www.chien-yen.com.tw/"
+    "officialUrl": "https://www.chien-yen.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-dine-05",
@@ -528,7 +554,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.kanpai.com.tw/",
-    "officialUrl": "https://www.kanpai.com.tw/"
+    "officialUrl": "https://www.kanpai.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-dine-06",
@@ -547,7 +574,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.haidilao.com/",
-    "officialUrl": "https://www.haidilao.com/"
+    "officialUrl": "https://www.haidilao.com/",
+    "is_expired": false
   },
   {
     "id": "ext-game-102",
@@ -565,7 +593,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1612287232230-058b8efd8eb8?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://store.steampowered.com/",
-    "officialUrl": "https://store.steampowered.com/"
+    "officialUrl": "https://store.steampowered.com/",
+    "is_expired": false
   },
   {
     "id": "22341",
@@ -582,7 +611,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22341b.jpg",
     "activityUrl": "https://www.petzoo.com.tw/pages/2026q3farmina",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22408",
@@ -599,7 +629,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22408b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1341",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22435",
@@ -616,7 +647,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22435b.jpg",
     "activityUrl": "https://feversocial.com/52771/40784",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22407",
@@ -633,7 +665,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22407b.jpg",
     "activityUrl": "https://www.vitalon.com.tw/News/Detail/604",
-    "officialUrl": "http://www.vitalon.com.tw/"
+    "officialUrl": "http://www.vitalon.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22425",
@@ -650,7 +683,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22425b.jpg",
     "activityUrl": "https://www.meiji-kinotake-campaign2026-1.com/",
-    "officialUrl": "https://www.meiji.com.tw/"
+    "officialUrl": "https://www.meiji.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22387",
@@ -667,7 +701,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22387b.jpg",
     "activityUrl": "https://www.taichung-luckydraw.com.tw/",
-    "officialUrl": "https://www.taichung.gov.tw/"
+    "officialUrl": "https://www.taichung.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "22396",
@@ -684,7 +719,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22396b.jpg",
     "activityUrl": "https://www.cokeplus.tw/missionDetail?slug=P10RLUTCInstantwin&id=123",
-    "officialUrl": "https://www.coke.com.tw/"
+    "officialUrl": "https://www.coke.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22430",
@@ -701,7 +737,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22430b.jpg",
     "activityUrl": "https://www.cokeplus.tw/missionDetail?slug=P10SpriteSpicy&id=127",
-    "officialUrl": "https://www.coke.com.tw/"
+    "officialUrl": "https://www.coke.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22397",
@@ -719,7 +756,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22397b.jpg",
     "activityUrl": "https://vedan.pantuo.com.tw/tw/html/activity/show.php?pid=246&",
-    "officialUrl": "https://www.vedan.com/"
+    "officialUrl": "https://www.vedan.com/",
+    "is_expired": false
   },
   {
     "id": "22427",
@@ -736,7 +774,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22427b.jpg",
     "activityUrl": "https://lottetw-2026koalasurprisebox.com.tw/home.php",
-    "officialUrl": "http://www.lottetaiwan.com.tw/"
+    "officialUrl": "http://www.lottetaiwan.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22401",
@@ -753,7 +792,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22401b.jpg",
     "activityUrl": "https://dr.sfworldwide.com/event/cereal/oats10/",
-    "officialUrl": "https://www.sfworldwide.com/"
+    "officialUrl": "https://www.sfworldwide.com/",
+    "is_expired": false
   },
   {
     "id": "22461",
@@ -770,7 +810,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22461b.jpg",
     "activityUrl": "https://event.taotaotea.com.tw/",
-    "officialUrl": "http://www.taotao-tea.com/"
+    "officialUrl": "http://www.taotao-tea.com/",
+    "is_expired": false
   },
   {
     "id": "22420",
@@ -787,7 +828,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22420b.jpg",
     "activityUrl": "https://panasonicbattery.hengstyle.com/lottery-content/5c70E47bF8D6",
-    "officialUrl": "https://www.panasonic.com/tw/"
+    "officialUrl": "https://www.panasonic.com/tw/",
+    "is_expired": false
   },
   {
     "id": "22287",
@@ -804,7 +846,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22287b.jpg",
     "activityUrl": "https://www.yunlinluckydraw.net/",
-    "officialUrl": "https://www.yunlin.gov.tw/"
+    "officialUrl": "https://www.yunlin.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "22465",
@@ -821,7 +864,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22465b.png",
     "activityUrl": "https://www.farcent.com.tw/news-in/9daZi20Hs8UJdgjC",
-    "officialUrl": "https://www.farcent.com.tw/"
+    "officialUrl": "https://www.farcent.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22389",
@@ -838,7 +882,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22389b.jpg",
     "activityUrl": "https://www.volvic.tw/index.php?route=news/news_detail&path=114",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22434",
@@ -855,7 +900,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22434b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1339",
-    "officialUrl": "https://ucc-apac.com.tw/zh-hant/"
+    "officialUrl": "https://ucc-apac.com.tw/zh-hant/",
+    "is_expired": false
   },
   {
     "id": "22390",
@@ -872,7 +918,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22390b.jpg",
     "activityUrl": "https://www.facebook.com/photo?fbid=1489076406584658&set=a.657910669701240",
-    "officialUrl": "https://www.greattree.com.tw/"
+    "officialUrl": "https://www.greattree.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22386",
@@ -889,7 +936,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22386b.jpg",
     "activityUrl": "https://www.kimlanfoods.com.tw/lottery",
-    "officialUrl": "https://www.kimlanfoods.com.tw/tw"
+    "officialUrl": "https://www.kimlanfoods.com.tw/tw",
+    "is_expired": false
   },
   {
     "id": "ext-game-103",
@@ -907,7 +955,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.gog.com/",
-    "officialUrl": "https://www.gog.com/"
+    "officialUrl": "https://www.gog.com/",
+    "is_expired": false
   },
   {
     "id": "22448",
@@ -924,7 +973,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22448b.jpg",
     "activityUrl": "https://dr.sfworldwide.com/event/px/11/",
-    "officialUrl": "https://www.sfworldwide.com/"
+    "officialUrl": "https://www.sfworldwide.com/",
+    "is_expired": false
   },
   {
     "id": "22463",
@@ -941,7 +991,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22463b.jpg",
     "activityUrl": "https://www.pxmart.com.tw/campaign/survey/2026%20%E5%9C%8B%E7%94%A2%E5%9C%9F%E9%9B%9E%E5%A4%A7%E8%B3%9E%E7%99%BB%E9%8C%84%E7%99%BC%E7%A5%A8%E6%8A%BD%E5%85%A8%E8%81%AF%E8%B2%B7%E8%8F%9C%E9%87%91",
-    "officialUrl": "http://www.pxmart.com.tw/"
+    "officialUrl": "http://www.pxmart.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22437",
@@ -958,7 +1009,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22437b.jpg",
     "activityUrl": "https://crm.darlie.com.tw/campaign/freshness_invoice_luckydraw_202610/",
-    "officialUrl": "https://www.darlie.com.tw/"
+    "officialUrl": "https://www.darlie.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22471",
@@ -975,7 +1027,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22471b.jpg",
     "activityUrl": "https://feversocial.com/52782/jrwestandfukui-40942",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "ext-bogo-104",
@@ -995,7 +1048,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://event.12done.com.tw/starbucks/",
-    "officialUrl": "https://www.starbucks.com.tw/"
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22460",
@@ -1012,7 +1066,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22460b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1348",
-    "officialUrl": "https://www.monsterenergy.com/"
+    "officialUrl": "https://www.monsterenergy.com/",
+    "is_expired": false
   },
   {
     "id": "22449",
@@ -1029,7 +1084,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22449b.jpg",
     "activityUrl": "https://nte.iwplay.com.tw/event/Jasmine.html",
-    "officialUrl": "http://www.kuangchuan.com/"
+    "officialUrl": "http://www.kuangchuan.com/",
+    "is_expired": false
   },
   {
     "id": "22474",
@@ -1046,7 +1102,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22474b.jpg",
     "activityUrl": "https://www.openchill.tw/activity.html",
-    "officialUrl": "http://www.pecos.com.tw/"
+    "officialUrl": "http://www.pecos.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22432",
@@ -1063,7 +1120,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22432b.jpg",
     "activityUrl": "https://promo.andante-event.com.tw/a25dandelion/",
-    "officialUrl": "https://www.clc.com.tw/"
+    "officialUrl": "https://www.clc.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22473",
@@ -1081,7 +1139,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22473b.jpg",
     "activityUrl": "https://ubereats-10th-anniversary.com.tw/",
-    "officialUrl": "https://www.uber.com/tw/zh-tw/"
+    "officialUrl": "https://www.uber.com/tw/zh-tw/",
+    "is_expired": false
   },
   {
     "id": "22321",
@@ -1098,7 +1157,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22321b.jpg",
     "activityUrl": "https://events.taiwan-plus.com.tw/40165",
-    "officialUrl": "https://www.taiwan-plus.com.tw/"
+    "officialUrl": "https://www.taiwan-plus.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22446",
@@ -1115,7 +1175,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22446b.jpg",
     "activityUrl": "https://event.passion24juice.com/hydration/",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22472",
@@ -1134,7 +1195,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22472b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=News_C015",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22450",
@@ -1151,7 +1213,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22450b.jpg",
     "activityUrl": "https://fun.taichung.gov.tw/",
-    "officialUrl": "https://www.taichung.gov.tw/"
+    "officialUrl": "https://www.taichung.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "22478",
@@ -1168,7 +1231,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22478b.jpg",
     "activityUrl": "https://miniapp.line.me/2010873435-TaIMcgV3",
-    "officialUrl": "http://www.pecos.com.tw/"
+    "officialUrl": "http://www.pecos.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22439",
@@ -1187,7 +1251,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22439b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=News_C020",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22459",
@@ -1204,7 +1269,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22459b.jpg",
     "activityUrl": "https://linemember.godiva.com.tw/cb-web/receipt/index",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "ext-tax-101",
@@ -1225,7 +1291,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://tpctax.gov.taipei/",
-    "officialUrl": "https://tpctax.gov.taipei/"
+    "officialUrl": "https://tpctax.gov.taipei/",
+    "is_expired": false
   },
   {
     "id": "ext-tax-102",
@@ -1245,7 +1312,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.tax.ntpc.gov.tw/",
-    "officialUrl": "https://www.tax.ntpc.gov.tw/"
+    "officialUrl": "https://www.tax.ntpc.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-tax-103",
@@ -1265,7 +1333,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.tax.taichung.gov.tw/",
-    "officialUrl": "https://www.tax.taichung.gov.tw/"
+    "officialUrl": "https://www.tax.taichung.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-tax-105",
@@ -1284,7 +1353,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.kctax.gov.tw/",
-    "officialUrl": "https://www.kctax.gov.tw/"
+    "officialUrl": "https://www.kctax.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-103",
@@ -1304,7 +1374,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.leofoovillage.com.tw/",
-    "officialUrl": "https://www.leofoovillage.com.tw/"
+    "officialUrl": "https://www.leofoovillage.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-park-01",
@@ -1324,7 +1395,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1508873696983-2df5293cb325?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.edathemepark.com.tw/",
-    "officialUrl": "https://www.edathemepark.com.tw/"
+    "officialUrl": "https://www.edathemepark.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-park-02",
@@ -1343,7 +1415,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.janfusun.com.tw/",
-    "officialUrl": "https://www.janfusun.com.tw/"
+    "officialUrl": "https://www.janfusun.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-park-03",
@@ -1362,7 +1435,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.lihpaoresort.com/",
-    "officialUrl": "https://www.lihpaoresort.com/"
+    "officialUrl": "https://www.lihpaoresort.com/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-park-04",
@@ -1381,7 +1455,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.farglory-oceanpark.com.tw/",
-    "officialUrl": "https://www.farglory-oceanpark.com.tw/"
+    "officialUrl": "https://www.farglory-oceanpark.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-bday-104",
@@ -1400,7 +1475,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.ambassador.com.tw/",
-    "officialUrl": "https://www.ambassador.com.tw/"
+    "officialUrl": "https://www.ambassador.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-107",
@@ -1421,7 +1497,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://group.openpoint.com.tw/",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-108",
@@ -1441,7 +1518,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.family.com.tw/",
-    "officialUrl": "https://www.family.com.tw/"
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22422",
@@ -1458,7 +1536,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22422b.jpg",
     "activityUrl": "https://www.facebook.com/share/p/19TydVsS9w/",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22424",
@@ -1475,7 +1554,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22424b.jpg",
     "activityUrl": "https://hitona.com.tw/one/2026-lucky-draw",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22421",
@@ -1493,7 +1573,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22421b.jpg",
     "activityUrl": "https://panasonicbattery.hengstyle.com/lottery-content/A56436c2181d",
-    "officialUrl": "https://www.panasonic.com/tw/"
+    "officialUrl": "https://www.panasonic.com/tw/",
+    "is_expired": false
   },
   {
     "id": "22477",
@@ -1510,7 +1591,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22477b.jpg",
     "activityUrl": "https://drive.google.com/file/d/1pPhZIX5dyJhcy19_MSMkBnSnqMYE_f9O/view",
-    "officialUrl": "https://www.clc.com.tw/"
+    "officialUrl": "https://www.clc.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22456",
@@ -1527,7 +1609,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22456b.jpg",
     "activityUrl": "https://www.qingfengfood.com/zh-TW/pages/40th-anniversary",
-    "officialUrl": "https://www.qingfengfood.com/"
+    "officialUrl": "https://www.qingfengfood.com/",
+    "is_expired": false
   },
   {
     "id": "22464",
@@ -1544,7 +1627,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22464b.jpg",
     "activityUrl": "https://www.shallop.com.tw/blogs/news/261112",
-    "officialUrl": "https://www.shallop.com.tw/"
+    "officialUrl": "https://www.shallop.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22436",
@@ -1561,7 +1645,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22436b.jpg",
     "activityUrl": "https://shopping.hccg.gov.tw/",
-    "officialUrl": "https://www.hccg.gov.tw/"
+    "officialUrl": "https://www.hccg.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "22470",
@@ -1578,7 +1663,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22470b.jpg",
     "activityUrl": "https://www.surveycake.com/s/3qQzM",
-    "officialUrl": "https://www.ricola.com/zh-tw"
+    "officialUrl": "https://www.ricola.com/zh-tw",
+    "is_expired": false
   },
   {
     "id": "22093",
@@ -1596,7 +1682,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22093b.jpg",
     "activityUrl": "https://events.ucc.com.tw/21",
-    "officialUrl": "https://www.ucc.com.tw/"
+    "officialUrl": "https://www.ucc.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22240",
@@ -1613,7 +1700,8 @@
     ],
     "imageUrl": "https://onelife.tw#",
     "activityUrl": "https://www.ctbcbank.com/content/dam/minisite/long/atm/ATM/P3.html",
-    "officialUrl": "https://www.ctbcbank.com/"
+    "officialUrl": "https://www.ctbcbank.com/",
+    "is_expired": false
   },
   {
     "id": "22412",
@@ -1630,7 +1718,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22412b.jpg",
     "activityUrl": "https://cadina95.lianhwa.com.tw/cc-14",
-    "officialUrl": "http://www.lianhwa.com.tw/"
+    "officialUrl": "http://www.lianhwa.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22402",
@@ -1647,7 +1736,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22402b.jpg",
     "activityUrl": "https://ad.wanthome.com.tw/2026RiceQ3/",
-    "officialUrl": "http://www.wanthome.com.tw/"
+    "officialUrl": "http://www.wanthome.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22369",
@@ -1664,7 +1754,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22369b.jpg",
     "activityUrl": "https://www.laurel.com.tw/index.php?action=activity&id=123",
-    "officialUrl": "https://www.laurel.com.tw/"
+    "officialUrl": "https://www.laurel.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22453",
@@ -1681,7 +1772,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22453b.jpg",
     "activityUrl": "https://www.cokeplus.tw/missionDetail?slug=p11cokewithmeat&id=128",
-    "officialUrl": "https://www.coke.com.tw/"
+    "officialUrl": "https://www.coke.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22476",
@@ -1698,7 +1790,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22476b.jpg",
     "activityUrl": "https://shingher.com.tw/events/39",
-    "officialUrl": "https://shingher.com.tw/"
+    "officialUrl": "https://shingher.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22479",
@@ -1715,7 +1808,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22479b.jpg",
     "activityUrl": "https://www.27662000.com.tw/pages/202611-invoice-draw",
-    "officialUrl": "https://www.27662000.com.tw/"
+    "officialUrl": "https://www.27662000.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-103",
@@ -1735,7 +1829,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://chcg.gov.tw/",
-    "officialUrl": "https://www.chcg.gov.tw/"
+    "officialUrl": "https://www.chcg.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-109",
@@ -1754,7 +1849,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.starlux-airlines.com/",
-    "officialUrl": "https://www.starlux-airlines.com/"
+    "officialUrl": "https://www.starlux-airlines.com/",
+    "is_expired": false
   },
   {
     "id": "ext-110",
@@ -1775,7 +1871,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.watsons.com.tw/",
-    "officialUrl": "https://www.watsons.com.tw/"
+    "officialUrl": "https://www.watsons.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-104",
@@ -1795,7 +1892,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.lianhwa.com.tw/",
-    "officialUrl": "https://www.lianhwa.com.tw/"
+    "officialUrl": "https://www.lianhwa.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-105",
@@ -1815,7 +1913,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1510519138171-cbe656418844?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.agv.com.tw/",
-    "officialUrl": "https://www.agv.com.tw/"
+    "officialUrl": "https://www.agv.com.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-101",
@@ -1837,7 +1936,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://tainanshopping.tw/",
-    "officialUrl": "https://www.tainan.gov.tw/"
+    "officialUrl": "https://www.tainan.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "22469",
@@ -1854,7 +1954,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22469b.jpg",
     "activityUrl": "https://asiastar.com.tw/invEvent/event2026",
-    "officialUrl": ""
+    "officialUrl": "",
+    "is_expired": false
   },
   {
     "id": "22441",
@@ -1873,7 +1974,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22441b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Event_E040",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22467",
@@ -1892,7 +1994,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22467b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Event_E040",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22468",
@@ -1909,7 +2012,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22468b.jpg",
     "activityUrl": "http://www.gpbatteries-luckydraw.com.tw/",
-    "officialUrl": "http://tw.gpbatteries.com/"
+    "officialUrl": "http://tw.gpbatteries.com/",
+    "is_expired": false
   },
   {
     "id": "ext-102",
@@ -1931,7 +2035,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://edb.tycg.gov.tw/",
-    "officialUrl": "https://www.tycg.gov.tw/"
+    "officialUrl": "https://www.tycg.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "22451",
@@ -1948,7 +2053,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22451b.jpg",
     "activityUrl": "https://tainanshopping.tw/",
-    "officialUrl": "https://www.tainan.gov.tw/"
+    "officialUrl": "https://www.tainan.gov.tw/",
+    "is_expired": false
   },
   {
     "id": "ext-106",
@@ -1969,7 +2075,8 @@
     ],
     "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.kingcar.com.tw/",
-    "officialUrl": "https://www.kingcar.com.tw/"
+    "officialUrl": "https://www.kingcar.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22414",
@@ -1986,7 +2093,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22414b.jpg",
     "activityUrl": "https://kobayashi-tw.com/kairoevent/2026-2027.html",
-    "officialUrl": "https://kobayashi-tw.com/"
+    "officialUrl": "https://kobayashi-tw.com/",
+    "is_expired": false
   },
   {
     "id": "22433",
@@ -2004,7 +2112,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22433b.jpg",
     "activityUrl": "https://campaign.heysong.com.tw/VM20261019",
-    "officialUrl": "http://www.heysong.com.tw/"
+    "officialUrl": "http://www.heysong.com.tw/",
+    "is_expired": false
   },
   {
     "id": "22452",
@@ -2021,7 +2130,268 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22452b.jpg",
     "activityUrl": "https://100spotlights.taiwan.net.tw/",
-    "officialUrl": "https://www.motc.gov.tw/"
+    "officialUrl": "https://www.motc.gov.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22462",
+    "title": "TOBLERONE瑞士三角巧克力抽BRUNO寶可夢電烤盤",
+    "brand": "精選品牌",
+    "tags": [
+      "抽家電"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/24(二)",
+    "deadline": "2026/11/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22462b.jpg",
+    "activityUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdINZD-RtirW6h0_gtVFetePYXcd5AMsqd2MNJVeCQ4kZA6Xg/viewform",
+    "officialUrl": "http://www.mondelezinternational.com/",
+    "is_expired": true
+  },
+  {
+    "id": "22445",
+    "title": "全家抽獎隨買跨店取共享轉贈商品抽百杯特濃拿鐵",
+    "brand": "全家",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/24(二)",
+    "deadline": "2026/11/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22445b.jpg",
+    "activityUrl": "https://nevent.family.com.tw/20261111ecdiscount/",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22444",
+    "title": "全家抽獎史上最狂雙11抽元寶小金豆",
+    "brand": "全家",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/24(二)",
+    "deadline": "2026/11/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22444b.jpg",
+    "activityUrl": "https://nevent.family.com.tw/2026_1111/",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22443",
+    "title": "全家抽獎帳單繳費取票換好禮抽北海道泰國機票住宿",
+    "brand": "全家",
+    "tags": [
+      "超商專區",
+      "抽機票"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/24(二)",
+    "deadline": "2026/11/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22443b.jpg",
+    "activityUrl": "https://nevent.family.com.tw/weekdiscount/",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22447",
+    "title": "桂格天地合補抽獎7-11限定40周年抽東京來回機票",
+    "brand": "佳格",
+    "tags": [
+      "超商專區",
+      "抽機票"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/24(二)",
+    "deadline": "2026/11/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22447b.jpg",
+    "activityUrl": "https://dr.sfworldwide.com/index.aspx?a=1199",
+    "officialUrl": "https://www.sfworldwide.com/",
+    "is_expired": true
+  },
+  {
+    "id": "22440",
+    "title": "7-11抽獎會員繳費贈購物金加碼抽iPhone18 Pro",
+    "brand": "7-11",
+    "tags": [
+      "超商專區",
+      "抽iPhone"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/10(二)",
+    "deadline": "2026/11/10",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22440b.jpg",
+    "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=News_C019",
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22394",
+    "title": "全家限定中華職棒應援抽王柏融簽名球",
+    "brand": "全家",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/9/30(三) ~ 2026/10/27(二)",
+    "deadline": "2026/10/27",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22394b.jpg",
+    "activityUrl": "https://www.family.com.tw/Marketing/zh",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22393",
+    "title": "全家抽獎帳單繳費取票換好禮抽2萬Fami錢包購物金",
+    "brand": "全家",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/9/30(三) ~ 2026/10/27(二)",
+    "deadline": "2026/10/27",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22393b.jpg",
+    "activityUrl": "https://nevent.family.com.tw/weekdiscount/",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22395",
+    "title": "全家棒球俱樂部MLB冠軍預測抽10萬旅遊金",
+    "brand": "全家",
+    "tags": [
+      "超商專區",
+      "抽機票"
+    ],
+    "time": "2026/9/30(三) ~ 2026/10/13(二)",
+    "deadline": "2026/10/13",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22395b.jpg",
+    "activityUrl": "https://www.family.com.tw/Marketing/zh",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22262",
+    "title": "萊爾富抽獎天天刷聯邦單筆滿199元抽黃金豆",
+    "brand": "萊爾富",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/7/22(三) ~ 2026/9/15(二)",
+    "deadline": "2026/9/15",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22262b.jpg",
+    "activityUrl": "https://www.hilife.com.tw/page/detail-activity/37/c000288",
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22158",
+    "title": "OK超商仲夏狂歡涼一夏抽日本機票抵用券、dyson空氣清淨機",
+    "brand": "OK超商",
+    "tags": [
+      "超商專區",
+      "抽機票",
+      "抽家電"
+    ],
+    "time": "2026/5/28(四) ~ 2026/6/24(三)",
+    "deadline": "2026/6/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22158b.jpg",
+    "activityUrl": "https://www.okmart.com.tw/lottery_event?ID=251",
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22052",
+    "title": "萊爾富抽獎刷聯邦趣泰國抽泰國來回機票",
+    "brand": "萊爾富",
+    "tags": [
+      "超商專區",
+      "抽機票"
+    ],
+    "time": "2026/4/1(三) ~ 2026/5/26(二)",
+    "deadline": "2026/5/26",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "https://www.hilife.com.tw/events_infoData.aspx?sid=6598",
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21752",
+    "title": "萊爾富抽獎馬年發財卡福袋火熱販售中抽輝達台積電股票",
+    "brand": "萊爾富",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2025/10/29(三) ~ 2026/2/22(日)",
+    "deadline": "2026/2/22",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21752b.jpg",
+    "activityUrl": "https://www.hilife.com.tw/event/eventactivity/EventInfo/Index?eventid=25redpacket",
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21666",
+    "title": "萊爾富樂法X桃源深處有人家抽Switch2",
+    "brand": "萊爾富",
+    "tags": [
+      "超商專區",
+      "抽家電"
+    ],
+    "time": "2025/10/1(三) ~ 2025/10/28(二)",
+    "deadline": "2025/10/28",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21666b.jpg",
+    "activityUrl": "https://www.novastargame.net/gamecenter/Luoluo.Official/luoluohilife/",
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
   },
   {
     "id": "21716",
@@ -2038,7 +2408,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/21716b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Food_G025",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22466",
@@ -2055,7 +2426,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22466b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Food_G025",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22458",
@@ -2072,7 +2444,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22458b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Event_E038",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22457",
@@ -2089,7 +2462,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22457b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Food_G025",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22442",
@@ -2106,7 +2480,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22442b.jpg",
     "activityUrl": "https://nevent.family.com.tw/freshfood/",
-    "officialUrl": "https://www.family.com.tw/"
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
   },
   {
     "id": "21789",
@@ -2123,7 +2498,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/21789b.jpg",
     "activityUrl": "https://www.hilife.com.tw/events_infoData.aspx?sid=6415",
-    "officialUrl": "https://www.hilife.com.tw/"
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
   },
   {
     "id": "21665",
@@ -2140,7 +2516,8 @@
     ],
     "imageUrl": "https://onelife.tw#",
     "activityUrl": "https://www.hilife.com.tw/events_infoData.aspx?sid=6377",
-    "officialUrl": "https://www.hilife.com.tw/"
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
   },
   {
     "id": "21664",
@@ -2157,7 +2534,8 @@
     ],
     "imageUrl": "https://onelife.tw#",
     "activityUrl": "https://www.hilife.com.tw/events_activity.aspx",
-    "officialUrl": "https://www.hilife.com.tw/"
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22431",
@@ -2174,7 +2552,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22431b.jpg",
     "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3551",
-    "officialUrl": "https://www.okmart.com.tw/"
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22381",
@@ -2191,7 +2570,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22381b.jpg",
     "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3542",
-    "officialUrl": "https://www.okmart.com.tw/"
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22320",
@@ -2208,7 +2588,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22320b.jpg",
     "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3535",
-    "officialUrl": "https://www.okmart.com.tw/"
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22268",
@@ -2225,7 +2606,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22268b.jpg",
     "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3526",
-    "officialUrl": "https://www.okmart.com.tw/"
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22221",
@@ -2242,7 +2624,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22221b.jpg",
     "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3519",
-    "officialUrl": "https://www.okmart.com.tw/"
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22159",
@@ -2259,7 +2642,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22159b.jpg",
     "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3512",
-    "officialUrl": "https://www.okmart.com.tw/"
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22296",
@@ -2276,7 +2660,8 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22296b.jpg",
     "activityUrl": "https://www.7-11.com.tw/event/26loveDad/index.aspx",
-    "officialUrl": "https://www.7-11.com.tw/"
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
   },
   {
     "id": "22239",
@@ -2293,6 +2678,7 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22239b.jpg",
     "activityUrl": "https://www.ctbcbank.com/content/dam/minisite/long/atm/ATM/P4.html",
-    "officialUrl": "https://www.ctbcbank.com/"
+    "officialUrl": "https://www.ctbcbank.com/",
+    "is_expired": true
   }
 ]

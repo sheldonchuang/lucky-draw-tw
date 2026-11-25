@@ -1010,7 +1010,12 @@
       return null;
     }
 
-    function isExpired(deadlineStr) {
+    function isExpired(item) {
+      if (!item) return false;
+      if (item.is_expired === true) return true;
+      if (item.is_expired === false) return false;
+      const deadlineStr = typeof item === 'string' ? item : item.deadline;
+      if (!deadlineStr) return true;
       const days = getRemainingDays(deadlineStr);
       return days !== null && days < 0;
     }
@@ -1038,7 +1043,7 @@
 
     // 每日自動生成與輪替最新文案邏輯 (支援自動每日換檔與手動隨機換檔)
     function regenerateDailyPosts(isRandom = false) {
-      const activeEvents = allEvents.filter(e => !isExpired(e.deadline));
+      const activeEvents = allEvents.filter(e => !isExpired(e));
       const todayStr = `${BASE_DATE.getMonth() + 1}月${BASE_DATE.getDate()}日`;
 
       // 1. 即將截止 (依截止日由近到遠排序)
