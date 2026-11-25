@@ -652,13 +652,21 @@
 
     <!-- ==================== 2. Threads 一鍵發文推廣區塊 ==================== -->
     <div id="threadsSection">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-        <h2 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text);">
-          <i class="fa-brands fa-threads"></i> 今日專屬推廣文案
-        </h2>
-        <button class="btn btn-copy" onclick="regenerateDailyPosts()" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; background: #FFFFFF;">
-          <i class="fa-solid fa-arrows-rotate"></i> 重新載入今日最新活動文案
-        </button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--text); margin-bottom: 0.25rem;">
+            <i class="fa-brands fa-threads"></i> 每日自動輪換推廣文案
+          </h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">全自動依每日日期輪換精選活動，可一鍵直通 Threads 發文！</p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn btn-copy" onclick="regenerateDailyPosts(false)" style="padding: 0.45rem 0.85rem; font-size: 0.8rem; background: #FFFFFF;">
+            <i class="fa-solid fa-calendar-day"></i> 今日預設輪播文案
+          </button>
+          <button class="btn btn-primary" onclick="regenerateDailyPosts(true)" style="padding: 0.45rem 0.85rem; font-size: 0.8rem; background: var(--accent);">
+            <i class="fa-solid fa-shuffle"></i> 🎲 隨機換一批活動
+          </button>
+        </div>
       </div>
 
       <!-- 範本 1：超商族發票共鳴款 -->
@@ -726,16 +734,55 @@
         </div>
       </div>
 
-      <!-- 範本 6：Epic 限免正版遊戲＆壽星免費好康款 -->
+      <!-- 範本 6：Epic 限免正版遊戲＆限免喜加一款 -->
       <div class="post-card">
         <div class="card-top">
-          <span class="template-tag"><i class="fa-solid fa-gamepad"></i> 範本六：限免正版遊戲＆壽星好康款</span>
-          <span class="template-desc">年輕學生與壽星社群無腦狂讚</span>
+          <span class="template-tag"><i class="fa-solid fa-gamepad"></i> 範本六：限免正版遊戲喜加一款</span>
+          <span class="template-desc">年輕學生與遊戲社群無腦狂讚</span>
         </div>
         <textarea id="text-6" class="textarea-box"></textarea>
         <div class="actions-bar">
           <button class="btn btn-copy" onclick="copyText('text-6')"><i class="fa-regular fa-copy"></i> 複製內文</button>
           <button class="btn btn-threads" onclick="postToThreads('text-6')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
+        </div>
+      </div>
+
+      <!-- 範本 7：速食連鎖＆咖啡買一送一與隱藏神券款 -->
+      <div class="post-card">
+        <div class="card-top">
+          <span class="template-tag"><i class="fa-solid fa-burger"></i> 範本七：速食＆咖啡買一送一神券款</span>
+          <span class="template-desc">麥當勞、摩斯、肯德基、星巴克/伯朗/路易莎、韓式炸雞與日式丼飯</span>
+        </div>
+        <textarea id="text-7" class="textarea-box"></textarea>
+        <div class="actions-bar">
+          <button class="btn btn-copy" onclick="copyText('text-7')"><i class="fa-regular fa-copy"></i> 複製內文</button>
+          <button class="btn btn-threads" onclick="postToThreads('text-7')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
+        </div>
+      </div>
+
+      <!-- 範本 8：各大主題樂園 0 元與連鎖餐廳壽星特輯款 -->
+      <div class="post-card">
+        <div class="card-top">
+          <span class="template-tag"><i class="fa-solid fa-cake-candles"></i> 範本八：樂園0元門票＆餐廳壽星特輯款</span>
+          <span class="template-desc">六福村/義大 0 元入園、免費整顆生日蛋糕、幾歲送幾隻炸雞翅與半價吃到飽</span>
+        </div>
+        <textarea id="text-8" class="textarea-box"></textarea>
+        <div class="actions-bar">
+          <button class="btn btn-copy" onclick="copyText('text-8')"><i class="fa-regular fa-copy"></i> 複製內文</button>
+          <button class="btn btn-threads" onclick="postToThreads('text-8')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
+        </div>
+      </div>
+
+      <!-- 範本 9：每日免費領點（1點抵1元現金）小資存錢款 -->
+      <div class="post-card">
+        <div class="card-top">
+          <span class="template-tag"><i class="fa-solid fa-coins"></i> 範本九：每日免費賺點（1點折1元）小資存錢款</span>
+          <span class="template-desc">LINE POINTS、蝦皮蝦幣、街口幣、MOMO 幣每日任務無門檻直接折現</span>
+        </div>
+        <textarea id="text-9" class="textarea-box"></textarea>
+        <div class="actions-bar">
+          <button class="btn btn-copy" onclick="copyText('text-9')"><i class="fa-regular fa-copy"></i> 複製內文</button>
+          <button class="btn btn-threads" onclick="postToThreads('text-9')"><i class="fa-brands fa-threads"></i> 直通 Threads 發文 ↗</button>
         </div>
       </div>
     </div>
@@ -968,25 +1015,68 @@
       return days !== null && days < 0;
     }
 
-    // 每日自動生成最新文案邏輯
-    function regenerateDailyPosts() {
-      const activeEvents = allEvents.filter(e => !isExpired(e.deadline));
+    // 依當日日期數字建立確定性每日輪轉種子 (每天自動看到不同精選組合，亦支援隨機換檔)
+    function pickRotatingItems(array, count, isRandom = false, seedOffset = 0) {
+      if (!array || array.length === 0) return [];
+      if (array.length <= count) return [...array];
+      
+      if (isRandom) {
+        const shuffled = [...array].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+      }
+      
+      const d = BASE_DATE;
+      const dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+      const startIndex = (dayOfYear * 2 + seedOffset) % array.length;
+      
+      const result = [];
+      for (let i = 0; i < count; i++) {
+        result.push(array[(startIndex + i) % array.length]);
+      }
+      return result;
+    }
 
-      // 1. 取得即將截止的 TOP 3
-      const urgentEvents = [...activeEvents].sort((a, b) => {
+    // 每日自動生成與輪替最新文案邏輯 (支援自動每日換檔與手動隨機換檔)
+    function regenerateDailyPosts(isRandom = false) {
+      const activeEvents = allEvents.filter(e => !isExpired(e.deadline));
+      const todayStr = `${BASE_DATE.getMonth() + 1}月${BASE_DATE.getDate()}日`;
+
+      // 1. 即將截止 (依截止日由近到遠排序)
+      const urgentSorted = [...activeEvents].sort((a, b) => {
         const daysA = getRemainingDays(a.deadline) ?? 999;
         const daysB = getRemainingDays(b.deadline) ?? 999;
         return daysA - daysB;
-      }).slice(0, 3);
+      });
+      const urgentEvents = isRandom ? pickRotatingItems(urgentSorted.slice(0, 8), 3, true) : urgentSorted.slice(0, 3);
 
-      // 2. 取得免消費即抽的 TOP 3
-      const freeEvents = activeEvents.filter(e => e.tags.includes('免消費即抽')).slice(0, 3);
+      // 2. 免消費即抽 (每日輪播 3 檔)
+      const freePool = activeEvents.filter(e => e.tags.includes('免消費即抽'));
+      const freeEvents = pickRotatingItems(freePool, 3, isRandom, 1);
 
-      // 3. 取得抽 iPhone / 家電的 TOP 3
-      const gadgetEvents = activeEvents.filter(e => e.tags.includes('抽iPhone') || e.tags.includes('抽家電')).slice(0, 4);
+      // 3. 抽 iPhone / 家電 (每日輪播 4 檔)
+      const gadgetPool = activeEvents.filter(e => e.tags.includes('抽iPhone') || e.tags.includes('抽家電'));
+      const gadgetEvents = pickRotatingItems(gadgetPool, 4, isRandom, 2);
 
-      // 4. 取得當前日期
-      const todayStr = `${BASE_DATE.getMonth() + 1}月${BASE_DATE.getDate()}日`;
+      // 4. 地方稅捐處發票換禮券 (每日輪播 2 檔)
+      const voucherPool = activeEvents.filter(e => e.tags.includes('發票換禮券'));
+      const voucherEvents = pickRotatingItems(voucherPool, 2, isRandom, 3);
+
+      // 5. 買一送一與隱藏神券 (每日輪播)
+      const bogoPool = activeEvents.filter(e => e.tags.includes('買一送一'));
+      const bogoEvents = pickRotatingItems(bogoPool, 2, isRandom, 4);
+      const bogoEventsFast = pickRotatingItems(bogoPool, 3, isRandom, 7);
+
+      // 6. 限免遊戲與喜加一
+      const gamePool = activeEvents.filter(e => e.tags.includes('限免遊戲'));
+      const gameEvents = pickRotatingItems(gamePool, 2, isRandom, 5);
+
+      // 7. 壽星免費好康 (各大樂園與連鎖餐廳每日輪播)
+      const bdayPool = activeEvents.filter(e => e.tags.includes('壽星好康'));
+      const bdayEvents = pickRotatingItems(bdayPool, 3, isRandom, 6);
+
+      // 8. 每日免費賺點 (1點抵1元現金)
+      const pointsPool = activeEvents.filter(e => e.tags.includes('免費領點'));
+      const pointsEvents = pickRotatingItems(pointsPool, 3, isRandom, 8);
 
       // 範本 1：超商族發票共鳴款
       let urgentListText = '';
@@ -995,7 +1085,6 @@
         const dayStr = days !== null ? `（倒數剩 ${days} 天截止）` : '';
         urgentListText += `${idx + 1}. 【${e.brand}】${e.title}${dayStr}\n`;
       });
-
       document.getElementById('text-1').value = `大家在超商買完東西，發票千萬不要順手丟掉……\n\n【${todayStr} 最新快報】今天盤點全台灣目前快截止的超商與品牌抽獎，很多人都不知道現在能登錄：\n\n${urgentListText.trim()}\n\n越快截止的我直接排在最上面了，還有分出「完全不用花錢就能抽」的專區！\n\n查自己手邊發票能不能抽 👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
 
       // 範本 2：免消費好康款
@@ -1003,8 +1092,7 @@
       freeEvents.forEach(e => {
         freeListText += `• 【${e.brand}】${e.title}（大獎：${e.prizes[0] || '官方大獎'}）\n`;
       });
-
-      document.getElementById('text-2').value = `討厭登錄發票但想抽大獎的看這篇 ✈️\n\n【${todayStr} 最新整理】目前全台 ${activeEvents.filter(e => e.tags.includes('免消費即抽')).length} 檔【完全免消費、免買東西】就能參加的官方抽獎：\n\n${freeListText.trim()}\n\n已經把過期的通通濾掉了，只留現在能抽的，直接點進去就是原廠官方登錄頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議先存到手機主畫面，每天上去看一下有沒有新大獎）`;
+      document.getElementById('text-2').value = `討厭登錄發票但想抽大獎的看這篇 ✈️\n\n【${todayStr} 最新整理】目前全台 ${freePool.length} 檔【完全免消費、免買東西】就能參加的官方抽獎：\n\n${freeListText.trim()}\n\n已經把過期的通通濾掉了，只留現在能抽的，直接點進去就是原廠官方登錄頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議先存到手機主畫面，每天上去看一下有沒有新大獎）`;
 
       // 範本 3：iPhone & 家電大獎倒數款
       let gadgetListText = '';
@@ -1013,15 +1101,12 @@
         const dayStr = days !== null ? `（剩 ${days} 天）` : '';
         gadgetListText += `- 【${e.brand}】${e.title} ${dayStr}\n`;
       });
-
       document.getElementById('text-3').value = `想換 iPhone 或抽家電的注意了 📱\n\n【${todayStr} 抽獎盤點】全台目前有 ${activeEvents.filter(e => e.tags.includes('抽iPhone')).length} 檔抽 iPhone、${activeEvents.filter(e => e.tags.includes('抽家電')).length} 檔抽家電的大獎活動：\n\n${gadgetListText.trim()}\n\n越快截止的排在越前面，過期的都直接拿掉了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
 
       // 範本 4：生活誌工具分享款
-      document.getElementById('text-4').value = `之前覺得各大品牌的抽獎與好康網頁分散在四處超難找，常常看到時都已經過期…\n\n乾脆自己做了一個台灣抽獎與免費情報小站，介面做成日系生活誌的樣子，每頁排 9 個乾淨俐落，每天早上 8 點會自動爬最新官方活動。\n\n包含發票免費換禮券、超商買一送一神券、壽星好康、Epic限免遊戲都有分類，歡迎常抽獎與省錢的朋友拿去用，完全免費無廣告干擾：\n🔗 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-4').value = `之前覺得各大品牌的抽獎與好康網頁分散在四處超難找，常常看到時都已經過期…\n\n乾脆自己做了一個台灣抽獎與免費情報小站，介面做成日系生活誌的樣子，每頁排 9 個乾淨俐落，每天深夜 00:00 會在雲端自動爬取並更新最新官方活動。\n\n包含發票免費換禮券、超商買一送一神券、壽星好康、Epic限免遊戲都有分類，歡迎常抽獎與省錢的朋友拿去用，完全免費無廣告干擾：\n🔗 https://sheldonchuang.github.io/lucky-draw-tw/`;
 
       // 範本 5：雲端發票換禮券 & 超商買一送一神券款
-      const voucherEvents = activeEvents.filter(e => e.tags.includes('發票換禮券')).slice(0, 2);
-      const bogoEvents = activeEvents.filter(e => e.tags.includes('買一送一')).slice(0, 2);
       let voucherText = '';
       voucherEvents.forEach(e => {
         voucherText += `• 【${e.brand}】${e.title}\n`;
@@ -1030,22 +1115,35 @@
       bogoEvents.forEach(e => {
         bogoText += `• 【${e.brand}】${e.title}\n`;
       });
-
       document.getElementById('text-5').value = `很多人不知道：手邊的雲端發票不用抽獎，就能直接免費換 7-11 與全聯商品券 🎫\n\n【${todayStr} 最新好康整理】\n\n📍 地方稅捐處發票換禮券專區（免抽獎保證換）：\n${voucherText.trim()}\n\n☕️ 本週超商週末特惠＆速食隱藏神券：\n${bogoText.trim()}\n\n詳細兌換步驟與官方頁面都整理在小站裡了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
 
-      // 範本 6：Epic 限免正版遊戲＆壽星/領點款
-      const gameEvents = activeEvents.filter(e => e.tags.includes('限免遊戲')).slice(0, 2);
-      const bdayEvents = activeEvents.filter(e => e.tags.includes('壽星好康')).slice(0, 2);
+      // 範本 6：Epic 限免正版遊戲＆限免喜加一款
       let gameText = '';
       gameEvents.forEach(e => {
         gameText += `🎮 【${e.brand}】${e.title}\n`;
       });
-      let bdayText = '';
-      bdayEvents.forEach(e => {
-        bdayText += `🎂 【${e.brand}】${e.title}\n`;
-      });
+      document.getElementById('text-6').value = `本週正版免費遊戲喜加一情報整理 🎮\n\n【${todayStr} 限免遊戲快報】\n\n${gameText.trim()}\n\n完全 0 元直接永久入庫，不花冤枉錢！點進去就能直通官方領取頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議把網頁存到桌面，每週定期上去收割正版遊戲）`;
 
-      document.getElementById('text-6').value = `本週正版免費遊戲與壽星專屬好康整理 🎮🍰\n\n【${todayStr} 免費情報快報】\n\n${gameText.trim()}\n\n${bdayText.trim()}\n\n完全 0 元直接領取，不花冤枉錢！點進去就能直通官方領取頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議把網頁存到桌面，每週定期上去收割正版遊戲跟好康）`;
+      // 範本 7：速食連鎖＆咖啡買一送一神券款
+      let bogoTextFast = '';
+      bogoEventsFast.forEach(e => {
+        bogoTextFast += `🍔 【${e.brand}】${e.title}\n`;
+      });
+      document.getElementById('text-7').value = `今天午餐或下午茶不知道吃什麼？這幾張隱藏神券拿去用 ☕️🍟\n\n【${todayStr} 全台買一送一＆折價神券推薦】\n\n${bogoTextFast.trim()}\n\n整理了麥當勞、摩斯、肯德基、星巴克、伯朗、路易莎、韓式炸雞與吉野家/松屋神券，不用再上網四處爬文，點進去直接直通官方優惠頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議存到手機桌面，結帳前打開來看能省超多錢）`;
+
+      // 範本 8：各大主題樂園 0 元與連鎖餐廳壽星特輯款
+      let bdayText8 = '';
+      bdayEvents.forEach(e => {
+        bdayText8 += `🎂 【${e.brand}】${e.title}\n`;
+      });
+      document.getElementById('text-8').value = `這個月過生日的朋友注意了！不要白白浪費壽星專屬權益 🎡🍰\n\n【${todayStr} 壽星免費好康指南】全台各大遊樂園 0 元免費入園與連鎖餐廳招待：\n\n${bdayText8.trim()}\n\n包含六福村/義大當日壽星 0 元免費暢玩、劍湖山 399 元、金色三麥送 6 吋蛋糕、薄多義幾歲送幾隻雞翅、王品與饗食天堂大禮包！\n\n官方規則與一鍵直達看這邊：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+
+      // 範本 9：每日免費領點（1點抵1元現金）小資存錢款
+      let pointsText9 = '';
+      pointsEvents.forEach(e => {
+        pointsText9 += `💰 【${e.brand}】${e.title}\n`;
+      });
+      document.getElementById('text-9').value = `每天花 1 分鐘免費領點數，超商結帳直接 1 點折 1 元現金 🪙\n\n【${todayStr} 每日免消費賺點盤點】\n\n${pointsText9.trim()}\n\nLINE POINTS、蝦皮蝦幣、街口幣、MOMO 幣天天領，繳水電超商消費無腦全折抵！\n\n每日最新領點入口整理：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
     }
 
     // 直通 Threads 發文
