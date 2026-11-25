@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LuckyGo 站長管理後台 | 每日進站人次統計 ＆ Threads 一鍵發文推廣</title>
+  <!-- Google Analytics 4 (GA4) 設定：請將下方單引號內填入您的評估 ID (例如 'G-XXXXXXXXXX') -->
+  <script>
+    window.LUCKYGO_GA4_ID = '';
+    if (window.LUCKYGO_GA4_ID && !window.LUCKYGO_GA4_ID.includes('XXXX')) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.LUCKYGO_GA4_ID);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', window.LUCKYGO_GA4_ID);
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
@@ -569,8 +584,8 @@
       <div class="panel-header">
         <div class="panel-title" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
           <span><i class="fa-solid fa-chart-column" style="color: var(--primary);"></i> 每日進站人次分析</span>
-          <span style="font-size: 0.75rem; background: #EAF2EC; color: #2D5A3C; padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 500; font-family: var(--font-sans);">
-            <i class="fa-solid fa-circle-check"></i> 開站日：2026-11-23（真實進站紀錄累積中）
+          <span id="cloudSyncBadge" style="font-size: 0.75rem; background: #EAF2EC; color: #2D5A3C; padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 500; font-family: var(--font-sans);">
+            <i class="fa-solid fa-cloud"></i> 雲端全站即時同步中...
           </span>
         </div>
 
@@ -811,15 +826,30 @@
     }
 
     const SITE_LAUNCH_DATE = '2026-11-23'; // 網站正式開站日
+    const CLOUD_NS = 'luckygo-tw';
 
-    // 取得真實流量數據 (嚴格自開站日 2026-11-23 統計，不摻入任何模擬假數據)
-    function getTrafficData(startDateStr, endDateStr) {
+    async function fetchCloudValue(key) {
+      try {
+        const res = await fetch(`https://abacus.jasoncameron.dev/get/${CLOUD_NS}/${key}`, { mode: 'cors' });
+        if (res.status === 404) return 0;
+        if (!res.ok) return null;
+        const json = await res.json();
+        return typeof json.value === 'number' ? json.value : 0;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    // 取得全站雲端真實流量數據 (跨裝置/瀏覽器一致，離線時自動退回 localStorage)
+    async function getTrafficData(startDateStr, endDateStr) {
       const stored = JSON.parse(localStorage.getItem('luckygo_traffic_history') || '{}');
       const start = new Date(startDateStr);
       const end = new Date(endDateStr);
+      const todayKey = formatDateKey(new Date());
       
       const results = [];
       const daysOfWeek = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
+      const activeKeys = [];
 
       for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
         const key = formatDateKey(d);
@@ -830,8 +860,6 @@
         let threads = 0;
         let direct = 0;
 
-        // 若日期早於開站日 (2026-11-23)，網站尚未上線，流量一律為 0
-        // 若日期在開站日之後，只讀取 localStorage 中的真實統計數據，無造訪即為 0
         if (key >= SITE_LAUNCH_DATE && stored[key]) {
           pv = stored[key].pv || 0;
           uv = stored[key].uv || (pv > 0 ? 1 : 0);
@@ -839,7 +867,7 @@
           direct = stored[key].direct || 0;
         }
 
-        results.push({
+        const item = {
           date: key,
           dayOfWeek: dayOfWeek,
           shortDate: `${d.getMonth() + 1}/${d.getDate()}`,
@@ -848,15 +876,81 @@
           threads: threads,
           direct: direct,
           isBeforeLaunch: key < SITE_LAUNCH_DATE
-        });
+        };
+        results.push(item);
+        if (key >= SITE_LAUNCH_DATE && key <= todayKey) {
+          activeKeys.push(item);
+        }
+      }
+
+      // 批次讀取雲端資料（控制並發避免觸發頻率限制）
+      let cloudSynced = false;
+      let cache = {};
+      try {
+        cache = JSON.parse(sessionStorage.getItem('luckygo_cloud_cache') || '{}');
+      } catch (e) {}
+
+      const BATCH_DAYS = 4; // 每天 3 個請求 => 每批 12 個請求
+      for (let i = 0; i < activeKeys.length; i += BATCH_DAYS) {
+        const batch = activeKeys.slice(i, i + BATCH_DAYS);
+        await Promise.all(batch.map(async (item) => {
+          const k = item.date;
+          if (k < todayKey && cache[k]) {
+            item.pv = cache[k].pv;
+            item.uv = cache[k].uv;
+            item.threads = cache[k].threads;
+            item.direct = Math.max(0, item.pv - item.threads);
+            cloudSynced = true;
+            return;
+          }
+          const [cPv, cUv, cThreads] = await Promise.all([
+            fetchCloudValue(`pv-${k}`),
+            fetchCloudValue(`uv-${k}`),
+            fetchCloudValue(`threads-${k}`)
+          ]);
+          if (cPv !== null) {
+            cloudSynced = true;
+            item.pv = cPv;
+            item.uv = cUv !== null ? cUv : (cPv > 0 ? 1 : 0);
+            item.threads = cThreads !== null ? cThreads : 0;
+            item.direct = Math.max(0, item.pv - item.threads);
+            if (k < todayKey) {
+              cache[k] = { pv: item.pv, uv: item.uv, threads: item.threads };
+            }
+          }
+        }));
+        if (i + BATCH_DAYS < activeKeys.length) {
+          await new Promise(r => setTimeout(r, 200));
+        }
+      }
+
+      try {
+        sessionStorage.setItem('luckygo_cloud_cache', JSON.stringify(cache));
+      } catch (e) {}
+
+      const badge = document.getElementById('cloudSyncBadge');
+      if (badge) {
+        if (cloudSynced) {
+          badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> 雲端全站即時同步（跨裝置・跨瀏覽器一致）';
+          badge.style.background = '#EAF2EC';
+          badge.style.color = '#2D5A3C';
+        } else {
+          badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 目前顯示本機紀錄（雲端連線中）';
+          badge.style.background = '#FDF4E7';
+          badge.style.color = '#8A5A1B';
+        }
       }
 
       return results;
     }
 
     // 渲染統計圖表與數據
-    function renderAnalytics(startDateStr, endDateStr) {
-      const data = getTrafficData(startDateStr, endDateStr);
+    async function renderAnalytics(startDateStr, endDateStr) {
+      const badge = document.getElementById('cloudSyncBadge');
+      if (badge) {
+        badge.innerHTML = '<i class="fa-solid fa-cloud"></i> 雲端全站資料讀取中...';
+      }
+      const data = await getTrafficData(startDateStr, endDateStr);
       if (data.length === 0) return;
 
       // 1. 計算 KPI 指標
