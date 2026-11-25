@@ -701,6 +701,22 @@
       background: #F6EEE5;
       color: #7B4B27;
     }
+    .tag-3c {
+      background: #E8EDF5;
+      color: #2D3A6B;
+    }
+    .tag-cash {
+      background: #E6F5E8;
+      color: #2B6B35;
+    }
+    .tag-car {
+      background: #F5E6EE;
+      color: #6B2D55;
+    }
+    .tag-scooter {
+      background: #F0EAF5;
+      color: #4B2D6B;
+    }
     .tag-default {
       background: #F1EFEA;
       color: #6A6660;
@@ -1168,6 +1184,22 @@
           <i class="fa-solid fa-tv"></i> 抽家電
           <span class="filter-count" id="count-appliance">0</span>
         </button>
+        <button class="filter-btn" data-tag="抽3C">
+          <i class="fa-solid fa-laptop"></i> 抽3C
+          <span class="filter-count" id="count-3c">0</span>
+        </button>
+        <button class="filter-btn" data-tag="抽現金">
+          <i class="fa-solid fa-money-bill-wave"></i> 抽現金
+          <span class="filter-count" id="count-cash">0</span>
+        </button>
+        <button class="filter-btn" data-tag="抽汽車">
+          <i class="fa-solid fa-car"></i> 抽汽車
+          <span class="filter-count" id="count-car">0</span>
+        </button>
+        <button class="filter-btn" data-tag="抽機車">
+          <i class="fa-solid fa-motorcycle"></i> 抽機車
+          <span class="filter-count" id="count-scooter">0</span>
+        </button>
         <button class="filter-btn" data-tag="登錄發票即抽">
           <i class="fa-solid fa-receipt"></i> 登錄發票即抽
           <span class="filter-count" id="count-invoice">0</span>
@@ -1301,6 +1333,10 @@
       if (tag === '抽機票') return `<span class="tag-badge tag-flight"><i class="fa-solid fa-plane"></i> 抽機票</span>`;
       if (tag === '抽iPhone') return `<span class="tag-badge tag-phone"><i class="fa-solid fa-mobile-screen"></i> 抽iPhone</span>`;
       if (tag === '抽家電') return `<span class="tag-badge tag-appliance"><i class="fa-solid fa-tv"></i> 抽家電</span>`;
+      if (tag === '抽3C') return `<span class="tag-badge tag-3c"><i class="fa-solid fa-laptop"></i> 抽3C</span>`;
+      if (tag === '抽現金') return `<span class="tag-badge tag-cash"><i class="fa-solid fa-money-bill-wave"></i> 抽現金</span>`;
+      if (tag === '抽汽車') return `<span class="tag-badge tag-car"><i class="fa-solid fa-car"></i> 抽汽車</span>`;
+      if (tag === '抽機車') return `<span class="tag-badge tag-scooter"><i class="fa-solid fa-motorcycle"></i> 抽機車</span>`;
       return `<span class="tag-badge tag-default">${tag}</span>`;
     }
 
@@ -1554,6 +1590,10 @@
       document.getElementById('count-flight').innerText = activeEvents.filter(e => e.tags.includes('抽機票')).length;
       document.getElementById('count-phone').innerText = activeEvents.filter(e => e.tags.includes('抽iPhone')).length;
       document.getElementById('count-appliance').innerText = activeEvents.filter(e => e.tags.includes('抽家電')).length;
+      document.getElementById('count-3c').innerText = activeEvents.filter(e => e.tags.includes('抽3C')).length;
+      document.getElementById('count-cash').innerText = activeEvents.filter(e => e.tags.includes('抽現金')).length;
+      document.getElementById('count-car').innerText = activeEvents.filter(e => e.tags.includes('抽汽車')).length;
+      document.getElementById('count-scooter').innerText = activeEvents.filter(e => e.tags.includes('抽機車')).length;
       document.getElementById('count-invoice').innerText = activeEvents.filter(e => e.tags.includes('登錄發票即抽')).length;
       document.getElementById('count-store').innerText = activeEvents.filter(e => e.tags.includes('超商專區')).length;
       document.getElementById('count-urgent').innerText = activeEvents.filter(e => {

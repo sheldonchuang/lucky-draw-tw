@@ -64,12 +64,20 @@ def crawl_onelife_all():
     base_urls = [
         'https://onelife.tw/lucky-draw',
         'https://onelife.tw/hot',
-        'https://onelife.tw/tag/%e6%8a%bd%e7%8d%8e',
-        'https://onelife.tw/tag/%e6%8a%bd%e6%a9%9f%e7%a5%a8',
-        'https://onelife.tw/tag/%e6%8a%bdiPhone',
-        'https://onelife.tw/tag/%e8%b2%b7%e4%b8%80%e9%80%81%e4%b8%80',
-        'https://onelife.tw/tag/%e7%99%bb%e9%8c%84%e7%99%bc%e7%a5%a8',
-        'https://onelife.tw/tag/%e5%ae%b6%e9%9b%bb'
+        # 抽獎類型標籤
+        'https://onelife.tw/tag/抽獎',
+        'https://onelife.tw/tag/抽機票',
+        'https://onelife.tw/tag/抽iPhone',
+        'https://onelife.tw/tag/買一送一',
+        'https://onelife.tw/tag/登錄發票',
+        'https://onelife.tw/tag/家電',
+        # 大獎分類標籤
+        'https://onelife.tw/tag/抽3C',
+        'https://onelife.tw/tag/抽現金',
+        'https://onelife.tw/tag/抽汽車',
+        'https://onelife.tw/tag/抽家電',
+        'https://onelife.tw/tag/抽機車',
+        'https://onelife.tw/tag/抽旅遊',
     ]
 
     # --- 動態抓取所有廠商頁面 ---
@@ -191,14 +199,22 @@ def crawl_onelife_all():
         if any(k in c_qual for k in ['line points', '蝦幣', '街口幣', 'momo幣', '簽到', '賺點']):
             tags.append('免費領點')
 
-        # 獎項標籤 (抽機票、抽iPhone、抽家電)
+        # 獎項標籤 (大獎分類)
         lower_all = (title + " " + " ".join(prizes) + " " + qualification).lower()
-        if any(k in lower_all for k in ['機票', '雙人遊', '機加酒', '旅遊金', '出國', '米蘭', '東京', '北海道', '芬蘭', '峇里島', '泰國', '日本', '歐洲', '首爾', '大阪']):
+        if any(k in lower_all for k in ['機票', '雙人遊', '機加酒', '旅遊金', '出國', '米蘭', '東京', '北海道', '芬蘭', '峇里島', '泰國', '日本', '歐洲', '首爾', '大阪', '環遊世界', '海外旅遊', '旅遊套票']):
             tags.append('抽機票')
-        if any(k in lower_all for k in ['iphone', 'iphone16', 'iphone17', 'iphone18', '手機', '摺疊機', 'apple', '三星', 'pixel']):
+        if any(k in lower_all for k in ['iphone', 'iphone16', 'iphone17', 'iphone18', '手機', '摺疊機', 'apple', '三星', 'pixel', 'ipad', 'airpods', 'apple watch']):
             tags.append('抽iPhone')
-        if any(k in lower_all for k in ['電烤盤', '電視', '空氣清淨機', '音響', '電鍋', '按摩椅', 'dyson', 'panasonic', 'switch', 'bruno', '家電', '自行車', '機車', '吸塵器', '烘衣機', '吹風機']):
+        if any(k in lower_all for k in ['電烤盤', '電視', '空氣清淨機', '音響', '電鍋', '按摩椅', 'dyson', 'panasonic', 'switch', 'bruno', '家電', '吸塵器', '烘衣機', '吹風機', '冰箱', '洗衣機', '微波爐', '掃地機器人', '氣炸鍋', '烤箱', '除濕機', '冷氣']):
             tags.append('抽家電')
+        if any(k in lower_all for k in ['汽車', 'toyota', 'honda', 'mazda', 'benz', 'bmw', 'luxgen', '休旅車', 'rav4', 'altis', 'cross', 'kicks', '轎車', '小客車', 'nissan', 'kia', 'hyundai']):
+            tags.append('抽汽車')
+        if any(k in lower_all for k in ['機車', 'gogoro', '電動車', 'yamaha', 'kymco', 'sym', '三陽', '光陽', '山葉', 'vespa', 'ionex', '油電車', '125cc']):
+            tags.append('抽機車')
+        if any(k in lower_all for k in ['現金', '萬元', '10萬', '100萬', '50萬', '百萬', '千萬', '獎金', '現金大獎', '紅包', '現鈔', '購物金']):
+            tags.append('抽現金')
+        if any(k in lower_all for k in ['3c', '筆電', 'macbook', 'ps5', 'ps6', '耳機', '平板', '電競', '相機', 'gopro', '智慧手錶', 'switch', '遊戲機', 'quest', 'nvidia', 'keyboard', '藍牙喇叭', '行車記錄器']):
+            tags.append('抽3C')
 
         if not tags:
             tags.append('熱門好康')
