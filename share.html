@@ -1071,9 +1071,9 @@
       const bogoEvents = pickRotatingItems(bogoPool, 2, isRandom, 4);
       const bogoEventsFast = pickRotatingItems(bogoPool, 3, isRandom, 7);
 
-      // 6. 限免遊戲與喜加一
+      // 6. 限免遊戲與喜加一 (涵蓋 Steam、Epic、GOG、iOS、Android 每日輪換)
       const gamePool = activeEvents.filter(e => e.tags.includes('限免遊戲'));
-      const gameEvents = pickRotatingItems(gamePool, 2, isRandom, 5);
+      const gameEvents = pickRotatingItems(gamePool, 3, isRandom, 5);
 
       // 7. 壽星免費好康 (各大樂園與連鎖餐廳每日輪播)
       const bdayPool = activeEvents.filter(e => e.tags.includes('壽星好康'));
@@ -1122,12 +1122,12 @@
       });
       document.getElementById('text-5').value = `很多人不知道：手邊的雲端發票不用抽獎，就能直接免費換 7-11 與全聯商品券 🎫\n\n【${todayStr} 最新好康整理】\n\n📍 地方稅捐處發票換禮券專區（免抽獎保證換）：\n${voucherText.trim()}\n\n☕️ 本週超商週末特惠＆速食隱藏神券：\n${bogoText.trim()}\n\n詳細兌換步驟與官方頁面都整理在小站裡了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
 
-      // 範本 6：Epic 限免正版遊戲＆限免喜加一款
+      // 範本 6：PC 限免遊戲＆手機雙平台 0 元手遊喜加一款
       let gameText = '';
       gameEvents.forEach(e => {
         gameText += `🎮 【${e.brand}】${e.title}\n`;
       });
-      document.getElementById('text-6').value = `本週正版免費遊戲喜加一情報整理 🎮\n\n【${todayStr} 限免遊戲快報】\n\n${gameText.trim()}\n\n完全 0 元直接永久入庫，不花冤枉錢！點進去就能直通官方領取頁：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議把網頁存到桌面，每週定期上去收割正版遊戲）`;
+      document.getElementById('text-6').value = `本週 PC 正版限免大作與手機雙平台 0 元限免手遊整理 🎮📱\n\n【${todayStr} 最新限免情報】\n\n${gameText.trim()}\n\n涵蓋 Steam 喜加一、Epic Games、GOG 無 DRM 名作，以及蘋果 iOS App Store / Android Google Play 原價百元手遊限時 0 元永久領取！\n\n官方領取連結都整理在小站裡了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議把網頁存到桌面，每週上去免費領正版大作）`;
 
       // 範本 7：速食連鎖＆咖啡買一送一神券款
       let bogoTextFast = '';

@@ -749,12 +749,13 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.ambassador.com.tw/"
         },
 
-        # === 4. Epic Games / Steam 每週「正版限免遊戲」 ===
+        # === 4. 正版限免遊戲（Steam、GOG、Epic Games、iOS 蘋果手遊、Android 安卓手遊） ===
+        # --- PC 電腦平台（Steam、GOG、Epic Games） ---
         {
             "id": "ext-game-101",
             "title": "Epic Games Store 每週限時免費正版 PC 遊戲・本週精選大作 0 元永久入庫領取",
             "brand": "Epic Games",
-            "tags": ["限免遊戲", "免消費即抽"],
+            "tags": ["限免遊戲", "免消費即抽", "熱門好康"],
             "time": f"每週四晚上 23:00 換檔更新 (本期至 {this_thursday_str})",
             "deadline": this_thursday_str,
             "qualification": "登入 Epic Games 官方網站或客戶端，進入本週免費遊戲專區，點擊『獲取』即可 0 元永久購買並納入個人遊戲收藏庫，永久免費下載遊玩！",
@@ -764,30 +765,84 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://store.epicgames.com/"
         },
         {
-            "id": "ext-game-102",
-            "title": "Steam 平台週末特選限時免費喜加一・正版獨立名作 0 元領取終身擁有",
+            "id": "ext-game-steam-01",
+            "title": "Steam 平台限時免費「喜加一」・正版熱門名作 0 元永久領取入庫終身遊玩",
             "brand": "Steam",
-            "tags": ["限免遊戲"],
-            "time": f"週末限免領取 (本期至 {(this_sunday + timedelta(days=1)).strftime('%Y/%m/%d')})",
+            "tags": ["限免遊戲", "免消費即抽", "熱門好康"],
+            "time": f"限時免費領取 (本期至 {(this_sunday + timedelta(days=1)).strftime('%Y/%m/%d')})",
             "deadline": (this_sunday + timedelta(days=1)).strftime('%Y/%m/%d'),
-            "qualification": "於活動期限內登入 Steam 帳號，於活動特惠頁點擊『新增至帳戶』，即可完全免費獲得正版遊戲授權，終身保留於 Steam 收藏庫中！",
-            "prizes": ["正版 Steam 遊戲永久入庫", "專屬社群徽章與集換式卡片"],
+            "qualification": "活動期限內登入 Steam 官方帳號，進入特惠專區點擊『新增至帳戶』，即可 0 元完全免費獲得正版遊戲授權，終身保留於 Steam 收藏庫，並可獲得社群徽章與集換式卡片！",
+            "prizes": ["正版 Steam 遊戲永久入庫", "官方集換式卡片掉落資格", "成就系統解鎖"],
             "imageUrl": "https://images.unsplash.com/photo-1612287232230-058b8efd8eb8?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://store.steampowered.com/",
+            "activityUrl": "https://store.steampowered.com/genre/Free%20to%20Play/",
             "officialUrl": "https://store.steampowered.com/"
         },
         {
-            "id": "ext-game-103",
-            "title": "GOG.com 經典正版 PC 遊戲無 DRM 限時免費大放送・點擊一鍵入庫永久珍藏",
+            "id": "ext-game-gog-01",
+            "title": "GOG.com 經典正版 PC 遊戲無 DRM 限時免費大放送・免防拷一鍵入庫終身珍藏",
             "brand": "GOG.com",
-            "tags": ["限免遊戲"],
+            "tags": ["限免遊戲", "免消費即抽"],
             "time": f"即日起 ~ {(this_thursday + timedelta(days=7)).strftime('%Y/%m/%d')}",
             "deadline": (this_thursday + timedelta(days=7)).strftime('%Y/%m/%d'),
-            "qualification": "知名無 DRM 數位遊戲平台 GOG 推出限時免費領取活動，登入帳號點擊領取按鈕，即可免費下載無加密的正版遊戲安裝檔與原聲帶！",
-            "prizes": ["無 DRM 正版 PC 遊戲完整版", "數位版官方原聲帶與高畫質美術集"],
+            "qualification": "知名無 DRM 數位平台 GOG 推出限免福利，登入帳號點擊領取，即可永久收藏無加密的正版遊戲完整離線安裝包、原聲帶與高畫質美術集！",
+            "prizes": ["無 DRM 正版 PC 遊戲完整版", "數位版官方原聲帶與高畫質美術集", "免聯網離線安裝檔"],
             "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://www.gog.com/",
+            "activityUrl": "https://www.gog.com/#giveaway",
             "officialUrl": "https://www.gog.com/"
+        },
+
+        # --- 手機雙平台（Apple iOS、Android Google Play）限免專區 ---
+        {
+            "id": "ext-game-ios-01",
+            "title": "蘋果 iOS App Store・本週特選付費手遊限時免費・原價 60~150 元正版 0 元永久下載",
+            "brand": "Apple App Store",
+            "tags": ["限免遊戲", "免消費即抽", "熱門好康"],
+            "time": f"限時免費下載 (本期至 {(today + timedelta(days=6)).strftime('%Y/%m/%d')})",
+            "deadline": (today + timedelta(days=6)).strftime('%Y/%m/%d'),
+            "qualification": "使用 iPhone 或 iPad 打開 App Store，進入遊戲專區點擊『取得』，即可 0 元將原價付費的正版遊戲綁定至個人 Apple ID，即使換機也能終身永久免費重新下載！",
+            "prizes": ["原價百元正版 iOS 手遊 0 元永久領", "無廣告乾淨完整版遊戲授權", "支援 iPhone/iPad 雲端存檔"],
+            "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://apps.apple.com/tw/genre/ios-%E9%81%8A%E6%88%B2/id6014",
+            "officialUrl": "https://www.apple.com/tw/app-store/"
+        },
+        {
+            "id": "ext-game-ios-02",
+            "title": "iOS 經典獨立冒險與解謎名作・限時 0 元免費領取・典藏無內購完整版",
+            "brand": "Apple App Store",
+            "tags": ["限免遊戲", "免消費即抽"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "知名獨立遊戲工作室推出限時免費回饋，進入 App Store 專屬頁面點擊下載，享原價付費冒險解謎神作 0 元免費暢玩，支援 Game Center 成就與離線遊玩！",
+            "prizes": ["經典獨立冒險神作 0 元取得", "無內購完整內容暢玩", "Game Center 專屬成就解鎖"],
+            "imageUrl": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://apps.apple.com/tw/genre/ios-%E9%81%8A%E6%88%B2/id6014",
+            "officialUrl": "https://www.apple.com/tw/app-store/"
+        },
+        {
+            "id": "ext-game-android-01",
+            "title": "Google Play 商店・本週特選付費 Android 手遊 0 元限免・原價 70~210 元正版手遊免破解直接入庫",
+            "brand": "Google Play",
+            "tags": ["限免遊戲", "免消費即抽", "熱門好康"],
+            "time": f"限時免費下載 (本期至 {(today + timedelta(days=6)).strftime('%Y/%m/%d')})",
+            "deadline": (today + timedelta(days=6)).strftime('%Y/%m/%d'),
+            "qualification": "打開 Android 手機或平板上的 Google Play 商店，進入特惠專區點擊『安裝』，即可將原價付費的熱門 Android 遊戲 0 元永久繫結至個人的 Google 帳號，官方正版安全無毒！",
+            "prizes": ["原價付費 Android 正版手遊 0 元永久入庫", "官方正版免破解安全授權", "支援 Google Play 遊戲成就"],
+            "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://play.google.com/store/apps/category/GAME",
+            "officialUrl": "https://play.google.com/"
+        },
+        {
+            "id": "ext-game-android-02",
+            "title": "Google Play Points 會員福利・週週免費摸彩領手遊代金券與專屬熱門虛寶",
+            "brand": "Google Play",
+            "tags": ["限免遊戲", "免費領點"],
+            "time": f"每週福利更新 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "Android 用戶免費加入 Google Play Points 會員，每週至『福利』專區點擊簽到，即可免費抽 Play 點數或兌換熱門手遊免費專屬禮包、無門檻現金折抵金！",
+            "prizes": ["Play Points 免費點數天天領", "熱門手遊專屬免費虛寶禮包", "Play 商店無門檻現金折抵券"],
+            "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://play.google.com/store/points",
+            "officialUrl": "https://play.google.com/"
         },
 
         # === 5. LINE Points / 蝦幣 / 街口幣「每日免費賺點任務」 ===
