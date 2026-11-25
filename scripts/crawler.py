@@ -1,4 +1,5 @@
 import urllib.request
+import urllib.parse
 import re
 import json
 import time
@@ -15,7 +16,12 @@ def clean_text(text):
     return text.strip()
 
 def fetch_url(url):
-    req = urllib.request.Request(url, headers={
+    # 處理 URL 中的非 ASCII 字元（中文廠商名等）
+    parsed = urllib.parse.urlsplit(url)
+    encoded_path = urllib.parse.quote(parsed.path, safe='/:@!$&\'()*+,;=')
+    encoded_query = urllib.parse.quote(parsed.query, safe='/:@!$&\'()*+,;=?')
+    safe_url = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, encoded_path, encoded_query, parsed.fragment))
+    req = urllib.request.Request(safe_url, headers={
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     })
     try:
@@ -31,20 +37,33 @@ def parse_deadline(date_str):
         return matches[-1].replace('-', '/')
     return ""
 
+def fetch_onelife_company_urls():
+    """動態抓取 onelife.tw/company 廠商列表，產生所有廠商的分類頁 URL"""
+    print("=== 動態抓取 onelife 廠商列表 ===")
+    html = fetch_url('https://onelife.tw/company')
+    if not html:
+        print("  無法取得廠商列表，使用備用名單")
+        return []
+    slugs = re.findall(r'href="/c/([^"]+)"', html)
+    unique_slugs = []
+    seen = set()
+    for s in slugs:
+        if s not in seen:
+            seen.add(s)
+            unique_slugs.append(s)
+    urls = []
+    for s in unique_slugs:
+        urls.append(f'https://onelife.tw/c/{s}')
+    print(f"  已取得 {len(urls)} 家廠商的活動來源 URL")
+    return urls
+
 def crawl_onelife_all():
     print("=== 正在收集全網多通路最新活動清單 ===")
-    category_urls = [
+
+    # --- 基礎分類＋標籤頁（固定） ---
+    base_urls = [
         'https://onelife.tw/lucky-draw',
         'https://onelife.tw/hot',
-        'https://onelife.tw/c/7-11',
-        'https://onelife.tw/c/%e5%85%a8%e5%ae%b6',
-        'https://onelife.tw/c/%e8%90%8a%e7%88%be%e5%af%8c',
-        'https://onelife.tw/c/OK%e8%b6%85%e5%95%86',
-        'https://onelife.tw/c/%e5%85%a8%e8%81%af',
-        'https://onelife.tw/c/%e5%ae%b6%e6%a8%82%e7%a6%8f',
-        'https://onelife.tw/c/%e6%98%9f%e5%b7%b4%e5%85%8b',
-        'https://onelife.tw/c/%e9%ba%a5%e7%95%b6%e5%8b%9e',
-        'https://onelife.tw/c/%e8%82%af%e5%be%b7%e5%9f%ba',
         'https://onelife.tw/tag/%e6%8a%bd%e7%8d%8e',
         'https://onelife.tw/tag/%e6%8a%bd%e6%a9%9f%e7%a5%a8',
         'https://onelife.tw/tag/%e6%8a%bdiPhone',
@@ -52,6 +71,20 @@ def crawl_onelife_all():
         'https://onelife.tw/tag/%e7%99%bb%e9%8c%84%e7%99%bc%e7%a5%a8',
         'https://onelife.tw/tag/%e5%ae%b6%e9%9b%bb'
     ]
+
+    # --- 動態抓取所有廠商頁面 ---
+    company_urls = fetch_onelife_company_urls()
+
+    # --- 合併所有來源（去重） ---
+    category_urls = base_urls + company_urls
+    seen_urls = set()
+    deduped_urls = []
+    for u in category_urls:
+        if u not in seen_urls:
+            seen_urls.add(u)
+            deduped_urls.append(u)
+    category_urls = deduped_urls
+    print(f"  總共 {len(category_urls)} 個來源頁面待爬取")
 
     all_event_ids = []
     for u in category_urls:
