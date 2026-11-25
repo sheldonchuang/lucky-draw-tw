@@ -1,172 +1,5 @@
 [
   {
-    "id": "22443",
-    "title": "全家抽獎帳單繳費取票換好禮抽北海道泰國機票住宿",
-    "brand": "全家",
-    "tags": [
-      "超商專區",
-      "抽機票"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22443b.jpg",
-    "activityUrl": "https://nevent.family.com.tw/weekdiscount/",
-    "officialUrl": "https://www.family.com.tw/"
-  },
-  {
-    "id": "22444",
-    "title": "全家抽獎史上最狂雙11抽元寶小金豆",
-    "brand": "全家",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22444b.jpg",
-    "activityUrl": "https://nevent.family.com.tw/2026_1111/",
-    "officialUrl": "https://www.family.com.tw/"
-  },
-  {
-    "id": "22445",
-    "title": "全家抽獎隨買跨店取共享轉贈商品抽百杯特濃拿鐵",
-    "brand": "全家",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22445b.jpg",
-    "activityUrl": "https://nevent.family.com.tw/20261111ecdiscount/",
-    "officialUrl": "https://www.family.com.tw/"
-  },
-  {
-    "id": "22447",
-    "title": "桂格天地合補抽獎7-11限定40周年抽東京來回機票",
-    "brand": "佳格",
-    "tags": [
-      "超商專區",
-      "抽機票"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22447b.jpg",
-    "activityUrl": "https://dr.sfworldwide.com/index.aspx?a=1199",
-    "officialUrl": "https://www.sfworldwide.com/"
-  },
-  {
-    "id": "22462",
-    "title": "TOBLERONE瑞士三角巧克力抽BRUNO寶可夢電烤盤",
-    "brand": "精選品牌",
-    "tags": [
-      "抽家電"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22462b.jpg",
-    "activityUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdINZD-RtirW6h0_gtVFetePYXcd5AMsqd2MNJVeCQ4kZA6Xg/viewform",
-    "officialUrl": "http://www.mondelezinternational.com/"
-  },
-  {
-    "id": "ext-pts-101",
-    "title": "LINE 官方「LINE POINTS 免費賺點任務」・每日免消費看短片/加好友即領免費點數（1點抵1元）",
-    "brand": "LINE 台灣",
-    "tags": [
-      "免費領點",
-      "免消費即抽"
-    ],
-    "time": "每日任務即時更新 (今日至 2026/11/25)",
-    "deadline": "2026/11/25",
-    "qualification": "打開手機 LINE App 點選『錢包』進入『LINE POINTS 賺點』專區，完成指定看短片、加入品牌官方帳號或瀏覽指定網頁任務，即可免消費直接入帳 1~5 點 LINE POINTS（1 點等同現金 1 元，超商結帳皆可折抵）！",
-    "prizes": [
-      "LINE POINTS 免費點數（1點折1元）",
-      "超商折價條碼",
-      "貼圖兌換金"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://points.line.me/",
-    "officialUrl": "https://line.me/tw/"
-  },
-  {
-    "id": "ext-pts-102",
-    "title": "蝦皮購物 Shopee「每日免費簽到領蝦幣」・天天簽到與蝦皮果園免消費天天領折抵金",
-    "brand": "蝦皮購物",
-    "tags": [
-      "免費領點",
-      "免消費即抽"
-    ],
-    "time": "每日 00:00 換日更新 (本期至 2026/11/25)",
-    "deadline": "2026/11/25",
-    "qualification": "登入蝦皮購物 App 進入『蝦幣獎勵』天天打卡簽到，連續簽到獎勵加倍！搭配蝦皮消消樂與蝦皮果園種樹浇水，免花一毛錢就能天天累積蝦幣折抵全站購物！",
-    "prizes": [
-      "全站通用蝦幣現折金",
-      "免運優惠券（不限金額）",
-      "指定店家 85 折優惠券"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1556742049-0a67e5572293?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://shopee.tw/shopee-coins",
-    "officialUrl": "https://shopee.tw/"
-  },
-  {
-    "id": "ext-pts-103",
-    "title": "街口支付「每日簽到免費領街口幣」・免消費天天領幣折抵水電瓦斯與超商消費",
-    "brand": "街口支付",
-    "tags": [
-      "免費領點",
-      "超商專區"
-    ],
-    "time": "每日簽到更新 (今日至 2026/11/25)",
-    "deadline": "2026/11/25",
-    "qualification": "打開街口支付 App 於首頁進入『每日簽到』專區，點擊簽到即可領取隨機街口幣，可用於繳納水電瓦斯公用事業費或於 7-11、全家超商消費直接 1:1 折抵現金！",
-    "prizes": [
-      "街口幣無門檻現金折抵",
-      "超商專屬消費加碼券",
-      "外送平台現折券"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://www.jkopay.com/",
-    "officialUrl": "https://www.jkopay.com/"
-  },
-  {
-    "id": "ext-pts-104",
-    "title": "MOMO 購物網「天天簽到免費抽萬點 momo幣」・登入即抽無門檻現金折抵幣",
-    "brand": "MOMO購物網",
-    "tags": [
-      "免費領點",
-      "免消費即抽"
-    ],
-    "time": "每日即時更新 (本期至 2026/11/25)",
-    "deadline": "2026/11/25",
-    "qualification": "會員每日登入 momo 購物網 App 或網頁版，進入簽到賺好康活動頁，每日免費摸彩一次，保證獲得 1~100 momo幣或折價券，1 momo幣等同 1 元新台幣！",
-    "prizes": [
-      "最高 10,000 momo幣大獎",
-      "每日保證 1~5 momo幣",
-      "全站免門檻現折券"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://www.momoshop.com.tw/",
-    "officialUrl": "https://www.momoshop.com.tw/"
-  },
-  {
     "id": "22475",
     "title": "世界義大利美食週我的義式風味時刻Reels上傳抽米蘭來回機票",
     "brand": "精選品牌",
@@ -201,6 +34,86 @@
     "imageUrl": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
     "officialUrl": "https://store.epicgames.com/"
+  },
+  {
+    "id": "ext-pts-101",
+    "title": "LINE 官方「LINE POINTS 免費賺點任務」・每日免消費看短片/加好友即領免費點數（1點抵1元）",
+    "brand": "LINE 台灣",
+    "tags": [
+      "免費領點",
+      "免消費即抽"
+    ],
+    "time": "每日任務即時更新 (今日至 2026/11/26)",
+    "deadline": "2026/11/26",
+    "qualification": "打開手機 LINE App 點選『錢包』進入『LINE POINTS 賺點』專區，完成指定看短片、加入品牌官方帳號或瀏覽指定網頁任務，即可免消費直接入帳 1~5 點 LINE POINTS（1 點等同現金 1 元，超商結帳皆可折抵）！",
+    "prizes": [
+      "LINE POINTS 免費點數（1點折1元）",
+      "超商折價條碼",
+      "貼圖兌換金"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://points.line.me/",
+    "officialUrl": "https://line.me/tw/"
+  },
+  {
+    "id": "ext-pts-102",
+    "title": "蝦皮購物 Shopee「每日免費簽到領蝦幣」・天天簽到與蝦皮果園免消費天天領折抵金",
+    "brand": "蝦皮購物",
+    "tags": [
+      "免費領點",
+      "免消費即抽"
+    ],
+    "time": "每日 00:00 換日更新 (本期至 2026/11/26)",
+    "deadline": "2026/11/26",
+    "qualification": "登入蝦皮購物 App 進入『蝦幣獎勵』天天打卡簽到，連續簽到獎勵加倍！搭配蝦皮消消樂與蝦皮果園種樹浇水，免花一毛錢就能天天累積蝦幣折抵全站購物！",
+    "prizes": [
+      "全站通用蝦幣現折金",
+      "免運優惠券（不限金額）",
+      "指定店家 85 折優惠券"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1556742049-0a67e5572293?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://shopee.tw/shopee-coins",
+    "officialUrl": "https://shopee.tw/"
+  },
+  {
+    "id": "ext-pts-103",
+    "title": "街口支付「每日簽到免費領街口幣」・免消費天天領幣折抵水電瓦斯與超商消費",
+    "brand": "街口支付",
+    "tags": [
+      "免費領點",
+      "超商專區"
+    ],
+    "time": "每日簽到更新 (今日至 2026/11/26)",
+    "deadline": "2026/11/26",
+    "qualification": "打開街口支付 App 於首頁進入『每日簽到』專區，點擊簽到即可領取隨機街口幣，可用於繳納水電瓦斯公用事業費或於 7-11、全家超商消費直接 1:1 折抵現金！",
+    "prizes": [
+      "街口幣無門檻現金折抵",
+      "超商專屬消費加碼券",
+      "外送平台現折券"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.jkopay.com/",
+    "officialUrl": "https://www.jkopay.com/"
+  },
+  {
+    "id": "ext-pts-104",
+    "title": "MOMO 購物網「天天簽到免費抽萬點 momo幣」・登入即抽無門檻現金折抵幣",
+    "brand": "MOMO購物網",
+    "tags": [
+      "免費領點",
+      "免消費即抽"
+    ],
+    "time": "每日即時更新 (本期至 2026/11/26)",
+    "deadline": "2026/11/26",
+    "qualification": "會員每日登入 momo 購物網 App 或網頁版，進入簽到賺好康活動頁，每日免費摸彩一次，保證獲得 1~100 momo幣或折價券，1 momo幣等同 1 元新台幣！",
+    "prizes": [
+      "最高 10,000 momo幣大獎",
+      "每日保證 1~5 momo幣",
+      "全站免門檻現折券"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.momoshop.com.tw/",
+    "officialUrl": "https://www.momoshop.com.tw/"
   },
   {
     "id": "ext-bogo-101",
@@ -655,23 +568,6 @@
     "officialUrl": "https://store.steampowered.com/"
   },
   {
-    "id": "22401",
-    "title": "桂格穀物抽獎天天吃燕麥滿額抽Switch2",
-    "brand": "佳格",
-    "tags": [
-      "抽家電"
-    ],
-    "time": "2026/10/2(五) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22401b.jpg",
-    "activityUrl": "https://dr.sfworldwide.com/event/cereal/oats10/",
-    "officialUrl": "https://www.sfworldwide.com/"
-  },
-  {
     "id": "22341",
     "title": "法米納寵糧抽獎暖冬島嶼計畫抽峇里島來回機票",
     "brand": "精選品牌",
@@ -723,21 +619,21 @@
     "officialUrl": ""
   },
   {
-    "id": "22387",
-    "title": "週週住台中，度假一整年抽Gogoro、iPad",
-    "brand": "精選品牌",
+    "id": "22407",
+    "title": "維他露舒跑麥萃抽獎校慶運動會補水大滿貫抽多功能手拉車",
+    "brand": "維他露",
     "tags": [
       "熱門好康"
     ],
-    "time": "2026/9/1(二) ~ 2026/11/30(一)",
+    "time": "2026/10/1(四) ~ 2026/11/30(一)",
     "deadline": "2026/11/30",
     "qualification": "",
     "prizes": [
       "官方大獎（詳見活動官網）"
     ],
-    "imageUrl": "https://onelife.tw/img/a/22387b.jpg",
-    "activityUrl": "https://www.taichung-luckydraw.com.tw/",
-    "officialUrl": "https://www.taichung.gov.tw/"
+    "imageUrl": "https://onelife.tw/img/a/22407b.jpg",
+    "activityUrl": "https://www.vitalon.com.tw/News/Detail/604",
+    "officialUrl": "http://www.vitalon.com.tw/"
   },
   {
     "id": "22425",
@@ -757,21 +653,21 @@
     "officialUrl": "https://www.meiji.com.tw/"
   },
   {
-    "id": "22407",
-    "title": "維他露舒跑麥萃抽獎校慶運動會補水大滿貫抽多功能手拉車",
-    "brand": "維他露",
+    "id": "22387",
+    "title": "週週住台中，度假一整年抽Gogoro、iPad",
+    "brand": "精選品牌",
     "tags": [
       "熱門好康"
     ],
-    "time": "2026/10/1(四) ~ 2026/11/30(一)",
+    "time": "2026/9/1(二) ~ 2026/11/30(一)",
     "deadline": "2026/11/30",
     "qualification": "",
     "prizes": [
       "官方大獎（詳見活動官網）"
     ],
-    "imageUrl": "https://onelife.tw/img/a/22407b.jpg",
-    "activityUrl": "https://www.vitalon.com.tw/News/Detail/604",
-    "officialUrl": "http://www.vitalon.com.tw/"
+    "imageUrl": "https://onelife.tw/img/a/22387b.jpg",
+    "activityUrl": "https://www.taichung-luckydraw.com.tw/",
+    "officialUrl": "https://www.taichung.gov.tw/"
   },
   {
     "id": "22396",
@@ -841,6 +737,23 @@
     "imageUrl": "https://onelife.tw/img/a/22427b.jpg",
     "activityUrl": "https://lottetw-2026koalasurprisebox.com.tw/home.php",
     "officialUrl": "http://www.lottetaiwan.com.tw/"
+  },
+  {
+    "id": "22401",
+    "title": "桂格穀物抽獎天天吃燕麥滿額抽Switch2",
+    "brand": "佳格",
+    "tags": [
+      "抽家電"
+    ],
+    "time": "2026/10/2(五) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22401b.jpg",
+    "activityUrl": "https://dr.sfworldwide.com/event/cereal/oats10/",
+    "officialUrl": "https://www.sfworldwide.com/"
   },
   {
     "id": "22461",
@@ -1048,26 +961,6 @@
     "officialUrl": "https://www.darlie.com.tw/"
   },
   {
-    "id": "ext-bogo-104",
-    "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
-    "brand": "星巴克",
-    "tags": [
-      "買一送一",
-      "免消費即抽"
-    ],
-    "time": "即日起 ~ 2026/12/06",
-    "deadline": "2026/12/06",
-    "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
-    "prizes": [
-      "全品項特大杯買一送一專屬券",
-      "指定那堤第二杯半價",
-      "節慶限定飲品單一特價券"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://event.12done.com.tw/starbucks/",
-    "officialUrl": "https://www.starbucks.com.tw/"
-  },
-  {
     "id": "22471",
     "title": "JR西日本鐵道抽獎測出你的幸福蓄電量抽日本福井雙人機加酒",
     "brand": "精選品牌",
@@ -1083,6 +976,26 @@
     "imageUrl": "https://onelife.tw/img/a/22471b.jpg",
     "activityUrl": "https://feversocial.com/52782/jrwestandfukui-40942",
     "officialUrl": ""
+  },
+  {
+    "id": "ext-bogo-104",
+    "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
+    "brand": "星巴克",
+    "tags": [
+      "買一送一",
+      "免消費即抽"
+    ],
+    "time": "即日起 ~ 2026/12/07",
+    "deadline": "2026/12/07",
+    "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
+    "prizes": [
+      "全品項特大杯買一送一專屬券",
+      "指定那堤第二杯半價",
+      "節慶限定飲品單一特價券"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://event.12done.com.tw/starbucks/",
+    "officialUrl": "https://www.starbucks.com.tw/"
   },
   {
     "id": "22460",
@@ -1600,40 +1513,6 @@
     "officialUrl": "https://www.clc.com.tw/"
   },
   {
-    "id": "22436",
-    "title": "新竹市購物節抽獎買購新竹好市發生抽特斯拉、30萬購物金",
-    "brand": "精選品牌",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "2026/10/1(四) ~ 2026/12/31(四)",
-    "deadline": "2026/12/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22436b.jpg",
-    "activityUrl": "https://shopping.hccg.gov.tw/",
-    "officialUrl": "https://www.hccg.gov.tw/"
-  },
-  {
-    "id": "22470",
-    "title": "利口樂抽獎秋遊森呼吸與IU集盒出發抽IU周邊",
-    "brand": "利口樂",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "2026/10/28(三) ~ 2026/12/31(四)",
-    "deadline": "2026/12/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22470b.jpg",
-    "activityUrl": "https://www.surveycake.com/s/3qQzM",
-    "officialUrl": "https://www.ricola.com/zh-tw"
-  },
-  {
     "id": "22456",
     "title": "慶豐食品抽獎歡慶40週年抽飛利浦氣炸鍋",
     "brand": "精選品牌",
@@ -1666,6 +1545,40 @@
     "imageUrl": "https://onelife.tw/img/a/22464b.jpg",
     "activityUrl": "https://www.shallop.com.tw/blogs/news/261112",
     "officialUrl": "https://www.shallop.com.tw/"
+  },
+  {
+    "id": "22436",
+    "title": "新竹市購物節抽獎買購新竹好市發生抽特斯拉、30萬購物金",
+    "brand": "精選品牌",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2026/10/1(四) ~ 2026/12/31(四)",
+    "deadline": "2026/12/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22436b.jpg",
+    "activityUrl": "https://shopping.hccg.gov.tw/",
+    "officialUrl": "https://www.hccg.gov.tw/"
+  },
+  {
+    "id": "22470",
+    "title": "利口樂抽獎秋遊森呼吸與IU集盒出發抽IU周邊",
+    "brand": "利口樂",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2026/10/28(三) ~ 2026/12/31(四)",
+    "deadline": "2026/12/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22470b.jpg",
+    "activityUrl": "https://www.surveycake.com/s/3qQzM",
+    "officialUrl": "https://www.ricola.com/zh-tw"
   },
   {
     "id": "22093",
@@ -1720,23 +1633,6 @@
     "officialUrl": "http://www.lianhwa.com.tw/"
   },
   {
-    "id": "22369",
-    "title": "桂冠飯麵抽獎學校限定開學飽胃戰抽Switch2",
-    "brand": "桂冠",
-    "tags": [
-      "抽家電"
-    ],
-    "time": "2026/9/11(五) ~ 2026/12/31(四)",
-    "deadline": "2026/12/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22369b.jpg",
-    "activityUrl": "https://www.laurel.com.tw/index.php?action=activity&id=123",
-    "officialUrl": "https://www.laurel.com.tw/"
-  },
-  {
     "id": "22402",
     "title": "旺旺抽獎好運祭米戀新生活抽3C家電好禮",
     "brand": "旺旺",
@@ -1752,6 +1648,23 @@
     "imageUrl": "https://onelife.tw/img/a/22402b.jpg",
     "activityUrl": "https://ad.wanthome.com.tw/2026RiceQ3/",
     "officialUrl": "http://www.wanthome.com.tw/"
+  },
+  {
+    "id": "22369",
+    "title": "桂冠飯麵抽獎學校限定開學飽胃戰抽Switch2",
+    "brand": "桂冠",
+    "tags": [
+      "抽家電"
+    ],
+    "time": "2026/9/11(五) ~ 2026/12/31(四)",
+    "deadline": "2026/12/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22369b.jpg",
+    "activityUrl": "https://www.laurel.com.tw/index.php?action=activity&id=123",
+    "officialUrl": "https://www.laurel.com.tw/"
   },
   {
     "id": "22453",
@@ -2109,6 +2022,23 @@
     "imageUrl": "https://onelife.tw/img/a/22452b.jpg",
     "activityUrl": "https://100spotlights.taiwan.net.tw/",
     "officialUrl": "https://www.motc.gov.tw/"
+  },
+  {
+    "id": "21716",
+    "title": "7-11超值組合餐貼標商品45元起鮮食飲品自由搭配",
+    "brand": "7-11",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21716b.jpg",
+    "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Food_G025",
+    "officialUrl": "https://www.7-11.com.tw/"
   },
   {
     "id": "22466",
