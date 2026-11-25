@@ -32,7 +32,7 @@ def parse_deadline(date_str):
     return ""
 
 def crawl_onelife_all():
-    print("=== 正在收集 onelife.tw 全站活動清單 ===")
+    print("=== 正在收集全網多通路最新活動清單 ===")
     category_urls = [
         'https://onelife.tw/lucky-draw',
         'https://onelife.tw/hot',
@@ -40,10 +40,17 @@ def crawl_onelife_all():
         'https://onelife.tw/c/%e5%85%a8%e5%ae%b6',
         'https://onelife.tw/c/%e8%90%8a%e7%88%be%e5%af%8c',
         'https://onelife.tw/c/OK%e8%b6%85%e5%95%86',
+        'https://onelife.tw/c/%e5%85%a8%e8%81%af',
+        'https://onelife.tw/c/%e5%ae%b6%e6%a8%82%e7%a6%8f',
+        'https://onelife.tw/c/%e6%98%9f%e5%b7%b4%e5%85%8b',
+        'https://onelife.tw/c/%e9%ba%a5%e7%95%b6%e5%8b%9e',
+        'https://onelife.tw/c/%e8%82%af%e5%be%b7%e5%9f%ba',
         'https://onelife.tw/tag/%e6%8a%bd%e7%8d%8e',
         'https://onelife.tw/tag/%e6%8a%bd%e6%a9%9f%e7%a5%a8',
         'https://onelife.tw/tag/%e6%8a%bdiPhone',
-        'https://onelife.tw/tag/%e8%b2%b7%e4%b8%80%e9%80%81%e4%b8%80'
+        'https://onelife.tw/tag/%e8%b2%b7%e4%b8%80%e9%80%81%e4%b8%80',
+        'https://onelife.tw/tag/%e7%99%bb%e9%8c%84%e7%99%bc%e7%a5%a8',
+        'https://onelife.tw/tag/%e5%ae%b6%e9%9b%bb'
     ]
 
     all_event_ids = []
@@ -54,9 +61,9 @@ def crawl_onelife_all():
             for i in ids:
                 if i not in all_event_ids:
                     all_event_ids.append(i)
-        time.sleep(0.2)
+        time.sleep(0.15)
 
-    print(f"共收集到 {len(all_event_ids)} 個 onelife 活動 ID，開始全量解析...")
+    print(f"共收集到 {len(all_event_ids)} 個多分類活動 ID，開始全量解析...")
 
     events = []
     for idx, eid in enumerate(all_event_ids, 1):
@@ -126,11 +133,11 @@ def crawl_onelife_all():
 
         tags = []
         # 分類標籤
-        if any(b in (brand + title) for b in ['7-11', '7-ELEVEN', '全家', '萊爾富', 'OK超商', '超商']):
+        if any(b in (brand + title) for b in ['7-11', '7-ELEVEN', '全家', '萊爾富', 'OK超商', '超商', '全聯', '家樂福']):
             tags.append('超商專區')
 
-        c_qual = qualification + " " + title
-        if any(k in c_qual for k in ['免消費', '按讚', '留言', '分享', '投票', '問卷', '填寫資料', '加入會員', '登入', '天天抽', '免費']):
+        c_qual = (qualification + " " + title).lower()
+        if any(k in c_qual for k in ['免消費', '按讚', '留言', '分享', '投票', '問卷', '填寫資料', '加入會員', '登入', '天天抽', '免費', '0元']):
             tags.append('免消費即抽')
         elif any(k in c_qual for k in ['發票', '載具', '登錄發票', '消費滿']):
             tags.append('登錄發票即抽')
@@ -139,13 +146,25 @@ def crawl_onelife_all():
         elif '購買' in c_qual and '登錄發票即抽' not in tags:
             tags.append('消費登錄抽')
 
+        if any(k in c_qual for k in ['買一送一', '半價', '第2杯半價', '加1元多1件', '買1送1', '隱藏代碼', '神券', '折價']):
+            tags.append('買一送一')
+
+        if any(k in c_qual for k in ['壽星', '生日', '慶生']):
+            tags.append('壽星好康')
+
+        if any(k in c_qual for k in ['限免', '免費領取', 'steam', 'epic', '遊戲']):
+            tags.append('限免遊戲')
+
+        if any(k in c_qual for k in ['line points', '蝦幣', '街口幣', 'momo幣', '簽到', '賺點']):
+            tags.append('免費領點')
+
         # 獎項標籤 (抽機票、抽iPhone、抽家電)
         lower_all = (title + " " + " ".join(prizes) + " " + qualification).lower()
-        if any(k in lower_all for k in ['機票', '雙人遊', '機加酒', '旅遊金', '出國', '米蘭', '東京', '北海道', '芬蘭', '峇里島', '泰國', '日本']):
+        if any(k in lower_all for k in ['機票', '雙人遊', '機加酒', '旅遊金', '出國', '米蘭', '東京', '北海道', '芬蘭', '峇里島', '泰國', '日本', '歐洲', '首爾', '大阪']):
             tags.append('抽機票')
-        if any(k in lower_all for k in ['iphone', 'iphone16', 'iphone17', 'iphone18', '手機', '摺疊機', 'apple']):
+        if any(k in lower_all for k in ['iphone', 'iphone16', 'iphone17', 'iphone18', '手機', '摺疊機', 'apple', '三星', 'pixel']):
             tags.append('抽iPhone')
-        if any(k in lower_all for k in ['電烤盤', '電視', '空氣清淨機', '音響', '電鍋', '按摩椅', 'dyson', 'panasonic', 'switch', 'bruno', '家電', '自行車', '機車', '吸塵器']):
+        if any(k in lower_all for k in ['電烤盤', '電視', '空氣清淨機', '音響', '電鍋', '按摩椅', 'dyson', 'panasonic', 'switch', 'bruno', '家電', '自行車', '機車', '吸塵器', '烘衣機', '吹風機']):
             tags.append('抽家電')
 
         if not tags:
@@ -165,11 +184,89 @@ def crawl_onelife_all():
             'officialUrl': official_url
         })
 
-        if idx % 10 == 0:
+        if idx % 15 == 0:
             print(f"已解析 {idx}/{len(all_event_ids)} 個活動...")
-        time.sleep(0.15)
+        time.sleep(0.1)
 
     return events
+
+# 即時查詢 Epic Games Store 官方即時限免遊戲 API
+def fetch_live_epic_games(today):
+    print("=== 正在連線 Epic Games Store 官方 API 抓取最新即時限免遊戲 ===")
+    api_url = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=zh-Hant&country=TW&allowCountries=TW"
+    try:
+        req = urllib.request.Request(api_url, headers={
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+        })
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode('utf-8'))
+        
+        elements = data.get('data', {}).get('Catalog', {}).get('searchStore', {}).get('elements', [])
+        live_games = []
+
+        for el in elements:
+            title = el.get('title')
+            if not title:
+                continue
+            promotions = el.get('promotions') or {}
+            offers = promotions.get('promotionalOffers', [])
+            upcoming = promotions.get('upcomingPromotionalOffers', [])
+            description = el.get('description', '')
+
+            images = el.get('keyImages', [])
+            img_url = "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80"
+            for img in images:
+                if img.get('type') in ['Thumbnail', 'OfferImageWide', 'DieselStoreFrontWide']:
+                    img_url = img.get('url')
+                    break
+
+            # 本期正在進行中的 100% 免費遊戲
+            if offers:
+                for p in offers[0].get('promotionalOffers', []):
+                    if p.get('discountSetting', {}).get('discountPercentage') == 0:
+                        end_raw = p.get('endDate', '')
+                        end_date = end_raw[:10].replace('-', '/') if len(end_raw) >= 10 else ''
+                        live_games.append({
+                            'id': f"epic-live-{abs(hash(title)) % 10000}",
+                            'title': f"Epic Games 本週限時免費正版遊戲・《{title}》0元永久入庫收藏",
+                            'brand': "Epic Games",
+                            'tags': ["限免遊戲", "免消費即抽", "熱門好康"],
+                            'time': f"即日起 ~ {end_date} 23:00 止",
+                            'deadline': end_date,
+                            'qualification': f"登入 Epic Games Store 帳號，點擊《{title}》免費取得，即可終身保留於個人收藏庫！{description[:100]}",
+                            'prizes': [f"正版《{title}》PC 遊戲完整版 0 元取得", "終身永久免費遊玩"],
+                            'imageUrl': img_url,
+                            'activityUrl': "https://store.epicgames.com/zh-Hant/free-games",
+                            'officialUrl': "https://store.epicgames.com/"
+                        })
+
+            # 下期即將接棒的 100% 免費遊戲
+            if upcoming:
+                for p in upcoming[0].get('promotionalOffers', []):
+                    if p.get('discountSetting', {}).get('discountPercentage') == 0:
+                        start_raw = p.get('startDate', '')
+                        end_raw = p.get('endDate', '')
+                        start_date = start_raw[:10].replace('-', '/') if len(start_raw) >= 10 else ''
+                        end_date = end_raw[:10].replace('-', '/') if len(end_raw) >= 10 else ''
+                        live_games.append({
+                            'id': f"epic-up-{abs(hash(title)) % 10000}",
+                            'title': f"Epic Games 下週預告限時免費大作・《{title}》即將登場 0元領取",
+                            'brand': "Epic Games",
+                            'tags': ["限免遊戲", "免消費即抽"],
+                            'time': f"{start_date} ~ {end_date}",
+                            'deadline': end_date,
+                            'qualification': f"Epic Games 官方預告下期限免大作《{title}》，換檔當日即可 0 元永久領取入庫！{description[:100]}",
+                            'prizes': [f"正版《{title}》免費取得資格", "典藏遊戲授權"],
+                            'imageUrl': img_url,
+                            'activityUrl': "https://store.epicgames.com/zh-Hant/free-games",
+                            'officialUrl': "https://store.epicgames.com/"
+                        })
+
+        print(f"成功自 Epic Games API 取得 {len(live_games)} 檔正版限免遊戲！")
+        return live_games
+    except Exception as e:
+        print(f"抓取 Epic Games API 失敗 (使用動態後備): {e}")
+        return []
 
 # 動態生成五大生活免費情報（自動隨每日日期換檔，永遠保持在有效期內）
 def get_dynamic_free_intelligence(today):
@@ -922,18 +1019,21 @@ if __name__ == '__main__':
             print(f"載入現有 events.json 失敗: {e}")
             onelife_events = []
 
-    # 2. 動態生成當日最新五大生活情報
+    # 2. 自動連線抓取 Epic Games Store 官方即時正版限免遊戲 API
+    live_epic_events = fetch_live_epic_games(today)
+
+    # 3. 動態生成當日最新生活情報（買一送一、壽星好康、每日賺點、稅捐處發票換禮券）
     dynamic_intelligence_events = get_dynamic_free_intelligence(today)
 
-    # 3. 取得長期驗證的官方精選大獎活動
+    # 4. 取得長期驗證的官方精選大獎活動
     additional_events = get_additional_verified_events()
 
-    # 4. 合併所有活動並去重
+    # 5. 合併所有活動並去重
     seen_ids = set()
     combined_events = []
     
-    # 優先加入最新五大情報與精選官方活動
-    for e in dynamic_intelligence_events + additional_events:
+    # 優先加入即時限免遊戲與動態情報
+    for e in live_epic_events + dynamic_intelligence_events + additional_events:
         if e['id'] not in seen_ids:
             seen_ids.add(e['id'])
             combined_events.append(e)
