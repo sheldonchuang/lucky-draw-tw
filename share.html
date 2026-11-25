@@ -827,29 +827,63 @@
 
     const SITE_LAUNCH_DATE = '2026-11-23'; // 網站正式開站日
     const CLOUD_NS = 'luckygo-tw';
+    const CLOUD_SNAPSHOT_KEY = 'luckygo_cloud_snapshot';
 
-    async function fetchCloudValue(key) {
+    function loadCloudSnapshot() {
       try {
-        const res = await fetch(`https://abacus.jasoncameron.dev/get/${CLOUD_NS}/${key}`, { mode: 'cors' });
-        if (res.status === 404) return 0;
-        if (!res.ok) return null;
-        const json = await res.json();
-        return typeof json.value === 'number' ? json.value : 0;
+        return JSON.parse(localStorage.getItem(CLOUD_SNAPSHOT_KEY) || '{}');
       } catch (e) {
-        return null;
+        return {};
       }
     }
 
-    // 取得全站雲端真實流量數據 (跨裝置/瀏覽器一致，離線時自動退回 localStorage)
-    async function getTrafficData(startDateStr, endDateStr) {
+    function saveCloudSnapshot(snapshot) {
+      try {
+        localStorage.setItem(CLOUD_SNAPSHOT_KEY, JSON.stringify(snapshot));
+      } catch (e) {}
+    }
+
+    async function fetchCloudValue(key, retries = 1) {
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 5000);
+        try {
+          const res = await fetch(`https://abacus.jasoncameron.dev/get/${CLOUD_NS}/${key}`, {
+            mode: 'cors',
+            signal: controller.signal
+          });
+          clearTimeout(timer);
+          if (res.status === 404) return 0;
+          if (res.status === 429 && attempt < retries) {
+            await new Promise(r => setTimeout(r, 800));
+            continue;
+          }
+          if (!res.ok) return null;
+          const json = await res.json();
+          return typeof json.value === 'number' ? json.value : 0;
+        } catch (e) {
+          clearTimeout(timer);
+          if (attempt < retries) {
+            await new Promise(r => setTimeout(r, 400));
+            continue;
+          }
+          return null;
+        }
+      }
+      return null;
+    }
+
+    // 組合基礎日期陣列（優先使用雲端快取快照，0ms 立即顯示不閃爍）
+    function buildBaseTrafficData(startDateStr, endDateStr) {
       const stored = JSON.parse(localStorage.getItem('luckygo_traffic_history') || '{}');
+      const snapshot = loadCloudSnapshot();
       const start = new Date(startDateStr);
       const end = new Date(endDateStr);
       const todayKey = formatDateKey(new Date());
-      
+
       const results = [];
       const daysOfWeek = ['週日', '週一', '週二', '週三', '週四', '週五', '週六'];
-      const activeKeys = [];
+      const needFetchItems = [];
 
       for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
         const key = formatDateKey(d);
@@ -858,13 +892,17 @@
         let pv = 0;
         let uv = 0;
         let threads = 0;
-        let direct = 0;
 
-        if (key >= SITE_LAUNCH_DATE && stored[key]) {
-          pv = stored[key].pv || 0;
-          uv = stored[key].uv || (pv > 0 ? 1 : 0);
-          threads = stored[key].threads || 0;
-          direct = stored[key].direct || 0;
+        if (key >= SITE_LAUNCH_DATE) {
+          if (snapshot[key]) {
+            pv = snapshot[key].pv || 0;
+            uv = snapshot[key].uv || 0;
+            threads = snapshot[key].threads || 0;
+          } else if (stored[key]) {
+            pv = stored[key].pv || 0;
+            uv = stored[key].uv || (pv > 0 ? 1 : 0);
+            threads = stored[key].threads || 0;
+          }
         }
 
         const item = {
@@ -874,84 +912,105 @@
           pv: pv,
           uv: uv,
           threads: threads,
-          direct: direct,
+          direct: Math.max(0, pv - threads),
           isBeforeLaunch: key < SITE_LAUNCH_DATE
         };
         results.push(item);
-        if (key >= SITE_LAUNCH_DATE && key <= todayKey) {
-          activeKeys.push(item);
+
+        // 只抓「今天」或「還沒在該日結束後快取過的過去日期」，大幅減少請求數
+        const cachedAfterDayEnded = snapshot[key] && snapshot[key].fetchedOn && snapshot[key].fetchedOn > key;
+        if (key >= SITE_LAUNCH_DATE && key <= todayKey && (key === todayKey || !cachedAfterDayEnded)) {
+          needFetchItems.push(item);
         }
       }
 
-      // 批次讀取雲端資料（控制並發避免觸發頻率限制）
-      let cloudSynced = false;
-      let cache = {};
-      try {
-        cache = JSON.parse(sessionStorage.getItem('luckygo_cloud_cache') || '{}');
-      } catch (e) {}
+      return { results, needFetchItems, snapshot, todayKey };
+    }
 
-      const BATCH_DAYS = 4; // 每天 3 個請求 => 每批 12 個請求
-      for (let i = 0; i < activeKeys.length; i += BATCH_DAYS) {
-        const batch = activeKeys.slice(i, i + BATCH_DAYS);
+    // 渲染統計圖表與數據（先秒開快取畫面，再背景同步今日最新雲端數字）
+    let activeRenderSeq = 0;
+    async function renderAnalytics(startDateStr, endDateStr) {
+      const renderSeq = ++activeRenderSeq;
+      const { results, needFetchItems, snapshot, todayKey } = buildBaseTrafficData(startDateStr, endDateStr);
+      if (results.length === 0) return;
+
+      // 1. 立即用快取資料渲染一次（0ms 秒開）
+      renderDashboard(results);
+
+      const badge = document.getElementById('cloudSyncBadge');
+      if (needFetchItems.length === 0) {
+        if (badge) {
+          badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> 雲端全站即時同步（跨裝置・跨瀏覽器一致）';
+          badge.style.background = '#EAF2EC';
+          badge.style.color = '#2D5A3C';
+        }
+        return;
+      }
+
+      if (badge) {
+        badge.innerHTML = '<i class="fa-solid fa-cloud"></i> 雲端最新數據同步中...';
+      }
+
+      // 2. 背景同步需要更新的日期（每次最多 4 天，避免觸發 API 頻率限制）
+      let anySuccess = false;
+      const BATCH_DAYS = 4;
+      for (let i = 0; i < needFetchItems.length; i += BATCH_DAYS) {
+        const batch = needFetchItems.slice(i, i + BATCH_DAYS);
         await Promise.all(batch.map(async (item) => {
           const k = item.date;
-          if (k < todayKey && cache[k]) {
-            item.pv = cache[k].pv;
-            item.uv = cache[k].uv;
-            item.threads = cache[k].threads;
-            item.direct = Math.max(0, item.pv - item.threads);
-            cloudSynced = true;
-            return;
-          }
           const [cPv, cUv, cThreads] = await Promise.all([
             fetchCloudValue(`pv-${k}`),
             fetchCloudValue(`uv-${k}`),
             fetchCloudValue(`threads-${k}`)
           ]);
-          if (cPv !== null) {
-            cloudSynced = true;
-            item.pv = cPv;
-            item.uv = cUv !== null ? cUv : (cPv > 0 ? 1 : 0);
-            item.threads = cThreads !== null ? cThreads : 0;
-            item.direct = Math.max(0, item.pv - item.threads);
-            if (k < todayKey) {
-              cache[k] = { pv: item.pv, uv: item.uv, threads: item.threads };
-            }
+
+          const prev = snapshot[k] || { pv: 0, uv: 0, threads: 0 };
+          if (cPv !== null || cUv !== null || cThreads !== null) {
+            anySuccess = true;
+            // 單調遞增保護：數字只增不減，不會因單次請求失敗而突然變少
+            const nextPv = cPv !== null ? Math.max(prev.pv || 0, cPv) : (prev.pv || item.pv);
+            const nextUv = cUv !== null ? Math.max(prev.uv || 0, cUv) : (prev.uv || item.uv);
+            const nextThreads = cThreads !== null ? Math.max(prev.threads || 0, cThreads) : (prev.threads || item.threads);
+
+            item.pv = nextPv;
+            item.uv = nextUv;
+            item.threads = nextThreads;
+            item.direct = Math.max(0, nextPv - nextThreads);
+
+            snapshot[k] = {
+              pv: nextPv,
+              uv: nextUv,
+              threads: nextThreads,
+              fetchedOn: todayKey
+            };
           }
         }));
-        if (i + BATCH_DAYS < activeKeys.length) {
-          await new Promise(r => setTimeout(r, 200));
+        if (i + BATCH_DAYS < needFetchItems.length) {
+          await new Promise(r => setTimeout(r, 250));
         }
       }
 
-      try {
-        sessionStorage.setItem('luckygo_cloud_cache', JSON.stringify(cache));
-      } catch (e) {}
+      saveCloudSnapshot(snapshot);
 
-      const badge = document.getElementById('cloudSyncBadge');
+      // 若使用者在等待期間切換了別的日期區間，放棄舊的畫面覆寫
+      if (renderSeq !== activeRenderSeq) return;
+
+      renderDashboard(results);
+
       if (badge) {
-        if (cloudSynced) {
+        if (anySuccess) {
           badge.innerHTML = '<i class="fa-solid fa-circle-check"></i> 雲端全站即時同步（跨裝置・跨瀏覽器一致）';
           badge.style.background = '#EAF2EC';
           badge.style.color = '#2D5A3C';
         } else {
-          badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 目前顯示本機紀錄（雲端連線中）';
+          badge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 雲端忙碌中，目前顯示最新快取數據';
           badge.style.background = '#FDF4E7';
           badge.style.color = '#8A5A1B';
         }
       }
-
-      return results;
     }
 
-    // 渲染統計圖表與數據
-    async function renderAnalytics(startDateStr, endDateStr) {
-      const badge = document.getElementById('cloudSyncBadge');
-      if (badge) {
-        badge.innerHTML = '<i class="fa-solid fa-cloud"></i> 雲端全站資料讀取中...';
-      }
-      const data = await getTrafficData(startDateStr, endDateStr);
-      if (data.length === 0) return;
+    function renderDashboard(data) {
 
       // 1. 計算 KPI 指標
       const totalPV = data.reduce((sum, item) => sum + item.pv, 0);
