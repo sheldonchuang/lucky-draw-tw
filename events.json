@@ -1,23 +1,5 @@
 [
   {
-    "id": "22475",
-    "title": "世界義大利美食週我的義式風味時刻Reels上傳抽米蘭來回機票",
-    "brand": "精選品牌",
-    "tags": [
-      "抽機票"
-    ],
-    "time": "2026/11/13(五) ~ 2026/11/25(三)",
-    "deadline": "2026/11/25",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22475b.jpg",
-    "activityUrl": "https://italiantaste.tw/lucky.html",
-    "officialUrl": "",
-    "is_expired": false
-  },
-  {
     "id": "ext-game-101",
     "title": "Epic Games Store 每週限時免費正版 PC 遊戲・本週精選大作 0 元永久入庫領取",
     "brand": "Epic Games",
@@ -46,8 +28,8 @@
       "免費領點",
       "免消費即抽"
     ],
-    "time": "每日任務即時更新 (今日至 2026/11/26)",
-    "deadline": "2026/11/26",
+    "time": "每日任務即時更新 (今日至 2026/11/27)",
+    "deadline": "2026/11/27",
     "qualification": "打開手機 LINE App 點選『錢包』進入『LINE POINTS 賺點』專區，完成指定看短片、加入品牌官方帳號或瀏覽指定網頁任務，即可免消費直接入帳 1~5 點 LINE POINTS（1 點等同現金 1 元，超商結帳皆可折抵）！",
     "prizes": [
       "LINE POINTS 免費點數（1點折1元）",
@@ -67,8 +49,8 @@
       "免費領點",
       "免消費即抽"
     ],
-    "time": "每日 00:00 換日更新 (本期至 2026/11/26)",
-    "deadline": "2026/11/26",
+    "time": "每日 00:00 換日更新 (本期至 2026/11/27)",
+    "deadline": "2026/11/27",
     "qualification": "登入蝦皮購物 App 進入『蝦幣獎勵』天天打卡簽到，連續簽到獎勵加倍！搭配蝦皮消消樂與蝦皮果園種樹浇水，免花一毛錢就能天天累積蝦幣折抵全站購物！",
     "prizes": [
       "全站通用蝦幣現折金",
@@ -88,8 +70,8 @@
       "免費領點",
       "超商專區"
     ],
-    "time": "每日簽到更新 (今日至 2026/11/26)",
-    "deadline": "2026/11/26",
+    "time": "每日簽到更新 (今日至 2026/11/27)",
+    "deadline": "2026/11/27",
     "qualification": "打開街口支付 App 於首頁進入『每日簽到』專區，點擊簽到即可領取隨機街口幣，可用於繳納水電瓦斯公用事業費或於 7-11、全家超商消費直接 1:1 折抵現金！",
     "prizes": [
       "街口幣無門檻現金折抵",
@@ -109,8 +91,8 @@
       "免費領點",
       "免消費即抽"
     ],
-    "time": "每日即時更新 (本期至 2026/11/26)",
-    "deadline": "2026/11/26",
+    "time": "每日即時更新 (本期至 2026/11/27)",
+    "deadline": "2026/11/27",
     "qualification": "會員每日登入 momo 購物網 App 或網頁版，進入簽到賺好康活動頁，每日免費摸彩一次，保證獲得 1~100 momo幣或折價券，1 momo幣等同 1 元新台幣！",
     "prizes": [
       "最高 10,000 momo幣大獎",
@@ -643,115 +625,6 @@
     "is_expired": false
   },
   {
-    "id": "22341",
-    "title": "法米納寵糧抽獎暖冬島嶼計畫抽峇里島來回機票",
-    "brand": "精選品牌",
-    "tags": [
-      "抽機票"
-    ],
-    "time": "2026/9/1(二) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22341b.jpg",
-    "activityUrl": "https://www.petzoo.com.tw/pages/2026q3farmina",
-    "officialUrl": "",
-    "is_expired": false
-  },
-  {
-    "id": "22408",
-    "title": "益富易能充元氣強抽獎買就抽萬元電動自行車",
-    "brand": "精選品牌",
-    "tags": [
-      "抽現金"
-    ],
-    "time": "2026/10/1(四) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22408b.jpg",
-    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1341",
-    "officialUrl": "",
-    "is_expired": false
-  },
-  {
-    "id": "22435",
-    "title": "逸寶週年慶抽獎單筆滿千抽iPhone18 Pro Max",
-    "brand": "精選品牌",
-    "tags": [
-      "抽iPhone"
-    ],
-    "time": "2026/10/1(四) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22435b.jpg",
-    "activityUrl": "https://feversocial.com/52771/40784",
-    "officialUrl": "",
-    "is_expired": false
-  },
-  {
-    "id": "22407",
-    "title": "維他露舒跑麥萃抽獎校慶運動會補水大滿貫抽多功能手拉車",
-    "brand": "維他露",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "2026/10/1(四) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22407b.jpg",
-    "activityUrl": "https://www.vitalon.com.tw/News/Detail/604",
-    "officialUrl": "http://www.vitalon.com.tw/",
-    "is_expired": false
-  },
-  {
-    "id": "22425",
-    "title": "明治餅乾抽獎香菇竹筍你是哪一派抽五星飯店住宿",
-    "brand": "明治",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "2026/10/12(一) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22425b.jpg",
-    "activityUrl": "https://www.meiji-kinotake-campaign2026-1.com/",
-    "officialUrl": "https://www.meiji.com.tw/",
-    "is_expired": false
-  },
-  {
-    "id": "22387",
-    "title": "週週住台中，度假一整年抽Gogoro、iPad",
-    "brand": "精選品牌",
-    "tags": [
-      "抽iPhone",
-      "抽機車"
-    ],
-    "time": "2026/9/1(二) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22387b.jpg",
-    "activityUrl": "https://www.taichung-luckydraw.com.tw/",
-    "officialUrl": "https://www.taichung.gov.tw/",
-    "is_expired": false
-  },
-  {
     "id": "22396",
     "title": "原萃抽獎茶感細膩食刻款待自己抽北投溫泉飯店住宿",
     "brand": "可口可樂",
@@ -841,6 +714,115 @@
     "imageUrl": "https://onelife.tw/img/a/22401b.jpg",
     "activityUrl": "https://dr.sfworldwide.com/event/cereal/oats10/",
     "officialUrl": "https://www.sfworldwide.com/",
+    "is_expired": false
+  },
+  {
+    "id": "22407",
+    "title": "維他露舒跑麥萃抽獎校慶運動會補水大滿貫抽多功能手拉車",
+    "brand": "維他露",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2026/10/1(四) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22407b.jpg",
+    "activityUrl": "https://www.vitalon.com.tw/News/Detail/604",
+    "officialUrl": "http://www.vitalon.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22425",
+    "title": "明治餅乾抽獎香菇竹筍你是哪一派抽五星飯店住宿",
+    "brand": "明治",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2026/10/12(一) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22425b.jpg",
+    "activityUrl": "https://www.meiji-kinotake-campaign2026-1.com/",
+    "officialUrl": "https://www.meiji.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22387",
+    "title": "週週住台中，度假一整年抽Gogoro、iPad",
+    "brand": "精選品牌",
+    "tags": [
+      "抽iPhone",
+      "抽機車"
+    ],
+    "time": "2026/9/1(二) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22387b.jpg",
+    "activityUrl": "https://www.taichung-luckydraw.com.tw/",
+    "officialUrl": "https://www.taichung.gov.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22435",
+    "title": "逸寶週年慶抽獎單筆滿千抽iPhone18 Pro Max",
+    "brand": "精選品牌",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/10/1(四) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22435b.jpg",
+    "activityUrl": "https://feversocial.com/52771/40784",
+    "officialUrl": "",
+    "is_expired": false
+  },
+  {
+    "id": "22341",
+    "title": "法米納寵糧抽獎暖冬島嶼計畫抽峇里島來回機票",
+    "brand": "精選品牌",
+    "tags": [
+      "抽機票"
+    ],
+    "time": "2026/9/1(二) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22341b.jpg",
+    "activityUrl": "https://www.petzoo.com.tw/pages/2026q3farmina",
+    "officialUrl": "",
+    "is_expired": false
+  },
+  {
+    "id": "22408",
+    "title": "益富易能充元氣強抽獎買就抽萬元電動自行車",
+    "brand": "精選品牌",
+    "tags": [
+      "抽現金"
+    ],
+    "time": "2026/10/1(四) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22408b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1341",
+    "officialUrl": "",
     "is_expired": false
   },
   {
@@ -999,8 +981,8 @@
       "免消費即抽",
       "熱門好康"
     ],
-    "time": "限時免費下載 (本期至 2026/12/01)",
-    "deadline": "2026/12/01",
+    "time": "限時免費下載 (本期至 2026/12/02)",
+    "deadline": "2026/12/02",
     "qualification": "使用 iPhone 或 iPad 打開 App Store，進入遊戲專區點擊『取得』，即可 0 元將原價付費的正版遊戲綁定至個人 Apple ID，即使換機也能終身永久免費重新下載！",
     "prizes": [
       "原價百元正版 iOS 手遊 0 元永久領",
@@ -1021,8 +1003,8 @@
       "免消費即抽",
       "熱門好康"
     ],
-    "time": "限時免費下載 (本期至 2026/12/01)",
-    "deadline": "2026/12/01",
+    "time": "限時免費下載 (本期至 2026/12/02)",
+    "deadline": "2026/12/02",
     "qualification": "打開 Android 手機或平板上的 Google Play 商店，進入特惠專區點擊『安裝』，即可將原價付費的熱門 Android 遊戲 0 元永久繫結至個人的 Google 帳號，官方正版安全無毒！",
     "prizes": [
       "原價付費 Android 正版手遊 0 元永久入庫",
@@ -1035,7 +1017,7 @@
     "is_expired": false
   },
   {
-    "id": "epic-up-1745",
+    "id": "epic-up-7472",
     "title": "Epic Games 下週預告限時免費大作・《Bread and Fred》即將登場 0元領取",
     "brand": "Epic Games",
     "tags": [
@@ -1156,8 +1138,8 @@
       "買一送一",
       "免消費即抽"
     ],
-    "time": "即日起 ~ 2026/12/07",
-    "deadline": "2026/12/07",
+    "time": "即日起 ~ 2026/12/08",
+    "deadline": "2026/12/08",
     "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
     "prizes": [
       "全品項特大杯買一送一專屬券",
@@ -2263,21 +2245,21 @@
     "is_expired": false
   },
   {
-    "id": "22462",
-    "title": "TOBLERONE瑞士三角巧克力抽BRUNO寶可夢電烤盤",
+    "id": "22475",
+    "title": "世界義大利美食週我的義式風味時刻Reels上傳抽米蘭來回機票",
     "brand": "精選品牌",
     "tags": [
-      "抽家電"
+      "抽機票"
     ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
+    "time": "2026/11/13(五) ~ 2026/11/25(三)",
+    "deadline": "2026/11/25",
     "qualification": "",
     "prizes": [
       "官方大獎（詳見活動官網）"
     ],
-    "imageUrl": "https://onelife.tw/img/a/22462b.jpg",
-    "activityUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdINZD-RtirW6h0_gtVFetePYXcd5AMsqd2MNJVeCQ4kZA6Xg/viewform",
-    "officialUrl": "http://www.mondelezinternational.com/",
+    "imageUrl": "https://onelife.tw/img/a/22475b.jpg",
+    "activityUrl": "https://italiantaste.tw/lucky.html",
+    "officialUrl": "",
     "is_expired": true
   },
   {
@@ -2316,6 +2298,24 @@
     "imageUrl": "https://onelife.tw/img/a/22443b.jpg",
     "activityUrl": "https://nevent.family.com.tw/weekdiscount/",
     "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22462",
+    "title": "TOBLERONE瑞士三角巧克力抽BRUNO寶可夢電烤盤",
+    "brand": "精選品牌",
+    "tags": [
+      "抽家電"
+    ],
+    "time": "2026/10/28(三) ~ 2026/11/24(二)",
+    "deadline": "2026/11/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22462b.jpg",
+    "activityUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdINZD-RtirW6h0_gtVFetePYXcd5AMsqd2MNJVeCQ4kZA6Xg/viewform",
+    "officialUrl": "http://www.mondelezinternational.com/",
     "is_expired": true
   },
   {
@@ -2408,6 +2408,24 @@
     "imageUrl": "https://onelife.tw/img/a/22440b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=News_C019",
     "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22423",
+    "title": "國防部全民國防教育網際網路有獎徵答抽iPhone18",
+    "brand": "精選品牌",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/10/10(六) ~ 2026/11/10(二)",
+    "deadline": "2026/11/10",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22423b.jpg",
+    "activityUrl": "https://gpwd.mnd.gov.tw/reward/index.aspx",
+    "officialUrl": "",
     "is_expired": true
   },
   {
@@ -2984,43 +3002,6 @@
     "is_expired": true
   },
   {
-    "id": "21993",
-    "title": "台塩海洋鹼性離子水抽獎質感好水抽iPhone17",
-    "brand": "台塩生技",
-    "tags": [
-      "抽iPhone"
-    ],
-    "time": "2026/3/1(日) ~ 2026/9/30(三)",
-    "deadline": "2026/9/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/21993b.jpg",
-    "activityUrl": "https://www.taiyenwater.com.tw/",
-    "officialUrl": "https://www.tybio.com.tw/",
-    "is_expired": true
-  },
-  {
-    "id": "22232",
-    "title": "御茶園抽獎送你和風之旅抽5萬元日本旅遊金",
-    "brand": "維他露",
-    "tags": [
-      "抽機票",
-      "抽現金"
-    ],
-    "time": "2026/7/1(三) ~ 2026/9/30(三)",
-    "deadline": "2026/9/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22232b.jpg",
-    "activityUrl": "https://www.vitalon.com.tw/News/Detail/597",
-    "officialUrl": "http://www.vitalon.com.tw/",
-    "is_expired": true
-  },
-  {
     "id": "22361",
     "title": "115年交通安全月機車零違規抽Honda大型重機",
     "brand": "交通部",
@@ -3037,6 +3018,24 @@
     "imageUrl": "https://onelife.tw/img/a/22361b.jpg",
     "activityUrl": "https://safety115.thb.gov.tw/",
     "officialUrl": "https://www.motc.gov.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21993",
+    "title": "台塩海洋鹼性離子水抽獎質感好水抽iPhone17",
+    "brand": "台塩生技",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/3/1(日) ~ 2026/9/30(三)",
+    "deadline": "2026/9/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21993b.jpg",
+    "activityUrl": "https://www.taiyenwater.com.tw/",
+    "officialUrl": "https://www.tybio.com.tw/",
     "is_expired": true
   },
   {
@@ -3184,6 +3183,25 @@
     "imageUrl": "https://onelife.tw/img/a/22357b.jpg",
     "activityUrl": "https://www.carlsbergtw.com/eventnews/42",
     "officialUrl": "https://www.carlsbergtw.com/",
+    "is_expired": true
+  },
+  {
+    "id": "22232",
+    "title": "御茶園抽獎送你和風之旅抽5萬元日本旅遊金",
+    "brand": "維他露",
+    "tags": [
+      "抽機票",
+      "抽現金"
+    ],
+    "time": "2026/7/1(三) ~ 2026/9/30(三)",
+    "deadline": "2026/9/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22232b.jpg",
+    "activityUrl": "https://www.vitalon.com.tw/News/Detail/597",
+    "officialUrl": "http://www.vitalon.com.tw/",
     "is_expired": true
   },
   {
@@ -3606,21 +3624,21 @@
     "is_expired": true
   },
   {
-    "id": "22243",
-    "title": "生活飲料抽獎吸旺中大獎抽iPhone18",
-    "brand": "生活飲料",
+    "id": "22176",
+    "title": "evian抽獎歡慶200週年一起Young起來抽法國來回機票",
+    "brand": "evian",
     "tags": [
-      "抽iPhone"
+      "抽機票"
     ],
-    "time": "2026/7/6(一) ~ 2026/8/31(一)",
+    "time": "2026/6/1(一) ~ 2026/8/31(一)",
     "deadline": "2026/8/31",
     "qualification": "",
     "prizes": [
       "官方大獎（詳見活動官網）"
     ],
-    "imageUrl": "https://onelife.tw/img/a/22243b.jpg",
-    "activityUrl": "https://www.facebook.com/share/p/19CxtRvist/",
-    "officialUrl": "http://www.sunkey.com.tw/",
+    "imageUrl": "https://onelife.tw/img/a/22176b.jpg",
+    "activityUrl": "https://hod.evian.tw/page/evian200y",
+    "officialUrl": "https://hod.evian.tw/",
     "is_expired": true
   },
   {
@@ -3642,24 +3660,6 @@
     "is_expired": true
   },
   {
-    "id": "22176",
-    "title": "evian抽獎歡慶200週年一起Young起來抽法國來回機票",
-    "brand": "evian",
-    "tags": [
-      "抽機票"
-    ],
-    "time": "2026/6/1(一) ~ 2026/8/31(一)",
-    "deadline": "2026/8/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22176b.jpg",
-    "activityUrl": "https://hod.evian.tw/page/evian200y",
-    "officialUrl": "https://hod.evian.tw/",
-    "is_expired": true
-  },
-  {
     "id": "22177",
     "title": "KIRIN抽獎一番居家酒場開張集點拿小物抽週邊",
     "brand": "台灣麒麟",
@@ -3675,6 +3675,24 @@
     "imageUrl": "https://onelife.tw/img/a/22177b.jpg",
     "activityUrl": "https://www.kirin.com.tw/ichiban/event/2026iscampaign/",
     "officialUrl": "https://www.kirin.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "22243",
+    "title": "生活飲料抽獎吸旺中大獎抽iPhone18",
+    "brand": "生活飲料",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/7/6(一) ~ 2026/8/31(一)",
+    "deadline": "2026/8/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22243b.jpg",
+    "activityUrl": "https://www.facebook.com/share/p/19CxtRvist/",
+    "officialUrl": "http://www.sunkey.com.tw/",
     "is_expired": true
   },
   {
@@ -3821,24 +3839,6 @@
     "imageUrl": "https://onelife.tw/img/a/22188b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1335",
     "officialUrl": "https://www.facebook.com/LaysTW",
-    "is_expired": true
-  },
-  {
-    "id": "22236",
-    "title": "瑞穗調味乳抽獎開瓶出發趣週週抽親子飯店",
-    "brand": "統一",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "2026/6/24(三) ~ 2026/8/4(二)",
-    "deadline": "2026/8/4",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22236b.jpg",
-    "activityUrl": "https://www.openchill.tw/activity.html",
-    "officialUrl": "http://www.pecos.com.tw/",
     "is_expired": true
   },
   {
@@ -9163,6 +9163,24 @@
     "is_expired": true
   },
   {
+    "id": "22480",
+    "title": "OK超商代收寄取件杜老爺雪糕甜筒買2送2",
+    "brand": "OK超商",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22480b.jpg",
+    "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3556",
+    "officialUrl": "https://www.okmart.com.tw/",
+    "is_expired": true
+  },
+  {
     "id": "22431",
     "title": "OK超商代收寄取件杜老爺曠世奇派冰品買2送2",
     "brand": "OK超商",
@@ -9268,24 +9286,6 @@
     "imageUrl": "https://onelife.tw/img/a/22239b.jpg",
     "activityUrl": "https://www.ctbcbank.com/content/dam/minisite/long/atm/ATM/P4.html",
     "officialUrl": "https://www.ctbcbank.com/",
-    "is_expired": true
-  },
-  {
-    "id": "22221",
-    "title": "OK超商代收寄取件曠世奇派杜老爺冰品買2送2",
-    "brand": "OK超商",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "",
-    "deadline": "",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22221b.jpg",
-    "activityUrl": "https://www.okmart.com.tw/promotion_referenceDetail?ID=3519",
-    "officialUrl": "https://www.okmart.com.tw/",
     "is_expired": true
   },
   {
