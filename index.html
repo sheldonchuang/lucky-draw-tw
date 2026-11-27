@@ -523,11 +523,11 @@
       color: #FFFFFF;
     }
 
-    /* 全新功能：雙並排醒目橫幅按鈕列（社群贈券牆 + 當月買一送一總整理） */
-    .hero-banner-pair {
+    /* 全新功能：三並排醒目大按鈕列（社群贈券牆 + 當月買一送一總整理 + 台灣電商折扣碼） */
+    .hero-banner-trio {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0.9rem;
     }
     .community-hero-btn {
@@ -536,7 +536,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1.1rem;
-      padding: 1.35rem 1.5rem;
+      padding: 1.35rem 1.4rem;
       border-radius: 16px;
       border: 2px solid #D99B4E;
       background: linear-gradient(135deg, #1B362B 0%, #2D4B3E 58%, #3B604F 100%);
@@ -547,8 +547,28 @@
       position: relative;
       overflow: hidden;
     }
-    .hero-banner-pair .community-hero-btn {
+    .hero-banner-trio .community-hero-btn {
       grid-column: auto;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.35rem 1.35rem;
+    }
+    .hero-banner-trio .community-hero-title {
+      font-size: 1.25rem;
+    }
+    .hero-banner-trio .community-hero-icon {
+      width: 56px;
+      height: 56px;
+      font-size: 1.6rem;
+    }
+    .hero-banner-trio .community-hero-cta {
+      text-align: center;
+      display: block;
+      width: 100%;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.92rem;
     }
     .community-hero-btn.bogo-hero-btn {
       border-color: #E89E5D;
@@ -565,30 +585,18 @@
       box-shadow: 0 6px 16px rgba(92, 34, 16, 0.28);
     }
     .community-hero-btn.coupon-hero-btn {
-      padding: 1rem 1.5rem;
-      background: linear-gradient(135deg, #FFFBF2 0%, #F9F0DF 100%);
-      border-color: #D9B785;
-      color: var(--text);
-      box-shadow: 0 6px 18px rgba(184, 131, 79, 0.12);
+      border-color: #6BA3D6;
+      background: linear-gradient(135deg, #1B3654 0%, #244970 58%, #2E5C8A 100%);
+      box-shadow: 0 10px 26px rgba(27, 54, 84, 0.22), 0 0 0 3px rgba(107, 163, 214, 0.16);
     }
-    .community-hero-btn.coupon-hero-btn .community-hero-title {
-      color: var(--text);
-      font-size: 1.2rem;
-    }
-    .community-hero-btn.coupon-hero-btn .community-hero-sub {
-      color: #5E5346;
+    .community-hero-btn.coupon-hero-btn:hover {
+      border-color: #A6D2FA;
+      box-shadow: 0 14px 32px rgba(27, 54, 84, 0.3), 0 0 0 4px rgba(166, 210, 250, 0.25);
     }
     .community-hero-btn.coupon-hero-btn .community-hero-icon {
-      width: 50px;
-      height: 50px;
-      font-size: 1.4rem;
-      background: linear-gradient(135deg, #C68B4B 0%, #9E662E 100%);
-    }
-    .community-hero-btn.coupon-hero-btn .community-hero-cta {
-      background: var(--primary);
-      color: #FFFFFF;
-      font-size: 0.9rem;
-      padding: 0.65rem 1.2rem;
+      background: linear-gradient(135deg, #FFD07B 0%, #E89D3C 100%);
+      color: #1B3654;
+      box-shadow: 0 6px 16px rgba(27, 54, 84, 0.28);
     }
     .community-hero-btn:hover {
       transform: translateY(-2px);
@@ -695,7 +703,7 @@
         padding: 0.35rem 0.5rem;
         font-size: 0.74rem;
       }
-      .hero-banner-pair {
+      .hero-banner-trio {
         grid-template-columns: 1fr;
       }
       .community-hero-btn {
@@ -2221,14 +2229,14 @@
         <span class="quick-promo-cta">看每週特價 <i class="fa-solid fa-chevron-right"></i></span>
       </button>
 
-      <div class="hero-banner-pair">
+      <div class="hero-banner-trio">
         <a href="./community.html" class="community-hero-btn">
           <div class="community-hero-left">
             <div class="community-hero-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
             <div>
               <div class="community-hero-title-row">
                 <span class="community-hero-title">LuckyGo 社群贈券牆</span>
-                <span class="community-hero-badge">NEW 全新上線</span>
+                <span class="community-hero-badge">NEW 上線</span>
               </div>
               <div class="community-hero-sub">網友閒置優惠券免費贈送・安全交換｜留言申請由分享者核准</div>
             </div>
@@ -2242,28 +2250,28 @@
             <div>
               <div class="community-hero-title-row">
                 <span class="community-hero-title">🏷️ 當月買一送一總整理</span>
-                <span class="community-hero-badge">每日即時更新</span>
+                <span class="community-hero-badge">每日更新</span>
               </div>
-              <div class="community-hero-sub">咖啡・手搖飲・速食・超商・超市・火鍋一頁看完所有 BOGO 優惠</div>
+              <div class="community-hero-sub">咖啡・手搖飲・速食・超商・超市・火鍋一頁看完所有 BOGO</div>
             </div>
           </div>
           <span class="community-hero-cta">看完整懶人包 <i class="fa-solid fa-arrow-right"></i></span>
         </a>
-      </div>
 
-      <a href="./coupons.html" class="community-hero-btn coupon-hero-btn">
-        <div class="community-hero-left">
-          <div class="community-hero-icon"><i class="fa-solid fa-ticket"></i></div>
-          <div>
-            <div class="community-hero-title-row">
-              <span class="community-hero-title">電商折扣碼／速食神券資料庫</span>
-              <span class="community-hero-badge">一鍵複製</span>
+        <a href="./coupons.html" class="community-hero-btn coupon-hero-btn">
+          <div class="community-hero-left">
+            <div class="community-hero-icon"><i class="fa-solid fa-ticket"></i></div>
+            <div>
+              <div class="community-hero-title-row">
+                <span class="community-hero-title">🎟️ 台灣電商折扣碼／神券</span>
+                <span class="community-hero-badge">一鍵複製</span>
+              </div>
+              <div class="community-hero-sub">肯德基／必勝客隱藏碼・蝦皮／momo／Uber Eats／超商 APP</div>
             </div>
-            <div class="community-hero-sub">肯德基／必勝客隱藏代碼・蝦皮／momo／Uber Eats／超商 APP 折扣碼一頁查詢</div>
           </div>
-        </div>
-        <span class="community-hero-cta">立即查折扣碼 <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
+          <span class="community-hero-cta">立即查折扣碼 <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
     </div>
   </section>
 
