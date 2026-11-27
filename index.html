@@ -1838,6 +1838,28 @@
     }
     @media (max-width: 640px) {
       .btn-fav-header span.fav-label-text { display: none; }
+      .btn-submit-header span.submit-label-text { display: none; }
+    }
+
+    .btn-submit-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid #C8DDD0;
+      background: #EBF1ED;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-submit-header:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
     }
 
     /* ===== 開獎通知中心 (Phase 2) ===== */
@@ -1966,6 +1988,10 @@
           <span class="badge-live-dot"></span>
           <span id="live-update-text">即時官方活動更新中</span>
         </div>
+        <button type="button" class="btn-submit-header" onclick="openSubmitEventModal()" title="投稿新抽獎／買一送一情報">
+          <i class="fa-solid fa-bullhorn"></i>
+          <span class="submit-label-text">投稿情報</span>
+        </button>
         <button type="button" class="btn-fav-header" onclick="openFavoritesModal()" title="查看個人活動收藏清單">
           <i class="fa-solid fa-heart"></i>
           <span class="fav-label-text">我的收藏</span>
@@ -2408,6 +2434,62 @@
           </button>
         </div>
         <div id="notiListContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 網友情報投稿 Modal (Phase 2) -->
+  <div class="modal-backdrop" id="submitEventModal" onclick="if(event.target===this) closeSubmitEventModal()">
+    <div class="modal-card" style="max-width:520px;">
+      <div class="modal-header">
+        <div style="font-size:0.95rem; font-weight:800; color:var(--primary);"><i class="fa-solid fa-bullhorn"></i> 網友情報投稿（經站長審核上架）</div>
+        <button class="modal-close-btn" onclick="closeSubmitEventModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner" style="max-height:78vh; overflow-y:auto;">
+        <div id="submitAuthBox" style="background:#EBF1ED; border:1px solid #C8DDD0; padding:0.75rem 1rem; border-radius:10px; margin-bottom:1rem; font-size:0.83rem; color:var(--primary);"></div>
+        <div id="submitFormFields">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; margin-bottom:0.75rem;">
+            <div>
+              <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">品牌／主辦單位 *</label>
+              <input type="text" id="subBrandInput" placeholder="例：星巴克 / 7-ELEVEN" style="width:100%; padding:0.55rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">參加門檻</label>
+              <select id="subEntryInput" style="width:100%; padding:0.55rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem; background:#fff;">
+                <option value="免消費">🆓 免消費</option>
+                <option value="消費登錄">🧾 消費登錄</option>
+                <option value="填問卷">📝 填問卷</option>
+                <option value="分享打卡">📱 分享打卡</option>
+                <option value="追蹤帳號">👤 追蹤帳號</option>
+                <option value="小遊戲">🎮 小遊戲</option>
+                <option value="註冊會員">📋 註冊會員</option>
+              </select>
+            </div>
+          </div>
+          <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">活動標題 *</label>
+          <input type="text" id="subTitleInput" placeholder="例：星巴克年末抽買一送一券＆萬元禮金" style="width:100%; padding:0.55rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem; margin-bottom:0.75rem;">
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.7rem; margin-bottom:0.75rem;">
+            <div>
+              <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">焦點獎品 *</label>
+              <input type="text" id="subPrizeInput" placeholder="例：iPhone 17 / 買一送一券" style="width:100%; padding:0.55rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">截止日期（選填）</label>
+              <input type="date" id="subDeadlineInput" style="width:100%; padding:0.52rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem;">
+            </div>
+          </div>
+
+          <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">官方活動網址 (URL) *</label>
+          <input type="url" id="subUrlInput" placeholder="https://..." style="width:100%; padding:0.55rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem; margin-bottom:0.75rem;">
+
+          <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">活動資格／備註說明</label>
+          <textarea id="subQualInput" rows="3" placeholder="簡述參加方式、注意事項（嚴禁夾帶私人推薦碼或釣魚連結）" style="width:100%; padding:0.55rem 0.7rem; border:1px solid var(--border); border-radius:8px; font-size:0.86rem; margin-bottom:0.9rem; resize:vertical;"></textarea>
+
+          <button type="button" id="subSubmitBtn" onclick="submitUserEvent()" class="btn-direct" style="width:100%; padding:0.75rem; border:none; border-radius:10px; cursor:pointer; font-size:0.92rem;">
+            <i class="fa-solid fa-paper-plane"></i> 送出情報投稿（防詐審核通過後上架）
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -3169,7 +3251,134 @@
       }
     }
 
-    loadVerifiedLotteryResults().then(() => loadFavorites());
+    loadVerifiedLotteryResults().then(() => {
+      loadFavorites();
+      loadApprovedSubmissions();
+    });
+
+    // ==================== 網友情報投稿與上架 (Phase 2) ====================
+    async function loadApprovedSubmissions() {
+      if (!sbIndexClient) return;
+      try {
+        const { data, error } = await sbIndexClient
+          .from('user_submissions')
+          .select('id, brand, title, prize, deadline, activity_url, qualification, entry_type, tags, created_at')
+          .eq('status', 'approved')
+          .order('created_at', { ascending: false })
+          .limit(30);
+        if (error || !Array.isArray(data) || data.length === 0) return;
+
+        const existingIds = new Set(allEvents.map(e => e.id));
+        const mapped = data
+          .filter(s => !existingIds.has(`ugc-${s.id}`))
+          .map(s => ({
+            id: `ugc-${s.id}`,
+            title: `【網友情報】${s.title}`,
+            brand: s.brand || '精選品牌',
+            tags: Array.isArray(s.tags) && s.tags.length > 0 ? s.tags : ['免消費即抽'],
+            time: s.deadline ? `截止日：${s.deadline}` : '社群投稿核實活動',
+            deadline: s.deadline || '',
+            qualification: s.qualification || '網友熱心投稿，經站長防詐審核通過。',
+            prizes: s.prize ? [s.prize] : ['官方好康大獎'],
+            imageUrl: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80',
+            activityUrl: s.activity_url,
+            officialUrl: s.activity_url,
+            is_expired: false,
+            entry_types: s.entry_type ? [s.entry_type] : ['免消費'],
+            is_community_submission: true
+          }));
+
+        if (mapped.length > 0) {
+          allEvents = [...mapped, ...allEvents];
+          updateCounts();
+          renderEvents();
+          refreshNotifications();
+        }
+      } catch (e) {}
+    }
+
+    function openSubmitEventModal() {
+      const box = document.getElementById('submitAuthBox');
+      const form = document.getElementById('submitFormFields');
+      if (currentIndexUser) {
+        box.innerHTML = `<i class="fa-solid fa-circle-check"></i> 已登入：<strong>${currentIndexUser.user_metadata?.full_name || currentIndexUser.email}</strong>，投稿經站長防詐審核後將公開上架！`;
+        form.style.display = 'block';
+      } else {
+        box.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap;">
+            <span><i class="fa-solid fa-shield-halved"></i> 為防止垃圾廣告與詐騙連結，請先登入 Google 帳號再投稿：</span>
+            <button type="button" onclick="signInIndexGoogle()" style="padding:0.4rem 0.85rem; border:none; border-radius:6px; background:var(--primary); color:#fff; font-weight:600; cursor:pointer;">
+              <i class="fa-brands fa-google"></i> Google 登入
+            </button>
+          </div>
+        `;
+        form.style.display = 'none';
+      }
+      document.getElementById('submitEventModal').classList.add('active');
+    }
+
+    function closeSubmitEventModal() {
+      document.getElementById('submitEventModal').classList.remove('active');
+    }
+
+    async function submitUserEvent() {
+      if (!sbIndexClient || !currentIndexUser) return;
+      const brand = document.getElementById('subBrandInput').value.trim();
+      const title = document.getElementById('subTitleInput').value.trim();
+      const prize = document.getElementById('subPrizeInput').value.trim();
+      const rawDate = document.getElementById('subDeadlineInput').value;
+      const deadline = rawDate ? rawDate.replace(/-/g, '/') : '';
+      const url = document.getElementById('subUrlInput').value.trim();
+      const entryType = document.getElementById('subEntryInput').value;
+      const qual = document.getElementById('subQualInput').value.trim();
+
+      if (!brand || !title || !prize) {
+        alert('請填寫品牌、活動標題與焦點獎品');
+        return;
+      }
+      if (!/^https?:\/\/.+/i.test(url)) {
+        alert('請輸入完整的官方活動網址（須以 https:// 或 http:// 開頭）');
+        return;
+      }
+
+      const tags = [];
+      if (entryType === '免消費') tags.push('免消費即抽');
+      else if (entryType === '消費登錄') tags.push('登錄發票即抽');
+      else tags.push('熱門好康');
+      if (/買一送一|買1送1/.test(title + prize + qual)) tags.push('買一送一');
+
+      const btn = document.getElementById('subSubmitBtn');
+      btn.disabled = true;
+      btn.innerText = '送出中...';
+      try {
+        const { error } = await sbIndexClient.from('user_submissions').insert({
+          submitter_id: currentIndexUser.id,
+          brand,
+          title,
+          prize,
+          deadline,
+          activity_url: url,
+          qualification: qual,
+          entry_type: entryType,
+          tags
+        });
+        if (error) throw error;
+        document.getElementById('subBrandInput').value = '';
+        document.getElementById('subTitleInput').value = '';
+        document.getElementById('subPrizeInput').value = '';
+        document.getElementById('subDeadlineInput').value = '';
+        document.getElementById('subUrlInput').value = '';
+        document.getElementById('subQualInput').value = '';
+        closeSubmitEventModal();
+        showFavToast('✅ 投稿成功！已送交站長審核');
+        if (window.gtag) gtag('event', 'submit_user_event', { brand });
+      } catch (err) {
+        alert('投稿失敗：' + (err.message || err));
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 送出情報投稿（防詐審核通過後上架）';
+      }
+    }
 
     // ==================== 個人活動收藏清單 (Supabase 雲端 + 訪客暫存) ====================
     const GUEST_FAV_KEY = 'luckygo_guest_favorites_v1';

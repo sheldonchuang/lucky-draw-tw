@@ -303,3 +303,40 @@ create policy "使用者僅能新增自己的收藏"
 create policy "使用者僅能移除自己的收藏"
   on public.user_favorites for delete
   using (auth.uid() = user_id);
+
+-- ============================================================================
+-- 9. 網友情報投稿與站長審核表（Phase 2：UGC 投稿＋防詐審核上架）
+-- ============================================================================
+create table if not exists public.user_submissions (
+  id uuid primary key default gen_random_uuid(),
+  submitter_id uuid not null references public.profiles(id) on delete cascade,
+  brand text not null,
+  title text not null,
+  prize text not null default '',
+  deadline text not null default '',
+  activity_url text not null,
+  qualification text default '',
+  entry_type text not null default '免消費',
+  tags text[] not null default array['免消費即抽']::text[],
+  status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
+  created_at timestamptz not null default now()
+);
+
+alter table public.user_submissions enable row level security;
+
+create policy "公開讀取已核准投稿，站長與投稿者可讀待審紀錄"
+  on public.user_submissions for select
+  using (
+    status = 'approved'
+    or auth.uid() = submitter_id
+    or lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com'
+  );
+
+create policy "登入會員可投稿新抽獎情報"
+  on public.user_submissions for insert
+  with check (auth.uid() = submitter_id);
+
+create policy "僅站長可審核網友投稿狀態"
+  on public.user_submissions for update
+  using (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com')
+  with check (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com');

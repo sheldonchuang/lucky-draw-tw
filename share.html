@@ -1024,6 +1024,35 @@
           </table>
         </div>
       </div>
+
+      <!-- 網友情報投稿審核區塊 (Phase 2 UGC) -->
+      <div class="detail-panel" style="margin-top: 1.5rem;">
+        <div class="panel-header-flex">
+          <div>
+            <div class="panel-title"><i class="fa-solid fa-bullhorn" style="color:var(--primary);"></i> 網友情報投稿審核</div>
+            <div class="panel-desc">審核網友透過首頁「投稿情報」提交的抽獎活動；核准後即自動上架至 LuckyGo 首頁。</div>
+          </div>
+          <button class="quick-date-btn" onclick="loadUserSubmissions()">
+            <i class="fa-solid fa-rotate"></i> 重新整理投稿
+          </button>
+        </div>
+        <div class="table-container">
+          <table class="traffic-table">
+            <thead>
+              <tr>
+                <th>品牌／活動標題</th>
+                <th>獎品與截止日</th>
+                <th>官方網址</th>
+                <th>狀態</th>
+                <th>審核操作</th>
+              </tr>
+            </thead>
+            <tbody id="userSubmissionsBody">
+              <tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">載入網友投稿中...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== 3. Threads 一鍵發文推廣區塊 ==================== -->
@@ -2169,10 +2198,74 @@
       }
     }
 
+    async function loadUserSubmissions() {
+      const tbody = document.getElementById('userSubmissionsBody');
+      if (!sbClient || !tbody) return;
+      try {
+        const { data, error } = await sbClient
+          .from('user_submissions')
+          .select('id, brand, title, prize, deadline, activity_url, qualification, entry_type, status, created_at')
+          .order('created_at', { ascending: false })
+          .limit(50);
+        if (error) throw error;
+        if (!data || data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">目前尚無網友情報投稿。</td></tr>';
+          return;
+        }
+        const canEdit = isAuthorizedAdmin();
+        const statusMap = {
+          pending: '<span style="background:#FFF3E0;color:#B85D3B;padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;font-weight:700;">⏳ 待審核</span>',
+          approved: '<span style="background:#EAF2EC;color:#2D5A3C;padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;font-weight:700;">✅ 已上架</span>',
+          rejected: '<span style="background:#FCEAEA;color:#9E4540;padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;font-weight:700;">❌ 已駁回</span>'
+        };
+        tbody.innerHTML = data.map(s => `
+          <tr>
+            <td style="max-width:250px; white-space:normal;">
+              <div style="font-size:0.75rem; color:var(--accent); font-weight:700;">${escapeHtml(s.brand)} · ${escapeHtml(s.entry_type || '免消費')}</div>
+              <div style="font-weight:600;">${escapeHtml(s.title)}</div>
+              ${s.qualification ? `<div style="font-size:0.74rem; color:var(--text-muted); margin-top:0.15rem;">${escapeHtml(s.qualification)}</div>` : ''}
+            </td>
+            <td style="max-width:170px; white-space:normal;">
+              <div style="font-weight:600;">${escapeHtml(s.prize || '-')}</div>
+              <div style="font-size:0.74rem; color:var(--text-muted);">${s.deadline ? '至 ' + escapeHtml(s.deadline) : '未指定截止日'}</div>
+            </td>
+            <td style="max-width:160px; white-space:normal;">
+              <a href="${escapeHtml(s.activity_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600; word-break:break-all;">前往活動 ↗</a>
+              <div style="font-size:0.72rem; color:var(--text-muted);">${formatTaipeiTime(s.created_at)}</div>
+            </td>
+            <td>${statusMap[s.status] || escapeHtml(s.status)}</td>
+            <td>
+              ${canEdit ? `
+                <div style="display:flex; gap:0.3rem;">
+                  <button class="admin-mini-btn" onclick="reviewSubmission('${s.id}', 'approved')">✅ 核准上架</button>
+                  <button class="admin-mini-btn" onclick="reviewSubmission('${s.id}', 'rejected')">❌ 駁回</button>
+                </div>` : '<span style="font-size:0.75rem; color:var(--text-muted);">需登入站長帳號</span>'}
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">尚未建立 user_submissions 資料表或無讀取權限</td></tr>`;
+      }
+    }
+
+    async function reviewSubmission(id, newStatus) {
+      if (!sbClient || !isAuthorizedAdmin()) return;
+      try {
+        const { error } = await sbClient.from('user_submissions').update({ status: newStatus }).eq('id', id);
+        if (error) throw error;
+        await loadUserSubmissions();
+      } catch (err) {
+        alert('審核更新失敗：' + (err.message || err));
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       setLaunchRange();
       regenerateDailyPosts();
-      checkAdminSession().then(() => loadLotteryReports());
+      checkAdminSession().then(() => {
+        loadLotteryReports();
+        loadUserSubmissions();
+      });
       loadMembersData();
     });
   </script>
