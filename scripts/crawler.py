@@ -78,6 +78,26 @@ def crawl_onelife_all():
         'https://onelife.tw/tag/抽家電',
         'https://onelife.tw/tag/抽機車',
         'https://onelife.tw/tag/抽旅遊',
+        # 美食餐飲與手搖飲標籤
+        'https://onelife.tw/tag/壽司',
+        'https://onelife.tw/tag/爭鮮',
+        'https://onelife.tw/tag/手搖飲',
+        'https://onelife.tw/tag/飲料',
+        'https://onelife.tw/tag/咖啡',
+        'https://onelife.tw/tag/餐廳',
+        # 熱門餐飲與手搖飲品牌專頁
+        'https://onelife.tw/c/爭鮮',
+        'https://onelife.tw/c/藏壽司',
+        'https://onelife.tw/c/壽司郎',
+        'https://onelife.tw/c/王品',
+        'https://onelife.tw/c/築間',
+        'https://onelife.tw/c/星巴克',
+        'https://onelife.tw/c/路易莎',
+        'https://onelife.tw/c/CoCo',
+        'https://onelife.tw/c/迷客夏',
+        'https://onelife.tw/c/五十嵐',
+        'https://onelife.tw/c/麥當勞',
+        'https://onelife.tw/c/肯德基',
     ]
 
     # --- 動態抓取所有廠商頁面 ---
@@ -326,6 +346,11 @@ def get_dynamic_free_intelligence(today):
     this_sunday = today + timedelta(days=days_to_sunday)
     this_sunday_str = this_sunday.strftime('%Y/%m/%d')
 
+    # 本週三或下週三 (CoCo 都可 / 手搖飲週三好友日)
+    days_to_wednesday = (2 - weekday) % 7
+    this_wednesday = today + timedelta(days=days_to_wednesday)
+    this_wednesday_str = this_wednesday.strftime('%Y/%m/%d')
+
     # 本週四或下週四 (Epic 限免遊戲換檔日)
     days_to_thursday = (3 - weekday) % 7
     if days_to_thursday == 0:
@@ -505,6 +530,143 @@ def get_dynamic_free_intelligence(today):
             "imageUrl": "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://order.nidin.shop/",
             "officialUrl": "https://order.nidin.shop/"
+        },
+        {
+            "id": "ext-bogo-tea-coco",
+            "title": "CoCo 都可・每週三好友日「都可訂」線上領券指定飲品買一送一／第二杯 10 元",
+            "brand": "CoCo都可",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
+            "time": f"每週三好友日＆月度優惠 (本期至 {this_wednesday_str})",
+            "deadline": this_wednesday_str,
+            "qualification": "加入 CoCo 都可官方 LINE 帳號並點選「都可訂」線上點餐，每週三好友日準時開搶指定人氣飲品（百香雙響炮、珍珠奶茶、輕乳茶等）買一送一或第二杯 10 元優惠券，每人每週皆可領取！",
+            "prizes": ["週三好友日指定飲品買一送一", "都可訂線上點餐專屬折價券", "自備環保杯再折 5 元"],
+            "imageUrl": "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.coco-tea.com/",
+            "officialUrl": "https://www.coco-tea.com/"
+        },
+        {
+            "id": "ext-bogo-tea-milksha",
+            "title": "迷客夏 Milksha・迷點線上訂餐會員禮＆週三週五指定飲品優惠・點數折現金",
+            "brand": "迷客夏",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入迷客夏官方 LINE 綁定「迷點」會員，享新會員入會贈券、每筆消費集點折抵現金，以及不定期發放指定牧場鮮奶茶、大正紅茶拿鐵第二杯半價或折價券！",
+            "prizes": ["迷點會員入會專屬折價券", "指定飲品第二杯半價 / 滿額現折", "消費集點免費兌換飲品"],
+            "imageUrl": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.milksha.com/",
+            "officialUrl": "https://www.milksha.com/"
+        },
+        {
+            "id": "ext-bogo-tea-macu",
+            "title": "麻古茶坊 / 珍煮丹 / 可不可熟成紅茶・LINE 會員領券買一送一＆你訂線上點餐折扣",
+            "brand": "麻古/珍煮丹/可不可",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "麻古茶坊、珍煮丹、可不可熟成紅茶、清心福全、五十嵐等熱門手搖飲品牌，透過官方 LINE 好友領券或「你訂 Nidin」線上訂餐，不定期推出指定果茶/黑糖珍珠/熟成紅茶買一送一或滿額折價，搭配環保杯再折 5 元！",
+            "prizes": ["指定人氣手搖飲買一送一券", "你訂線上點餐滿額現折券", "壽星生日月份免費飲品/折價券"],
+            "imageUrl": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://order.nidin.shop/",
+            "officialUrl": "https://www.kebuke.com/"
+        },
+
+        # --- 壽司連鎖專區（爭鮮、壽司郎、藏壽司） ---
+        {
+            "id": "ext-sushi-01",
+            "title": "爭鮮迴轉壽司 / 爭鮮gogo / 定食8・APP 會員每週優惠券＆當月壽星贈禮・集點換免費壽司",
+            "brand": "爭鮮",
+            "tags": ["買一送一", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載註冊「爭鮮 TW」官方 APP 成為會員，即可領取旗下【爭鮮迴轉壽司、爭鮮PLUS、爭鮮gogo、定食8、MAGiC TOUCH】每週限定優惠券（指定壽司加1元多1件/買一送一、滿額現折），壽星當月再領專屬生日禮券！",
+            "prizes": ["APP 每週限定加1元多1件 / 折價券", "當月壽星專屬免費贈品 / 折扣券", "消費集點兌換免費餐點與折抵金"],
+            "imageUrl": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.sushiexpress.com.tw/",
+            "officialUrl": "https://www.sushiexpress.com.tw/"
+        },
+        {
+            "id": "ext-sushi-02",
+            "title": "壽司郎 Sushiro・台灣壽司郎 APP 集點換免費甜點／折價券・每月限定祭典特惠",
+            "brand": "壽司郎",
+            "tags": ["免消費即抽", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載「台灣壽司郎」官方 APP 預約訂位與到店報到集點，累積點數可免費兌換限定甜點、折價券與周邊好禮；官方粉專與 APP 同步更新每月期間限定鮪魚/鮭魚祭典特惠！",
+            "prizes": ["APP 集點免費兌換甜點 / 折價券", "每月限定祭典人氣壽司優惠", "聯名活動限定抽獎好禮"],
+            "imageUrl": "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.sushiro.com.tw/",
+            "officialUrl": "https://www.sushiro.com.tw/"
+        },
+        {
+            "id": "ext-sushi-03",
+            "title": "藏壽司 Kura Sushi・限定聯名扭蛋抽獎活動・消費滿額贈好禮與 IG/FB 打卡抽獎",
+            "brand": "藏壽司",
+            "tags": ["熱門好康", "登錄發票即抽"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "至全台藏壽司門市消費，每 5 盤即可抽聯名限定扭蛋乙次！定期推出寶可夢、三麗鷗、吉伊卡哇等人氣聯名滿額贈禮與官方粉專留言抽獎／免費餐券活動。",
+            "prizes": ["人氣動漫聯名限定扭蛋＆滿額贈", "官方社群抽藏壽司 500 元餐券", "E排客 APP 預約免排隊"],
+            "imageUrl": "https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.kurasushi.tw/",
+            "officialUrl": "https://www.kurasushi.tw/"
+        },
+
+        # --- 人氣火鍋連鎖專區（王品集團火鍋、築間、肉多多、馬辣） ---
+        {
+            "id": "ext-hotpot-01",
+            "title": "王品集團火鍋（石二鍋 / 聚日式鍋物 / 青花驕 / 和牛涮）・王品瘋美食 APP 領贈菜券與壽星 5 折",
+            "brand": "王品集團火鍋",
+            "tags": ["買一送一", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載「王品瘋美食」APP 免費加入會員，每月不定時發放旗下【石二鍋、聚日式鍋物、尬鍋、青花驕、和牛涮、向辣】免費贈肉盤／海鮮券與買一送一券；當月壽星再享聚鍋 5 折或專屬免費招待！",
+            "prizes": ["聚日式鍋物當月壽星指定套餐 5 折", "石二鍋/青花驕/和牛涮免費贈肉盤券", "王品瘋點數 1 點折 1 元無上限"],
+            "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://wowprime.com/",
+            "officialUrl": "https://wowprime.com/"
+        },
+        {
+            "id": "ext-hotpot-02",
+            "title": "築間幸福鍋物・加入官方 LINE 會員免費領「肉品／海鮮 7 選 1」電子優惠券",
+            "brand": "築間幸福鍋物",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "免費加入築間餐飲集團官方 LINE 會員，立即領取新會員入會點數（可直接兌換牛五花、梅花豬、鮮蝦、蛤蜊等 7 選 1 免費加菜券），消費集點還可免費換整份套餐，當月壽星享點數雙倍送！",
+            "prizes": ["免費肉品/海鮮 7 選 1 兌換券", "會員點數免費兌換整份鍋物套餐", "當月壽星生日禮與點數加倍"],
+            "imageUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.jhujian.com.tw/",
+            "officialUrl": "https://www.jhujian.com.tw/"
+        },
+        {
+            "id": "ext-hotpot-03",
+            "title": "肉多多火鍋 / 狂一鍋・樂多多 APP 入會禮免費送「梅花豬／無骨鮮雞腿」・壽星送生日肉蛋糕",
+            "brand": "肉多多/狂一鍋",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載註冊「樂多多 APP」免費領取入會禮兌換券（至肉多多火鍋或狂一鍋內用即免費送活力梅花豬或無骨鮮雞腿乙份），當月壽星出示證件還可免費獲贈「生日肉蛋糕」乙顆！",
+            "prizes": ["APP 入會免費送活力梅花豬 / 鮮雞腿", "當月壽星免費贈生日肉蛋糕", "點數跨品牌通用免費換海鮮肉盤"],
+            "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.twrododo.com/",
+            "officialUrl": "https://www.twrododo.com/"
+        },
+        {
+            "id": "ext-hotpot-04",
+            "title": "馬辣 / 新馬辣 / 問鼎火鍋・當月壽星＆身分證對對碰「九孔鮑魚／神仙牛」免費吃到飽升級",
+            "brand": "馬辣集團",
+            "tags": ["壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "每月更新馬辣集團（馬辣、新馬辣、新馬辣Plus、問鼎、涮樂和牛）身分證對對碰與當月壽星活動：提前一天訂位並主動告知參加壽星優惠，全桌免費升級九孔鮑魚、北海道帆立貝或美國神仙牛吃到飽！",
+            "prizes": ["當月壽星全桌免費升級九孔鮑魚吃到飽", "身分證對中指定數字贈北海道大帆立貝", "問鼎壽星免費贈生日肉蛋糕"],
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.mala-1.com.tw/",
+            "officialUrl": "https://www.mala-1.com.tw/"
         },
 
         # --- 速食與披薩隱藏優惠碼專區（麥當勞、肯德基、必勝客、漢堡王、摩斯漢堡） ---

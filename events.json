@@ -214,6 +214,201 @@
     "is_expired": false
   },
   {
+    "id": "ext-bogo-tea-milksha",
+    "title": "迷客夏 Milksha・迷點線上訂餐會員禮＆週三週五指定飲品優惠・點數折現金",
+    "brand": "迷客夏",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "promo_group": "drinks",
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "加入迷客夏官方 LINE 綁定「迷點」會員，享新會員入會贈券、每筆消費集點折抵現金，以及不定期發放指定牧場鮮奶茶、大正紅茶拿鐵第二杯半價或折價券！",
+    "prizes": [
+      "迷點會員入會專屬折價券",
+      "指定飲品第二杯半價 / 滿額現折",
+      "消費集點免費兌換飲品"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.milksha.com/",
+    "officialUrl": "https://www.milksha.com/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-bogo-tea-macu",
+    "title": "麻古茶坊 / 珍煮丹 / 可不可熟成紅茶・LINE 會員領券買一送一＆你訂線上點餐折扣",
+    "brand": "麻古/珍煮丹/可不可",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "promo_group": "drinks",
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "麻古茶坊、珍煮丹、可不可熟成紅茶、清心福全、五十嵐等熱門手搖飲品牌，透過官方 LINE 好友領券或「你訂 Nidin」線上訂餐，不定期推出指定果茶/黑糖珍珠/熟成紅茶買一送一或滿額折價，搭配環保杯再折 5 元！",
+    "prizes": [
+      "指定人氣手搖飲買一送一券",
+      "你訂線上點餐滿額現折券",
+      "壽星生日月份免費飲品/折價券"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://order.nidin.shop/",
+    "officialUrl": "https://www.kebuke.com/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-sushi-01",
+    "title": "爭鮮迴轉壽司 / 爭鮮gogo / 定食8・APP 會員每週優惠券＆當月壽星贈禮・集點換免費壽司",
+    "brand": "爭鮮",
+    "tags": [
+      "買一送一",
+      "壽星好康",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "下載註冊「爭鮮 TW」官方 APP 成為會員，即可領取旗下【爭鮮迴轉壽司、爭鮮PLUS、爭鮮gogo、定食8、MAGiC TOUCH】每週限定優惠券（指定壽司加1元多1件/買一送一、滿額現折），壽星當月再領專屬生日禮券！",
+    "prizes": [
+      "APP 每週限定加1元多1件 / 折價券",
+      "當月壽星專屬免費贈品 / 折扣券",
+      "消費集點兌換免費餐點與折抵金"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.sushiexpress.com.tw/",
+    "officialUrl": "https://www.sushiexpress.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-sushi-02",
+    "title": "壽司郎 Sushiro・台灣壽司郎 APP 集點換免費甜點／折價券・每月限定祭典特惠",
+    "brand": "壽司郎",
+    "tags": [
+      "免消費即抽",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "下載「台灣壽司郎」官方 APP 預約訂位與到店報到集點，累積點數可免費兌換限定甜點、折價券與周邊好禮；官方粉專與 APP 同步更新每月期間限定鮪魚/鮭魚祭典特惠！",
+    "prizes": [
+      "APP 集點免費兌換甜點 / 折價券",
+      "每月限定祭典人氣壽司優惠",
+      "聯名活動限定抽獎好禮"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.sushiro.com.tw/",
+    "officialUrl": "https://www.sushiro.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-sushi-03",
+    "title": "藏壽司 Kura Sushi・限定聯名扭蛋抽獎活動・消費滿額贈好禮與 IG/FB 打卡抽獎",
+    "brand": "藏壽司",
+    "tags": [
+      "熱門好康",
+      "登錄發票即抽"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "至全台藏壽司門市消費，每 5 盤即可抽聯名限定扭蛋乙次！定期推出寶可夢、三麗鷗、吉伊卡哇等人氣聯名滿額贈禮與官方粉專留言抽獎／免費餐券活動。",
+    "prizes": [
+      "人氣動漫聯名限定扭蛋＆滿額贈",
+      "官方社群抽藏壽司 500 元餐券",
+      "E排客 APP 預約免排隊"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.kurasushi.tw/",
+    "officialUrl": "https://www.kurasushi.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-hotpot-01",
+    "title": "王品集團火鍋（石二鍋 / 聚日式鍋物 / 青花驕 / 和牛涮）・王品瘋美食 APP 領贈菜券與壽星 5 折",
+    "brand": "王品集團火鍋",
+    "tags": [
+      "買一送一",
+      "壽星好康",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "下載「王品瘋美食」APP 免費加入會員，每月不定時發放旗下【石二鍋、聚日式鍋物、尬鍋、青花驕、和牛涮、向辣】免費贈肉盤／海鮮券與買一送一券；當月壽星再享聚鍋 5 折或專屬免費招待！",
+    "prizes": [
+      "聚日式鍋物當月壽星指定套餐 5 折",
+      "石二鍋/青花驕/和牛涮免費贈肉盤券",
+      "王品瘋點數 1 點折 1 元無上限"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://wowprime.com/",
+    "officialUrl": "https://wowprime.com/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-hotpot-02",
+    "title": "築間幸福鍋物・加入官方 LINE 會員免費領「肉品／海鮮 7 選 1」電子優惠券",
+    "brand": "築間幸福鍋物",
+    "tags": [
+      "免消費即抽",
+      "壽星好康",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "免費加入築間餐飲集團官方 LINE 會員，立即領取新會員入會點數（可直接兌換牛五花、梅花豬、鮮蝦、蛤蜊等 7 選 1 免費加菜券），消費集點還可免費換整份套餐，當月壽星享點數雙倍送！",
+    "prizes": [
+      "免費肉品/海鮮 7 選 1 兌換券",
+      "會員點數免費兌換整份鍋物套餐",
+      "當月壽星生日禮與點數加倍"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.jhujian.com.tw/",
+    "officialUrl": "https://www.jhujian.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-hotpot-03",
+    "title": "肉多多火鍋 / 狂一鍋・樂多多 APP 入會禮免費送「梅花豬／無骨鮮雞腿」・壽星送生日肉蛋糕",
+    "brand": "肉多多/狂一鍋",
+    "tags": [
+      "免消費即抽",
+      "壽星好康",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "下載註冊「樂多多 APP」免費領取入會禮兌換券（至肉多多火鍋或狂一鍋內用即免費送活力梅花豬或無骨鮮雞腿乙份），當月壽星出示證件還可免費獲贈「生日肉蛋糕」乙顆！",
+    "prizes": [
+      "APP 入會免費送活力梅花豬 / 鮮雞腿",
+      "當月壽星免費贈生日肉蛋糕",
+      "點數跨品牌通用免費換海鮮肉盤"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.twrododo.com/",
+    "officialUrl": "https://www.twrododo.com/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-hotpot-04",
+    "title": "馬辣 / 新馬辣 / 問鼎火鍋・當月壽星＆身分證對對碰「九孔鮑魚／神仙牛」免費吃到飽升級",
+    "brand": "馬辣集團",
+    "tags": [
+      "壽星好康",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/11/30",
+    "deadline": "2026/11/30",
+    "qualification": "每月更新馬辣集團（馬辣、新馬辣、新馬辣Plus、問鼎、涮樂和牛）身分證對對碰與當月壽星活動：提前一天訂位並主動告知參加壽星優惠，全桌免費升級九孔鮑魚、北海道帆立貝或美國神仙牛吃到飽！",
+    "prizes": [
+      "當月壽星全桌免費升級九孔鮑魚吃到飽",
+      "身分證對中指定數字贈北海道大帆立貝",
+      "問鼎壽星免費贈生日肉蛋糕"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.mala-1.com.tw/",
+    "officialUrl": "https://www.mala-1.com.tw/",
+    "is_expired": false
+  },
+  {
     "id": "ext-bogo-fast-01",
     "title": "麥當勞 McDonald's・APP 天天轉盤刮刮樂抽「大薯 / 麥克鷄塊 / 冰炫風買一送一」・歡樂送專屬優惠碼",
     "brand": "麥當勞",
@@ -1058,7 +1253,29 @@
     "is_expired": false
   },
   {
-    "id": "epic-live-365",
+    "id": "ext-bogo-tea-coco",
+    "title": "CoCo 都可・每週三好友日「都可訂」線上領券指定飲品買一送一／第二杯 10 元",
+    "brand": "CoCo都可",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "promo_group": "drinks",
+    "time": "每週三好友日＆月度優惠 (本期至 2026/12/02)",
+    "deadline": "2026/12/02",
+    "qualification": "加入 CoCo 都可官方 LINE 帳號並點選「都可訂」線上點餐，每週三好友日準時開搶指定人氣飲品（百香雙響炮、珍珠奶茶、輕乳茶等）買一送一或第二杯 10 元優惠券，每人每週皆可領取！",
+    "prizes": [
+      "週三好友日指定飲品買一送一",
+      "都可訂線上點餐專屬折價券",
+      "自備環保杯再折 5 元"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.coco-tea.com/",
+    "officialUrl": "https://www.coco-tea.com/",
+    "is_expired": false
+  },
+  {
+    "id": "epic-live-9818",
     "title": "Epic Games 本週限時免費正版遊戲・《火之石 – 英雄放置點擊RPG》0元永久入庫收藏",
     "brand": "Epic Games",
     "tags": [
@@ -1079,7 +1296,7 @@
     "is_expired": false
   },
   {
-    "id": "epic-live-2737",
+    "id": "epic-live-2751",
     "title": "Epic Games 本週限時免費正版遊戲・《Bread and Fred》0元永久入庫收藏",
     "brand": "Epic Games",
     "tags": [
@@ -4099,6 +4316,24 @@
     "is_expired": true
   },
   {
+    "id": "22173",
+    "title": "王品抽獎嚴選超級品牌月王品瘋抽廚餘機氣炸鍋",
+    "brand": "王品",
+    "tags": [
+      "抽家電"
+    ],
+    "time": "2026/4/1(三) ~ 2026/7/31(五)",
+    "deadline": "2026/7/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "https://wangmart.wowprime.com/blogs/news/202699",
+    "officialUrl": "http://wowfoods.wowprime.com/",
+    "is_expired": true
+  },
+  {
     "id": "22123",
     "title": "台灣KIRIN抽獎閃耀冰結音浪祭抽潮流音樂祭門票",
     "brand": "台灣麒麟",
@@ -5086,6 +5321,25 @@
     "is_expired": true
   },
   {
+    "id": "21939",
+    "title": "麥當勞歡樂送抽獎金迎招財薯來堡抽8888旅遊金",
+    "brand": "麥當勞",
+    "tags": [
+      "抽機票",
+      "抽現金"
+    ],
+    "time": "2026/1/28(三) ~ 2026/3/3(二)",
+    "deadline": "2026/3/3",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21939b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1308",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
     "id": "21938",
     "title": "立頓抽獎7-11全家家樂福限定抽日本澳洲來回機票海洋樂園門票",
     "brand": "立頓",
@@ -5320,6 +5574,24 @@
     "imageUrl": "https://onelife.tw/img/a/21891b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1294",
     "officialUrl": "https://www.monsterenergy.com/",
+    "is_expired": true
+  },
+  {
+    "id": "21834",
+    "title": "王品瘋美食購物網抽武德宮財虎紀念金幣",
+    "brand": "王品",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2025/10/31(五) ~ 2026/2/8(日)",
+    "deadline": "2026/2/8",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "https://wangmart.wowprime.com/blogs/news/wude",
+    "officialUrl": "http://wowfoods.wowprime.com/",
     "is_expired": true
   },
   {
@@ -6521,6 +6793,24 @@
     "is_expired": true
   },
   {
+    "id": "21226",
+    "title": "王品抽獎超級品牌月顆顆有感抽LG變頻濕拖機器人",
+    "brand": "王品",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2025/4/1(二) ~ 2025/6/30(一)",
+    "deadline": "2025/6/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21226b.jpg",
+    "activityUrl": "https://wangmart.wowprime.com/blogs/news/185740",
+    "officialUrl": "http://wowfoods.wowprime.com/",
+    "is_expired": true
+  },
+  {
     "id": "21375",
     "title": "威金森抽獎刺激五感之旅抽日本來回機票",
     "brand": "台灣朝日",
@@ -6856,6 +7146,24 @@
     "is_expired": true
   },
   {
+    "id": "21181",
+    "title": "爭鮮抽獎會員獨享滿額抽日月潭碧樓湖住宿",
+    "brand": "爭鮮",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2025/3/3(一) ~ 2025/5/4(日)",
+    "deadline": "2025/5/4",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21181b.jpg",
+    "activityUrl": "https://www.sushiexpress.com.tw/news_article/0/2592",
+    "officialUrl": "https://www.sushiexpress.com.tw/sushi-express/index",
+    "is_expired": true
+  },
+  {
     "id": "21135",
     "title": "康貝特抽獎，要上____喝了再上抽Gogoro",
     "brand": "葡萄王",
@@ -6889,6 +7197,24 @@
     "imageUrl": "https://onelife.tw/img/a/21219b.jpg",
     "activityUrl": "https://www.carlsbergtw.com/eventnews/38",
     "officialUrl": "https://www.carlsbergtw.com/",
+    "is_expired": true
+  },
+  {
+    "id": "21253",
+    "title": "壽司郎抽獎，吃壽司郎抽ANA台北日本來回機票",
+    "brand": "壽司郎",
+    "tags": [
+      "抽機票"
+    ],
+    "time": "2025/4/2(三) ~ 2025/4/27(日)",
+    "deadline": "2025/4/27",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21253b.jpg",
+    "activityUrl": "https://www.facebook.com/photo/?fbid=1070961378403111&set=a.484210043744917",
+    "officialUrl": "https://sushiro.com.tw/",
     "is_expired": true
   },
   {
@@ -7077,6 +7403,24 @@
     "is_expired": true
   },
   {
+    "id": "21079",
+    "title": "王品瘋美食結帳消費扣點數再抽瘋點數666點",
+    "brand": "王品",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2025/1/1(三) ~ 2025/3/31(一)",
+    "deadline": "2025/3/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21079b.jpg",
+    "activityUrl": "https://www.wowfms.com/content/202501redeem666",
+    "officialUrl": "http://wowfoods.wowprime.com/",
+    "is_expired": true
+  },
+  {
     "id": "21099",
     "title": "全家限定買台啤送鯊很大捕魚金抽峇里島來回機票",
     "brand": "台灣菸酒",
@@ -7149,6 +7493,24 @@
     "imageUrl": "https://onelife.tw/img/a/21103b.jpg",
     "activityUrl": "https://www.surveycake.com/s/gAobZ",
     "officialUrl": "https://www.facebook.com/SNICKERS.TW/",
+    "is_expired": true
+  },
+  {
+    "id": "21078",
+    "title": "尬鍋新年開鍋好運尬不停抽餐券",
+    "brand": "王品",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2025/1/13(一) ~ 2025/2/28(五)",
+    "deadline": "2025/2/28",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "https://www.wowfms.com/content/2025CNY_GodGuo",
+    "officialUrl": "http://wowfoods.wowprime.com/",
     "is_expired": true
   },
   {
@@ -7299,6 +7661,25 @@
     "is_expired": true
   },
   {
+    "id": "20920",
+    "title": "麥當勞歡樂送雙人餐分享餐抽Apple Watch",
+    "brand": "麥當勞",
+    "tags": [
+      "免消費即抽",
+      "抽iPhone"
+    ],
+    "time": "2024/12/11(三) ~ 2025/1/14(二)",
+    "deadline": "2025/1/14",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/20920b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1202",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
     "id": "20882",
     "title": "嗨啾啾你試手氣抽iPhone16、日本機票",
     "brand": "森永",
@@ -7336,6 +7717,25 @@
     "is_expired": true
   },
   {
+    "id": "20895",
+    "title": "麥當勞麥粉勇者拯救公主抽冰島機票、iPhone16",
+    "brand": "麥當勞",
+    "tags": [
+      "抽機票",
+      "抽iPhone"
+    ],
+    "time": "2024/12/4(三) ~ 2024/12/29(日)",
+    "deadline": "2024/12/29",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/20895b.jpg",
+    "activityUrl": "https://www.mcdonalds.com/tw/zh-tw/whats-hot/1204collectquest.html",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
     "id": "20811",
     "title": "樂事x星宇航空味蕾直達日本抽日本不限航點機票",
     "brand": "樂事",
@@ -7369,6 +7769,25 @@
     "imageUrl": "https://onelife.tw/img/a/20865b.jpg",
     "activityUrl": "https://www.asahisoftdrinks.com.tw/news/article/163#stay",
     "officialUrl": "https://www.asahisoftdrinks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "20919",
+    "title": "麥當勞歡樂送雙人餐分享餐抽日本來回機票",
+    "brand": "麥當勞",
+    "tags": [
+      "免消費即抽",
+      "抽機票"
+    ],
+    "time": "2024/11/20(三) ~ 2024/12/10(二)",
+    "deadline": "2024/12/10",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/20919b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1193",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
     "is_expired": true
   },
   {
@@ -8425,6 +8844,24 @@
     "is_expired": true
   },
   {
+    "id": "19985",
+    "title": "吃爭鮮遊泰國抽曼谷五星自由行",
+    "brand": "爭鮮",
+    "tags": [
+      "抽機票"
+    ],
+    "time": "2023/7/11(二) ~ 2023/8/31(四)",
+    "deadline": "2023/8/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/19985b.jpg",
+    "activityUrl": "https://www.sushiexpress.com.tw/sushi-express/news_article/2220",
+    "officialUrl": "https://www.sushiexpress.com.tw/sushi-express/index",
+    "is_expired": true
+  },
+  {
     "id": "19872",
     "title": "城市一族競棒A好康抽XPG電競筆電",
     "brand": "正暉",
@@ -8458,6 +8895,25 @@
     "imageUrl": "https://onelife.tw/img/a/19866b.jpg",
     "activityUrl": "https://housefoods-campingcurry.com/",
     "officialUrl": "https://www.housefoods.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "19833",
+    "title": "星巴克慶生會來囉抽西雅圖雙人來回機票",
+    "brand": "星巴克",
+    "tags": [
+      "壽星好康",
+      "抽機票"
+    ],
+    "time": "2023/5/26(五) ~ 2023/8/10(四)",
+    "deadline": "2023/8/10",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/19833b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1056",
+    "officialUrl": "https://www.starbucks.com.tw/",
     "is_expired": true
   },
   {
@@ -8777,6 +9233,24 @@
     "is_expired": true
   },
   {
+    "id": "17035",
+    "title": "肯德基X傳說對決桑德斯上校的聖誕派對",
+    "brand": "肯德基",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2020/12/22(二) ~ 2021/1/25(一)",
+    "deadline": "2021/1/25",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/17035b.jpg",
+    "activityUrl": "https://moba.garena.tw/news/show/2844",
+    "officialUrl": "http://www.kfcclub.com.tw/",
+    "is_expired": true
+  },
+  {
     "id": "16959",
     "title": "evian迎向曙光抽2萬元SOGO禮券",
     "brand": "evian",
@@ -8810,6 +9284,42 @@
     "imageUrl": "https://onelife.tw/img/a/17003b.jpg",
     "activityUrl": "https://www.facebook.com/lottetaiwanno1/photos/a.384448735035895/1810268722453882/",
     "officialUrl": "http://www.lottetaiwan.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "16835",
+    "title": "振興5倍送吃王品股票月月抽王品股票現金獎",
+    "brand": "王品",
+    "tags": [
+      "抽現金"
+    ],
+    "time": "2020/9/28(一) ~ 2020/12/20(日)",
+    "deadline": "2020/12/20",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16835b.jpg",
+    "activityUrl": "http://wowfoods.wowprime.com/event/news/2020/2010_stock_monthly.php",
+    "officialUrl": "http://wowfoods.wowprime.com/",
+    "is_expired": true
+  },
+  {
+    "id": "16978",
+    "title": "肯德基南洋叻沙紙包雞抽iPhone 12、Xbox",
+    "brand": "肯德基",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2020/11/10(二) ~ 2020/12/7(一)",
+    "deadline": "2020/12/7",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16978b.jpg",
+    "activityUrl": "https://events.kfcclub.com.tw/kfctaiwan/kfcevent-29",
+    "officialUrl": "http://www.kfcclub.com.tw/",
     "is_expired": true
   },
   {
@@ -8869,6 +9379,26 @@
     "is_expired": true
   },
   {
+    "id": "16378",
+    "title": "來藏壽司用餐抽iPhone 11，高雄地區加碼Switch、Airpods",
+    "brand": "藏壽司",
+    "tags": [
+      "抽iPhone",
+      "抽家電",
+      "抽3C"
+    ],
+    "time": "2020/6/5(五) ~ 2020/7/2(四)",
+    "deadline": "2020/7/2",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16378b.jpg",
+    "activityUrl": "https://www.kurasushi.tw/activities/63",
+    "officialUrl": "https://www.kurasushi.tw/",
+    "is_expired": true
+  },
+  {
     "id": "16416",
     "title": "看玖壹壹MV抽維士比馬力夯plus能量飲料",
     "brand": "三洋維士比",
@@ -8903,6 +9433,26 @@
     "imageUrl": "https://onelife.tw/img/a/16364b.jpg",
     "activityUrl": "https://50th.chfoods.com.tw/home/pc",
     "officialUrl": "http://www.chfoods.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "16182",
+    "title": "藏壽司開春大回饋，扭蛋抽Switch+健身環大冒險、AirPods",
+    "brand": "藏壽司",
+    "tags": [
+      "抽iPhone",
+      "抽家電",
+      "抽3C"
+    ],
+    "time": "2020/3/20(五) ~ 2020/4/20(一)",
+    "deadline": "2020/4/20",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16182b.jpg",
+    "activityUrl": "https://www.kurasushi.tw/activities/55",
+    "officialUrl": "https://www.kurasushi.tw/",
     "is_expired": true
   },
   {
@@ -8942,6 +9492,43 @@
     "is_expired": true
   },
   {
+    "id": "16073",
+    "title": "肯德基X傳說對決激猛對決，抽渥馬爾桑德斯上校",
+    "brand": "肯德基",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2020/2/4(二) ~ 2020/2/24(一)",
+    "deadline": "2020/2/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16073b.jpg",
+    "activityUrl": "https://moba.garena.tw/news/show/2310",
+    "officialUrl": "http://www.kfcclub.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "16083",
+    "title": "肯德基X百事金沙喜抽富貴年，抽任天堂Switch",
+    "brand": "肯德基",
+    "tags": [
+      "抽家電",
+      "抽3C"
+    ],
+    "time": "2020/1/10(五) ~ 2020/2/24(一)",
+    "deadline": "2020/2/24",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16083b.jpg",
+    "activityUrl": "https://events.kfcclub.com.tw/kfctaiwan/22",
+    "officialUrl": "http://www.kfcclub.com.tw/",
+    "is_expired": true
+  },
+  {
     "id": "15953",
     "title": "Julie 2020愛你愛你抽茹絲葵禮物卡",
     "brand": "星禾國際",
@@ -8957,6 +9544,24 @@
     "imageUrl": "https://onelife.tw/img/a/15953b.jpg",
     "activityUrl": "https://www.facebook.com/story.php?story_fbid=1184091335094485&id=452292804941012",
     "officialUrl": "https://shingher.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "15765",
+    "title": "肯德基x神魔之塔虛寶刮刮卡，抽魔法石50粒",
+    "brand": "肯德基",
+    "tags": [
+      "開蓋序號抽"
+    ],
+    "time": "2019/9/24(二) ~ 2019/10/21(一)",
+    "deadline": "2019/10/21",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/15765b.jpg",
+    "activityUrl": "https://www.toscampaign.com/campaign/149",
+    "officialUrl": "http://www.kfcclub.com.tw/",
     "is_expired": true
   },
   {
@@ -9067,6 +9672,24 @@
     "imageUrl": "https://onelife.tw/img/a/15360b.jpg",
     "activityUrl": "http://www.vewong.com.tw/",
     "officialUrl": "http://www.vewong.com/",
+    "is_expired": true
+  },
+  {
+    "id": "15385",
+    "title": "訂位藏壽司E起去日本，抽台北大阪來回機票",
+    "brand": "藏壽司",
+    "tags": [
+      "抽機票"
+    ],
+    "time": "2019/4/26(五) ~ 2019/5/31(五)",
+    "deadline": "2019/5/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/15385b.jpg",
+    "activityUrl": "https://e-pai-ke.com/event/2019_04/index",
+    "officialUrl": "https://www.kurasushi.tw/",
     "is_expired": true
   },
   {
@@ -9485,6 +10108,372 @@
     "imageUrl": "https://onelife.tw/img/a/20238b.jpg",
     "activityUrl": "https://www.mcdonalds.com/tw/zh-tw/whats-hot/BAOneMenu.html",
     "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "10018",
+    "title": "喝思樂冰勇闖銀河，可口可樂開瓶拿寶石",
+    "brand": "7-11",
+    "tags": [
+      "超商專區",
+      "登錄發票即抽",
+      "限免遊戲",
+      "抽現金"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "◆活動一◆開瓶拿寶石：於2015/9/1 ~2015/10/6活動期間購買可口可樂公司指定促銷包裝(「獎」字樣瓶蓋)任一瓶或7-11大杯思樂冰一杯，即可獲得LINE RANGERS遊戲虛寶。\r\n◆活動二◆7-11發票加碼立即抽：於2015/9/2-2015/9/29活動期間持統一超商7-11購買活動一指定商品之發票，至ibon登錄發票號碼即可立即抽獎。\r\n \r\n可口可樂公司指定促銷包裝：\r\n可口可樂®600ml，可口可樂®920ml，可口可樂®Zero 600ml，雪碧®600ml，芬達®(橘子口味)汽水600ml，芬達®汽水(荔枝口味)600ml，舒味思®+C 500ml。\r\n \r\n活動獎項...",
+    "prizes": [
+      "活動獎項：",
+      "兌獎說明"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/10018b.jpg",
+    "activityUrl": "http://www.coke.com.tw/zh/rangers/",
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "10001",
+    "title": "涼夏骰子樂-最低只要1元",
+    "brand": "7-11",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "http://www.7-11.com.tw/event/15summer/drink/index.html",
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21773",
+    "title": "7-11體驗精品咖啡細緻雙風味再贈OP點數",
+    "brand": "7-11",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21773b.jpg",
+    "activityUrl": "https://www.citycafe.com.tw/notice.aspx",
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21717",
+    "title": "7-11金鐘60精品美式拿鐵鑑賞價60元，Oh lala全品項95折",
+    "brand": "7-11",
+    "tags": [
+      "超商專區",
+      "免消費即抽"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21717b.jpg",
+    "activityUrl": "https://www.citycafe.com.tw/notice.aspx",
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21664",
+    "title": "萊爾富咖啡飲品優惠買1送1",
+    "brand": "萊爾富",
+    "tags": [
+      "超商專區",
+      "買一送一"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "https://www.hilife.com.tw/events_activity.aspx",
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21601",
+    "title": "麥當勞夏季優惠券大薯麥克鷄塊加1元多1件",
+    "brand": "麥當勞",
+    "tags": [
+      "買一送一"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21601b.png",
+    "activityUrl": "https://campaign.mcdonalds.com.tw/summercouponin2025/",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21582",
+    "title": "7-11吉伊卡哇美味聯萌大明星特大杯飲品送糖霜餅乾",
+    "brand": "7-11",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21582b.jpg",
+    "activityUrl": "https://www.citycafe.com.tw/notice.aspx",
+    "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21566",
+    "title": "萊爾富翻轉咖啡運2杯最低1元，茶飲漂浮冰淇淋優惠",
+    "brand": "萊爾富",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw#",
+    "activityUrl": "https://www.hilife.com.tw/events_activity.aspx",
+    "officialUrl": "https://www.hilife.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21509",
+    "title": "全家uno義大利麵會員獨享價，好丘古娃娃聯名新品",
+    "brand": "全家",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21509b.jpg",
+    "activityUrl": "https://www.family.com.tw/Marketing/zh",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21080",
+    "title": "王品集團2025壽星專屬生日禮5折起",
+    "brand": "王品",
+    "tags": [
+      "壽星好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21080b.jpg",
+    "activityUrl": "https://www.wowfms.com/content/202501birthdaygift",
+    "officialUrl": "http://wowfoods.wowprime.com/",
+    "is_expired": true
+  },
+  {
+    "id": "12104",
+    "title": "星巴克星禮程金星級會員獨享-特選濃縮免費升級",
+    "brand": "星巴克",
+    "tags": [
+      "免消費即抽"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/12104b.jpg",
+    "activityUrl": "http://www.starbucks.com.tw/stores/allevent/stores_allevent_show.jspx?n=751",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "11932",
+    "title": "星巴克星禮程金星級會員專屬-雙倍星星",
+    "brand": "星巴克",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/11932b.jpg",
+    "activityUrl": "http://www.starbucks.com.tw/stores/allevent/stores_allevent_show.jspx?n=871",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "11931",
+    "title": "星巴克迎接夏天Happy hour買一送一",
+    "brand": "星巴克",
+    "tags": [
+      "買一送一"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/11931b.jpg",
+    "activityUrl": "http://www.starbucks.com.tw/stores/allevent/stores_allevent_show.jspx?n=857",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "11929",
+    "title": "星巴克加入星禮程會員，可再獲贈星冰樂好友分享回饋",
+    "brand": "星巴克",
+    "tags": [
+      "免消費即抽"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/11929b.jpg",
+    "activityUrl": "http://www.starbucks.com.tw/stores/allevent/stores_allevent_show.jspx?n=869",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "11928",
+    "title": "星巴克星禮程會員專屬，新品飲料嘗鮮優惠",
+    "brand": "星巴克",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/11928b.jpg",
+    "activityUrl": "http://www.starbucks.com.tw/stores/allevent/stores_allevent_show.jspx?n=867",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "11927",
+    "title": "星巴克星冰樂爆米花充氣杯墊贈品活動",
+    "brand": "星巴克",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/11927b.jpg",
+    "activityUrl": "http://www.starbucks.com.tw/stores/allevent/stores_allevent_show.jspx?n=856",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21133",
+    "title": "2025麥當勞甜心卡數位新登場買A送B優惠一整年",
+    "brand": "麥當勞",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21133b.jpg",
+    "activityUrl": "https://www.mcdonalds.com/tw/zh-tw/whats-hot/2025_DessertCard.html",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "21075",
+    "title": "麥當勞蛇年開春優惠券大薯麥克鷄塊加1元多1件",
+    "brand": "麥當勞",
+    "tags": [
+      "買一送一"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/21075b.png",
+    "activityUrl": "https://campaign.mcdonalds.com.tw/cnycouponin2025/",
+    "officialUrl": "http://www.mcdonalds.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "17720",
+    "title": "肯德基振興雞省餐優惠券，優惠代碼振興餐",
+    "brand": "肯德基",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/17720b.jpg",
+    "activityUrl": "https://www.kfcclub.com.tw/Coupon",
+    "officialUrl": "http://www.kfcclub.com.tw/",
+    "is_expired": true
+  },
+  {
+    "id": "16564",
+    "title": "肯德基x必勝客PK振興三倍送",
+    "brand": "肯德基",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "",
+    "deadline": "",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/16564b.jpg",
+    "activityUrl": "https://www.kfcclub.com.tw/tw/Brand/NewsDetail-200715.html",
+    "officialUrl": "http://www.kfcclub.com.tw/",
     "is_expired": true
   },
   {
