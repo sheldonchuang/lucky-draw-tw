@@ -1271,7 +1271,7 @@
         '真的很多人不知道！平常買飲料零食的發票其實可以這樣多抽一次 👇',
         '拜託發票千萬別順手揉掉……這幾檔獎品超好，今天不登錄就來不及了：'
       ], 1);
-      document.getElementById('text-1').value = `${hook1}\n\n【${todayStr} 倒數快報】幫大家把快截止的活動都排好順序了：\n\n${urgentListText.trim()}\n\n越快截止的我直接排在最上面，還有分出「完全不用花錢就能抽」的專區！\n\n30 秒查自己手邊發票能不能抽 👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-1').value = `${hook1}\n\n【${todayStr} 倒數快報】幫大家把快截止的活動都排好順序了：\n\n${urgentListText.trim()}\n\n越快截止的我直接排在最上面，還有分出「完全不用花錢就能抽」的專區！\n\n30 秒查自己手邊發票能不能抽 👉 https://luckygo-b74.pages.dev/`;
 
       // 範本 2：免消費好康款
       let freeListText = '';
@@ -1284,7 +1284,7 @@
         '討厭為了抽獎硬湊消費？這幾檔「完全 0 元免消費」直接點就能抽：',
         '睡前順手點一點，反正不用錢，有抽有機會 🎁'
       ], 2);
-      document.getElementById('text-2').value = `${hook2}\n\n【${todayStr} 最新整理】目前全台共 ${freePool.length} 檔【完全免消費】官方抽獎：\n\n${freeListText.trim()}\n\n過期的都自動濾掉了，只留現在能參加的，點進去直達官方頁面：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（建議先存到手機桌面，無聊滑手機順便抽一波）`;
+      document.getElementById('text-2').value = `${hook2}\n\n【${todayStr} 最新整理】目前全台共 ${freePool.length} 檔【完全免消費】官方抽獎：\n\n${freeListText.trim()}\n\n過期的都自動濾掉了，只留現在能參加的，點進去直達官方頁面：\n👉 https://luckygo-b74.pages.dev/\n\n（建議先存到手機桌面，無聊滑手機順便抽一波）`;
 
       // 範本 3：iPhone & 家電大獎倒數款
       let gadgetListText = '';
@@ -1299,7 +1299,7 @@
         '有抽有機會！最近各大品牌送 iPhone、家電跟現金的活動意外超多：',
         '別再花冤枉錢買新機了，先來試試手氣 🍀'
       ], 3);
-      document.getElementById('text-3').value = `${hook3}\n\n【${todayStr} 大獎盤點】目前有 ${activeEvents.filter(e => e.tags.includes('抽iPhone')).length} 檔抽 iPhone、${activeEvents.filter(e => e.tags.includes('抽家電')).length} 檔抽家電的官方活動：\n\n${gadgetListText.trim()}\n\n越快截止的排在越前面，過期活動都已經自動清除了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-3').value = `${hook3}\n\n【${todayStr} 大獎盤點】目前有 ${activeEvents.filter(e => e.tags.includes('抽iPhone')).length} 檔抽 iPhone、${activeEvents.filter(e => e.tags.includes('抽家電')).length} 檔抽家電的官方活動：\n\n${gadgetListText.trim()}\n\n越快截止的排在越前面，過期活動都已經自動清除了：\n👉 https://luckygo-b74.pages.dev/`;
 
       // 範本 4：生活誌工具分享款
       const hook4 = pickHook([
@@ -1308,7 +1308,7 @@
         '分享一個我每天都會打開看的台灣省錢＋抽獎秘密武器 🔍',
         '把全台灣官方抽獎、隱藏優惠碼跟買一送一都集中在一頁到底有多爽？'
       ], 4);
-      document.getElementById('text-4').value = `${hook4}\n\n這個「LuckyGo 台灣生活抽獎誌」每天凌晨 00:00 會在雲端自動更新最新官方活動，還會自動把過期的下架：\n✅ 肯德基/必勝客/漢堡王點餐優惠碼一鍵複製\n✅ 星巴克/路易莎/超商/手搖飲買一送一\n✅ 發票免費換禮券＆免消費抽獎\n✅ 壽星 0 元入園＆PC/手遊限免\n\n完全免費、沒有彈窗廣告干擾，歡迎存起來天天用：\n🔗 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-4').value = `${hook4}\n\n這個「LuckyGo 台灣生活抽獎誌」每天凌晨 00:00 會在雲端自動更新最新官方活動，還會自動把過期的下架：\n✅ 肯德基/必勝客/漢堡王點餐優惠碼一鍵複製\n✅ 星巴克/路易莎/超商/手搖飲買一送一\n✅ 發票免費換禮券＆免消費抽獎\n✅ 壽星 0 元入園＆PC/手遊限免\n\n完全免費、沒有彈窗廣告干擾，歡迎存起來天天用：\n🔗 https://luckygo-b74.pages.dev/`;
 
       // 範本 5：雲端發票換禮券 & 超商買一送一神券款
       let voucherText = '';
@@ -1325,7 +1325,7 @@
         '小資族必學！發票沒中獎沒關係，這樣換直接變超商購物金 💰',
         '拜託別浪費！這幾個縣市的雲端發票換禮券活動超佛心：'
       ], 5);
-      document.getElementById('text-5').value = `${hook5}\n\n【${todayStr} 必領整理】\n\n📍 地方稅捐處發票換禮券專區（免抽獎保證換）：\n${voucherText.trim()}\n\n☕️ 本週超商週末特惠＆隱藏神券：\n${bogoText.trim()}\n\n兌換入口與詳細步驟都整理在首頁了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-5').value = `${hook5}\n\n【${todayStr} 必領整理】\n\n📍 地方稅捐處發票換禮券專區（免抽獎保證換）：\n${voucherText.trim()}\n\n☕️ 本週超商週末特惠＆隱藏神券：\n${bogoText.trim()}\n\n兌換入口與詳細步驟都整理在首頁了：\n👉 https://luckygo-b74.pages.dev/`;
 
       // 範本 6：PC 限免遊戲＆手機雙平台 0 元手遊喜加一款
       let gameText = '';
@@ -1338,7 +1338,7 @@
         '先領再說，不玩放著也賺到！本週免費喜加一清單整理好囉 👇',
         '原價幾百塊的手遊跟 PC 正版遊戲現在通通免費領，手慢就恢復原價了：'
       ], 6);
-      document.getElementById('text-6').value = `${hook6}\n\n【${todayStr} 最新限免情報】\n\n${gameText.trim()}\n\n涵蓋 Steam 喜加一、Epic Games、GOG 無 DRM 名作，以及 iOS / Android 限免手遊！\n\n官方一鍵領取連結都整理好了：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-6').value = `${hook6}\n\n【${todayStr} 最新限免情報】\n\n${gameText.trim()}\n\n涵蓋 Steam 喜加一、Epic Games、GOG 無 DRM 名作，以及 iOS / Android 限免手遊！\n\n官方一鍵領取連結都整理好了：\n👉 https://luckygo-b74.pages.dev/`;
 
       // 範本 7：點餐前必看・速食＆披薩隱藏優惠碼一鍵複製
       const ffEvents = activeEvents.filter(e => e.promo_group === 'fastfood' || (/肯德基|必勝客|漢堡王|麥當勞|摩斯/.test(`${e.brand} ${e.title}`) && e.tags.includes('買一送一')));
@@ -1354,7 +1354,7 @@
         '別再原價點速食跟披薩了！幫大家把最新「隱藏優惠代碼」整理成一鍵複製了 🔥',
         '今天午晚餐不知道吃什麼？這幾個速食披薩神碼複製下去直接打折：'
       ], 7);
-      document.getElementById('text-7').value = `${hook7}\n\n【${todayStr} 點餐前必看｜隱藏優惠碼整理】\n\n${bogoTextFast.trim()}\n\n我在網頁最上方做了「點餐前必看」大按鈕，點進去就能一鍵複製肯德基、必勝客、漢堡王、麥當勞最新代碼：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（強烈建議存到手機桌面，站櫃台前打開複製最快！）`;
+      document.getElementById('text-7').value = `${hook7}\n\n【${todayStr} 點餐前必看｜隱藏優惠碼整理】\n\n${bogoTextFast.trim()}\n\n我在網頁最上方做了「點餐前必看」大按鈕，點進去就能一鍵複製肯德基、必勝客、漢堡王、麥當勞最新代碼：\n👉 https://luckygo-b74.pages.dev/\n\n（強烈建議存到手機桌面，站櫃台前打開複製最快！）`;
 
       // 範本 8：各大主題樂園 0 元與連鎖餐廳壽星特輯款
       let bdayText8 = '';
@@ -1367,7 +1367,7 @@
         '壽星最大！不知道自己生日有哪些免費優惠可以薅的，這篇直接收藏起來 🎡',
         '生日月必看攻略：從樂園 0 元暢玩到免費整顆蛋糕＆幾歲送幾隻雞翅：'
       ], 8);
-      document.getElementById('text-8').value = `${hook8}\n\n【${todayStr} 壽星免費好康指南】\n\n${bdayText8.trim()}\n\n涵蓋六福村/義大/劍湖山/麗寶等樂園與金色三麥/薄多義/王品/海底撈等餐廳優惠！\n\n官方規則與領取入口看這邊：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-8').value = `${hook8}\n\n【${todayStr} 壽星免費好康指南】\n\n${bdayText8.trim()}\n\n涵蓋六福村/義大/劍湖山/麗寶等樂園與金色三麥/薄多義/王品/海底撈等餐廳優惠！\n\n官方規則與領取入口看這邊：\n👉 https://luckygo-b74.pages.dev/`;
 
       // 範本 9：每日免費領點（1點抵1元現金）小資存錢款
       let pointsText9 = '';
@@ -1380,7 +1380,7 @@
         '上班偷閒順手領點數！1 點直接折 1 元現金的免費入口全部集中好了 👇',
         '小資族無痛加薪術：這幾個免費賺點任務每天刷一次就對了 💰'
       ], 9);
-      document.getElementById('text-9').value = `${hook9}\n\n【${todayStr} 每日免消費賺點盤點】\n\n${pointsText9.trim()}\n\nLINE POINTS、蝦皮蝦幣、街口幣、MOMO 幣天天領，超商與網購無門檻折抵！\n\n每日領點快速入口：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/`;
+      document.getElementById('text-9').value = `${hook9}\n\n【${todayStr} 每日免消費賺點盤點】\n\n${pointsText9.trim()}\n\nLINE POINTS、蝦皮蝦幣、街口幣、MOMO 幣天天領，超商與網購無門檻折抵！\n\n每日領點快速入口：\n👉 https://luckygo-b74.pages.dev/`;
 
       // 範本 10：咖啡手搖卷・上班族早上必領買一送一
       const drinkEventsPool = activeEvents.filter(e => e.promo_group === 'drinks' || (/星巴克|路易莎|伯朗|手搖|CoCo|迷客夏|珍煮丹|麻古|咖啡|現萃茶/.test(`${e.brand} ${e.title}`) && e.tags.includes('買一送一')));
@@ -1395,7 +1395,7 @@
         '每天一杯咖啡省一半！整理好今天的「咖啡手搖卷」快丟給辦公室群組 🔥',
         '別自己默默買原價了！這幾家咖啡跟手搖飲今天有買一送一／寄杯特惠：'
       ], 10);
-      document.getElementById('text-10').value = `${hook10}\n\n【${todayStr} 咖啡手搖卷買一送一整理】\n\n${drinkText10.trim()}\n\n我在網頁上方放了「咖啡手搖卷」大按鈕，星巴克、路易莎、7-11／全家寄杯跟知名手搖飲每天自動更新：\n👉 https://sheldonchuang.github.io/lucky-draw-tw/\n\n（快傳給今天要一起分買一送一的同事！）`;
+      document.getElementById('text-10').value = `${hook10}\n\n【${todayStr} 咖啡手搖卷買一送一整理】\n\n${drinkText10.trim()}\n\n我在網頁上方放了「咖啡手搖卷」大按鈕，星巴克、路易莎、7-11／全家寄杯跟知名手搖飲每天自動更新：\n👉 https://luckygo-b74.pages.dev/\n\n（快傳給今天要一起分買一送一的同事！）`;
     }
 
     // 直通 Threads 發文
