@@ -111,6 +111,16 @@ def crawl_onelife_all():
         'https://onelife.tw/c/五十嵐',
         'https://onelife.tw/c/麥當勞',
         'https://onelife.tw/c/肯德基',
+        # 量販超市與民生通路專頁
+        'https://onelife.tw/tag/全聯',
+        'https://onelife.tw/tag/好市多',
+        'https://onelife.tw/tag/家樂福',
+        'https://onelife.tw/tag/超商',
+        'https://onelife.tw/c/全聯',
+        'https://onelife.tw/c/好市多',
+        'https://onelife.tw/c/家樂福',
+        'https://onelife.tw/c/7-ELEVEN',
+        'https://onelife.tw/c/全家',
     ]
 
     # --- 動態抓取所有廠商頁面 ---
@@ -1138,6 +1148,64 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.burgerking.com.tw/"
         },
 
+        # --- 全聯 / 好市多 / 量販超市每週特價專區 ---
+        {
+            "id": "ext-supermarket-pxmart",
+            "title": f"全聯福利中心 {today.month}月每週五六日限定・生鮮蔬果/日用品買一送一＆全支付回饋",
+            "brand": "全聯福利中心",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "supermarket",
+            "time": f"即日起 ~ {month_end_str} (每週五六日)",
+            "deadline": month_end_str,
+            "qualification": "全聯福利中心每週定期推出『買一送一』日用品、衛生紙、洗衣精與生鮮蔬果特價；週六日使用 PX Pay 或全支付綁定指定銀行信用卡單筆滿額再享最高 8%～10% 福利點回饋！",
+            "prizes": ["全聯指定商品買一送一", "週末生鮮/日用品限時下殺", "全支付/PX Pay 滿額福利點回饋"],
+            "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.pxmart.com.tw/#/activity-list",
+            "officialUrl": "https://www.pxmart.com.tw/"
+        },
+        {
+            "id": "ext-supermarket-costco",
+            "title": f"好市多 Costco {today.month}月會員護照＆線上購物特價・黑鑽卡回饋與限時折價清單",
+            "brand": "好市多 Costco",
+            "tags": ["熱門好康"],
+            "promo_group": "supermarket",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "好市多 Costco 每雙週更新賣場特價與線上購物獨家折扣（含鮮乳、牛肉、冷凍食品、保健品與家電現折數百至數千元）；持富邦 Costco 聯名卡與黑鑽卡消費最高享 3% 回饋！",
+            "prizes": ["賣場當期會員護照特價商品", "Costco 線上購物現折優惠", "黑鑽卡+聯名卡最高 3% 回饋"],
+            "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.costco.com.tw/c/Special-Offers",
+            "officialUrl": "https://www.costco.com.tw/"
+        },
+        {
+            "id": "ext-supermarket-carrefour",
+            "title": f"家樂福 / 大潤發 / 愛買 {today.month}月量販DM特價・會員日滿額9折＆日用品買一送一",
+            "brand": "家樂福 / 大潤發",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "supermarket",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "家樂福每週線上DM特價、週末量販店會員滿額享9折現金折價券；大潤發與愛買每週推出生鮮、清潔用品與泡麵零食買一送一，家樂福線上購物輸入首購/滿額折扣碼再省一筆！",
+            "prizes": ["量販週末滿額 9 折現金券", "人氣日用品/零食買一送一", "家樂福線上購物專屬折扣"],
+            "imageUrl": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.carrefour.com.tw/",
+            "officialUrl": "https://www.carrefour.com.tw/"
+        },
+        {
+            "id": "ext-supermarket-cvs",
+            "title": f"7-11 康康五 / 全家康康五 / 萊爾富・每週五六日超商冰品飲料零食買一送一",
+            "brand": "7-11 / 全家",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "supermarket",
+            "time": f"即日起 ~ {month_end_str} (每週五六日)",
+            "deadline": month_end_str,
+            "qualification": "7-ELEVEN『超值五六日』與全家便利商店『康康五』每週五至週日準時開跑！包含霜淇淋、思樂冰、咖啡拿鐵、瓶裝飲料、泡麵與雪糕等人氣商品同品項買一送一或第二件半價！",
+            "prizes": ["全家霜淇淋/Let's Café 買一送一", "7-11 指定飲品/冰品買一送一", "超商週末門市限定 5 折特價"],
+            "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.family.com.tw/Marketing/Integration/",
+            "officialUrl": "https://www.7-11.com.tw/"
+        },
+
         # --- 人氣韓式炸雞連鎖專區（bb.q CHICKEN、起家雞） ---
         {
             "id": "ext-bogo-korean-01",
@@ -1788,7 +1856,8 @@ def crawl_brand_official_and_news(today):
         '乾杯', '原燒', '屋馬', '牛角', '胡同燒肉', '姜滿堂', '黑毛屋', '麻辣45',
         '一風堂', '丸亀製麵', '屯京', '花月嵐', '山頭火', '樂麵屋', '三田製麵所', '勝博殿', '杏子豬排', '勝政', '勝勢', '吉豚屋', '大戶屋', '彌生軒', '開丼', '金子半之助',
         'Mo-Mo', '古拉爵', '薄多義', 'BELLINI', '貳樓', '金色三麥', 'TGI FRIDAYS', 'Texas Roadhouse', '莫凡彼', 'Woosa', 'LADY M',
-        '瓦城', '時時香', '大心', '饗食天堂', '饗饗', '旭集', '開飯川食堂', '饗泰多', '漢來海港', '島語', '添好運', '點點心', '檀島', '鼎泰豐', '涓豆腐', '北村豆腐家', '段純貞', '三商巧福'
+        '瓦城', '時時香', '大心', '饗食天堂', '饗饗', '旭集', '開飯川食堂', '饗泰多', '漢來海港', '島語', '添好運', '點點心', '檀島', '鼎泰豐', '涓豆腐', '北村豆腐家', '段純貞', '三商巧福',
+        '全聯', '好市多', 'Costco', '家樂福', '大潤發', '愛買', '萊爾富', 'OK超商', '寶雅', '屈臣氏', '康是美'
     ]
     rss_feeds = [
         {
@@ -1817,6 +1886,20 @@ def crawl_brand_official_and_news(today):
             'query': '優惠 OR 買一送一 OR 壽星 饗食天堂 OR 漢來海港 OR 瓦城 OR 添好運 OR 點點心 OR 貳樓 OR 金色三麥 OR "TGI FRIDAYS" OR 薄多義 OR 三商巧福',
             'promo_group': 'restaurant',
             'img': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80',
+            'limit': 6
+        },
+        {
+            'name': '全聯好市多量販超市每週特價',
+            'query': '買一送一 OR 特價 OR 優惠 OR 必買 OR 下殺 全聯 OR 好市多 OR Costco OR 家樂福 OR 大潤發 OR 愛買',
+            'promo_group': 'supermarket',
+            'img': 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80',
+            'limit': 8
+        },
+        {
+            'name': '超商藥妝週末特價',
+            'query': '買一送一 OR 康康五 OR 第二件半價 OR 特價 "7-11" OR 全家 OR 萊爾富 OR 寶雅 OR 屈臣氏 OR 康是美',
+            'promo_group': 'supermarket',
+            'img': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
             'limit': 6
         }
     ]

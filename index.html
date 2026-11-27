@@ -379,7 +379,7 @@
       max-width: 1120px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0.9rem;
     }
     .quick-promo-btn {
@@ -417,6 +417,13 @@
     .quick-promo-btn.promo-drinks:hover {
       border-color: #2D4B3E;
     }
+    .quick-promo-btn.promo-supermarket {
+      background: linear-gradient(135deg, #F2F7FB 0%, #E3EEF7 100%);
+      border-color: #AFCBE2;
+    }
+    .quick-promo-btn.promo-supermarket:hover {
+      border-color: #2A5C82;
+    }
     .quick-promo-left {
       display: flex;
       align-items: center;
@@ -442,6 +449,11 @@
       background: #2D4B3E;
       color: #FFFFFF;
       box-shadow: 0 4px 10px rgba(45, 75, 62, 0.28);
+    }
+    .promo-supermarket .quick-promo-icon {
+      background: #2A5C82;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(42, 92, 130, 0.28);
     }
     .quick-promo-text {
       min-width: 0;
@@ -474,6 +486,10 @@
       background: #D8EAE0;
       color: #1F3F31;
     }
+    .promo-supermarket .quick-promo-hot {
+      background: #D6E7F5;
+      color: #1D4463;
+    }
     .quick-promo-sub {
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -499,6 +515,10 @@
     }
     .promo-drinks .quick-promo-cta {
       background: #2D4B3E;
+      color: #FFFFFF;
+    }
+    .promo-supermarket .quick-promo-cta {
+      background: #2A5C82;
       color: #FFFFFF;
     }
 
@@ -583,6 +603,15 @@
       border-radius: 999px;
       white-space: nowrap;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 900px) {
+      .quick-promo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .quick-promo-btn.promo-supermarket {
+        grid-column: 1 / -1;
+      }
     }
 
     @media (max-width: 720px) {
@@ -1689,6 +1718,20 @@
         <span class="quick-promo-cta">領取買一送一 <i class="fa-solid fa-chevron-right"></i></span>
       </button>
 
+      <button type="button" class="quick-promo-btn promo-supermarket" onclick="openQuickPromo('supermarket')">
+        <div class="quick-promo-left">
+          <div class="quick-promo-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <div class="quick-promo-text">
+            <div class="quick-promo-title-row">
+              <span class="quick-promo-title">超市賣場特價</span>
+              <span class="quick-promo-hot">每週買一送一</span>
+            </div>
+            <div class="quick-promo-sub">全聯・好市多 Costco・家樂福・7-11/全家五六日・藥妝特價</div>
+          </div>
+        </div>
+        <span class="quick-promo-cta">看每週特價 <i class="fa-solid fa-chevron-right"></i></span>
+      </button>
+
       <a href="./community.html" class="community-hero-btn">
         <div class="community-hero-left">
           <div class="community-hero-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
@@ -2388,6 +2431,23 @@
           if (e.promo_group === 'drinks') return true;
           const txt = `${e.brand || ''} ${e.title || ''}`;
           return /星巴克|路易莎|伯朗|手搖|CoCo|迷客夏|珍煮丹|麻古|咖啡|現萃茶/.test(txt) && (e.tags || []).includes('買一送一');
+        }
+      },
+      supermarket: {
+        title: '<i class="fa-solid fa-cart-shopping" style="color:#2A5C82;"></i> 超市賣場特價｜全聯・好市多・超商每週好康',
+        sub: '週五六日必逛！涵蓋全聯買一送一、好市多 Costco 會員護照特價、家樂福/大潤發/愛買 DM 促銷，以及 7-11/全家康康五與藥妝優惠！',
+        brands: [
+          { key: 'ALL', label: '全部超市賣場' },
+          { key: '全聯|PX Pay|全支付', label: '全聯福利中心' },
+          { key: '好市多|Costco', label: '好市多 Costco' },
+          { key: '家樂福|大潤發|愛買', label: '家樂福／大潤發／愛買' },
+          { key: '7-11|7-ELEVEN|全家|萊爾富|OK超商|康康五', label: '超商五六日' },
+          { key: '寶雅|屈臣氏|康是美', label: '藥妝生活' }
+        ],
+        match: (e) => {
+          if (e.promo_group === 'supermarket') return true;
+          const txt = `${e.brand || ''} ${e.title || ''} ${e.qualification || ''}`;
+          return /全聯|好市多|Costco|家樂福|大潤發|愛買|康康五|五六日|寶雅|屈臣氏|康是美/.test(txt);
         }
       }
     };
