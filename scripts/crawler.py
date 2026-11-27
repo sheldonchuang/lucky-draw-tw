@@ -85,12 +85,22 @@ def crawl_onelife_all():
         'https://onelife.tw/tag/飲料',
         'https://onelife.tw/tag/咖啡',
         'https://onelife.tw/tag/餐廳',
+        'https://onelife.tw/tag/拉麵',
+        'https://onelife.tw/tag/牛排',
+        'https://onelife.tw/tag/豬排',
         # 熱門餐飲與手搖飲品牌專頁
         'https://onelife.tw/c/爭鮮',
         'https://onelife.tw/c/藏壽司',
         'https://onelife.tw/c/壽司郎',
         'https://onelife.tw/c/王品',
         'https://onelife.tw/c/築間',
+        'https://onelife.tw/c/乾杯',
+        'https://onelife.tw/c/牛角',
+        'https://onelife.tw/c/勝博殿',
+        'https://onelife.tw/c/一風堂',
+        'https://onelife.tw/c/瓦城',
+        'https://onelife.tw/c/漢來',
+        'https://onelife.tw/c/饗賓',
         'https://onelife.tw/c/星巴克',
         'https://onelife.tw/c/路易莎',
         'https://onelife.tw/c/CoCo',
@@ -667,6 +677,122 @@ def get_dynamic_free_intelligence(today):
             "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.mala-1.com.tw/",
             "officialUrl": "https://www.mala-1.com.tw/"
+        },
+
+        # --- 連鎖燒烤／燒肉店專區（乾杯、原燒、燒肉Like、牛角、屋馬、碳佐麻里） ---
+        {
+            "id": "ext-bbq-01",
+            "title": "乾杯燒肉 / 老乾杯・KANPAI GO！CLUB 會員入會禮＆當月壽星贈精緻肉品・八點乾杯免費續杯",
+            "brand": "乾杯集團",
+            "tags": ["買一送一", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "免費加入「KANPAI GO！CLUB」LINE 官方會員，享新會員入會點數禮、每晚 8 點全場乾杯活動指定飲品免費續杯乙杯；當月壽星提前訂位並出示證件，免費招待壽星專屬精緻甜點或肉品！",
+            "prizes": ["晚間 8 點乾杯免費再來一杯", "會員入會點數兌換牛舌/招牌料理", "當月壽星專屬免費招待"],
+            "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.kanpaiyakiniku.com.tw/",
+            "officialUrl": "https://www.kanpai.com.tw/"
+        },
+        {
+            "id": "ext-bbq-02",
+            "title": "燒肉Like / 原燒 Oh my!原燒・會員入會免費贈肉盤＆單人燒肉加菜券・王品瘋美食壽星禮",
+            "brand": "燒肉Like/原燒",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入「燒肉Like」官方 LINE 好友領取新會員免費贈牛五花/豬五花兌換券；「Oh my!原燒」透過王品瘋美食 APP 領取每月贈菜券，當月壽星享單人套餐優惠與專屬肉盤招待！",
+            "prizes": ["燒肉Like LINE 入會免費送肉盤", "原燒當月壽星套餐優惠 / 贈菜券", "單人燒肉加購半價券"],
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.facebook.com/YAKINIKULIKETW/",
+            "officialUrl": "https://www.yakiyan.com/"
+        },
+        {
+            "id": "ext-bbq-03",
+            "title": "牛角日本燒肉 / 屋馬 / 茶六 / 碳佐麻里・當月壽星專屬折扣與免費招待肉品甜點",
+            "brand": "牛角/屋馬/茶六",
+            "tags": ["壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "牛角日本燒肉專門店會員享平日指定吃到飽折扣與生日禮；屋馬燒肉、茶六燒肉堂、碳佐麻里當月壽星出示身分證件即享整桌 9 折起優惠或免費招待壽星專屬畫盤甜點與精選肉品！",
+            "prizes": ["當月壽星整桌 9 折 / 免費贈肉盤", "牛角會員平日消費折扣券", "專屬慶生特調與精緻畫盤甜點"],
+            "imageUrl": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.gyu-kaku.com.tw/",
+            "officialUrl": "https://www.gyu-kaku.com.tw/"
+        },
+
+        # --- 連鎖拉麵店專區（一風堂、花月嵐、屯京拉麵、麵屋武藏） ---
+        {
+            "id": "ext-ramen-01",
+            "title": "一風堂 / 花月嵐 / 屯京拉麵 / 麵屋武藏・會員免費領「叉燒／溏心蛋／免費加麵」優惠券",
+            "brand": "連鎖拉麵聯盟",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入一風堂、花月嵐（晶旺餐飲）、屯京拉麵或麵屋武藏官方 LINE / APP 會員，新會員立即領取免費配料券（溏心蛋、叉燒或煎餃），屯京拉麵免費升級大碗免加價，每月拉麵日與壽星月再贈免費加麵（替玉）或買一送一券！",
+            "prizes": ["免費贈招牌叉燒 / 溏心蛋 / 煎餃券", "指定拉麵免費加麵（替玉）", "每月拉麵日 / 壽星買一送一券"],
+            "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.ippudo.com.tw/",
+            "officialUrl": "https://www.ippudo.com.tw/"
+        },
+
+        # --- 百貨公司連鎖餐廳＆牛舌專賣店專區 ---
+        {
+            "id": "ext-mall-01",
+            "title": "百貨連鎖餐飲＆牛舌專賣（饗賓 iEAT / 瓦城 / 漢來美食 / 利久牛舌 / 吉村牛舌）・APP 領贈菜＆美食券",
+            "brand": "百貨餐飲/牛舌",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "集結新光三越、遠東百貨、SOGO、微風廣場熱門百貨餐廳與牛舌專賣店：【饗賓 iEAT】會員享饗食天堂/開飯川食堂/饗泰多壽星 95 折與贈菜；【瓦城集團】LINE 領券免費贈摩摩喳喳/月亮蝦餅折抵；【漢來美食 APP】新會員贈 100 元折價券；【牛たん炭焼利久／吉村牛舌／乾杯牛舌】搭配百貨 APP 點數折抵與當月限定套餐加量優惠！",
+            "prizes": ["饗賓 iEAT 會員壽星 95 折＆入會贈禮", "漢來美食 APP 入會免費領 100 元券", "瓦城/大心/牛舌專賣店贈菜＆百貨折抵"],
+            "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.eatogether.com.tw/",
+            "officialUrl": "https://www.thaitown.com.tw/"
+        },
+
+        # --- 連鎖炸豬排店專區（勝博殿、銀座杏子豬排、勝政豬排、福勝亭） ---
+        {
+            "id": "ext-tonkatsu-01",
+            "title": "勝博殿 / 銀座杏子日式豬排 / 勝政豬排 / 福勝亭・會員領免費可樂餅＆當月壽星折價優惠",
+            "brand": "連鎖炸豬排",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入「勝博殿」或「銀座杏子日式豬排（王座國際）」官方 LINE 會員，新會員贈免費可樂餅/唐揚雞/飲品兌換券，當月壽星再領 88 折或免費贈甜點券；「勝政日式豬排」與「福勝亭」亦提供會員專屬套餐優惠與免費加飯加高麗菜絲！",
+            "prizes": ["入會免費贈可樂餅 / 唐揚雞兌換券", "當月壽星專屬 88 折或免費甜點券", "福勝亭會員限定特價套餐優惠"],
+            "imageUrl": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.saboten.com.tw/",
+            "officialUrl": "https://www.saboten.com.tw/"
+        },
+
+        # --- 連鎖壽喜燒／壽喜鍋專區（Mo-Mo-Paradise、北澤、潮肉、一番地） ---
+        {
+            "id": "ext-sukiyaki-01",
+            "title": "Mo-Mo-Paradise / 北澤壽喜燒 / 潮肉 / 一番地・壽喜鍋會員入會禮與當月壽星優惠",
+            "brand": "連鎖壽喜燒",
+            "tags": ["壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載三澧企業「Humax Asia」APP 加入 Mo-Mo-Paradise 會員，享入會點數折抵與當月壽星專屬禮券；北澤壽喜燒、潮肉壽喜燒、一番地壽喜燒提供平日午餐特惠與當月壽星同行折扣／免費贈海鮮或肉品升級！",
+            "prizes": ["Mo-Mo-Paradise 會員折價券＆壽星禮", "壽喜燒平日午餐超值優惠價", "當月壽星四人同行折抵 / 免費升級"],
+            "imageUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.mo-mo.com.tw/",
+            "officialUrl": "https://www.mo-mo.com.tw/"
+        },
+
+        # --- 連鎖義大利麵／義式餐廳專區（古拉爵、薄多義、貝里尼、洋城、默爾） ---
+        {
+            "id": "ext-pasta-01",
+            "title": "古拉爵 / 薄多義 / 貝里尼 BELLINI / 洋城 / 默爾・壽星幾歲送幾隻雞翅＆會員免費贈披薩炸物",
+            "brand": "連鎖義大利麵",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【薄多義 BITE 2 EAT】當日壽星提前訂位享「幾歲就送幾隻雞翅」超狂慶生；【古拉爵 Grazie】雲雀會員免費領入會飲料/點心券與壽星招待甜點；【貝里尼 BELLINI Pasta Pasta】三澧會員壽星折價；【洋城義大利餐廳／默爾 pasta pizza】LINE 會員入會免費送薯條/炸物或披薩優惠！",
+            "prizes": ["薄多義壽星幾歲送幾隻雞翅（需訂位）", "古拉爵/貝里尼會員壽星免費甜點與折價券", "洋城/默爾入會免費領炸物或披薩券"],
+            "imageUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.grazie.com.tw/",
+            "officialUrl": "https://www.grazie.com.tw/"
         },
 
         # --- 速食與披薩隱藏優惠碼專區（麥當勞、肯德基、必勝客、漢堡王、摩斯漢堡） ---
