@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>抽獎新手指南｜如何辨別真假抽獎、安全參加攻略｜LuckyGo 台灣生活抽獎誌</title>
+  <meta name="description" content="台灣抽獎新手必讀！教你辨別真假抽獎活動、常見參加方式說明、發票登錄教學、防詐騙注意事項，安全抽獎不踩雷。">
+  <meta name="keywords" content="抽獎教學,抽獎新手,辨別真假抽獎,抽獎詐騙,發票登錄,免費抽獎,安全抽獎">
+  <link rel="canonical" href="https://luckygo-b74.pages.dev/guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="抽獎新手指南｜LuckyGo 台灣生活抽獎誌">
+  <meta property="og:description" content="辨別真假抽獎、安全參加攻略、常見參加方式完整教學！">
+  <meta property="og:url" content="https://luckygo-b74.pages.dev/guide.html">
+  <meta property="og:site_name" content="LuckyGo 台灣生活抽獎誌">
+  <meta property="og:locale" content="zh_TW">
+  <script>
+    window.LUCKYGO_GA4_ID = 'G-2ZKHDTYL1Z';
+    if (window.LUCKYGO_GA4_ID && !window.LUCKYGO_GA4_ID.includes('XXXX')) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.LUCKYGO_GA4_ID);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', window.LUCKYGO_GA4_ID);
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "台灣抽獎新手指南：如何安全參加抽獎活動",
+    "description": "從辨別真假活動到各種參加方式完整教學",
+    "step": [
+      {"@type": "HowToStep", "name": "確認活動來源", "text": "確認抽獎活動來自官方品牌網站或官方社群帳號"},
+      {"@type": "HowToStep", "name": "檢查活動辦法", "text": "詳閱活動期間、參加資格、獎品內容與中獎公布方式"},
+      {"@type": "HowToStep", "name": "選擇參加方式", "text": "依照活動要求完成指定動作，如消費登錄、填問卷、追蹤帳號等"},
+      {"@type": "HowToStep", "name": "等待開獎", "text": "留意官方公布中獎名單，確認兌獎期限與方式"}
+    ],
+    "publisher": {"@type": "Organization", "name": "LuckyGo 台灣生活抽獎誌"}
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #F7F5F0; --surface: #FFFFFF; --surface-subtle: #F1EFEA;
+      --primary: #2D4B3E; --primary-hover: #1F362C; --primary-light: #EBF1ED;
+      --accent: #B8834F; --accent-light: #F9F3EC;
+      --success: #3F6E56; --danger: #9E4540; --warning: #D4910A;
+      --text: #272B28; --text-muted: #736F68;
+      --border: #E5E0D8; --border-subtle: #ECE8E0;
+      --radius: 12px;
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-sans); }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
+
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; position: sticky; top: 0; z-index: 100; }
+    .nav-container { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .brand-logo { text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .brand-icon { width: 36px; height: 36px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; }
+    .brand-logo span:first-of-type { font-family: var(--font-serif); font-weight: 900; font-size: 1.3rem; color: var(--primary); }
+    .nav-links { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); padding: 0.4rem 0.65rem; border-radius: 8px; transition: all 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: var(--primary-light); }
+
+    .hero { background: linear-gradient(135deg, #3A6350 0%, var(--primary) 100%); color: white; padding: 3rem 1.5rem 2.5rem; text-align: center; }
+    .hero h1 { font-family: var(--font-serif); font-size: 2rem; font-weight: 900; margin-bottom: 0.6rem; }
+    .hero p { font-size: 0.95rem; opacity: 0.88; max-width: 580px; margin: 0 auto; line-height: 1.65; }
+
+    .content { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; flex: 1; }
+
+    .guide-section { background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem; }
+    .guide-section h2 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .guide-section h2 .sec-icon { width: 36px; height: 36px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 1rem; flex-shrink: 0; }
+    .guide-section h3 { font-size: 1rem; font-weight: 600; color: var(--primary); margin: 1.25rem 0 0.5rem; }
+    .guide-section p, .guide-section li { font-size: 0.9rem; color: var(--text); line-height: 1.75; }
+    .guide-section ul, .guide-section ol { padding-left: 1.5rem; margin-bottom: 0.75rem; }
+    .guide-section li { margin-bottom: 0.4rem; }
+
+    .alert-box { padding: 1rem 1.25rem; border-radius: 10px; margin: 1rem 0; font-size: 0.88rem; line-height: 1.65; display: flex; gap: 0.65rem; align-items: flex-start; }
+    .alert-box i { font-size: 1.1rem; margin-top: 0.15rem; flex-shrink: 0; }
+    .alert-danger { background: #FDF2F2; border: 1px solid #F5C6C6; color: #7F1D1D; }
+    .alert-danger i { color: var(--danger); }
+    .alert-success { background: #ECFDF5; border: 1px solid #A7F3D0; color: #064E3B; }
+    .alert-success i { color: var(--success); }
+    .alert-warning { background: #FFFBEB; border: 1px solid #FDE68A; color: #78350F; }
+    .alert-warning i { color: var(--warning); }
+
+    .entry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+    .entry-card { background: var(--surface-subtle); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 1rem; text-align: center; }
+    .entry-card .ec-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .entry-card .ec-name { font-weight: 600; font-size: 0.9rem; color: var(--text); margin-bottom: 0.25rem; }
+    .entry-card .ec-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    .checklist { list-style: none; padding: 0; }
+    .checklist li { padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle); display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.9rem; }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li i { color: var(--success); margin-top: 0.2rem; flex-shrink: 0; }
+
+    .cta-box { background: var(--accent-light); border: 1px solid #E8D5C0; border-radius: var(--radius); padding: 1.75rem; text-align: center; margin: 2rem 0; }
+    .cta-box h3 { font-family: var(--font-serif); font-size: 1.15rem; color: var(--text); margin-bottom: 0.5rem; }
+    .cta-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.5rem; background: var(--primary); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--primary-hover); }
+
+    footer { background: #F1EFEA; border-top: 1px solid var(--border); padding: 2rem 1.5rem; margin-top: auto; text-align: center; font-size: 0.825rem; color: var(--text-muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.5rem; }
+      .guide-section { padding: 1.25rem; }
+      .entry-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon"><i class="fa-solid fa-gift"></i></div>
+        <div>
+          <span>LuckyGo</span>
+          <span style="font-size: 0.85rem; font-family: var(--font-sans); font-weight: 500; color: var(--text-muted); margin-left: 0.5rem;">生活抽獎誌</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">🏠 抽獎總覽</a>
+        <a href="bogo-monthly.html">🏷️ 買一送一</a>
+        <a href="guide.html" class="active">📖 新手指南</a>
+        <a href="contact.html">📝 回報更正</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1><i class="fa-solid fa-book-open" style="margin-right: 0.4rem;"></i> 抽獎新手指南</h1>
+    <p>第一次參加抽獎？看這篇就夠！從辨別真假活動、瞭解參加方式，到安全兌獎注意事項，一篇全部搞懂。</p>
+  </section>
+
+  <main class="content">
+
+    <!-- 1. 如何辨別真假抽獎 -->
+    <section class="guide-section">
+      <h2><span class="sec-icon" style="background: var(--danger);"><i class="fa-solid fa-shield-halved"></i></span> 如何辨別真假抽獎活動？</h2>
+      <p>網路上充斥各種假抽獎活動，以下是辨別真偽的幾個關鍵要點：</p>
+
+      <h3>✅ 正規活動的特徵</h3>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-check-circle"></i> <span>由<strong>品牌官方網站</strong>或<strong>官方社群帳號</strong>（藍勾勾認證）發布</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>有清楚的<strong>活動辦法</strong>：活動期間、參加資格、獎品內容、中獎公布方式</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>獎品兌換<strong>不需要先付費</strong>（運費、手續費、稅金等都不該由中獎者預先支付）</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>提供<strong>客服聯繫方式</strong>（官方電話或 Email，非僅私訊）</span></li>
+        <li><i class="fa-solid fa-check-circle"></i> <span>中獎名單在<strong>官方頁面公開公布</strong>，非僅透過私訊通知</span></li>
+      </ul>
+
+      <h3>🚨 詐騙活動的常見手法</h3>
+      <div class="alert-danger alert-box">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>注意這些危險信號：</strong><br>
+          ❌ 要求提供信用卡號碼、銀行帳號密碼<br>
+          ❌ 中獎後要求先匯款繳「稅金」或「手續費」<br>
+          ❌ 活動網址非品牌官方域名（例如用 bit.ly 短網址導向不明頁面）<br>
+          ❌ 粉絲專頁沒有藍勾認證、成立日期很近、粉絲數異常少<br>
+          ❌ 獎品價值極高但參加門檻極低（如「分享就送 iPhone」）<br>
+          ❌ 要求下載不明 APP 或點擊可疑連結
+        </div>
+      </div>
+
+      <div class="alert-success alert-box">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>LuckyGo 的安全承諾：</strong>本站僅收錄經過查證的官方品牌活動，所有活動連結均直達品牌官方頁面，不經過任何第三方跳轉。
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 常見參加方式 -->
+    <section class="guide-section">
+      <h2><span class="sec-icon" style="background: var(--accent);"><i class="fa-solid fa-clipboard-list"></i></span> 常見抽獎參加方式</h2>
+      <p>台灣品牌抽獎活動有多種參加方式，以下整理最常見的 8 大類型：</p>
+
+      <div class="entry-grid">
+        <div class="entry-card">
+          <div class="ec-icon">🆓</div>
+          <div class="ec-name">免消費</div>
+          <div class="ec-desc">不需花錢即可參加，如免費線上抽獎、天天登入送點</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">📝</div>
+          <div class="ec-name">填問卷</div>
+          <div class="ec-desc">完成品牌指定問卷即獲得抽獎資格</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">📸</div>
+          <div class="ec-name">分享打卡</div>
+          <div class="ec-desc">在社群分享活動貼文或到指定地點打卡</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">👤</div>
+          <div class="ec-name">追蹤帳號</div>
+          <div class="ec-desc">追蹤品牌 IG / FB / LINE 官方帳號加好友</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">👥</div>
+          <div class="ec-name">邀請好友</div>
+          <div class="ec-desc">透過推薦碼邀請朋友註冊或參加活動</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">🔑</div>
+          <div class="ec-name">註冊會員</div>
+          <div class="ec-desc">註冊品牌 APP 或官網會員即享首購禮或抽獎</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">🧾</div>
+          <div class="ec-name">消費登錄</div>
+          <div class="ec-desc">購買指定商品後上傳發票或序號參加</div>
+        </div>
+        <div class="entry-card">
+          <div class="ec-icon">🎮</div>
+          <div class="ec-name">小遊戲</div>
+          <div class="ec-desc">完成品牌設計的互動小遊戲（轉盤、刮刮樂等）</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 發票登錄教學 -->
+    <section class="guide-section">
+      <h2><span class="sec-icon" style="background: var(--success);"><i class="fa-solid fa-receipt"></i></span> 消費登錄 & 發票登錄教學</h2>
+      <p>許多品牌抽獎需要「消費登錄」，以下是常見的登錄流程：</p>
+
+      <h3>📱 一般消費登錄步驟</h3>
+      <ol>
+        <li><strong>購買指定商品</strong> — 注意活動指定的品項、通路（超商/量販/線上）和消費金額門檻</li>
+        <li><strong>保留消費憑證</strong> — 拍下完整發票照片（含日期、品項、金額），或記下發票號碼</li>
+        <li><strong>前往活動登錄頁</strong> — 通常在品牌官網或指定活動網站</li>
+        <li><strong>填寫個人資料</strong> — 姓名、電話、Email（用於中獎通知）</li>
+        <li><strong>上傳發票</strong> — 拍照或輸入發票號碼（隨機碼 + 發票末 8 碼）</li>
+        <li><strong>確認送出</strong> — 完成後會收到簡訊或 Email 確認</li>
+      </ol>
+
+      <div class="alert-warning alert-box">
+        <i class="fa-solid fa-info-circle"></i>
+        <div>
+          <strong>小提醒：</strong><br>
+          • 電子發票請用「手機載具」或「會員卡」儲存，方便後續查詢<br>
+          • 一張發票通常只能登錄一次，請勿重複登錄<br>
+          • 活動結束前務必完成登錄，逾期不受理<br>
+          • 建議截圖保存登錄成功畫面作為憑證
+        </div>
+      </div>
+
+      <h3>🏪 超商常見登錄方式</h3>
+      <ul>
+        <li><strong>7-11</strong>：OPEN POINT APP → 任務 → 掃描發票或輸入發票號碼</li>
+        <li><strong>全家</strong>：全家便利商店 APP → My FamiPay → 發票登錄</li>
+        <li><strong>萊爾富</strong>：Hi-Life VIP APP → 活動專區 → 發票登錄</li>
+      </ul>
+    </section>
+
+    <!-- 4. 中獎後注意事項 -->
+    <section class="guide-section">
+      <h2><span class="sec-icon" style="background: #6C63FF;"><i class="fa-solid fa-trophy"></i></span> 中獎後注意事項</h2>
+
+      <h3>🎉 恭喜中獎！接下來怎麼做？</h3>
+      <ol>
+        <li><strong>確認中獎通知真實性</strong> — 到活動官方頁面核對中獎名單，不要只依賴簡訊或 Email</li>
+        <li><strong>注意兌獎期限</strong> — 大多數活動有 7~30 天的兌獎期限，逾期視同放棄</li>
+        <li><strong>準備身分證件</strong> — 領取高額獎品（超過 NT$1,000）通常需要身分證影本</li>
+        <li><strong>了解稅務規定</strong> — 中獎金額超過 NT$20,000 需扣繳 10% 所得稅（非居住者 20%）</li>
+      </ol>
+
+      <div class="alert-warning alert-box">
+        <i class="fa-solid fa-coins"></i>
+        <div>
+          <strong>中獎稅務 Q&A：</strong><br>
+          • 獎品價值 ≤ NT$20,000：免扣繳，但需併入年度綜合所得稅申報<br>
+          • 獎品價值 > NT$20,000：品牌會預扣 10% 稅款（例如中獎 NT$30,000 實領 NT$27,000）<br>
+          • 獎品價值 ≤ NT$1,000 的小額獎品（如飲料券、折扣碼）：通常免稅免申報
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 常見問題 -->
+    <section class="guide-section">
+      <h2><span class="sec-icon" style="background: var(--primary);"><i class="fa-solid fa-circle-question"></i></span> 常見問題 FAQ</h2>
+
+      <h3>Q: LuckyGo 上的活動都是官方的嗎？</h3>
+      <p>是的。LuckyGo 只收錄經過查證的品牌官方活動，所有連結均直達官方頁面。我們不舉辦任何抽獎，也不收集您的個人資料。</p>
+
+      <h3>Q: 參加抽獎需要付費嗎？</h3>
+      <p>LuckyGo 上標記為「🆓 免消費」的活動完全免費參加。部分「🧾 消費登錄」活動需要先購買指定商品。</p>
+
+      <h3>Q: 我中獎了但被要求先匯款，怎麼辦？</h3>
+      <p>這幾乎 100% 是詐騙！正規品牌絕不會要求中獎者先付款。請立即停止聯繫並向 165 反詐騙專線檢舉。</p>
+
+      <h3>Q: 活動資訊有誤怎麼辦？</h3>
+      <p>請透過我們的<a href="contact.html" style="color: var(--accent); font-weight: 600;">資訊更正回報頁</a>告知，我們會盡速修正。</p>
+
+      <h3>Q: 如何提高中獎機率？</h3>
+      <p>選擇參加人數較少的活動（如地區性活動）、在活動初期就登錄、同時參加多個活動分散機會。LuckyGo 首頁的「🆓 免消費」篩選可以幫你快速找到零成本參加的活動。</p>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3><i class="fa-solid fa-rocket" style="color: var(--accent); margin-right: 0.3rem;"></i> 準備好開始抽獎了嗎？</h3>
+      <p>立即前往 LuckyGo 首頁，瀏覽超過 500 筆官方真實活動！</p>
+      <a href="index.html" class="cta-btn"><i class="fa-solid fa-gift"></i> 前往抽獎總覽</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      <a href="index.html">抽獎總覽</a> ·
+      <a href="bogo-monthly.html">買一送一懶人包</a> ·
+      <a href="contact.html">資訊更正回報</a> ·
+      <a href="privacy.html">隱私權政策</a>
+    </p>
+    <p style="margin-top: 0.75rem; color: #8C8880; font-size: 0.8rem;">© 2026 LuckyGo 台灣生活抽獎誌 · 本站活動資訊與商標均屬各官方原廠所有</p>
+  </footer>
+
+</body>
+</html>
