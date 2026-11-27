@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LuckyGo 站長管理後台 | 每日進站人次統計 ＆ Threads 一鍵發文推廣</title>
+  <title>LuckyGo 站長管理後台 | 進站統計・會員管理・Threads 推廣</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Google Analytics 4 (GA4) 設定 -->
   <script>
     window.LUCKYGO_GA4_ID = 'G-2ZKHDTYL1Z';
@@ -405,6 +406,135 @@
       color: var(--primary);
     }
 
+    /* 會員管理中心樣式 */
+    .member-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding: 0.9rem 1rem;
+      background: #FAF8F5;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .member-search-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      flex: 1;
+      min-width: 240px;
+    }
+    .member-search-input {
+      padding: 0.45rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      background: #FFFFFF;
+      color: var(--text);
+      min-width: 200px;
+      outline: none;
+    }
+    .member-search-input:focus {
+      border-color: var(--primary);
+    }
+    .member-select {
+      padding: 0.45rem 0.65rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.825rem;
+      background: #FFFFFF;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .member-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .member-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #E5E0D8;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+    .member-name-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+    }
+    .member-name {
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .member-id {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: monospace;
+    }
+    .badge-new-member {
+      background: #FFF3E0;
+      color: #B85D3B;
+      border: 1px solid #F0CFA8;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+    }
+    .badge-score {
+      background: #EBF1ED;
+      color: var(--primary);
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      display: inline-block;
+    }
+    .admin-auth-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: #EBF1ED;
+      border: 1px solid #C8DDD0;
+      margin-bottom: 1.25rem;
+      font-size: 0.83rem;
+      color: var(--primary);
+    }
+    .admin-mini-btn {
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .admin-mini-btn:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
     /* 一鍵發文推廣卡片樣式 */
     .post-card {
       background: var(--surface);
@@ -574,6 +704,9 @@
       <button class="nav-tab-btn active" onclick="switchSection('analytics')">
         <i class="fa-solid fa-chart-simple"></i> 每日進站人數統計
       </button>
+      <button class="nav-tab-btn" onclick="switchSection('members')">
+        <i class="fa-solid fa-users"></i> 會員資料與管理 <span id="navMemberBadge" style="background:rgba(184,131,79,0.2);color:inherit;padding:0.08rem 0.45rem;border-radius:999px;font-size:0.75rem;margin-left:0.25rem;">--</span>
+      </button>
       <button class="nav-tab-btn" onclick="switchSection('threads')">
         <i class="fa-brands fa-threads"></i> Threads 一鍵發文推廣
       </button>
@@ -630,6 +763,11 @@
           <div class="kpi-value" id="kpiThreadsRate">0%</div>
           <div class="kpi-sub">海巡推廣導流成效</div>
         </div>
+        <div class="kpi-card" style="cursor:pointer;border-color:#B4CEBF;background:#F4F9F6;" onclick="switchSection('members')" title="點擊查看會員資料與管理">
+          <div class="kpi-label"><i class="fa-solid fa-users" style="color:var(--primary);"></i> 社群註冊人數</div>
+          <div class="kpi-value" id="kpiTotalMembers">--</div>
+          <div class="kpi-sub" id="kpiNewMembersSub">載入會員統計中...</div>
+        </div>
       </div>
 
       <!-- 趨勢長條圖 -->
@@ -665,7 +803,99 @@
       </div>
     </div>
 
-    <!-- ==================== 2. Threads 一鍵發文推廣區塊 ==================== -->
+    <!-- ==================== 2. 會員資料與管理頁面 ==================== -->
+    <div id="membersSection" class="dashboard-panel" style="display: none;">
+      <div class="panel-header">
+        <div class="panel-title" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span><i class="fa-solid fa-users" style="color: var(--primary);"></i> 社群註冊會員資料 ＆ 管理中心</span>
+          <span id="memberSyncBadge" style="font-size: 0.75rem; background: #EAF2EC; color: #2D5A3C; padding: 0.2rem 0.55rem; border-radius: 4px; font-weight: 500; font-family: var(--font-sans);">
+            <i class="fa-solid fa-database"></i> 連線 Supabase 中...
+          </span>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button class="quick-date-btn" onclick="loadMembersData(true)">
+            <i class="fa-solid fa-rotate"></i> 重新整理
+          </button>
+          <button class="quick-date-btn" onclick="exportMembersCSV()">
+            <i class="fa-solid fa-file-csv"></i> 匯出會員 CSV
+          </button>
+          <a href="https://supabase.com/dashboard/project/vqlsxubuluoedjcfapqr/auth/users" target="_blank" rel="noopener noreferrer" class="btn-apply-date" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Supabase 完整 Auth
+          </a>
+        </div>
+      </div>
+
+      <!-- 站長身分驗證列（登入後可直接調整貢獻值與重設領券上限） -->
+      <div class="admin-auth-bar" id="adminAuthBar">
+        <span id="adminAuthText"><i class="fa-solid fa-shield-halved"></i> 目前為檢視模式：可即時瀏覽所有註冊會員與新進會員資料。登入站長 Google 帳號即可直接調整貢獻值／重設今日領券次數。</span>
+        <div id="adminAuthActions">
+          <button class="btn-apply-date" onclick="signInAdminGoogle()"><i class="fa-brands fa-google"></i> 登入站長帳號</button>
+        </div>
+      </div>
+
+      <!-- 會員 KPI 統計 -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label"><i class="fa-solid fa-users"></i> 總註冊會員數</div>
+          <div class="kpi-value" id="mKpiTotal">0</div>
+          <div class="kpi-sub">已建立社群檔案會員</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label"><i class="fa-solid fa-user-plus" style="color: #B85D3B;"></i> 今日新增會員</div>
+          <div class="kpi-value" id="mKpiToday">0</div>
+          <div class="kpi-sub">今日 00:00 起註冊</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label"><i class="fa-solid fa-calendar-week"></i> 近 7 日新會員</div>
+          <div class="kpi-value" id="mKpiWeek">0</div>
+          <div class="kpi-sub">標記為 🆕 新會員</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label"><i class="fa-solid fa-award" style="color: var(--accent);"></i> 活躍分享會員</div>
+          <div class="kpi-value" id="mKpiActive">0</div>
+          <div class="kpi-sub">貢獻值 &gt; 0 或曾分享票券</div>
+        </div>
+      </div>
+
+      <!-- 搜尋與篩選列 -->
+      <div class="member-toolbar">
+        <div class="member-search-group">
+          <input type="text" id="memberSearchInput" class="member-search-input" placeholder="搜尋會員暱稱或 ID..." oninput="renderMembersTable()">
+          <button class="quick-date-btn active" id="mFilterAll" onclick="setMemberFilter('all')">全部會員</button>
+          <button class="quick-date-btn" id="mFilterNew" onclick="setMemberFilter('new')">🆕 近7日新會員</button>
+          <button class="quick-date-btn" id="mFilterContrib" onclick="setMemberFilter('contrib')">🌟 有貢獻值</button>
+          <button class="quick-date-btn" id="mFilterClaimed" onclick="setMemberFilter('claimed')">🎫 今日有領券</button>
+        </div>
+        <div>
+          <select id="memberSortSelect" class="member-select" onchange="renderMembersTable()">
+            <option value="newest">最新註冊優先</option>
+            <option value="score">貢獻值由高到低</option>
+            <option value="claims">今日領券數由高到低</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 會員資料表 -->
+      <div class="table-container">
+        <table class="traffic-table">
+          <thead>
+            <tr>
+              <th>會員暱稱 / ID</th>
+              <th>註冊時間</th>
+              <th>貢獻值積分</th>
+              <th>分享票券數</th>
+              <th>今日領券 / 最後領券日</th>
+              <th>管理操作</th>
+            </tr>
+          </thead>
+          <tbody id="membersTableBody">
+            <tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--text-muted);">載入會員資料中...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ==================== 3. Threads 一鍵發文推廣區塊 ==================== -->
     <div id="threadsSection">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
         <div>
@@ -1145,18 +1375,33 @@
       renderAnalytics(s, e);
     }
 
-    // 切換分頁看板 (數據統計 vs Threads 發文)
+    // 切換分頁看板 (數據統計 vs 會員管理 vs Threads 發文)
     function switchSection(type) {
       const tabs = document.querySelectorAll('.nav-tab-btn');
       tabs.forEach(t => t.classList.remove('active'));
+      const analyticsEl = document.getElementById('analyticsSection');
+      const membersEl = document.getElementById('membersSection');
+      const threadsEl = document.getElementById('threadsSection');
+
       if (type === 'analytics') {
         tabs[0].classList.add('active');
-        document.getElementById('analyticsSection').style.display = 'block';
-        document.getElementById('threadsSection').style.display = 'block';
-        document.getElementById('analyticsSection').scrollIntoView({ behavior: 'smooth' });
-      } else {
+        analyticsEl.style.display = 'block';
+        membersEl.style.display = 'none';
+        threadsEl.style.display = 'block';
+        analyticsEl.scrollIntoView({ behavior: 'smooth' });
+      } else if (type === 'members') {
         tabs[1].classList.add('active');
-        document.getElementById('threadsSection').scrollIntoView({ behavior: 'smooth' });
+        analyticsEl.style.display = 'none';
+        membersEl.style.display = 'block';
+        threadsEl.style.display = 'none';
+        membersEl.scrollIntoView({ behavior: 'smooth' });
+        if (!membersLoadedOnce) loadMembersData();
+      } else {
+        tabs[2].classList.add('active');
+        analyticsEl.style.display = 'block';
+        membersEl.style.display = 'none';
+        threadsEl.style.display = 'block';
+        threadsEl.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
@@ -1425,10 +1670,325 @@
       }, 2500);
     }
 
+    // ==================== Supabase 會員統計與管理中心 ====================
+    const SUPABASE_URL = 'https://vqlsxubuluoedjcfapqr.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxbHN4dWJ1bHVvZWRqY2ZhcHFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU3NDQ0ODUsImV4cCI6MjExMTMyMDQ4NX0.1hZX7EV64NK40A-iJ-TTjBwUQCOoj5jcTzG3sRlQPXM';
+    const ADMIN_EMAIL = 'sheldonchuang@gmail.com';
+    const sbClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+    let allMembers = [];
+    let memberCouponCounts = {};
+    let membersLoadedOnce = false;
+    let currentMemberFilter = 'all';
+    let currentAdminUser = null;
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[s]));
+    }
+
+    function formatTaipeiTime(isoStr) {
+      if (!isoStr) return '--';
+      const d = new Date(isoStr);
+      if (isNaN(d.getTime())) return '--';
+      return d.toLocaleString('zh-TW', {
+        timeZone: 'Asia/Taipei',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+    }
+
+    function formatRelativeTime(isoStr) {
+      if (!isoStr) return '';
+      const diffMs = Date.now() - new Date(isoStr).getTime();
+      const mins = Math.floor(diffMs / 60000);
+      if (mins < 1) return '剛剛';
+      if (mins < 60) return `${mins} 分鐘前`;
+      const hrs = Math.floor(mins / 60);
+      if (hrs < 24) return `${hrs} 小時前`;
+      const days = Math.floor(hrs / 24);
+      return `${days} 天前`;
+    }
+
+    async function checkAdminSession() {
+      if (!sbClient) return;
+      try {
+        const { data } = await sbClient.auth.getSession();
+        currentAdminUser = data?.session?.user || null;
+        renderAdminAuthBar();
+      } catch (e) {}
+    }
+
+    function isAuthorizedAdmin() {
+      return Boolean(currentAdminUser && (currentAdminUser.email || '').toLowerCase() === ADMIN_EMAIL);
+    }
+
+    function renderAdminAuthBar() {
+      const textEl = document.getElementById('adminAuthText');
+      const actionsEl = document.getElementById('adminAuthActions');
+      if (!textEl || !actionsEl) return;
+      if (isAuthorizedAdmin()) {
+        textEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> 已登入站長帳號 <strong>${escapeHtml(currentAdminUser.email)}</strong>，可直接調整會員貢獻值與重設今日領券次數。`;
+        actionsEl.innerHTML = `<button class="quick-date-btn" onclick="signOutAdmin()">登出</button>`;
+      } else if (currentAdminUser) {
+        textEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation" style="color:#B85D3B;"></i> 目前登入帳號（${escapeHtml(currentAdminUser.email)}）非站長帳號，僅供檢視。`;
+        actionsEl.innerHTML = `<button class="quick-date-btn" onclick="signOutAdmin()">登出切換</button>`;
+      } else {
+        textEl.innerHTML = `<i class="fa-solid fa-shield-halved"></i> 目前為檢視模式：可即時瀏覽所有註冊會員與新進會員資料。登入站長 Google 帳號即可直接調整貢獻值／重設今日領券次數。`;
+        actionsEl.innerHTML = `<button class="btn-apply-date" onclick="signInAdminGoogle()"><i class="fa-brands fa-google"></i> 登入站長帳號</button>`;
+      }
+    }
+
+    async function signInAdminGoogle() {
+      if (!sbClient) {
+        alert('Supabase SDK 尚未載入完成，請重新整理頁面。');
+        return;
+      }
+      await sbClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href.split('#')[0] }
+      });
+    }
+
+    async function signOutAdmin() {
+      if (!sbClient) return;
+      await sbClient.auth.signOut();
+      currentAdminUser = null;
+      renderAdminAuthBar();
+      renderMembersTable();
+    }
+
+    async function loadMembersData(force = false) {
+      if (!sbClient) return;
+      if (membersLoadedOnce && !force) return;
+
+      const syncBadge = document.getElementById('memberSyncBadge');
+      if (syncBadge) syncBadge.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 同步 Supabase 會員中...';
+
+      try {
+        const [{ data: profiles, error: pErr }, { data: coupons, error: cErr }] = await Promise.all([
+          sbClient.from('profiles').select('id, display_name, avatar_url, contribution_score, daily_claim_count, last_claim_date, created_at').order('created_at', { ascending: false }),
+          sbClient.from('coupons').select('owner_id, status')
+        ]);
+        if (pErr) throw pErr;
+
+        allMembers = profiles || [];
+        memberCouponCounts = {};
+        if (!cErr && Array.isArray(coupons)) {
+          coupons.forEach(c => {
+            if (!memberCouponCounts[c.owner_id]) memberCouponCounts[c.owner_id] = { total: 0, open: 0 };
+            memberCouponCounts[c.owner_id].total += 1;
+            if (c.status === 'open') memberCouponCounts[c.owner_id].open += 1;
+          });
+        }
+        membersLoadedOnce = true;
+
+        const nowMs = Date.now();
+        const todayStr = formatDateKey(new Date());
+        const weekAgoMs = nowMs - 7 * 24 * 60 * 60 * 1000;
+
+        let todayCount = 0;
+        let weekCount = 0;
+        let activeCount = 0;
+
+        allMembers.forEach(m => {
+          const createdTs = new Date(m.created_at).getTime();
+          const mDateKey = m.created_at ? formatDateKey(new Date(m.created_at)) : '';
+          if (mDateKey === todayStr) todayCount++;
+          if (!isNaN(createdTs) && createdTs >= weekAgoMs) weekCount++;
+          const shared = memberCouponCounts[m.id]?.total || 0;
+          if ((m.contribution_score || 0) > 0 || shared > 0) activeCount++;
+        });
+
+        // 更新首頁分析看板 KPI 與導覽列徽章
+        const kpiTotal = document.getElementById('kpiTotalMembers');
+        const kpiSub = document.getElementById('kpiNewMembersSub');
+        const navBadge = document.getElementById('navMemberBadge');
+        if (kpiTotal) kpiTotal.innerText = allMembers.length.toLocaleString();
+        if (kpiSub) kpiSub.innerText = `今日 +${todayCount} 人｜近7日 +${weekCount} 人`;
+        if (navBadge) navBadge.innerText = `${allMembers.length} 人`;
+
+        // 更新會員管理頁 KPI
+        const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.innerText = v; };
+        setTxt('mKpiTotal', allMembers.length.toLocaleString());
+        setTxt('mKpiToday', todayCount.toLocaleString());
+        setTxt('mKpiWeek', weekCount.toLocaleString());
+        setTxt('mKpiActive', activeCount.toLocaleString());
+
+        if (syncBadge) {
+          syncBadge.innerHTML = `<i class="fa-solid fa-check-circle"></i> 已同步 (${allMembers.length} 位會員)`;
+        }
+
+        renderMembersTable();
+      } catch (err) {
+        console.error('載入會員失敗:', err);
+        if (syncBadge) {
+          syncBadge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 同步失敗，請稍後重試';
+        }
+        const tbody = document.getElementById('membersTableBody');
+        if (tbody) {
+          tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#9E4540;">載入會員資料失敗：${escapeHtml(err.message || err)}</td></tr>`;
+        }
+      }
+    }
+
+    function setMemberFilter(filterKey) {
+      currentMemberFilter = filterKey;
+      ['mFilterAll', 'mFilterNew', 'mFilterContrib', 'mFilterClaimed'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('active');
+      });
+      const activeMap = { all: 'mFilterAll', new: 'mFilterNew', contrib: 'mFilterContrib', claimed: 'mFilterClaimed' };
+      const target = document.getElementById(activeMap[filterKey]);
+      if (target) target.classList.add('active');
+      renderMembersTable();
+    }
+
+    function renderMembersTable() {
+      const tbody = document.getElementById('membersTableBody');
+      if (!tbody) return;
+
+      const keyword = (document.getElementById('memberSearchInput')?.value || '').trim().toLowerCase();
+      const sortBy = document.getElementById('memberSortSelect')?.value || 'newest';
+      const weekAgoMs = Date.now() - 7 * 24 * 60 * 60 * 1000;
+      const todayStr = formatDateKey(new Date());
+
+      let list = allMembers.filter(m => {
+        if (keyword) {
+          const hay = `${m.display_name || ''} ${m.id || ''}`.toLowerCase();
+          if (!hay.includes(keyword)) return false;
+        }
+        if (currentMemberFilter === 'new') {
+          return new Date(m.created_at).getTime() >= weekAgoMs;
+        }
+        if (currentMemberFilter === 'contrib') {
+          return (m.contribution_score || 0) > 0;
+        }
+        if (currentMemberFilter === 'claimed') {
+          return m.last_claim_date === todayStr && (m.daily_claim_count || 0) > 0;
+        }
+        return true;
+      });
+
+      list.sort((a, b) => {
+        if (sortBy === 'score') return (b.contribution_score || 0) - (a.contribution_score || 0);
+        if (sortBy === 'claims') return (b.daily_claim_count || 0) - (a.daily_claim_count || 0);
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+      });
+
+      if (list.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--text-muted);">目前沒有符合條件的會員資料。</td></tr>';
+        return;
+      }
+
+      const canEdit = isAuthorizedAdmin();
+
+      tbody.innerHTML = list.map(m => {
+        const isNew = new Date(m.created_at).getTime() >= weekAgoMs;
+        const avatarHtml = m.avatar_url
+          ? `<img class="member-avatar" src="${escapeHtml(m.avatar_url)}" alt="" referrerpolicy="no-referrer">`
+          : `<span class="member-avatar">${escapeHtml((m.display_name || '網').charAt(0))}</span>`;
+        const shared = memberCouponCounts[m.id] || { total: 0, open: 0 };
+        const claimCount = m.last_claim_date === todayStr ? (m.daily_claim_count || 0) : 0;
+
+        const actionHtml = canEdit
+          ? `<div style="display:flex; gap:0.3rem; flex-wrap:wrap;">
+               <button class="admin-mini-btn" onclick="adminAdjustMember('${m.id}', 1, false)" title="貢獻值 +1">+1 積分</button>
+               <button class="admin-mini-btn" onclick="adminAdjustMember('${m.id}', -1, false)" title="貢獻值 -1">-1</button>
+               <button class="admin-mini-btn" onclick="adminAdjustMember('${m.id}', 0, true)" title="重設今日領券上限">重設領券</button>
+             </div>`
+          : `<span style="font-size:0.76rem; color:var(--text-muted);">需登入站長帳號</span>`;
+
+        return `
+          <tr>
+            <td>
+              <div class="member-cell">
+                ${avatarHtml}
+                <div class="member-name-wrap">
+                  <div class="member-name">
+                    <span>${escapeHtml(m.display_name || '好心網友')}</span>
+                    ${isNew ? '<span class="badge-new-member">🆕 新會員</span>' : ''}
+                  </div>
+                  <span class="member-id">${escapeHtml(m.id.slice(0, 8))}...</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div style="font-weight:500;">${formatTaipeiTime(m.created_at)}</div>
+              <div style="font-size:0.74rem; color:var(--text-muted);">${formatRelativeTime(m.created_at)}</div>
+            </td>
+            <td><span class="badge-score">⭐ ${m.contribution_score || 0}</span></td>
+            <td>共 ${shared.total} 張 <span style="font-size:0.75rem; color:var(--text-muted);">(${shared.open} 進行中)</span></td>
+            <td>
+              <div>今日 <strong>${claimCount} / 3</strong> 張</div>
+              <div style="font-size:0.74rem; color:var(--text-muted);">最後領券：${escapeHtml(m.last_claim_date || '尚無')}</div>
+            </td>
+            <td>${actionHtml}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function adminAdjustMember(userId, scoreDelta, resetClaim) {
+      if (!sbClient || !isAuthorizedAdmin()) {
+        alert('請先登入站長 Google 帳號！');
+        return;
+      }
+      try {
+        const { error } = await sbClient.rpc('admin_update_member', {
+          target_user_id: userId,
+          score_delta: scoreDelta,
+          reset_daily_claim: resetClaim
+        });
+        if (error) throw error;
+        await loadMembersData(true);
+        const toast = document.getElementById('toast');
+        if (toast) {
+          toast.innerHTML = '<i class="fa-solid fa-check-circle"></i> 會員資料已更新！';
+          showToast();
+        }
+      } catch (err) {
+        alert('更新失敗（請確認已在 Supabase SQL Editor 執行最新 schema.sql）：\n' + (err.message || err));
+      }
+    }
+
+    function exportMembersCSV() {
+      if (!allMembers || allMembers.length === 0) {
+        alert('目前沒有可匯出的會員資料');
+        return;
+      }
+      const headers = ['會員ID', '暱稱', '註冊時間(台北)', '貢獻值', '今日領券數', '最後領券日', '分享總券數'];
+      const rows = allMembers.map(m => {
+        const shared = memberCouponCounts[m.id]?.total || 0;
+        return [
+          m.id,
+          `"${String(m.display_name || '').replace(/"/g, '""')}"`,
+          `"${formatTaipeiTime(m.created_at)}"`,
+          m.contribution_score || 0,
+          m.daily_claim_count || 0,
+          m.last_claim_date || '',
+          shared
+        ].join(',');
+      });
+      const csv = '\uFEFF' + [headers.join(','), ...rows].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `luckygo-members-${formatDateKey(new Date())}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
     // 初始化頁面：預設載入開站至今 (2026-11-23 至 今日) 的真實流量與今日最新推廣文案
     window.addEventListener('DOMContentLoaded', () => {
       setLaunchRange();
       regenerateDailyPosts();
+      checkAdminSession();
+      loadMembersData();
     });
   </script>
 </body>

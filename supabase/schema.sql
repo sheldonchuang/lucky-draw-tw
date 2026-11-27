@@ -196,6 +196,31 @@ begin
 end;
 $$;
 
+-- 5b. 站長專屬會員管理 RPC（僅限站長 Email 呼叫：調整貢獻值或重設今日領券次數）
+create or replace function public.admin_update_member(
+  target_user_id uuid,
+  score_delta integer default 0,
+  reset_daily_claim boolean default false
+)
+returns void
+language plpgsql
+security definer set search_path = public
+as $$
+declare
+  v_email text := lower(coalesce(auth.jwt()->>'email', ''));
+begin
+  if v_email <> 'sheldonchuang@gmail.com' then
+    raise exception '僅限站長帳號執行此操作';
+  end if;
+
+  update public.profiles
+  set
+    contribution_score = greatest(0, contribution_score + coalesce(score_delta, 0)),
+    daily_claim_count = case when reset_daily_claim then 0 else daily_claim_count end
+  where id = target_user_id;
+end;
+$$;
+
 -- 6. 條碼截圖私有儲存空間 (Storage Bucket)
 insert into storage.buckets (id, name, public)
 values ('coupon-barcodes', 'coupon-barcodes', false)
