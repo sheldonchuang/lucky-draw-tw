@@ -688,9 +688,112 @@
         min-width: 24px;
       }
     }
+
+    /* ===== 密碼閘門 ===== */
+    .gate-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.4s ease;
+    }
+    .gate-overlay.hidden { opacity: 0; pointer-events: none; }
+    .gate-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      max-width: 400px; width: 90%;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(45,40,30,0.08);
+    }
+    .gate-box .gate-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: var(--primary); color: white;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1rem;
+    }
+    .gate-box h2 {
+      font-family: var(--font-serif); font-size: 1.3rem; color: var(--text); margin-bottom: 0.4rem;
+    }
+    .gate-box p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem; }
+    .gate-input-row { display: flex; gap: 0.5rem; }
+    .gate-input {
+      flex: 1; padding: 0.65rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+      font-size: 0.95rem; outline: none; font-family: var(--font-sans);
+      transition: border-color 0.2s;
+    }
+    .gate-input:focus { border-color: var(--primary); }
+    .gate-btn {
+      padding: 0.65rem 1.25rem; border: none; border-radius: 8px;
+      background: var(--primary); color: white; font-weight: 600;
+      font-size: 0.9rem; cursor: pointer; transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .gate-btn:hover { background: var(--primary-hover); }
+    .gate-error {
+      color: var(--danger, #9E4540); font-size: 0.8rem; margin-top: 0.65rem;
+      min-height: 1.2em;
+    }
+    body.locked > *:not(.gate-overlay) { display: none !important; }
   </style>
 </head>
-<body>
+<body class="locked">
+
+  <!-- 密碼閘門 -->
+  <div class="gate-overlay" id="gateOverlay">
+    <div class="gate-box">
+      <div class="gate-icon"><i class="fa-solid fa-lock"></i></div>
+      <h2>站長專屬管理看板</h2>
+      <p>請輸入管理密碼以進入後台</p>
+      <div class="gate-input-row">
+        <input type="password" class="gate-input" id="gatePassword" placeholder="管理密碼" autocomplete="off" autofocus>
+        <button class="gate-btn" id="gateSubmit" onclick="verifyGate()"><i class="fa-solid fa-right-to-bracket"></i> 進入</button>
+      </div>
+      <div class="gate-error" id="gateError"></div>
+    </div>
+  </div>
+
+  <script>
+  // Client-side password gate (SHA-256 hash comparison)
+  const GATE_HASH = 'd2ca7a05b0b075015beb2772bdaa058948d46d81cd571a616a3ff534be0e1d00';
+  const GATE_SESSION_KEY = 'luckygo_admin_gate';
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  async function verifyGate() {
+    const pwd = document.getElementById('gatePassword').value;
+    if (!pwd) { document.getElementById('gateError').textContent = '請輸入密碼'; return; }
+    const hash = await sha256(pwd);
+    if (hash === GATE_HASH) {
+      sessionStorage.setItem(GATE_SESSION_KEY, '1');
+      unlockGate();
+    } else {
+      document.getElementById('gateError').textContent = '密碼錯誤，請重新輸入';
+      document.getElementById('gatePassword').value = '';
+      document.getElementById('gatePassword').focus();
+    }
+  }
+
+  function unlockGate() {
+    document.body.classList.remove('locked');
+    const overlay = document.getElementById('gateOverlay');
+    overlay.classList.add('hidden');
+    setTimeout(() => overlay.remove(), 500);
+  }
+
+  // Auto-unlock if already verified in this session
+  if (sessionStorage.getItem(GATE_SESSION_KEY) === '1') {
+    unlockGate();
+  }
+
+  // Enter key support
+  document.getElementById('gatePassword').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') verifyGate();
+  });
+  </script>
 
   <div class="container">
     <div class="header-box">
