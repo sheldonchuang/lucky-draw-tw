@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuckyGo 社群贈券牆 | 閒置優惠券互助贈送・安全交換</title>
+  <!-- Google Analytics 4 (GA4) -->
+  <script>
+    window.LUCKYGO_GA4_ID = 'G-2ZKHDTYL1Z';
+    if (window.LUCKYGO_GA4_ID && !window.LUCKYGO_GA4_ID.includes('XXXX')) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.LUCKYGO_GA4_ID);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', window.LUCKYGO_GA4_ID);
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root {
+      --bg: #F7F5F0;
+      --surface: #FFFFFF;
+      --surface-subtle: #F1EFEA;
+      --primary: #2D4B3E;
+      --primary-hover: #1F362C;
+      --primary-light: #EBF1ED;
+      --accent: #B8834F;
+      --accent-light: #F9F3EC;
+      --success: #3F6E56;
+      --danger: #9E4540;
+      --text: #272B28;
+      --text-muted: #736F68;
+      --border: #E5E0D8;
+      --radius: 12px;
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+    .topbar {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.85rem 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: #fff;
+      text-decoration: none;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+    .back-pill {
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: var(--font-sans);
+    }
+    .back-pill:hover { background: rgba(255,255,255,0.24); }
+    .auth-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .btn-google {
+      background: #fff;
+      color: var(--text);
+      border: none;
+      border-radius: 999px;
+      padding: 0.42rem 0.95rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: inherit;
+    }
+    .btn-google:hover { background: #F1EFEA; }
+    .user-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.14);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+    .score-chip {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .btn-logout {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #F7F5F0 0%, #EDE9E1 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.25rem 1.5rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      margin-bottom: 0.45rem;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 1.25rem auto 0;
+      padding: 0 1.25rem;
+    }
+
+    .setup-banner {
+      background: #FFF9EE;
+      border: 1px solid #E7C99A;
+      border-radius: var(--radius);
+      padding: 0.9rem 1.15rem;
+      margin-bottom: 1rem;
+      font-size: 0.84rem;
+      color: #6B4A1B;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .nav-tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .nav-tab.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+    .filter-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.32rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .filter-chip.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      box-shadow: 0 2px 8px rgba(45,40,30,0.04);
+    }
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .brand-tag {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+    }
+    .type-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+    }
+    .type-gift { background: #EAF2EC; color: #2D5A3C; }
+    .type-exchange { background: #FDF4E7; color: #8A5A1B; }
+    .card-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--surface-subtle);
+      padding-top: 0.6rem;
+      margin-top: auto;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      width: 100%;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-primary:disabled { background: #B8B4AC; cursor: not-allowed; }
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .form-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      max-width: 640px;
+    }
+    .form-group { margin-bottom: 0.95rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      background: #fff;
+    }
+    .secret-box {
+      background: #FAF7F2;
+      border: 1px dashed #D8C7B2;
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.84rem;
+    }
+    .req-row {
+      background: var(--surface-subtle);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      margin-top: 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 1rem;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: var(--surface);
+      border-radius: 14px;
+      max-width: 460px;
+      width: 100%;
+      padding: 1.25rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <a href="./index.html" class="brand-link">
+          <i class="fa-solid fa-ticket"></i> LuckyGo 社群贈券牆
+        </a>
+        <a href="./index.html" class="back-pill">← 回官方好康首頁</a>
+      </div>
+      <div class="auth-bar" id="authBar">
+        <button type="button" class="btn-google" onclick="signInWithGoogle()">
+          <i class="fa-brands fa-google"></i> Google 一鍵登入
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>把「<span>我用不到</span>」交給「<span>我需要</span>」</h1>
+    <p>台灣閒置優惠券互助社群：想領券先留言申請、由分享者挑選送出，拒絕機器人秒搶；核准後才會解鎖條碼與序號，安全存入個人票券錢包。</p>
+  </section>
+
+  <main class="container">
+    <div id="setupBanner" class="setup-banner" style="display:none;">
+      <i class="fa-solid fa-circle-info" style="font-size:1.1rem; margin-top:2px;"></i>
+      <div>
+        <strong>目前為展示預覽模式（尚未綁定 Supabase 專案）：</strong>
+        請於 Supabase 免費專案執行 <code>supabase/schema.sql</code>，並將 Project URL 與 Anon Key 填入本頁第 370 行設定區，即可立即啟用「Google 登入、上傳條碼、申請領取與個人錢包」。
+      </div>
+    </div>
+
+    <div class="nav-tabs">
+      <button type="button" class="nav-tab active" onclick="switchTab('feed', this)">
+        <i class="fa-solid fa-gift"></i> 逛逛贈券牆
+      </button>
+      <button type="button" class="nav-tab" onclick="switchTab('wallet', this)">
+        <i class="fa-solid fa-wallet"></i> 我的票券錢包
+      </button>
+      <button type="button" class="nav-tab" onclick="switchTab('share', this)">
+        <i class="fa-solid fa-plus"></i> 我要分享票券
+      </button>
+    </div>
+
+    <!-- 1. 贈券牆 -->
+    <section id="tab-feed">
+      <div class="filter-row" id="brandFilters">
+        <button type="button" class="filter-chip active" onclick="setBrandFilter('ALL', this)">全部品牌</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('7-11', this)">7-11</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('全家', this)">全家</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('星巴克', this)">星巴克</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('麥當勞', this)">麥當勞</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('肯德基', this)">肯德基</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('必勝客', this)">必勝客</button>
+        <button type="button" class="filter-chip" onclick="setBrandFilter('手搖飲', this)">手搖飲</button>
+      </div>
+      <div id="feedGrid" class="grid"></div>
+    </section>
+
+    <!-- 2. 我的票券錢包 -->
+    <section id="tab-wallet" style="display:none;">
+      <div id="walletContent"></div>
+    </section>
+
+    <!-- 3. 我要分享票券 -->
+    <section id="tab-share" style="display:none;">
+      <div class="form-panel">
+        <h2 style="font-family:var(--font-serif); margin-bottom:0.85rem;">發布閒置優惠券</h2>
+        <form id="shareForm" onsubmit="submitCoupon(event)">
+          <div class="form-group">
+            <label>品牌分類</label>
+            <select id="fBrand" class="form-control" required>
+              <option value="7-11">7-11</option>
+              <option value="全家">全家</option>
+              <option value="星巴克">星巴克</option>
+              <option value="路易莎">路易莎</option>
+              <option value="麥當勞">麥當勞</option>
+              <option value="肯德基">肯德基</option>
+              <option value="必勝客">必勝客</option>
+              <option value="漢堡王">漢堡王</option>
+              <option value="手搖飲">手搖飲</option>
+              <option value="王品/餐廳">王品 / 餐廳</option>
+              <option value="蝦皮/網購">蝦皮 / 網購</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>分享方式</label>
+            <select id="fType" class="form-control" onchange="toggleWantedInput()">
+              <option value="gift">免費贈送（公益互助，獲得貢獻值 +1）</option>
+              <option value="exchange">我想交換（註明想換什麼券）</option>
+            </select>
+          </div>
+          <div class="form-group" id="wantedGroup" style="display:none;">
+            <label>希望交換的票券</label>
+            <input type="text" id="fWanted" class="form-control" placeholder="例如：想換 7-11 拿鐵或全家霜淇淋券">
+          </div>
+          <div class="form-group">
+            <label>票券名稱（公開顯示）</label>
+            <input type="text" id="fTitle" class="form-control" required placeholder="例如：全家大杯熱拿鐵買一送一券">
+          </div>
+          <div class="form-group">
+            <label>使用說明 / 備註（公開顯示）</label>
+            <textarea id="fDesc" class="form-control" rows="2" placeholder="例如：限全台門市兌換，今天到期急送！"></textarea>
+          </div>
+          <div class="form-group">
+            <label>有效期限</label>
+            <input type="date" id="fExpiry" class="form-control" required>
+          </div>
+          <div class="form-group secret-box">
+            <label style="color:#9C4120;"><i class="fa-solid fa-lock"></i> 機密兌換序號 / 連結（僅核准得主可見）</label>
+            <input type="text" id="fSecret" class="form-control" placeholder="輸入序號、代碼或網址（或下方上傳條碼截圖）">
+            <label style="color:#9C4120; margin-top:0.65rem;"><i class="fa-regular fa-image"></i> 上傳條碼截圖（選填，自動壓縮保護空間）</label>
+            <input type="file" id="fImage" class="form-control" accept="image/*">
+          </div>
+          <button type="submit" class="btn-primary" id="submitCouponBtn">發布到社群贈券牆</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 申請領取彈窗 -->
+  <div id="requestModal" class="modal-backdrop" onclick="if(event.target===this) closeRequestModal()">
+    <div class="modal-box">
+      <h3 style="font-family:var(--font-serif); margin-bottom:0.4rem;">向分享者申請這張票券</h3>
+      <p id="reqCouponTitle" style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.85rem;"></p>
+      <div class="form-group">
+        <label>留一句話給分享者（提高被選中機率）</label>
+        <textarea id="reqMessage" class="form-control" rows="3" placeholder="例如：剛好下午要去買咖啡，非常需要這張券，謝謝你的分享！"></textarea>
+      </div>
+      <div style="display:flex; gap:0.6rem;">
+        <button type="button" class="filter-chip" style="flex:1; padding:0.55rem;" onclick="closeRequestModal()">取消</button>
+        <button type="button" class="btn-primary" style="flex:2;" onclick="confirmRequest()">送出申請</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==================== Supabase 設定區（免費方案即可使用） ====================
+    const SUPABASE_URL = '';      // 例：'https://xxxxxxxx.supabase.co'
+    const SUPABASE_ANON_KEY = ''; // 例：'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+    // =========================================================================
+
+    const isConfigured = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase);
+    const sb = isConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+
+    let currentUser = null;
+    let currentProfile = null;
+    let brandFilter = 'ALL';
+    let targetCouponId = null;
+
+    // 尚未設定 Supabase 時的展示資料
+    const DEMO_COUPONS = [
+      {
+        id: 'demo-1',
+        brand: '7-11',
+        title: 'CITY CAFE 大杯冰美式買一送一券',
+        description: 'OPENPOINT 轉贈序號，今天下午用不到，送給有需要的上班族朋友！',
+        coupon_type: 'gift',
+        wanted_note: '',
+        expiry_date: new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10),
+        owner: { display_name: '阿明', contribution_score: 14 },
+        requests_count: 3
+      },
+      {
+        id: 'demo-2',
+        brand: '必勝客',
+        title: '外帶小比薩買一送一優惠序號',
+        description: '聚餐多出來的券，希望能換一張麥當勞大薯或 7-11 拿鐵券～',
+        coupon_type: 'exchange',
+        wanted_note: '想換：麥當勞或超商咖啡券',
+        expiry_date: new Date(Date.now() + 5 * 86400000).toISOString().slice(0, 10),
+        owner: { display_name: '小萱', contribution_score: 8 },
+        requests_count: 1
+      },
+      {
+        id: 'demo-3',
+        brand: '星巴克',
+        title: '數位體驗全品項好友分享券（買一送一）',
+        description: '今天抽到的但沒人一起喝，免費贈送給今天有要去買星巴克的人！',
+        coupon_type: 'gift',
+        wanted_note: '',
+        expiry_date: new Date().toISOString().slice(0, 10),
+        owner: { display_name: 'Kai', contribution_score: 23 },
+        requests_count: 5
+      }
+    ];
+
+    async function init() {
+      if (!isConfigured) {
+        document.getElementById('setupBanner').style.display = 'flex';
+        renderFeed(DEMO_COUPONS);
+        return;
+      }
+
+      const { data: { session } } = await sb.auth.getSession();
+      await handleSession(session);
+      sb.auth.onAuthStateChange(async (_event, session) => {
+        await handleSession(session);
+      });
+      await loadFeed();
+    }
+
+    async function handleSession(session) {
+      currentUser = session?.user || null;
+      const authBar = document.getElementById('authBar');
+      if (!currentUser) {
+        currentProfile = null;
+        authBar.innerHTML = `
+          <button type="button" class="btn-google" onclick="signInWithGoogle()">
+            <i class="fa-brands fa-google"></i> Google 一鍵登入
+          </button>`;
+        return;
+      }
+      const { data: prof } = await sb.from('profiles').select('*').eq('id', currentUser.id).single();
+      currentProfile = prof || { display_name: currentUser.email, contribution_score: 0 };
+      authBar.innerHTML = `
+        <span class="user-pill">
+          <i class="fa-regular fa-circle-user"></i> ${currentProfile.display_name}
+          <span class="score-chip" title="累積送券貢獻值">貢獻 ${currentProfile.contribution_score || 0}</span>
+        </span>
+        <button type="button" class="btn-logout" onclick="signOut()">登出</button>`;
+    }
+
+    async function signInWithGoogle() {
+      if (!isConfigured) {
+        alert('請先設定 Supabase URL 與 Anon Key，即可啟用 Google 一鍵登入！');
+        return;
+      }
+      await sb.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href.split('#')[0] }
+      });
+    }
+
+    async function signOut() {
+      if (sb) await sb.auth.signOut();
+      location.reload();
+    }
+
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-feed').style.display = tab === 'feed' ? 'block' : 'none';
+      document.getElementById('tab-wallet').style.display = tab === 'wallet' ? 'block' : 'none';
+      document.getElementById('tab-share').style.display = tab === 'share' ? 'block' : 'none';
+      if (tab === 'wallet') loadWallet();
+    }
+
+    function setBrandFilter(brand, btn) {
+      brandFilter = brand;
+      document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (!isConfigured) {
+        renderFeed(DEMO_COUPONS);
+      } else {
+        loadFeed();
+      }
+    }
+
+    function toggleWantedInput() {
+      const val = document.getElementById('fType').value;
+      document.getElementById('wantedGroup').style.display = val === 'exchange' ? 'block' : 'none';
+    }
+
+    async function loadFeed() {
+      const today = new Date().toISOString().slice(0, 10);
+      let query = sb
+        .from('coupons')
+        .select('id, brand, title, description, coupon_type, wanted_note, expiry_date, owner_id, profiles!coupons_owner_id_fkey(display_name, contribution_score)')
+        .eq('status', 'open')
+        .gte('expiry_date', today)
+        .order('created_at', { ascending: false });
+
+      if (brandFilter !== 'ALL') {
+        query = query.eq('brand', brandFilter);
+      }
+      const { data, error } = await query;
+      if (error) {
+        console.error(error);
+        return;
+      }
+      const normalized = (data || []).map(c => ({ ...c, owner: c.profiles }));
+      renderFeed(normalized);
+    }
+
+    function renderFeed(items) {
+      const filtered = brandFilter === 'ALL' ? items : items.filter(i => i.brand === brandFilter);
+      const grid = document.getElementById('feedGrid');
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:2.5rem; color:var(--text-muted);">目前此分類尚無開放中的票券，歡迎點上方「我要分享票券」搶頭香！</div>';
+        return;
+      }
+      grid.innerHTML = filtered.map(c => {
+        const isOwn = currentUser && c.owner_id === currentUser.id;
+        return `
+          <div class="card">
+            <div class="card-top">
+              <span class="brand-tag">${c.brand}</span>
+              <span class="type-tag ${c.coupon_type === 'exchange' ? 'type-exchange' : 'type-gift'}">
+                ${c.coupon_type === 'exchange' ? '🔄 換券' : '🎁 免費贈送'}
+              </span>
+            </div>
+            <div class="card-title">${c.title}</div>
+            <div class="card-desc">${c.description || ''}</div>
+            ${c.wanted_note ? `<div style="font-size:0.78rem; color:#8A5A1B; background:#FDF4E7; padding:0.35rem 0.6rem; border-radius:6px;">${c.wanted_note}</div>` : ''}
+            <div class="card-meta">
+              <span><i class="fa-regular fa-user"></i> ${c.owner?.display_name || '好心網友'}（貢獻 ${c.owner?.contribution_score || 0}）</span>
+              <span>到期：${c.expiry_date}</span>
+            </div>
+            <button type="button" class="btn-primary" ${isOwn ? 'disabled' : ''} onclick="openRequestModal('${c.id}', '${String(c.title).replace(/'/g, "\\'")}')">
+              ${isOwn ? '您發布的票券' : '我要申請領取'}
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openRequestModal(couponId, title) {
+      if (!isConfigured) {
+        alert('展示預覽模式：綁定 Supabase 與 Google 登入後即可送出領券申請！');
+        return;
+      }
+      if (!currentUser) {
+        signInWithGoogle();
+        return;
+      }
+      targetCouponId = couponId;
+      document.getElementById('reqCouponTitle').innerText = title;
+      document.getElementById('requestModal').classList.add('open');
+    }
+
+    function closeRequestModal() {
+      document.getElementById('requestModal').classList.remove('open');
+    }
+
+    async function confirmRequest() {
+      const msg = document.getElementById('reqMessage').value.trim() || '希望能領取使用，謝謝分享！';
+      const { error } = await sb.from('coupon_requests').insert({
+        coupon_id: targetCouponId,
+        requester_id: currentUser.id,
+        message: msg
+      });
+      closeRequestModal();
+      if (error) {
+        alert(error.message.includes('duplicate') ? '您已經申請過這張票券囉，請靜候分享者挑選！' : '申請失敗：' + error.message);
+        return;
+      }
+      alert('✅ 已送出申請！若分享者選中您，序號／條碼將直接出現在「我的票券錢包」。');
+    }
+
+    async function compressImage(file) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        const reader = new FileReader();
+        reader.onload = (e) => { img.src = e.target.result; };
+        img.onload = () => {
+          const maxW = 900;
+          const scale = Math.min(1, maxW / img.width);
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+          canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.78);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function submitCoupon(e) {
+      e.preventDefault();
+      if (!isConfigured) {
+        alert('請先完成 Supabase 設定再發布票券！');
+        return;
+      }
+      if (!currentUser) {
+        signInWithGoogle();
+        return;
+      }
+      const btn = document.getElementById('submitCouponBtn');
+      btn.disabled = true;
+      btn.innerText = '發布中...';
+
+      try {
+        const { data: coupon, error: cErr } = await sb.from('coupons').insert({
+          owner_id: currentUser.id,
+          brand: document.getElementById('fBrand').value,
+          coupon_type: document.getElementById('fType').value,
+          wanted_note: document.getElementById('fWanted').value.trim(),
+          title: document.getElementById('fTitle').value.trim(),
+          description: document.getElementById('fDesc').value.trim(),
+          expiry_date: document.getElementById('fExpiry').value
+        }).select().single();
+        if (cErr) throw cErr;
+
+        let imagePath = '';
+        const file = document.getElementById('fImage').files[0];
+        if (file) {
+          const compressed = await compressImage(file);
+          const path = `${currentUser.id}/${coupon.id}.jpg`;
+          const { error: uErr } = await sb.storage.from('coupon-barcodes').upload(path, compressed, { contentType: 'image/jpeg' });
+          if (uErr) throw uErr;
+          imagePath = path;
+        }
+
+        const { error: sErr } = await sb.from('coupon_secrets').insert({
+          coupon_id: coupon.id,
+          secret_code: document.getElementById('fSecret').value.trim(),
+          image_path: imagePath
+        });
+        if (sErr) throw sErr;
+
+        alert('🎉 票券發布成功！有人申請時可於「我的票券錢包」挑選送出對象。');
+        document.getElementById('shareForm').reset();
+        document.querySelector('.nav-tab').click();
+        await loadFeed();
+      } catch (err) {
+        alert('發布失敗：' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = '發布到社群贈券牆';
+      }
+    }
+
+    async function loadWallet() {
+      const box = document.getElementById('walletContent');
+      if (!isConfigured || !currentUser) {
+        box.innerHTML = `<div class="card" style="max-width:500px; text-align:center; padding:2rem;">
+          <p style="margin-bottom:1rem; color:var(--text-muted);">請先登入 Google 帳號，即可查看您領到的票券與管理分享申請。</p>
+          <button type="button" class="btn-primary" onclick="signInWithGoogle()">Google 一鍵登入</button>
+        </div>`;
+        return;
+      }
+
+      const [{ data: claimed }, { data: owned }] = await Promise.all([
+        sb.from('coupons').select('*, coupon_secrets(secret_code, image_path)').eq('claimed_by', currentUser.id).order('created_at', { ascending: false }),
+        sb.from('coupons').select('*, coupon_requests(id, message, status, profiles(display_name, contribution_score))').eq('owner_id', currentUser.id).order('created_at', { ascending: false })
+      ]);
+
+      let html = '<h3 style="font-family:var(--font-serif); margin-bottom:0.75rem;">🎁 我領到的票券</h3><div class="grid" style="margin-bottom:2rem;">';
+      if (!claimed || claimed.length === 0) {
+        html += '<div class="card" style="color:var(--text-muted);">尚未領到票券，快去贈券牆逛逛吧！</div>';
+      } else {
+        for (const c of claimed) {
+          const sec = c.coupon_secrets?.[0] || {};
+          let imgHtml = '';
+          if (sec.image_path) {
+            const { data: signed } = await sb.storage.from('coupon-barcodes').createSignedUrl(sec.image_path, 3600);
+            if (signed?.signedUrl) {
+              imgHtml = `<img src="${signed.signedUrl}" alt="條碼" style="width:100%; border-radius:8px; margin-top:0.5rem;">`;
+            }
+          }
+          html += `<div class="card">
+            <div class="card-top"><span class="brand-tag">${c.brand}</span><span style="font-size:0.75rem; color:var(--success);">✓ 已解鎖</span></div>
+            <div class="card-title">${c.title}</div>
+            <div class="secret-box">
+              <strong>兌換序號 / 連結：</strong><code>${sec.secret_code || '請見下方條碼圖'}</code>
+              ${imgHtml}
+            </div>
+          </div>`;
+        }
+      }
+      html += '</div><h3 style="font-family:var(--font-serif); margin-bottom:0.75rem;">📤 我分享的票券與申請管理</h3><div class="grid">';
+
+      if (!owned || owned.length === 0) {
+        html += '<div class="card" style="color:var(--text-muted);">您尚未發布任何票券。</div>';
+      } else {
+        for (const c of owned) {
+          const pending = (c.coupon_requests || []).filter(r => r.status === 'pending');
+          const reqHtml = c.status === 'open'
+            ? (pending.length === 0
+                ? '<div style="font-size:0.8rem; color:var(--text-muted);">目前尚無人申請</div>'
+                : pending.map(r => `
+                    <div class="req-row">
+                      <div>
+                        <strong>${r.profiles?.display_name || '網友'}</strong>（貢獻 ${r.profiles?.contribution_score || 0}）
+                        <div style="color:var(--text-muted);">${r.message}</div>
+                      </div>
+                      <button type="button" class="btn-accent" onclick="approveReq('${r.id}')">送給他</button>
+                    </div>`).join(''))
+            : `<div style="font-size:0.8rem; color:var(--success); font-weight:700;">✓ 狀態：${c.status === 'claimed' ? '已送出' : '已下架'}</div>`;
+
+          html += `<div class="card">
+            <div class="card-top"><span class="brand-tag">${c.brand}</span><span style="font-size:0.74rem; color:var(--text-muted);">到期 ${c.expiry_date}</span></div>
+            <div class="card-title">${c.title}</div>
+            ${reqHtml}
+          </div>`;
+        }
+      }
+      html += '</div>';
+      box.innerHTML = html;
+    }
+
+    async function approveReq(reqId) {
+      if (!confirm('確定要將這張票券送給這位申請者嗎？送出後對方將立即看到條碼與序號。')) return;
+      const { error } = await sb.rpc('approve_coupon_request', { target_request_id: reqId });
+      if (error) {
+        alert('操作失敗：' + error.message);
+        return;
+      }
+      alert('🎉 已送出！您的貢獻值 +1');
+      await loadWallet();
+    }
+
+    init();
+  </script>
+</body>
+</html>
