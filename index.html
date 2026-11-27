@@ -1071,6 +1071,76 @@
       box-shadow: none !important;
     }
 
+    /* 參加門檻精準篩選列（學獎一下） */
+    .entry-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+      padding: 0.6rem 0.85rem;
+      background: #FAF8F5;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .entry-filter-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-right: 0.25rem;
+      white-space: nowrap;
+    }
+    .entry-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .entry-pill:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    .entry-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #FFFFFF;
+    }
+    .entry-pill-count {
+      font-size: 0.7rem;
+      opacity: 0.8;
+      background: rgba(0, 0, 0, 0.06);
+      padding: 0.05rem 0.35rem;
+      border-radius: 999px;
+    }
+    .entry-pill.active .entry-pill-count {
+      background: rgba(255, 255, 255, 0.24);
+      opacity: 1;
+    }
+    .entry-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.48rem;
+      border-radius: 5px;
+      background: #F4F1EA;
+      color: #5C5549;
+      border: 1px solid #E3DDD2;
+    }
+
     /* 主內容區與統計 */
     main {
       flex: 1;
@@ -1837,6 +1907,38 @@
           <span class="filter-count" id="count-expired">0</span>
         </button>
       </div>
+
+      <!-- 參加門檻精準篩選列（學獎一下） -->
+      <div class="entry-filter-bar" id="entryFilterBar">
+        <span class="entry-filter-label"><i class="fa-solid fa-filter"></i> 參加門檻：</span>
+        <button type="button" class="entry-pill active" data-entry="ALL" onclick="filterByEntryType('ALL')">
+          全部門檻 <span class="entry-pill-count" id="ecount-ALL">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="免消費" onclick="filterByEntryType('免消費')">
+          🆓 免消費 <span class="entry-pill-count" id="ecount-免消費">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="填問卷" onclick="filterByEntryType('填問卷')">
+          📝 填問卷 <span class="entry-pill-count" id="ecount-填問卷">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="分享打卡" onclick="filterByEntryType('分享打卡')">
+          📱 分享／打卡 <span class="entry-pill-count" id="ecount-分享打卡">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="追蹤帳號" onclick="filterByEntryType('追蹤帳號')">
+          👤 追蹤帳號 <span class="entry-pill-count" id="ecount-追蹤帳號">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="邀請好友" onclick="filterByEntryType('邀請好友')">
+          👥 邀請好友 <span class="entry-pill-count" id="ecount-邀請好友">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="註冊會員" onclick="filterByEntryType('註冊會員')">
+          📋 註冊會員 <span class="entry-pill-count" id="ecount-註冊會員">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="消費登錄" onclick="filterByEntryType('消費登錄')">
+          🧾 消費／發票 <span class="entry-pill-count" id="ecount-消費登錄">0</span>
+        </button>
+        <button type="button" class="entry-pill" data-entry="小遊戲" onclick="filterByEntryType('小遊戲')">
+          🎮 小遊戲／簽到 <span class="entry-pill-count" id="ecount-小遊戲">0</span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -1905,7 +2007,48 @@
   <script>
     let allEvents = window.INITIAL_EVENTS || [];
     let currentFilter = 'ALL';
+    let currentEntryFilter = 'ALL';
     let searchQuery = '';
+
+    const ENTRY_TYPE_ICONS = {
+      '免消費': '🆓 免消費',
+      '填問卷': '📝 填問卷',
+      '分享打卡': '📱 分享打卡',
+      '追蹤帳號': '👤 追蹤帳號',
+      '邀請好友': '👥 邀請好友',
+      '註冊會員': '📋 註冊會員',
+      '消費登錄': '🧾 消費登錄',
+      '小遊戲': '🎮 小遊戲'
+    };
+
+    function getEventEntryTypes(event) {
+      if (Array.isArray(event.entry_types) && event.entry_types.length > 0) {
+        return event.entry_types;
+      }
+      const txt = `${event.title || ''} ${event.qualification || ''} ${(event.tags || []).join(' ')}`;
+      const res = [];
+      if (/問卷|填表|填寫資料|意見調查|民調|表單/.test(txt)) res.push('填問卷');
+      if (/分享|打卡|留言|標記好友|tag|按讚|轉發|公開貼文|限動/i.test(txt)) res.push('分享打卡');
+      if (/追蹤|粉絲團|粉專|Instagram|加入好友|加好友|訂閱|LINE官方|\bIG\b/.test(txt)) res.push('追蹤帳號');
+      if (/邀請|推薦碼|推薦好友|揪友/.test(txt)) res.push('邀請好友');
+      if (/註冊|加入會員|會員專屬|綁定|新戶|首次登入|下載APP|下載 App/.test(txt)) res.push('註冊會員');
+      if (/遊戲|輪盤|轉盤|簽到|答題|猜謎|闖關|刮刮樂|扭蛋|抽獎機|天天抽/.test(txt)) res.push('小遊戲');
+      const tags = event.tags || [];
+      const isPurchase = tags.includes('登錄發票即抽') || tags.includes('開蓋序號抽') || tags.includes('消費登錄抽') || tags.includes('發票換禮券') || /發票|消費滿|單筆滿|購買|憑證|載具|開蓋|序號|收據|結帳|門市消費/.test(txt);
+      if (isPurchase) res.push('消費登錄');
+      if (tags.includes('免消費即抽') || (!isPurchase && /免消費|免費參加|0元|免費領|買一送一|壽星|限免/.test(txt))) res.push('免消費');
+      if (res.length === 0) res.push('免消費');
+      return res;
+    }
+
+    function filterByEntryType(type) {
+      currentEntryFilter = type;
+      currentPage = 1;
+      document.querySelectorAll('.entry-pill').forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-entry') === type);
+      });
+      renderEvents();
+    }
     const PAGE_SIZE = 9; // 每頁固定 9 檔抽獎活動 (3x3 完美矩陣排版)
     let currentPage = 1;
 
@@ -1988,12 +2131,20 @@
         }
 
         // 進行中活動的標籤過濾
-        if (currentFilter === 'ALL') return true;
         if (currentFilter === '即將截止') {
           const days = getRemainingDays(event.deadline);
-          return days !== null && days >= 0 && days <= 5;
+          if (!(days !== null && days >= 0 && days <= 5)) return false;
+        } else if (currentFilter !== 'ALL') {
+          if (!event.tags.includes(currentFilter)) return false;
         }
-        return event.tags.includes(currentFilter);
+
+        // 參加門檻過濾（可與上方類別標籤交集）
+        if (currentEntryFilter !== 'ALL') {
+          const entries = getEventEntryTypes(event);
+          if (!entries.includes(currentEntryFilter)) return false;
+        }
+
+        return true;
       });
 
       // 越接近截止日期的活動排越前面 (智慧排序)
@@ -2054,6 +2205,10 @@
         }
 
         const tagBadgesHtml = item.tags.map(t => getTagBadge(t)).join('');
+        const entryBadgesHtml = getEventEntryTypes(item)
+          .slice(0, 3)
+          .map(et => `<span class="entry-badge">${ENTRY_TYPE_ICONS[et] || et}</span>`)
+          .join('');
         const mainPrize = item.prizes && item.prizes.length > 0 ? item.prizes[0] : '依官方公佈為準';
         const imgUrl = item.imageUrl || 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80';
         const targetUrl = item.activityUrl || item.officialUrl || '#';
@@ -2098,7 +2253,7 @@
             </div>
           </div>
           <div class="card-body">
-            <div class="tag-list">${tagBadgesHtml}</div>
+            <div class="tag-list">${tagBadgesHtml}${entryBadgesHtml}</div>
             <h3 class="card-title" title="${item.title}">${item.title}</h3>
             
             <div class="prize-box">
@@ -2221,6 +2376,15 @@
         return d !== null && d >= 0 && d <= 5;
       }).length;
       document.getElementById('count-expired').innerText = expiredEvents.length;
+
+      // 更新參加門檻計數
+      document.getElementById('ecount-ALL').innerText = activeEvents.length;
+      ['免消費', '填問卷', '分享打卡', '追蹤帳號', '邀請好友', '註冊會員', '消費登錄', '小遊戲'].forEach(et => {
+        const el = document.getElementById('ecount-' + et);
+        if (el) {
+          el.innerText = activeEvents.filter(e => getEventEntryTypes(e).includes(et)).length;
+        }
+      });
     }
 
     // Modal 控制

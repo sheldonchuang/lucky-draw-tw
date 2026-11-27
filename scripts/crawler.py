@@ -1747,6 +1747,45 @@ def get_remaining_days(deadline_str, base_date):
             return -99999
     return -99999
 
+def detect_entry_types(event):
+    """依活動標題、資格與標籤自動辨識參加門檻（學獎一下：填問卷/分享打卡/追蹤/邀請/註冊/消費登錄/小遊戲/免消費）"""
+    title = event.get('title') or ''
+    qual = event.get('qualification') or ''
+    tags = event.get('tags') or []
+    txt = f"{title} {qual} {' '.join(tags)}"
+
+    entries = []
+    if any(k in txt for k in ['問卷', '填表', '填寫資料', '意見調查', '民調', '表單']):
+        entries.append('填問卷')
+    if any(k in txt for k in ['分享', '打卡', '留言', '標記好友', 'tag', 'Tag', '按讚', '轉發', '公開貼文', '限動']):
+        entries.append('分享打卡')
+    if any(k in txt for k in ['追蹤', '粉絲團', '粉專', 'IG', 'Instagram', '加入好友', '加好友', '訂閱', 'LINE官方']):
+        entries.append('追蹤帳號')
+    if any(k in txt for k in ['邀請', '推薦碼', '推薦好友', '揪友', '分享連結給好友']):
+        entries.append('邀請好友')
+    if any(k in txt for k in ['註冊', '加入會員', '會員專屬', '綁定', '新戶', '首次登入', '下載APP', '下載 App']):
+        entries.append('註冊會員')
+    if any(k in txt for k in ['遊戲', '輪盤', '轉盤', '簽到', '答題', '猜謎', '闖關', '刮刮樂', '扭蛋', '抽獎機', '天天抽']):
+        entries.append('小遊戲')
+
+    is_purchase = (
+        '登錄發票即抽' in tags
+        or '開蓋序號抽' in tags
+        or '消費登錄抽' in tags
+        or '發票換禮券' in tags
+        or any(k in txt for k in ['發票', '消費滿', '單筆滿', '購買', '憑證', '載具', '開蓋', '序號', '收據', '結帳', '門市消費'])
+    )
+    if is_purchase:
+        entries.append('消費登錄')
+
+    if '免消費即抽' in tags or (not is_purchase and any(k in txt for k in ['免消費', '免費參加', '0元', '免費領', '買一送一', '壽星', '限免'])):
+        entries.append('免消費')
+
+    if not entries:
+        entries.append('免消費')
+
+    return entries
+
 def crawl_brand_official_and_news(today):
     """每日即時抓取台灣各大品牌官網最新消息＋即時優惠新聞情報"""
     print("=== 正在即時抓取各大品牌官網與每日優惠情報 ===")
@@ -2025,6 +2064,7 @@ if __name__ == '__main__':
     expired_events = []
 
     for e in combined_events:
+        e['entry_types'] = detect_entry_types(e)
         days = get_remaining_days(e.get('deadline'), today)
         if days >= 0:
             e['is_expired'] = False
