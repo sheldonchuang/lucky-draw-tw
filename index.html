@@ -1840,6 +1840,93 @@
       .btn-fav-header span.fav-label-text { display: none; }
     }
 
+    /* ===== 開獎通知中心 (Phase 2) ===== */
+    .btn-noti-header {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-noti-header:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .noti-dot-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: #C93B36;
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 800;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--surface);
+    }
+    .noti-dot-badge.show { display: inline-flex; }
+    .noti-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.65rem;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: background 0.15s;
+    }
+    .noti-item.unread {
+      background: #FFFBF2;
+      border-color: #F3D08A;
+    }
+    .noti-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+    }
+    .noti-type-pill {
+      padding: 0.14rem 0.55rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    .noti-type-result { background: #FEF3C7; color: #B45309; }
+    .noti-type-urgent { background: #FEE2E2; color: #B91C1C; }
+    .noti-type-global { background: #EBF1ED; color: var(--primary); }
+    .noti-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .noti-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .noti-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.2rem;
+    }
+
     footer {
       background: #F1EFEA;
       border-top: 1px solid var(--border);
@@ -1883,6 +1970,10 @@
           <i class="fa-solid fa-heart"></i>
           <span class="fav-label-text">我的收藏</span>
           <span class="fav-count-badge" id="favCountBadge">0</span>
+        </button>
+        <button type="button" class="btn-noti-header" onclick="openNotiModal()" title="開獎與截止提醒中心" aria-label="開獎通知中心">
+          <i class="fa-solid fa-bell"></i>
+          <span class="noti-dot-badge" id="notiCountBadge">0</span>
         </button>
         <a href="mailto:scottsherlockwholmes@gmail.com?subject=LuckyGo%20廣告贊助與合作洽詢" class="btn-sponsor">
           <i class="fa-solid fa-envelope"></i> 廣告贊助洽詢
@@ -2298,6 +2389,25 @@
           <button type="button" class="fav-tab-btn" data-fav-tab="expired" onclick="switchFavTab('expired')">已截止</button>
         </div>
         <div id="favListContainer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 開獎通知中心 Modal (Phase 2) -->
+  <div class="modal-backdrop" id="notiModal" onclick="if(event.target===this) closeNotiModal()">
+    <div class="modal-card" style="max-width:560px;">
+      <div class="modal-header">
+        <div style="font-size:0.95rem; font-weight:800; color:var(--primary);"><i class="fa-solid fa-bell"></i> 開獎與截止通知中心</div>
+        <button class="modal-close-btn" onclick="closeNotiModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner" style="max-height:76vh; overflow-y:auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; margin-bottom:0.85rem; flex-wrap:wrap;">
+          <span style="font-size:0.8rem; color:var(--text-muted);">自動偵測已收藏活動的開獎名單與 3 天內截止提醒</span>
+          <button type="button" onclick="markAllNotisRead()" style="padding:0.32rem 0.72rem; border-radius:8px; border:1px solid var(--border); background:#FAF8F5; color:var(--primary); font-size:0.76rem; font-weight:600; cursor:pointer;">
+            <i class="fa-solid fa-check-double"></i> 全部標記已讀
+          </button>
+        </div>
+        <div id="notiListContainer"></div>
       </div>
     </div>
   </div>
@@ -3134,6 +3244,7 @@
       });
 
       if (currentDetailEvent) updateModalFavBtn(currentDetailEvent.id);
+      refreshNotifications();
     }
 
     function updateModalFavBtn(eventId) {
@@ -3329,6 +3440,159 @@
               <button type="button" class="fav-remove-btn" onclick="toggleFavorite('${item.event_id}', event)">
                 <i class="fa-regular fa-trash-can"></i> 移除
               </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ==================== 開獎通知中心邏輯 (Phase 2) ====================
+    const READ_NOTI_KEY = 'luckygo_read_notis_v1';
+
+    function getReadNotiSet() {
+      try {
+        const raw = localStorage.getItem(READ_NOTI_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        return new Set(Array.isArray(arr) ? arr : []);
+      } catch (e) { return new Set(); }
+    }
+
+    function saveReadNotiSet(setObj) {
+      try { localStorage.setItem(READ_NOTI_KEY, JSON.stringify(Array.from(setObj).slice(-200))); } catch (e) {}
+    }
+
+    function buildNotifications() {
+      const readSet = getReadNotiSet();
+      const notis = [];
+      const seenFavResults = new Set();
+
+      // 1. 已收藏活動：已開獎通知
+      favoritesMap.forEach((fav, eventId) => {
+        const res = verifiedResultsMap[eventId];
+        if (res) {
+          seenFavResults.add(eventId);
+          const key = `fav_result_${eventId}`;
+          notis.push({
+            key,
+            type: 'result',
+            badge: '🏆 您收藏的活動已開獎',
+            title: fav.event_title || (allEvents.find(e => e.id === eventId)?.title) || '收藏活動',
+            sub: res.note ? `站長核實備註：${res.note}` : '官方中獎名單已由社群回報並核實上架，快點擊對獎！',
+            url: res.result_url,
+            actionText: '立即查看中獎名單 ↗',
+            unread: !readSet.has(key)
+          });
+        }
+      });
+
+      // 2. 已收藏活動：3 天內即將截止提醒
+      favoritesMap.forEach((fav, eventId) => {
+        const live = allEvents.find(e => e.id === eventId);
+        const deadline = live ? live.deadline : fav.deadline;
+        const days = getRemainingDays(deadline);
+        const expired = live ? isExpired(live) : (days !== null && days < 0);
+        if (!expired && days !== null && days >= 0 && days <= 3) {
+          const key = `fav_urgent_${eventId}_${deadline}`;
+          notis.push({
+            key,
+            type: 'urgent',
+            badge: days === 0 ? '🔥 今日截止提醒' : `🔥 剩 ${days} 天截止提醒`,
+            title: live ? live.title : fav.event_title,
+            sub: `截止日：${deadline}｜別忘了在截止前完成登錄或參加！`,
+            url: live ? (live.activityUrl || live.officialUrl) : fav.activity_url,
+            actionText: '前往活動官網 ↗',
+            unread: !readSet.has(key)
+          });
+        }
+      });
+
+      // 3. 全站最新已核實開獎快訊（排除已列在個人收藏者，最多補齊至 5 筆）
+      Object.entries(verifiedResultsMap).forEach(([eventId, res]) => {
+        if (seenFavResults.has(eventId)) return;
+        const ev = allEvents.find(e => e.id === eventId);
+        const key = `global_result_${eventId}`;
+        notis.push({
+          key,
+          type: 'global',
+          badge: '📢 全站開獎快訊',
+          title: ev ? ev.title : `活動 ${eventId} 已開獎`,
+          sub: res.note ? `備註：${res.note}` : '社群最新回報並經站長核實之中獎名單',
+          url: res.result_url,
+          actionText: '查看中獎名單 ↗',
+          unread: !readSet.has(key)
+        });
+      });
+
+      return notis;
+    }
+
+    function refreshNotifications() {
+      const notis = buildNotifications();
+      const unreadCount = notis.filter(n => n.unread).length;
+      const badge = document.getElementById('notiCountBadge');
+      if (badge) {
+        badge.innerText = unreadCount > 99 ? '99+' : unreadCount;
+        badge.classList.toggle('show', unreadCount > 0);
+      }
+      if (document.getElementById('notiModal')?.classList.contains('active')) {
+        renderNotiModalList();
+      }
+    }
+
+    function openNotiModal() {
+      renderNotiModalList();
+      document.getElementById('notiModal').classList.add('active');
+      if (window.gtag) gtag('event', 'open_noti_center');
+    }
+
+    function closeNotiModal() {
+      document.getElementById('notiModal').classList.remove('active');
+    }
+
+    function markNotiRead(key) {
+      const readSet = getReadNotiSet();
+      readSet.add(key);
+      saveReadNotiSet(readSet);
+      refreshNotifications();
+    }
+
+    function markAllNotisRead() {
+      const readSet = getReadNotiSet();
+      buildNotifications().forEach(n => readSet.add(n.key));
+      saveReadNotiSet(readSet);
+      refreshNotifications();
+    }
+
+    function renderNotiModalList() {
+      const container = document.getElementById('notiListContainer');
+      if (!container) return;
+      const notis = buildNotifications();
+
+      if (notis.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:2.2rem 1rem; color:var(--text-muted); font-size:0.9rem;">
+            <i class="fa-regular fa-bell" style="font-size:2rem; opacity:0.4; display:block; margin-bottom:0.6rem;"></i>
+            目前沒有新的開獎或截止通知。<br>先去收藏幾個感興趣的抽獎活動吧！
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = notis.map(n => {
+        const pillClass = n.type === 'result' ? 'noti-type-result' : (n.type === 'urgent' ? 'noti-type-urgent' : 'noti-type-global');
+        return `
+          <div class="noti-item ${n.unread ? 'unread' : ''}">
+            <div class="noti-item-top">
+              <span class="noti-type-pill ${pillClass}">${n.badge}</span>
+              ${n.unread ? '<span style="color:#C93B36; font-weight:700;">● 未讀</span>' : '<span style="color:var(--text-muted);">已讀</span>'}
+            </div>
+            <div class="noti-title">${n.title}</div>
+            <div class="noti-sub">${n.sub}</div>
+            <div class="noti-actions">
+              <a href="${n.url || '#'}" target="_blank" rel="noopener noreferrer" onclick="markNotiRead('${n.key}')" style="font-size:0.8rem; font-weight:700; color:var(--primary); text-decoration:none;">
+                ${n.actionText}
+              </a>
+              ${n.unread ? `<button type="button" onclick="markNotiRead('${n.key}')" style="background:transparent; border:none; color:var(--text-muted); font-size:0.75rem; cursor:pointer;">標記已讀</button>` : ''}
             </div>
           </div>
         `;
