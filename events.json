@@ -1,26 +1,5 @@
 [
   {
-    "id": "ext-game-101",
-    "title": "Epic Games Store 每週限時免費正版 PC 遊戲・本週精選大作 0 元永久入庫領取",
-    "brand": "Epic Games",
-    "tags": [
-      "限免遊戲",
-      "免消費即抽",
-      "熱門好康"
-    ],
-    "time": "每週四晚上 23:00 換檔更新 (本期至 2026/11/26)",
-    "deadline": "2026/11/26",
-    "qualification": "登入 Epic Games 官方網站或客戶端，進入本週免費遊戲專區，點擊『獲取』即可 0 元永久購買並納入個人遊戲收藏庫，永久免費下載遊玩！",
-    "prizes": [
-      "熱門正版 PC 遊戲大作 0 元永久領",
-      "典藏版 DLC 擴充包免費加贈"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
-    "officialUrl": "https://store.epicgames.com/",
-    "is_expired": false
-  },
-  {
     "id": "ext-pts-101",
     "title": "LINE 官方「LINE POINTS 免費賺點任務」・每日免消費看短片/加好友即領免費點數（1點抵1元）",
     "brand": "LINE 台灣",
@@ -28,8 +7,8 @@
       "免費領點",
       "免消費即抽"
     ],
-    "time": "每日任務即時更新 (今日至 2026/11/27)",
-    "deadline": "2026/11/27",
+    "time": "每日任務即時更新 (今日至 2026/11/28)",
+    "deadline": "2026/11/28",
     "qualification": "打開手機 LINE App 點選『錢包』進入『LINE POINTS 賺點』專區，完成指定看短片、加入品牌官方帳號或瀏覽指定網頁任務，即可免消費直接入帳 1~5 點 LINE POINTS（1 點等同現金 1 元，超商結帳皆可折抵）！",
     "prizes": [
       "LINE POINTS 免費點數（1點折1元）",
@@ -49,8 +28,8 @@
       "免費領點",
       "免消費即抽"
     ],
-    "time": "每日 00:00 換日更新 (本期至 2026/11/27)",
-    "deadline": "2026/11/27",
+    "time": "每日 00:00 換日更新 (本期至 2026/11/28)",
+    "deadline": "2026/11/28",
     "qualification": "登入蝦皮購物 App 進入『蝦幣獎勵』天天打卡簽到，連續簽到獎勵加倍！搭配蝦皮消消樂與蝦皮果園種樹浇水，免花一毛錢就能天天累積蝦幣折抵全站購物！",
     "prizes": [
       "全站通用蝦幣現折金",
@@ -70,8 +49,8 @@
       "免費領點",
       "超商專區"
     ],
-    "time": "每日簽到更新 (今日至 2026/11/27)",
-    "deadline": "2026/11/27",
+    "time": "每日簽到更新 (今日至 2026/11/28)",
+    "deadline": "2026/11/28",
     "qualification": "打開街口支付 App 於首頁進入『每日簽到』專區，點擊簽到即可領取隨機街口幣，可用於繳納水電瓦斯公用事業費或於 7-11、全家超商消費直接 1:1 折抵現金！",
     "prizes": [
       "街口幣無門檻現金折抵",
@@ -91,8 +70,8 @@
       "免費領點",
       "免消費即抽"
     ],
-    "time": "每日即時更新 (本期至 2026/11/27)",
-    "deadline": "2026/11/27",
+    "time": "每日即時更新 (本期至 2026/11/28)",
+    "deadline": "2026/11/28",
     "qualification": "會員每日登入 momo 購物網 App 或網頁版，進入簽到賺好康活動頁，每日免費摸彩一次，保證獲得 1~100 momo幣或折價券，1 momo幣等同 1 元新台幣！",
     "prizes": [
       "最高 10,000 momo幣大獎",
@@ -772,24 +751,6 @@
     "is_expired": false
   },
   {
-    "id": "22435",
-    "title": "逸寶週年慶抽獎單筆滿千抽iPhone18 Pro Max",
-    "brand": "精選品牌",
-    "tags": [
-      "抽iPhone"
-    ],
-    "time": "2026/10/1(四) ~ 2026/11/30(一)",
-    "deadline": "2026/11/30",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22435b.jpg",
-    "activityUrl": "https://feversocial.com/52771/40784",
-    "officialUrl": "",
-    "is_expired": false
-  },
-  {
     "id": "22341",
     "title": "法米納寵糧抽獎暖冬島嶼計畫抽峇里島來回機票",
     "brand": "精選品牌",
@@ -822,6 +783,24 @@
     ],
     "imageUrl": "https://onelife.tw/img/a/22408b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1341",
+    "officialUrl": "",
+    "is_expired": false
+  },
+  {
+    "id": "22435",
+    "title": "逸寶週年慶抽獎單筆滿千抽iPhone18 Pro Max",
+    "brand": "精選品牌",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/10/1(四) ~ 2026/11/30(一)",
+    "deadline": "2026/11/30",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22435b.jpg",
+    "activityUrl": "https://feversocial.com/52771/40784",
     "officialUrl": "",
     "is_expired": false
   },
@@ -973,6 +952,69 @@
     "is_expired": false
   },
   {
+    "id": "epic-live-5346",
+    "title": "Epic Games 本週限時免費正版遊戲・《火之石 – 英雄放置點擊RPG》0元永久入庫收藏",
+    "brand": "Epic Games",
+    "tags": [
+      "限免遊戲",
+      "免消費即抽",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/12/03 23:00 止",
+    "deadline": "2026/12/03",
+    "qualification": "登入 Epic Games Store 帳號，點擊《火之石 – 英雄放置點擊RPG》免費取得，即可終身保留於個人收藏庫！《Firestone: Online Idle RPG》是一款具有閒置RPG機制的多人玩家奇幻遊戲。收集英雄🧙‍♂️，升級他們的裝備和技能、並派他們進行AFK戰鬥，或使出遞增點擊狂暴、擊敗邪惡的頭目！",
+    "prizes": [
+      "正版《火之石 – 英雄放置點擊RPG》PC 遊戲完整版 0 元取得",
+      "終身永久免費遊玩"
+    ],
+    "imageUrl": "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-1ltgi.jpg",
+    "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
+    "officialUrl": "https://store.epicgames.com/",
+    "is_expired": false
+  },
+  {
+    "id": "epic-live-2118",
+    "title": "Epic Games 本週限時免費正版遊戲・《Bread and Fred》0元永久入庫收藏",
+    "brand": "Epic Games",
+    "tags": [
+      "限免遊戲",
+      "免消費即抽",
+      "熱門好康"
+    ],
+    "time": "即日起 ~ 2026/12/03 23:00 止",
+    "deadline": "2026/12/03",
+    "qualification": "登入 Epic Games Store 帳號，點擊《Bread and Fred》免費取得，即可終身保留於個人收藏庫！Grab your best bud for help in this new co-op challenge to help two adorable penguins, Bread and Fre",
+    "prizes": [
+      "正版《Bread and Fred》PC 遊戲完整版 0 元取得",
+      "終身永久免費遊玩"
+    ],
+    "imageUrl": "https://cdn1.epicgames.com/spt-assets/545b4dd8bb364c12b719268198a93ef3/bread-and-fred-3jnwn.jpg",
+    "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
+    "officialUrl": "https://store.epicgames.com/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-game-101",
+    "title": "Epic Games Store 每週限時免費正版 PC 遊戲・本週精選大作 0 元永久入庫領取",
+    "brand": "Epic Games",
+    "tags": [
+      "限免遊戲",
+      "免消費即抽",
+      "熱門好康"
+    ],
+    "time": "每週四晚上 23:00 換檔更新 (本期至 2026/12/03)",
+    "deadline": "2026/12/03",
+    "qualification": "登入 Epic Games 官方網站或客戶端，進入本週免費遊戲專區，點擊『獲取』即可 0 元永久購買並納入個人遊戲收藏庫，永久免費下載遊玩！",
+    "prizes": [
+      "熱門正版 PC 遊戲大作 0 元永久領",
+      "典藏版 DLC 擴充包免費加贈"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
+    "officialUrl": "https://store.epicgames.com/",
+    "is_expired": false
+  },
+  {
     "id": "ext-game-ios-01",
     "title": "蘋果 iOS App Store・本週特選付費手遊限時免費・原價 60~150 元正版 0 元永久下載",
     "brand": "Apple App Store",
@@ -981,8 +1023,8 @@
       "免消費即抽",
       "熱門好康"
     ],
-    "time": "限時免費下載 (本期至 2026/12/02)",
-    "deadline": "2026/12/02",
+    "time": "限時免費下載 (本期至 2026/12/03)",
+    "deadline": "2026/12/03",
     "qualification": "使用 iPhone 或 iPad 打開 App Store，進入遊戲專區點擊『取得』，即可 0 元將原價付費的正版遊戲綁定至個人 Apple ID，即使換機也能終身永久免費重新下載！",
     "prizes": [
       "原價百元正版 iOS 手遊 0 元永久領",
@@ -1003,8 +1045,8 @@
       "免消費即抽",
       "熱門好康"
     ],
-    "time": "限時免費下載 (本期至 2026/12/02)",
-    "deadline": "2026/12/02",
+    "time": "限時免費下載 (本期至 2026/12/03)",
+    "deadline": "2026/12/03",
     "qualification": "打開 Android 手機或平板上的 Google Play 商店，進入特惠專區點擊『安裝』，即可將原價付費的熱門 Android 遊戲 0 元永久繫結至個人的 Google 帳號，官方正版安全無毒！",
     "prizes": [
       "原價付費 Android 正版手遊 0 元永久入庫",
@@ -1014,47 +1056,6 @@
     "imageUrl": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://play.google.com/store/apps/category/GAME",
     "officialUrl": "https://play.google.com/",
-    "is_expired": false
-  },
-  {
-    "id": "epic-up-7472",
-    "title": "Epic Games 下週預告限時免費大作・《Bread and Fred》即將登場 0元領取",
-    "brand": "Epic Games",
-    "tags": [
-      "限免遊戲",
-      "免消費即抽"
-    ],
-    "time": "2026/11/26 ~ 2026/12/03",
-    "deadline": "2026/12/03",
-    "qualification": "Epic Games 官方預告下期限免大作《Bread and Fred》，換檔當日即可 0 元永久領取入庫！Grab your best bud for help in this new co-op challenge to help two adorable penguins, Bread and Fre",
-    "prizes": [
-      "正版《Bread and Fred》免費取得資格",
-      "典藏遊戲授權"
-    ],
-    "imageUrl": "https://cdn1.epicgames.com/spt-assets/545b4dd8bb364c12b719268198a93ef3/bread-and-fred-3jnwn.jpg",
-    "activityUrl": "https://store.epicgames.com/zh-Hant/free-games",
-    "officialUrl": "https://store.epicgames.com/",
-    "is_expired": false
-  },
-  {
-    "id": "ext-game-gog-01",
-    "title": "GOG.com 經典正版 PC 遊戲無 DRM 限時免費大放送・免防拷一鍵入庫終身珍藏",
-    "brand": "GOG.com",
-    "tags": [
-      "限免遊戲",
-      "免消費即抽"
-    ],
-    "time": "即日起 ~ 2026/12/03",
-    "deadline": "2026/12/03",
-    "qualification": "知名無 DRM 數位平台 GOG 推出限免福利，登入帳號點擊領取，即可永久收藏無加密的正版遊戲完整離線安裝包、原聲帶與高畫質美術集！",
-    "prizes": [
-      "無 DRM 正版 PC 遊戲完整版",
-      "數位版官方原聲帶與高畫質美術集",
-      "免聯網離線安裝檔"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://www.gog.com/#giveaway",
-    "officialUrl": "https://www.gog.com/",
     "is_expired": false
   },
   {
@@ -1131,27 +1132,6 @@
     "is_expired": false
   },
   {
-    "id": "ext-bogo-104",
-    "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
-    "brand": "星巴克",
-    "tags": [
-      "買一送一",
-      "免消費即抽"
-    ],
-    "time": "即日起 ~ 2026/12/08",
-    "deadline": "2026/12/08",
-    "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
-    "prizes": [
-      "全品項特大杯買一送一專屬券",
-      "指定那堤第二杯半價",
-      "節慶限定飲品單一特價券"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://event.12done.com.tw/starbucks/",
-    "officialUrl": "https://www.starbucks.com.tw/",
-    "is_expired": false
-  },
-  {
     "id": "22460",
     "title": "魔爪抽獎喝Monster Energy抽YAMAHA重機",
     "brand": "魔爪",
@@ -1185,6 +1165,66 @@
     "imageUrl": "https://onelife.tw/img/a/22449b.jpg",
     "activityUrl": "https://nte.iwplay.com.tw/event/Jasmine.html",
     "officialUrl": "http://www.kuangchuan.com/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-bogo-104",
+    "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
+    "brand": "星巴克",
+    "tags": [
+      "買一送一",
+      "免消費即抽"
+    ],
+    "time": "即日起 ~ 2026/12/09",
+    "deadline": "2026/12/09",
+    "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
+    "prizes": [
+      "全品項特大杯買一送一專屬券",
+      "指定那堤第二杯半價",
+      "節慶限定飲品單一特價券"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://event.12done.com.tw/starbucks/",
+    "officialUrl": "https://www.starbucks.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "ext-game-gog-01",
+    "title": "GOG.com 經典正版 PC 遊戲無 DRM 限時免費大放送・免防拷一鍵入庫終身珍藏",
+    "brand": "GOG.com",
+    "tags": [
+      "限免遊戲",
+      "免消費即抽"
+    ],
+    "time": "即日起 ~ 2026/12/10",
+    "deadline": "2026/12/10",
+    "qualification": "知名無 DRM 數位平台 GOG 推出限免福利，登入帳號點擊領取，即可永久收藏無加密的正版遊戲完整離線安裝包、原聲帶與高畫質美術集！",
+    "prizes": [
+      "無 DRM 正版 PC 遊戲完整版",
+      "數位版官方原聲帶與高畫質美術集",
+      "免聯網離線安裝檔"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://www.gog.com/#giveaway",
+    "officialUrl": "https://www.gog.com/",
+    "is_expired": false
+  },
+  {
+    "id": "22484",
+    "title": "麥當勞可口可樂抽獎暢享Coke好康雙重奏抽iPhone Duo",
+    "brand": "可口可樂",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/11/25(三) ~ 2026/12/15(二)",
+    "deadline": "2026/12/15",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22484b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1356",
+    "officialUrl": "https://www.coke.com.tw/",
     "is_expired": false
   },
   {
@@ -1263,6 +1303,24 @@
     "is_expired": false
   },
   {
+    "id": "22483",
+    "title": "7-11穀萃蕎麥國寶茶嚴選在地獨家抽喬山多感舒眼摩",
+    "brand": "佳格",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/11/25(三) ~ 2026/12/22(二)",
+    "deadline": "2026/12/22",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22483b.jpg",
+    "activityUrl": "https://dr.sfworldwide.com/index.aspx?a=1200",
+    "officialUrl": "https://www.sfworldwide.com/",
+    "is_expired": false
+  },
+  {
     "id": "22446",
     "title": "果力水抽獎喝果力水抽東京雙人來回機票、Swtich2",
     "brand": "精選品牌",
@@ -1298,6 +1356,24 @@
     "imageUrl": "https://onelife.tw/img/a/22472b.jpg",
     "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=News_C015",
     "officialUrl": "https://www.7-11.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22485",
+    "title": "7-11抽獎耶誕fun好禮獨家抽聖誕水晶球",
+    "brand": "士力架",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/11/25(三) ~ 2026/12/22(二)",
+    "deadline": "2026/12/22",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22485b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1354",
+    "officialUrl": "https://www.facebook.com/SNICKERS.TW/",
     "is_expired": false
   },
   {
@@ -1700,42 +1776,6 @@
     "is_expired": false
   },
   {
-    "id": "22456",
-    "title": "慶豐食品抽獎歡慶40週年抽飛利浦氣炸鍋",
-    "brand": "精選品牌",
-    "tags": [
-      "抽家電"
-    ],
-    "time": "2026/11/1(日) ~ 2026/12/31(四)",
-    "deadline": "2026/12/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22456b.jpg",
-    "activityUrl": "https://www.qingfengfood.com/zh-TW/pages/40th-anniversary",
-    "officialUrl": "https://www.qingfengfood.com/",
-    "is_expired": false
-  },
-  {
-    "id": "22464",
-    "title": "刷樂抽獎11-12月年末感謝祭抽LG第二代閨蜜機",
-    "brand": "刷樂",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "2026/10/25(日) ~ 2026/12/31(四)",
-    "deadline": "2026/12/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22464b.jpg",
-    "activityUrl": "https://www.shallop.com.tw/blogs/news/261112",
-    "officialUrl": "https://www.shallop.com.tw/",
-    "is_expired": false
-  },
-  {
     "id": "22436",
     "title": "新竹市購物節抽獎買購新竹好市發生抽特斯拉、30萬購物金",
     "brand": "精選品牌",
@@ -1772,6 +1812,24 @@
     "is_expired": false
   },
   {
+    "id": "22456",
+    "title": "慶豐食品抽獎歡慶40週年抽飛利浦氣炸鍋",
+    "brand": "精選品牌",
+    "tags": [
+      "抽家電"
+    ],
+    "time": "2026/11/1(日) ~ 2026/12/31(四)",
+    "deadline": "2026/12/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22456b.jpg",
+    "activityUrl": "https://www.qingfengfood.com/zh-TW/pages/40th-anniversary",
+    "officialUrl": "https://www.qingfengfood.com/",
+    "is_expired": false
+  },
+  {
     "id": "22093",
     "title": "嬌聯抽獎發票登錄月月抽5千超商禮券好禮",
     "brand": "精選品牌",
@@ -1788,6 +1846,24 @@
     "imageUrl": "https://onelife.tw/img/a/22093b.jpg",
     "activityUrl": "https://events.ucc.com.tw/21",
     "officialUrl": "https://www.ucc.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22464",
+    "title": "刷樂抽獎11-12月年末感謝祭抽LG第二代閨蜜機",
+    "brand": "刷樂",
+    "tags": [
+      "熱門好康"
+    ],
+    "time": "2026/10/25(日) ~ 2026/12/31(四)",
+    "deadline": "2026/12/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22464b.jpg",
+    "activityUrl": "https://www.shallop.com.tw/blogs/news/261112",
+    "officialUrl": "https://www.shallop.com.tw/",
     "is_expired": false
   },
   {
@@ -1829,25 +1905,6 @@
     "is_expired": false
   },
   {
-    "id": "22402",
-    "title": "旺旺抽獎好運祭米戀新生活抽3C家電好禮",
-    "brand": "旺旺",
-    "tags": [
-      "抽家電",
-      "抽3C"
-    ],
-    "time": "2026/10/1(四) ~ 2026/12/31(四)",
-    "deadline": "2026/12/31",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22402b.jpg",
-    "activityUrl": "https://ad.wanthome.com.tw/2026RiceQ3/",
-    "officialUrl": "http://www.wanthome.com.tw/",
-    "is_expired": false
-  },
-  {
     "id": "22369",
     "title": "桂冠飯麵抽獎學校限定開學飽胃戰抽Switch2",
     "brand": "桂冠",
@@ -1864,6 +1921,25 @@
     "imageUrl": "https://onelife.tw/img/a/22369b.jpg",
     "activityUrl": "https://www.laurel.com.tw/index.php?action=activity&id=123",
     "officialUrl": "https://www.laurel.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22402",
+    "title": "旺旺抽獎好運祭米戀新生活抽3C家電好禮",
+    "brand": "旺旺",
+    "tags": [
+      "抽家電",
+      "抽3C"
+    ],
+    "time": "2026/10/1(四) ~ 2026/12/31(四)",
+    "deadline": "2026/12/31",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22402b.jpg",
+    "activityUrl": "https://ad.wanthome.com.tw/2026RiceQ3/",
+    "officialUrl": "http://www.wanthome.com.tw/",
     "is_expired": false
   },
   {
@@ -1885,6 +1961,25 @@
     "is_expired": false
   },
   {
+    "id": "22481",
+    "title": "全家案Fa現場Fa點兌好康抽旅遊金",
+    "brand": "全家",
+    "tags": [
+      "超商專區",
+      "抽機票"
+    ],
+    "time": "2026/11/25(三) ~ 2027/1/5(二)",
+    "deadline": "2027/1/5",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22481b.jpg",
+    "activityUrl": "https://miniapp.line.me/2012015946-IsremiUa",
+    "officialUrl": "https://www.family.com.tw/",
+    "is_expired": false
+  },
+  {
     "id": "22476",
     "title": "星禾辛拉麵抽獎玩辛大開只要有辛怎麼玩都可以抽三星摺疊手機",
     "brand": "星禾國際",
@@ -1900,6 +1995,25 @@
     "imageUrl": "https://onelife.tw/img/a/22476b.jpg",
     "activityUrl": "https://shingher.com.tw/events/39",
     "officialUrl": "https://shingher.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22486",
+    "title": "立頓抽獎7-11全家限定憤怒鳥玩電影全家總動員抽3C好禮",
+    "brand": "立頓",
+    "tags": [
+      "超商專區",
+      "抽3C"
+    ],
+    "time": "2026/12/25(五) ~ 2027/1/5(二)",
+    "deadline": "2027/1/5",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22486b.jpg",
+    "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1355&utm_id=1355",
+    "officialUrl": "http://www.lipton.com.tw/",
     "is_expired": false
   },
   {
@@ -1939,6 +2053,24 @@
     "imageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://chcg.gov.tw/",
     "officialUrl": "https://www.chcg.gov.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22487",
+    "title": "爭鮮抽獎歡慶爭鮮官方LINE上線抽iPhone Duo",
+    "brand": "爭鮮",
+    "tags": [
+      "抽iPhone"
+    ],
+    "time": "2026/11/2(一) ~ 2027/1/18(一)",
+    "deadline": "2027/1/18",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22487b.jpg",
+    "activityUrl": "https://www.facebook.com/photo/?fbid=1610730044423769&set=a.495248299305288",
+    "officialUrl": "https://www.sushiexpress.com.tw/sushi-express/index",
     "is_expired": false
   },
   {
@@ -2023,6 +2155,24 @@
     "imageUrl": "https://images.unsplash.com/photo-1510519138171-cbe656418844?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://www.agv.com.tw/",
     "officialUrl": "https://www.agv.com.tw/",
+    "is_expired": false
+  },
+  {
+    "id": "22482",
+    "title": "全家金羊滿席年菜預購抽瀚寓酒店景觀菁英套房住宿",
+    "brand": "全家",
+    "tags": [
+      "超商專區"
+    ],
+    "time": "2026/11/23(一) ~ 2027/2/10(三)",
+    "deadline": "2027/2/10",
+    "qualification": "",
+    "prizes": [
+      "官方大獎（詳見活動官網）"
+    ],
+    "imageUrl": "https://onelife.tw/img/a/22482b.jpg",
+    "activityUrl": "https://www.family.com.tw/Marketing/zh",
+    "officialUrl": "https://www.family.com.tw/",
     "is_expired": false
   },
   {
@@ -3294,24 +3444,6 @@
     "imageUrl": "https://onelife.tw/img/a/22358b.jpg",
     "activityUrl": "https://www.mobilewiz.com.tw/detail.jsp?id=1346",
     "officialUrl": "http://www.lipton.com.tw/",
-    "is_expired": true
-  },
-  {
-    "id": "22385",
-    "title": "桂格天地合補抽獎愛買限定2026中秋抽iPhone17",
-    "brand": "佳格",
-    "tags": [
-      "抽iPhone"
-    ],
-    "time": "2026/9/16(三) ~ 2026/9/29(二)",
-    "deadline": "2026/9/29",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22385b.jpg",
-    "activityUrl": "https://dr.sfworldwide.com/index.aspx?a=1196",
-    "officialUrl": "https://www.sfworldwide.com/",
     "is_expired": true
   },
   {
@@ -6818,26 +6950,6 @@
     "is_expired": true
   },
   {
-    "id": "21171",
-    "title": "立頓抽獎7-11發票登錄抽海風號甜點列車雙人遊",
-    "brand": "立頓",
-    "tags": [
-      "超商專區",
-      "登錄發票即抽",
-      "抽機票"
-    ],
-    "time": "2025/3/5(三) ~ 2025/4/1(二)",
-    "deadline": "2025/4/1",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/21171b.jpg",
-    "activityUrl": "https://promotion.unilever.tw/event/lipton/7-eleven-202503",
-    "officialUrl": "http://www.lipton.com.tw/",
-    "is_expired": true
-  },
-  {
     "id": "21120",
     "title": "品客抽獎，7-11買品客抽萬元旅遊金去日本賞櫻",
     "brand": "品客",
@@ -8149,26 +8261,6 @@
     "is_expired": true
   },
   {
-    "id": "20134",
-    "title": "士力架飢餓喪屍好有型抽iPhone、萬元旅遊金",
-    "brand": "士力架",
-    "tags": [
-      "抽機票",
-      "抽iPhone",
-      "抽現金"
-    ],
-    "time": "2023/8/28(一) ~ 2023/10/29(日)",
-    "deadline": "2023/10/29",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/20134b.jpg",
-    "activityUrl": "https://snickerszombie.com/tc/",
-    "officialUrl": "https://www.facebook.com/SNICKERS.TW/",
-    "is_expired": true
-  },
-  {
     "id": "20017",
     "title": "VONO濃湯登錄發票抽萬元Apple Store禮品卡",
     "brand": "味之素",
@@ -9123,24 +9215,6 @@
     "imageUrl": "https://onelife.tw/img/a/11849b.jpg",
     "activityUrl": "https://events.gm99.com/e/cornsnack",
     "officialUrl": "http://www.serenafoods.com.tw/",
-    "is_expired": true
-  },
-  {
-    "id": "21716",
-    "title": "7-11超值組合餐貼標商品45元起鮮食飲品自由搭配",
-    "brand": "7-11",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "",
-    "deadline": "",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/21716b.jpg",
-    "activityUrl": "https://www.7-11.com.tw/special/article_new.aspx?item=Food_G025",
-    "officialUrl": "https://www.7-11.com.tw/",
     "is_expired": true
   },
   {
