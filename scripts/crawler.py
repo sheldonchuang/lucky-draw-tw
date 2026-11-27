@@ -1786,6 +1786,36 @@ def detect_entry_types(event):
 
     return entries
 
+
+def extract_coupon_codes(event):
+    """從標題與資格說明中自動擷取明確標註的優惠代碼／折扣碼（不覆蓋已有 coupon_codes）"""
+    if event.get('coupon_codes'):
+        return event['coupon_codes']
+    title = event.get('title') or ''
+    qual = event.get('qualification') or ''
+    txt = f"{title} {qual}"
+    if not any(k in txt for k in ['優惠碼', '折扣碼', '優惠代碼', '神券', 'promo code', '輸入【']):
+        return None
+    # 僅擷取緊接在關鍵字後或括號內的 4~12 碼英數字（排除純年份 2024~2029）
+    patterns = [
+        r'(?:優惠碼|折扣碼|優惠代碼|輸入)[：:\s【「\[]+([A-Z0-9]{4,12})(?:[】」\]\s，,。.]|$)',
+        r'神券[【\[]([A-Z0-9\s/]{4,25})[】\]]'
+    ]
+    found = []
+    seen = set()
+    for pat in patterns:
+        for m in re.findall(pat, txt, re.I):
+            for part in re.split(r'[\s/、,]+', m):
+                code = part.strip().upper()
+                if len(code) < 4 or len(code) > 12:
+                    continue
+                if re.fullmatch(r'202[4-9]', code):
+                    continue
+                if code not in seen:
+                    seen.add(code)
+                    found.append({"code": code, "desc": title[:60]})
+    return found if found else None
+
 def crawl_brand_official_and_news(today):
     """每日即時抓取台灣各大品牌官網最新消息＋即時優惠新聞情報"""
     print("=== 正在即時抓取各大品牌官網與每日優惠情報 ===")
@@ -2065,6 +2095,9 @@ if __name__ == '__main__':
 
     for e in combined_events:
         e['entry_types'] = detect_entry_types(e)
+        extracted_codes = extract_coupon_codes(e)
+        if extracted_codes:
+            e['coupon_codes'] = extracted_codes
         days = get_remaining_days(e.get('deadline'), today)
         if days >= 0:
             e['is_expired'] = False
@@ -2091,9 +2124,9 @@ if __name__ == '__main__':
     with open(data_js_path, 'w', encoding='utf-8') as f:
         f.write(js_content)
 
-    # 8. 自動更新 index.html 與 share.html 的快取版本標記，保證訪客手機即時讀取最新資料
+    # 8. 自動更新 HTML 頁面的快取版本標記，保證訪客手機即時讀取最新資料
     v_str = today.strftime('%Y%m%d%H%M')
-    for html_file in ['index.html', 'share.html']:
+    for html_file in ['index.html', 'share.html', 'bogo-monthly.html', 'coupons.html']:
         h_path = os.path.join(repo_dir, html_file)
         if os.path.exists(h_path):
             try:
