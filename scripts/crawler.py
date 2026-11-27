@@ -1515,20 +1515,7 @@ def get_dynamic_free_intelligence(today):
             "qualification": "使用 iPhone 或 iPad 打開 App Store，進入遊戲專區點擊『取得』，即可 0 元將原價付費的正版遊戲綁定至個人 Apple ID，即使換機也能終身永久免費重新下載！",
             "prizes": ["原價百元正版 iOS 手遊 0 元永久領", "無廣告乾淨完整版遊戲授權", "支援 iPhone/iPad 雲端存檔"],
             "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://apps.apple.com/tw/genre/ios-%E9%81%8A%E6%88%B2/id6014",
-            "officialUrl": "https://www.apple.com/tw/app-store/"
-        },
-        {
-            "id": "ext-game-ios-02",
-            "title": "iOS 經典獨立冒險與解謎名作・限時 0 元免費領取・典藏無內購完整版",
-            "brand": "Apple App Store",
-            "tags": ["限免遊戲", "免消費即抽"],
-            "time": f"即日起 ~ {month_end_str}",
-            "deadline": month_end_str,
-            "qualification": "知名獨立遊戲工作室推出限時免費回饋，進入 App Store 專屬頁面點擊下載，享原價付費冒險解謎神作 0 元免費暢玩，支援 Game Center 成就與離線遊玩！",
-            "prizes": ["經典獨立冒險神作 0 元取得", "無內購完整內容暢玩", "Game Center 專屬成就解鎖"],
-            "imageUrl": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://apps.apple.com/tw/genre/ios-%E9%81%8A%E6%88%B2/id6014",
+            "activityUrl": "https://www.apple.com/tw/app-store/",
             "officialUrl": "https://www.apple.com/tw/app-store/"
         },
         {
