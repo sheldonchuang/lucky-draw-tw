@@ -2771,18 +2771,21 @@
       supermarket: {
         title: '<i class="fa-solid fa-cart-shopping" style="color:#2A5C82;"></i> 超市賣場特價｜全聯・好市多・超商每週好康',
         sub: '週五六日必逛！涵蓋全聯買一送一、好市多 Costco 會員護照特價、家樂福/大潤發/愛買 DM 促銷，以及 7-11/全家康康五與藥妝優惠！',
+        matchScope: 'brandTitle',
         brands: [
           { key: 'ALL', label: '全部超市賣場' },
           { key: '全聯|PX Pay|全支付', label: '全聯福利中心' },
           { key: '好市多|Costco', label: '好市多 Costco' },
           { key: '家樂福|大潤發|愛買', label: '家樂福／大潤發／愛買' },
-          { key: '7-11|7-ELEVEN|全家|萊爾富|OK超商|康康五', label: '超商五六日' },
-          { key: '寶雅|屈臣氏|康是美', label: '藥妝生活' }
+          { key: '7-11|7-ELEVEN|全家|萊爾富|OK超商|康康五|康康5|超商', label: '超商五六日' },
+          { key: '寶雅|屈臣氏|康是美|藥妝', label: '藥妝生活' }
         ],
         match: (e) => {
           if (e.promo_group === 'supermarket') return true;
-          const txt = `${e.brand || ''} ${e.title || ''} ${e.qualification || ''}`;
-          return /全聯|好市多|Costco|家樂福|大潤發|愛買|康康五|五六日|寶雅|屈臣氏|康是美/.test(txt);
+          if (e.promo_group === 'restaurant' || e.promo_group === 'fastfood') return false;
+          const bt = `${e.brand || ''} ${e.title || ''}`;
+          if (/稅捐|稅務|雲端發票/.test(bt)) return false;
+          return /全聯|好市多|Costco|家樂福|大潤發|愛買|康康五|康康5|五六日|寶雅|屈臣氏|康是美/.test(bt);
         }
       }
     };
@@ -2828,7 +2831,10 @@
         ? activeList
         : activeList.filter(e => {
             const regex = new RegExp(currentQuickPromoBrand, 'i');
-            return regex.test(`${e.brand || ''} ${e.title || ''} ${e.qualification || ''}`);
+            const targetText = cfg.matchScope === 'brandTitle'
+              ? `${e.brand || ''} ${e.title || ''}`
+              : `${e.brand || ''} ${e.title || ''} ${e.qualification || ''}`;
+            return regex.test(targetText);
           });
 
       if (filtered.length === 0) {
