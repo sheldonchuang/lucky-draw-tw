@@ -1663,16 +1663,16 @@
     <div class="quick-promo-grid">
       <button type="button" class="quick-promo-btn promo-fastfood" onclick="openQuickPromo('fastfood')">
         <div class="quick-promo-left">
-          <div class="quick-promo-icon"><i class="fa-solid fa-burger"></i></div>
+          <div class="quick-promo-icon"><i class="fa-solid fa-utensils"></i></div>
           <div class="quick-promo-text">
             <div class="quick-promo-title-row">
               <span class="quick-promo-title">點餐前必看</span>
-              <span class="quick-promo-hot">隱藏優惠碼</span>
+              <span class="quick-promo-hot">速食・餐廳優惠</span>
             </div>
-            <div class="quick-promo-sub">肯德基・必勝客・漢堡王・麥當勞 最新優惠代碼 一鍵複製</div>
+            <div class="quick-promo-sub">速食優惠碼・壽司・火鍋・燒肉・拉麵・豬排・壽喜燒・義大利麵・百貨餐廳</div>
           </div>
         </div>
-        <span class="quick-promo-cta">一鍵複製代碼 <i class="fa-solid fa-chevron-right"></i></span>
+        <span class="quick-promo-cta">查看全部優惠 <i class="fa-solid fa-chevron-right"></i></span>
       </button>
 
       <button type="button" class="quick-promo-btn promo-drinks" onclick="openQuickPromo('drinks')">
@@ -2356,20 +2356,21 @@
 
     const QUICK_PROMO_CONFIG = {
       fastfood: {
-        title: '<i class="fa-solid fa-burger" style="color:#B85D3B;"></i> 點餐前必看｜速食與披薩隱藏優惠碼',
-        sub: '肯德基、必勝客提供 5 碼隱藏優惠代碼一鍵複製；麥當勞、漢堡王、摩斯可直達官網／APP 優惠專區。每日 00:00 自動更新。',
+        title: '<i class="fa-solid fa-utensils" style="color:#B85D3B;"></i> 點餐前必看｜速食優惠碼＆全台連鎖餐廳好康',
+        sub: '包含肯德基／必勝客 5 碼優惠代碼一鍵複製，以及麥當勞、壽司、火鍋、燒肉、拉麵、炸豬排、壽喜燒、義大利麵與百貨餐廳最新優惠！',
         brands: [
-          { key: 'ALL', label: '全部品牌' },
-          { key: '肯德基', label: '肯德基 KFC' },
-          { key: '必勝客', label: '必勝客 PizzaHut' },
-          { key: '漢堡王', label: '漢堡王' },
-          { key: '麥當勞', label: '麥當勞' },
-          { key: '摩斯', label: '摩斯漢堡' }
+          { key: 'ALL', label: '全部餐廳' },
+          { key: '肯德基|必勝客|漢堡王|麥當勞|摩斯|炸雞|bb\\.q|起家雞', label: '速食／披薩／炸雞' },
+          { key: '爭鮮|壽司郎|藏壽司|壽司', label: '壽司專賣' },
+          { key: '火鍋|石二鍋|聚|青花驕|和牛涮|築間|肉多多|狂一鍋|馬辣|千葉|海底撈|鍋物', label: '火鍋／鍋物' },
+          { key: '燒肉|燒烤|乾杯|原燒|牛角|屋馬|茶六|碳佐|牛舌', label: '燒肉／牛舌' },
+          { key: '拉麵|一風堂|花月嵐|屯京|麵屋|豬排|勝博殿|杏子|勝政|福勝亭|壽喜|Mo-Mo|北澤|潮肉|一番地', label: '拉麵／豬排／壽喜燒' },
+          { key: '義大利麵|古拉爵|薄多義|貝里尼|洋城|默爾|百貨|饗賓|饗食|瓦城|漢來|大心', label: '義式／百貨餐廳' }
         ],
         match: (e) => {
-          if (e.promo_group === 'fastfood') return true;
-          const txt = `${e.brand || ''} ${e.title || ''}`;
-          return /肯德基|必勝客|漢堡王|麥當勞|摩斯/.test(txt) && (e.tags || []).includes('買一送一');
+          if (e.promo_group === 'fastfood' || e.promo_group === 'restaurant') return true;
+          const txt = `${e.brand || ''} ${e.title || ''} ${e.qualification || ''}`;
+          return /肯德基|必勝客|漢堡王|麥當勞|摩斯|bb\.q|起家雞|爭鮮|壽司郎|藏壽司|壽司|王品|石二鍋|聚日式|青花驕|和牛涮|築間|肉多多|狂一鍋|馬辣|千葉|海底撈|火鍋|鍋物|乾杯|原燒|燒肉|牛角|屋馬|茶六|碳佐|燒烤|一風堂|花月嵐|屯京|麵屋|拉麵|利久|牛舌|勝博殿|杏子|勝政|福勝亭|豬排|Mo-Mo|北澤|潮肉|一番地|壽喜|古拉爵|薄多義|貝里尼|洋城|默爾|義大利麵|饗賓|饗食|瓦城|漢來|牛排/.test(txt);
         }
       },
       drinks: {
