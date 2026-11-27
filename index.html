@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LuckyGo 台灣生活抽獎誌 | 官方真實抽獎・一鍵直達官方登錄</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2D4B3E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="LuckyGo">
+  <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon-192.png">
   <!-- Google Analytics 4 (GA4) 設定 -->
   <script>
     window.LUCKYGO_GA4_ID = 'G-2ZKHDTYL1Z';
@@ -4130,5 +4137,65 @@
     </div>
   </div>
   <div id="copyToast" class="copy-toast"></div>
+
+  <!-- PWA 加入主畫面 / 離線支援提示條 -->
+  <div id="pwaInstallBar" style="display:none;position:fixed;bottom:16px;right:16px;z-index:9990;background:#FFFEFB;border:1px solid #DED6C9;border-left:4px solid #2D4B3E;border-radius:12px;padding:0.85rem 1rem;box-shadow:0 8px 24px rgba(45,40,30,0.12);max-width:330px;gap:0.75rem;align-items:center;">
+    <img src="./assets/icon-192.png" alt="LuckyGo" style="width:40px;height:40px;border-radius:9px;flex-shrink:0;">
+    <div style="flex:1;min-width:0;">
+      <div style="font-family:var(--font-serif);font-weight:700;font-size:0.9rem;color:var(--text);">安裝 LuckyGo 生活誌</div>
+      <div id="pwaInstallDesc" style="font-size:0.75rem;color:var(--text-muted);line-height:1.4;margin-top:0.15rem;">加入主畫面，離線也能查詢收藏與好康</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.35rem;flex-shrink:0;">
+      <button type="button" id="pwaInstallBtn" style="border:none;background:#2D4B3E;color:#fff;font-size:0.76rem;font-weight:600;padding:0.38rem 0.7rem;border-radius:7px;cursor:pointer;">安裝</button>
+      <button type="button" id="pwaDismissBtn" style="border:none;background:transparent;color:var(--text-muted);font-size:0.72rem;cursor:pointer;">略過</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        });
+      }
+
+      const bar = document.getElementById('pwaInstallBar');
+      const installBtn = document.getElementById('pwaInstallBtn');
+      const dismissBtn = document.getElementById('pwaDismissBtn');
+      const descEl = document.getElementById('pwaInstallDesc');
+      const DISMISS_KEY = 'luckygo_pwa_dismissed_v1';
+      let deferredPrompt = null;
+
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+      if (isStandalone || localStorage.getItem(DISMISS_KEY)) return;
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        bar.style.display = 'flex';
+      });
+
+      const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+      if (isIos && !isStandalone) {
+        descEl.textContent = '點瀏覽器「分享」圖示 →「加入主畫面」即可像 App 般使用';
+        installBtn.style.display = 'none';
+        bar.style.display = 'flex';
+      }
+
+      installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        bar.style.display = 'none';
+        if (window.gtag) gtag('event', 'pwa_install_prompt', { outcome });
+      });
+
+      dismissBtn.addEventListener('click', () => {
+        localStorage.setItem(DISMISS_KEY, '1');
+        bar.style.display = 'none';
+      });
+    })();
+  </script>
 </body>
 </html>

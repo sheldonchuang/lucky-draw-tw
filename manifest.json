@@ -1,0 +1,46 @@
+{
+  "name": "LuckyGo 台灣生活抽獎誌",
+  "short_name": "LuckyGo",
+  "description": "嚴選全台官方抽獎、發票換禮券、買一送一、電商折扣碼與每日領點好康情報。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F7F5F0",
+  "theme_color": "#2D4B3E",
+  "lang": "zh-TW",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "當月買一送一總整理",
+      "short_name": "買一送一",
+      "url": "./bogo-monthly.html",
+      "icons": [{ "src": "./assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "電商折扣碼資料庫",
+      "short_name": "折扣碼",
+      "url": "./coupons.html",
+      "icons": [{ "src": "./assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "LuckyGo 社群贈券牆",
+      "short_name": "社群贈券",
+      "url": "./community.html",
+      "icons": [{ "src": "./assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
