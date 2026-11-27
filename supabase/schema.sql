@@ -274,3 +274,32 @@ create policy "僅站長可審核開獎結果狀態"
   on public.lottery_results for update
   using (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com')
   with check (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com');
+
+-- ============================================================================
+-- 8. 個人活動收藏清單（Phase 2：跨裝置雲端同步收藏與截止日追蹤）
+-- ============================================================================
+create table if not exists public.user_favorites (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  event_id text not null,
+  event_title text not null default '',
+  brand text not null default '',
+  deadline text not null default '',
+  activity_url text not null default '',
+  created_at timestamptz not null default now(),
+  unique (user_id, event_id)
+);
+
+alter table public.user_favorites enable row level security;
+
+create policy "使用者僅能讀取自己的收藏清單"
+  on public.user_favorites for select
+  using (auth.uid() = user_id);
+
+create policy "使用者僅能新增自己的收藏"
+  on public.user_favorites for insert
+  with check (auth.uid() = user_id);
+
+create policy "使用者僅能移除自己的收藏"
+  on public.user_favorites for delete
+  using (auth.uid() = user_id);

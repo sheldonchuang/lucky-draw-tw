@@ -1711,6 +1711,135 @@
     }
     .industry-clear-btn:hover { background: #FDF2F2; }
 
+    /* ===== 個人活動收藏清單 (Phase 2) ===== */
+    .btn-fav-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid #E8CFCB;
+      background: #FFF6F5;
+      color: #A83834;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-fav-header:hover {
+      background: #A83834;
+      color: #FFFFFF;
+      border-color: #A83834;
+    }
+    .fav-count-badge {
+      background: rgba(168, 56, 52, 0.14);
+      padding: 0.05rem 0.42rem;
+      border-radius: 999px;
+      font-size: 0.74rem;
+    }
+    .btn-fav-header:hover .fav-count-badge {
+      background: rgba(255, 255, 255, 0.24);
+    }
+    .card-fav-btn {
+      position: absolute;
+      bottom: 0.6rem;
+      right: 0.6rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      color: #8C8880;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+      transition: all 0.2s ease;
+      z-index: 3;
+    }
+    .card-fav-btn:hover {
+      transform: scale(1.1);
+      color: #C93B36;
+    }
+    .card-fav-btn.is-fav {
+      background: #C93B36;
+      color: #FFFFFF;
+      border-color: #C93B36;
+    }
+    .fav-tabs {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .fav-tab-btn {
+      padding: 0.36rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .fav-tab-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .fav-item-card {
+      background: #FAF8F5;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .fav-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .fav-item-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .fav-item-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+    .fav-remove-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 7px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.76rem;
+      cursor: pointer;
+    }
+    .fav-remove-btn:hover {
+      border-color: var(--danger);
+      color: var(--danger);
+      background: #FDF2F2;
+    }
+    @media (max-width: 640px) {
+      .btn-fav-header span.fav-label-text { display: none; }
+    }
+
     footer {
       background: #F1EFEA;
       border-top: 1px solid var(--border);
@@ -1745,11 +1874,16 @@
           <span style="font-size: 0.85rem; font-family: var(--font-sans); font-weight: 500; color: var(--text-muted); margin-left: 0.5rem; letter-spacing: 0.05em;">生活抽獎誌</span>
         </div>
       </a>
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: flex-end;">
         <div class="badge-live">
           <span class="badge-live-dot"></span>
           <span id="live-update-text">即時官方活動更新中</span>
         </div>
+        <button type="button" class="btn-fav-header" onclick="openFavoritesModal()" title="查看個人活動收藏清單">
+          <i class="fa-solid fa-heart"></i>
+          <span class="fav-label-text">我的收藏</span>
+          <span class="fav-count-badge" id="favCountBadge">0</span>
+        </button>
         <a href="mailto:scottsherlockwholmes@gmail.com?subject=LuckyGo%20廣告贊助與合作洽詢" class="btn-sponsor">
           <i class="fa-solid fa-envelope"></i> 廣告贊助洽詢
         </a>
@@ -2113,9 +2247,14 @@
         <a id="modalDirectBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-direct" style="display: flex; padding: 0.875rem; font-size: 0.95rem; border-radius: 12px;">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往主辦官方活動頁登錄
         </a>
-        <button type="button" id="modalReportBtn" onclick="openReportModalFromDetail()" style="width:100%; margin-top:0.65rem; padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text-muted); font-size:0.85rem; font-weight:600; cursor:pointer;">
-          <i class="fa-solid fa-bullhorn"></i> 我看到開獎了！回報中獎名單連結
-        </button>
+        <div style="display:flex; gap:0.5rem; margin-top:0.65rem; flex-wrap:wrap;">
+          <button type="button" id="modalFavBtn" onclick="toggleFavoriteFromDetail()" style="flex:1; min-width:140px; padding:0.65rem; border-radius:10px; border:1px solid #E8CFCB; background:#FFF6F5; color:#A83834; font-size:0.85rem; font-weight:700; cursor:pointer;">
+            <i class="fa-regular fa-heart"></i> 加入收藏清單
+          </button>
+          <button type="button" id="modalReportBtn" onclick="openReportModalFromDetail()" style="flex:1; min-width:170px; padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text-muted); font-size:0.85rem; font-weight:600; cursor:pointer;">
+            <i class="fa-solid fa-bullhorn"></i> 回報中獎名單連結
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -2139,6 +2278,26 @@
             <i class="fa-solid fa-paper-plane"></i> 送出開獎回報（經站長審核後公開顯示）
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 個人活動收藏清單 Modal (Phase 2) -->
+  <div class="modal-backdrop" id="favoritesModal" onclick="if(event.target===this) closeFavoritesModal()">
+    <div class="modal-card" style="max-width:600px;">
+      <div class="modal-header">
+        <div style="font-size:0.95rem; font-weight:800; color:#A83834;"><i class="fa-solid fa-heart"></i> 我的活動收藏清單</div>
+        <button class="modal-close-btn" onclick="closeFavoritesModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner" style="max-height:76vh; overflow-y:auto;">
+        <div id="favAuthBar" style="background:#EBF1ED; border:1px solid #C8DDD0; padding:0.75rem 1rem; border-radius:10px; margin-bottom:1rem; font-size:0.82rem; color:var(--primary);"></div>
+        <div class="fav-tabs" id="favTabs">
+          <button type="button" class="fav-tab-btn active" data-fav-tab="all" onclick="switchFavTab('all')">全部收藏</button>
+          <button type="button" class="fav-tab-btn" data-fav-tab="urgent" onclick="switchFavTab('urgent')">🔥 即將截止 (5天內)</button>
+          <button type="button" class="fav-tab-btn" data-fav-tab="result" onclick="switchFavTab('result')">🏆 已開獎</button>
+          <button type="button" class="fav-tab-btn" data-fav-tab="expired" onclick="switchFavTab('expired')">已截止</button>
+        </div>
+        <div id="favListContainer"></div>
       </div>
     </div>
   </div>
@@ -2487,6 +2646,7 @@
           directBtnIcon = 'fa-coins';
         }
 
+        const isFav = isFavoriteEvent(item.id);
         const card = document.createElement('div');
         card.className = `event-card ${expired ? 'is-expired' : ''}`;
         card.innerHTML = `
@@ -2496,6 +2656,9 @@
               <span class="brand-pill">${item.brand}</span>
               ${countdownHtml}
             </div>
+            <button type="button" class="card-fav-btn ${isFav ? 'is-fav' : ''}" data-fav-id="${item.id}" onclick="toggleFavorite('${item.id}', event)" title="${isFav ? '取消收藏' : '加入收藏清單'}">
+              <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+            </button>
           </div>
           <div class="card-body">
             ${verifiedBannerHtml}
@@ -2659,6 +2822,7 @@
         resultBanner.style.display = 'none';
       }
 
+      updateModalFavBtn(item.id);
       document.getElementById('detailModal').classList.add('active');
     }
 
@@ -2895,7 +3059,281 @@
       }
     }
 
-    loadVerifiedLotteryResults();
+    loadVerifiedLotteryResults().then(() => loadFavorites());
+
+    // ==================== 個人活動收藏清單 (Supabase 雲端 + 訪客暫存) ====================
+    const GUEST_FAV_KEY = 'luckygo_guest_favorites_v1';
+    let favoritesMap = new Map(); // event_id -> { event_id, event_title, brand, deadline, activity_url }
+    let currentFavTab = 'all';
+
+    function isFavoriteEvent(eventId) {
+      return favoritesMap.has(eventId);
+    }
+
+    function readGuestFavorites() {
+      try {
+        const raw = localStorage.getItem(GUEST_FAV_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) { return []; }
+    }
+
+    function writeGuestFavorites(arr) {
+      try { localStorage.setItem(GUEST_FAV_KEY, JSON.stringify(arr)); } catch (e) {}
+    }
+
+    async function loadFavorites() {
+      favoritesMap.clear();
+      if (sbIndexClient && currentIndexUser) {
+        try {
+          // 若訪客時期有暫存收藏，登入後自動合併至雲端
+          const guestItems = readGuestFavorites();
+          if (guestItems.length > 0) {
+            const rows = guestItems.map(g => ({
+              user_id: currentIndexUser.id,
+              event_id: g.event_id,
+              event_title: g.event_title || '',
+              brand: g.brand || '',
+              deadline: g.deadline || '',
+              activity_url: g.activity_url || ''
+            }));
+            await sbIndexClient.from('user_favorites').upsert(rows, { onConflict: 'user_id,event_id' });
+            localStorage.removeItem(GUEST_FAV_KEY);
+          }
+
+          const { data, error } = await sbIndexClient
+            .from('user_favorites')
+            .select('event_id, event_title, brand, deadline, activity_url, created_at')
+            .eq('user_id', currentIndexUser.id)
+            .order('created_at', { ascending: false });
+
+          if (!error && Array.isArray(data)) {
+            data.forEach(item => favoritesMap.set(item.event_id, item));
+          }
+        } catch (e) {
+          console.warn('載入雲端收藏失敗，改用本機暫存:', e);
+          readGuestFavorites().forEach(item => favoritesMap.set(item.event_id, item));
+        }
+      } else {
+        readGuestFavorites().forEach(item => favoritesMap.set(item.event_id, item));
+      }
+      refreshFavoriteUI();
+    }
+
+    function refreshFavoriteUI() {
+      const badge = document.getElementById('favCountBadge');
+      if (badge) badge.innerText = favoritesMap.size;
+
+      document.querySelectorAll('.card-fav-btn[data-fav-id]').forEach(btn => {
+        const id = btn.getAttribute('data-fav-id');
+        const isFav = isFavoriteEvent(id);
+        btn.classList.toggle('is-fav', isFav);
+        btn.title = isFav ? '取消收藏' : '加入收藏清單';
+        const icon = btn.querySelector('i');
+        if (icon) icon.className = `${isFav ? 'fa-solid' : 'fa-regular'} fa-heart`;
+      });
+
+      if (currentDetailEvent) updateModalFavBtn(currentDetailEvent.id);
+    }
+
+    function updateModalFavBtn(eventId) {
+      const btn = document.getElementById('modalFavBtn');
+      if (!btn) return;
+      const isFav = isFavoriteEvent(eventId);
+      btn.innerHTML = isFav
+        ? '<i class="fa-solid fa-heart"></i> 已在收藏清單（點擊移除）'
+        : '<i class="fa-regular fa-heart"></i> 加入收藏清單';
+      btn.style.background = isFav ? '#A83834' : '#FFF6F5';
+      btn.style.color = isFav ? '#FFFFFF' : '#A83834';
+    }
+
+    async function toggleFavorite(eventId, evt) {
+      if (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+      }
+      const eventObj = allEvents.find(e => e.id === eventId) || favoritesMap.get(eventId);
+      const alreadyFav = isFavoriteEvent(eventId);
+
+      if (alreadyFav) {
+        favoritesMap.delete(eventId);
+        if (sbIndexClient && currentIndexUser) {
+          await sbIndexClient.from('user_favorites').delete()
+            .eq('user_id', currentIndexUser.id)
+            .eq('event_id', eventId);
+        } else {
+          writeGuestFavorites(Array.from(favoritesMap.values()));
+        }
+        showFavToast('已從收藏清單移除');
+      } else {
+        const payload = {
+          event_id: eventId,
+          event_title: eventObj?.title || eventObj?.event_title || '精選活動',
+          brand: eventObj?.brand || '品牌活動',
+          deadline: eventObj?.deadline || '',
+          activity_url: eventObj?.activityUrl || eventObj?.officialUrl || eventObj?.activity_url || '#'
+        };
+        favoritesMap.set(eventId, payload);
+        if (sbIndexClient && currentIndexUser) {
+          await sbIndexClient.from('user_favorites').upsert({
+            user_id: currentIndexUser.id,
+            ...payload
+          }, { onConflict: 'user_id,event_id' });
+        } else {
+          writeGuestFavorites(Array.from(favoritesMap.values()));
+        }
+        showFavToast('❤️ 已加入我的收藏清單');
+        if (window.gtag) gtag('event', 'add_favorite', { event_id: eventId, brand: payload.brand });
+      }
+
+      refreshFavoriteUI();
+      if (document.getElementById('favoritesModal')?.classList.contains('active')) {
+        renderFavoritesModalList();
+      }
+    }
+
+    function toggleFavoriteFromDetail() {
+      if (!currentDetailEvent) return;
+      toggleFavorite(currentDetailEvent.id);
+    }
+
+    function showFavToast(msg) {
+      const toast = document.getElementById('copyToast');
+      if (!toast) return;
+      toast.innerText = msg;
+      toast.classList.add('show');
+      clearTimeout(window._copyToastTimer);
+      window._copyToastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function openFavoritesModal() {
+      renderFavAuthBar();
+      renderFavoritesModalList();
+      document.getElementById('favoritesModal').classList.add('active');
+    }
+
+    function closeFavoritesModal() {
+      document.getElementById('favoritesModal').classList.remove('active');
+    }
+
+    function switchFavTab(tab) {
+      currentFavTab = tab;
+      document.querySelectorAll('.fav-tab-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-fav-tab') === tab);
+      });
+      renderFavoritesModalList();
+    }
+
+    function renderFavAuthBar() {
+      const bar = document.getElementById('favAuthBar');
+      if (!bar) return;
+      if (currentIndexUser) {
+        bar.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; flex-wrap:wrap;">
+            <span><i class="fa-solid fa-cloud-check"></i> 已雲端同步：<strong>${currentIndexUser.user_metadata?.full_name || currentIndexUser.email}</strong></span>
+            <button type="button" onclick="signOutIndexGoogle()" style="padding:0.28rem 0.7rem; border:1px solid #C8DDD0; border-radius:6px; background:#fff; color:var(--primary); font-size:0.76rem; font-weight:600; cursor:pointer;">登出</button>
+          </div>
+        `;
+      } else {
+        bar.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.6rem; flex-wrap:wrap;">
+            <span><i class="fa-solid fa-laptop"></i> 目前為本機暫存模式，登入 Google 即可跨裝置同步收藏：</span>
+            <button type="button" onclick="signInIndexGoogle()" style="padding:0.35rem 0.8rem; border:none; border-radius:6px; background:var(--primary); color:#fff; font-size:0.78rem; font-weight:600; cursor:pointer;">
+              <i class="fa-brands fa-google"></i> Google 登入同步
+            </button>
+          </div>
+        `;
+      }
+    }
+
+    async function signOutIndexGoogle() {
+      if (!sbIndexClient) return;
+      await sbIndexClient.auth.signOut();
+      currentIndexUser = null;
+      await loadFavorites();
+      renderFavAuthBar();
+      renderFavoritesModalList();
+    }
+
+    function renderFavoritesModalList() {
+      const container = document.getElementById('favListContainer');
+      if (!container) return;
+
+      let items = Array.from(favoritesMap.values()).map(fav => {
+        const live = allEvents.find(e => e.id === fav.event_id);
+        const deadline = live ? live.deadline : fav.deadline;
+        const days = getRemainingDays(deadline);
+        const expired = live ? isExpired(live) : (days !== null && days < 0);
+        const result = verifiedResultsMap[fav.event_id];
+        return {
+          ...fav,
+          event_title: live ? live.title : fav.event_title,
+          brand: live ? live.brand : fav.brand,
+          deadline,
+          activity_url: live ? (live.activityUrl || live.officialUrl) : fav.activity_url,
+          days,
+          expired,
+          result
+        };
+      });
+
+      if (currentFavTab === 'urgent') {
+        items = items.filter(i => !i.expired && i.days !== null && i.days >= 0 && i.days <= 5);
+      } else if (currentFavTab === 'result') {
+        items = items.filter(i => !!i.result);
+      } else if (currentFavTab === 'expired') {
+        items = items.filter(i => i.expired);
+      }
+
+      // 依截止日急迫度排序（未截止且剩餘天數少優先）
+      items.sort((a, b) => {
+        if (a.expired !== b.expired) return a.expired ? 1 : -1;
+        const da = a.days !== null ? a.days : 99999;
+        const db = b.days !== null ? b.days : 99999;
+        return da - db;
+      });
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; padding:2.2rem 1rem; color:var(--text-muted); font-size:0.9rem;">
+            <i class="fa-regular fa-heart" style="font-size:2rem; opacity:0.4; display:block; margin-bottom:0.6rem;"></i>
+            ${currentFavTab === 'all' ? '還沒有收藏任何活動！點擊活動卡片右下角的愛心即可加入追蹤。' : '此分類目前沒有符合的收藏活動。'}
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(item => {
+        let statusPill = '';
+        if (item.result) {
+          statusPill = `<a href="${item.result.result_url}" target="_blank" rel="noopener noreferrer" style="background:#FEF3C7; color:#B45309; padding:0.15rem 0.55rem; border-radius:999px; font-size:0.74rem; font-weight:700; text-decoration:none;">🏆 已開獎・看名單 ↗</a>`;
+        } else if (item.expired) {
+          statusPill = `<span style="background:#E2E8F0; color:#64748B; padding:0.15rem 0.55rem; border-radius:999px; font-size:0.74rem; font-weight:600;">已截止</span>`;
+        } else if (item.days !== null && item.days <= 5) {
+          statusPill = `<span style="background:#FEE2E2; color:#B91C1C; padding:0.15rem 0.55rem; border-radius:999px; font-size:0.74rem; font-weight:700;">🔥 剩 ${item.days} 天截止</span>`;
+        } else if (item.deadline) {
+          statusPill = `<span style="background:#EBF1ED; color:var(--primary); padding:0.15rem 0.55rem; border-radius:999px; font-size:0.74rem; font-weight:600;">至 ${item.deadline}</span>`;
+        }
+
+        return `
+          <div class="fav-item-card">
+            <div class="fav-item-head">
+              <span class="qp-brand-pill">${item.brand || '品牌活動'}</span>
+              ${statusPill}
+            </div>
+            <div class="fav-item-title">${item.event_title}</div>
+            <div class="fav-item-actions">
+              <a href="${item.activity_url || '#'}" target="_blank" rel="noopener noreferrer" style="font-size:0.8rem; font-weight:700; color:var(--primary); text-decoration:none;">
+                前往活動官網 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button type="button" class="fav-remove-btn" onclick="toggleFavorite('${item.event_id}', event)">
+                <i class="fa-regular fa-trash-can"></i> 移除
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
 
     // 載入資料 (優先使用 data.js 內建資料，若無則 fetch events.json)
     if (allEvents.length > 0) {
