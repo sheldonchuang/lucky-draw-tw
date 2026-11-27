@@ -1613,6 +1613,104 @@
     }
 
     /* 頁腳 */
+    /* ===== 優惠最多產業 TOP 5 即時排行 ===== */
+    .industry-top5-bar {
+      max-width: 1200px;
+      margin: 0.9rem auto 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(45, 40, 30, 0.03);
+    }
+    .industry-top5-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+      margin-right: 0.25rem;
+    }
+    .industry-top5-list {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .industry-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.78rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .industry-pill:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-1px);
+    }
+    .industry-pill.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 3px 10px rgba(45, 75, 62, 0.22);
+    }
+    .industry-rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      background: #8C8880;
+    }
+    .industry-rank-1 { background: #C8962E; }
+    .industry-rank-2 { background: #7D8B99; }
+    .industry-rank-3 { background: #A96B42; }
+    .industry-pill.active .industry-rank-badge {
+      background: rgba(255, 255, 255, 0.28);
+    }
+    .industry-count {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface-subtle);
+      padding: 0.08rem 0.42rem;
+      border-radius: 999px;
+    }
+    .industry-pill.active .industry-count {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+    .industry-clear-btn {
+      font-size: 0.75rem;
+      color: var(--danger);
+      background: transparent;
+      border: 1px dashed rgba(158, 69, 64, 0.4);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      cursor: pointer;
+      display: none;
+    }
+    .industry-clear-btn:hover { background: #FDF2F2; }
+
     footer {
       background: #F1EFEA;
       border-top: 1px solid var(--border);
@@ -1957,6 +2055,15 @@
           🎮 小遊戲／簽到 <span class="entry-pill-count" id="ecount-小遊戲">0</span>
         </button>
       </div>
+
+      <!-- 優惠最多產業 TOP 5 即時排行 -->
+      <div class="industry-top5-bar" id="industryTop5Bar" style="display:none;">
+        <span class="industry-top5-label"><i class="fa-solid fa-fire" style="color:#C85A32;"></i> 本月優惠最多產業 TOP 5：</span>
+        <div class="industry-top5-list" id="industryTop5List"></div>
+        <button type="button" class="industry-clear-btn" id="industryClearBtn" onclick="filterByIndustry('ALL')">
+          <i class="fa-solid fa-xmark"></i> 清除產業篩選
+        </button>
+      </div>
     </div>
   </section>
 
@@ -2064,7 +2171,80 @@
     let allEvents = window.INITIAL_EVENTS || [];
     let currentFilter = 'ALL';
     let currentEntryFilter = 'ALL';
+    let currentIndustryFilter = 'ALL';
     let searchQuery = '';
+
+    const INDUSTRY_DEFS = [
+      { id: 'restaurant', name: '餐飲速食', icon: '🍔', regex: /麥當勞|肯德基|必勝客|漢堡王|摩斯|頂呱呱|bb\.q|起家雞|繼光|王品|石二鍋|聚|青花驕|和牛涮|乾杯|火鍋|鍋物|燒肉|壽司|爭鮮|藏壽司|拉麵|吉野家|松屋|すき家|饗食|美食街|餐廳|Buffet/i },
+      { id: 'retail', name: '超商超市', icon: '🛒', regex: /7-11|7-ELEVEN|全家|萊爾富|OK超商|全聯|好市多|Costco|家樂福|大潤發|愛買|超商|康康五|康康5/i },
+      { id: 'tech', name: '3C家電', icon: '📱', regex: /Apple|iPhone|Samsung|三星|ASUS|華碩|Sony|LG|Dyson|Panasonic|國際牌|Switch|PS5|小米|OPPO|家電|3C|筆電|耳機|電視|電競/i },
+      { id: 'travel', name: '旅遊交通', icon: '✈️', regex: /機票|航空|華航|長榮|星宇|虎航|高鐵|台鐵|飯店|酒店|民宿|度假|旅遊|住宿|Klook|KKday|Agoda/i },
+      { id: 'drinks', name: '咖啡手搖', icon: '☕', regex: /星巴克|路易莎|伯朗|CoCo|迷客夏|麻古|珍煮丹|可不可|大苑子|清心|春水堂|樺達|大茗|日出茶太|手搖|咖啡|茶飲|拿鐵|飲料|飲品/i },
+      { id: 'food', name: '食品零食', icon: '🍪', regex: /食品|統一|味全|光泉|義美|桂格|佳格|聯華|乖乖|樂事|可口可樂|黑松|泰山|維他露|金車|愛之味|福樂|林鳳營|鮮奶|牛奶|泡麵|零食|餅乾|巧克力/i },
+      { id: 'game', name: '遊戲娛樂', icon: '🎮', regex: /Steam|Epic|iOS|Android|遊戲|手遊|限免|電玩|電影|威秀|秀泰|國賓|展覽|動漫/i },
+      { id: 'ec', name: '網購支付', icon: '💳', regex: /蝦皮|momo|MOMO|PChome|LINE POINTS|街口|悠遊付|全支付|OPENPOINT|購物金|折價券|網購|電商/i },
+      { id: 'gov', name: '公部門公益', icon: '🏛️', regex: /稅捐|稅務|國稅局|市政府|縣政府|衛生局|環保局|文化局|雲端發票|財政部/i },
+      { id: 'beauty', name: '美妝藥妝', icon: '💄', regex: /屈臣氏|康是美|寶雅|資生堂|雅詩蘭黛|蘭蔻|SK-II|KIEHL|理膚寶水|巴黎萊雅|媚比琳|保養|美妝|彩妝|面膜|防曬/i },
+      { id: 'finance', name: '金融銀行', icon: '🏦', regex: /銀行|信用卡|國泰|中信|富邦|台新|玉山|永豐|兆豐|第一銀行|華南|郵局|保險|人壽|證券/i }
+    ];
+
+    function matchIndustry(event, industryId) {
+      const def = INDUSTRY_DEFS.find(d => d.id === industryId);
+      if (!def) return true;
+      const txt = `${event.brand || ''} ${event.title || ''} ${(event.tags || []).join(' ')}`;
+      return def.regex.test(txt);
+    }
+
+    function renderIndustryTop5() {
+      const bar = document.getElementById('industryTop5Bar');
+      const listEl = document.getElementById('industryTop5List');
+      const clearBtn = document.getElementById('industryClearBtn');
+      if (!bar || !listEl) return;
+
+      const activeEvents = allEvents.filter(e => !isExpired(e));
+      const ranked = INDUSTRY_DEFS.map(def => {
+        const count = activeEvents.filter(e => matchIndustry(e, def.id)).length;
+        return { ...def, count };
+      }).filter(item => item.count > 0)
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 5);
+
+      if (ranked.length === 0) {
+        bar.style.display = 'none';
+        return;
+      }
+
+      bar.style.display = 'flex';
+      listEl.innerHTML = ranked.map((item, idx) => {
+        const rank = idx + 1;
+        const isActive = currentIndustryFilter === item.id;
+        return `
+          <button type="button" class="industry-pill ${isActive ? 'active' : ''}" onclick="filterByIndustry('${item.id}')" title="點擊篩選「${item.name}」相關活動">
+            <span class="industry-rank-badge industry-rank-${rank}">${rank}</span>
+            <span>${item.icon} ${item.name}</span>
+            <span class="industry-count">${item.count} 檔</span>
+          </button>
+        `;
+      }).join('');
+
+      if (clearBtn) {
+        clearBtn.style.display = currentIndustryFilter !== 'ALL' ? 'inline-flex' : 'none';
+      }
+    }
+
+    function filterByIndustry(industryId) {
+      if (industryId === 'ALL' || currentIndustryFilter === industryId) {
+        currentIndustryFilter = 'ALL';
+      } else {
+        currentIndustryFilter = industryId;
+        if (window.gtag) {
+          gtag('event', 'industry_top5_click', { industry: industryId });
+        }
+      }
+      currentPage = 1;
+      renderIndustryTop5();
+      renderEvents();
+    }
 
     const ENTRY_TYPE_ICONS = {
       '免消費': '🆓 免消費',
@@ -2198,6 +2378,11 @@
         if (currentEntryFilter !== 'ALL') {
           const entries = getEventEntryTypes(event);
           if (!entries.includes(currentEntryFilter)) return false;
+        }
+
+        // 產業 TOP 5 過濾（可與類別及門檻標籤交集）
+        if (currentIndustryFilter !== 'ALL') {
+          if (!matchIndustry(event, currentIndustryFilter)) return false;
         }
 
         return true;
@@ -2437,6 +2622,7 @@
         return d !== null && d >= 0 && d <= 5;
       }).length;
       document.getElementById('count-expired').innerText = expiredEvents.length;
+      renderIndustryTop5();
 
       // 更新參加門檻計數
       document.getElementById('ecount-ALL').innerText = activeEvents.length;
