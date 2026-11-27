@@ -2297,6 +2297,14 @@
           <i class="fa-solid fa-tags"></i> 買一送一/代碼
           <span class="filter-count" id="count-bogo">0</span>
         </button>
+        <button class="filter-btn" data-tag="每週特價">
+          <i class="fa-solid fa-cart-shopping"></i> 全聯/好市多特價
+          <span class="filter-count" id="count-weekly">0</span>
+        </button>
+        <button class="filter-btn" data-tag="特賣會/廠拍">
+          <i class="fa-solid fa-bag-shopping"></i> 特賣會/廠拍
+          <span class="filter-count" id="count-outlet">0</span>
+        </button>
         <button class="filter-btn" data-tag="壽星好康">
           <i class="fa-solid fa-cake-candles"></i> 壽星好康
           <span class="filter-count" id="count-birthday">0</span>
@@ -3041,6 +3049,8 @@
       document.getElementById('count-free').innerText = activeEvents.filter(e => e.tags.includes('免消費即抽')).length;
       document.getElementById('count-voucher').innerText = activeEvents.filter(e => e.tags.includes('發票換禮券')).length;
       document.getElementById('count-bogo').innerText = activeEvents.filter(e => e.tags.includes('買一送一')).length;
+      document.getElementById('count-weekly').innerText = activeEvents.filter(e => e.tags.includes('每週特價')).length;
+      document.getElementById('count-outlet').innerText = activeEvents.filter(e => e.tags.includes('特賣會/廠拍')).length;
       document.getElementById('count-birthday').innerText = activeEvents.filter(e => e.tags.includes('壽星好康')).length;
       document.getElementById('count-game').innerText = activeEvents.filter(e => e.tags.includes('限免遊戲')).length;
       document.getElementById('count-points').innerText = activeEvents.filter(e => e.tags.includes('免費領點')).length;

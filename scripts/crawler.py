@@ -1153,11 +1153,11 @@ def get_dynamic_free_intelligence(today):
             "id": "ext-supermarket-pxmart",
             "title": f"全聯福利中心 {today.month}月每週五六日限定・生鮮蔬果/日用品買一送一＆全支付回饋",
             "brand": "全聯福利中心",
-            "tags": ["買一送一", "熱門好康"],
+            "tags": ["買一送一", "每週特價", "熱門好康"],
             "promo_group": "supermarket",
-            "time": f"即日起 ~ {month_end_str} (每週五六日)",
+            "time": f"即日起 ~ {month_end_str} (每週五六日更新)",
             "deadline": month_end_str,
-            "qualification": "全聯福利中心每週定期推出『買一送一』日用品、衛生紙、洗衣精與生鮮蔬果特價；週六日使用 PX Pay 或全支付綁定指定銀行信用卡單筆滿額再享最高 8%～10% 福利點回饋！",
+            "qualification": "全聯福利中心每週定期推出『買一送一』日用品、衛生紙、洗衣精與生鮮蔬果特價（每週五六日推出週末加碼）；使用 PX Pay 或全支付綁定指定銀行信用卡單筆滿額再享最高 8%～10% 福利點回饋！",
             "prizes": ["全聯指定商品買一送一", "週末生鮮/日用品限時下殺", "全支付/PX Pay 滿額福利點回饋"],
             "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.pxmart.com.tw/#/activity-list",
@@ -1167,11 +1167,11 @@ def get_dynamic_free_intelligence(today):
             "id": "ext-supermarket-costco",
             "title": f"好市多 Costco {today.month}月會員護照＆線上購物特價・黑鑽卡回饋與限時折價清單",
             "brand": "好市多 Costco",
-            "tags": ["熱門好康"],
+            "tags": ["每週特價", "熱門好康"],
             "promo_group": "supermarket",
-            "time": f"即日起 ~ {month_end_str}",
+            "time": f"即日起 ~ {month_end_str} (每週一/雙週更新)",
             "deadline": month_end_str,
-            "qualification": "好市多 Costco 每雙週更新賣場特價與線上購物獨家折扣（含鮮乳、牛肉、冷凍食品、保健品與家電現折數百至數千元）；持富邦 Costco 聯名卡與黑鑽卡消費最高享 3% 回饋！",
+            "qualification": "好市多 Costco 每週更新賣場特價與線上購物獨家折扣（含鮮乳、牛肉、冷凍食品、保健品與家電現折數百至數千元）；持富邦 Costco 聯名卡與黑鑽卡消費最高享 3% 回饋！",
             "prizes": ["賣場當期會員護照特價商品", "Costco 線上購物現折優惠", "黑鑽卡+聯名卡最高 3% 回饋"],
             "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.costco.com.tw/c/Special-Offers",
@@ -1181,7 +1181,7 @@ def get_dynamic_free_intelligence(today):
             "id": "ext-supermarket-carrefour",
             "title": f"家樂福 / 大潤發 / 愛買 {today.month}月量販DM特價・會員日滿額9折＆日用品買一送一",
             "brand": "家樂福 / 大潤發",
-            "tags": ["買一送一", "熱門好康"],
+            "tags": ["買一送一", "每週特價", "熱門好康"],
             "promo_group": "supermarket",
             "time": f"即日起 ~ {month_end_str}",
             "deadline": month_end_str,
@@ -1195,7 +1195,7 @@ def get_dynamic_free_intelligence(today):
             "id": "ext-supermarket-cvs",
             "title": f"7-11 康康五 / 全家康康五 / 萊爾富・每週五六日超商冰品飲料零食買一送一",
             "brand": "7-11 / 全家",
-            "tags": ["買一送一", "熱門好康"],
+            "tags": ["買一送一", "每週特價", "熱門好康"],
             "promo_group": "supermarket",
             "time": f"即日起 ~ {month_end_str} (每週五六日)",
             "deadline": month_end_str,
@@ -1204,6 +1204,60 @@ def get_dynamic_free_intelligence(today):
             "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.family.com.tw/Marketing/Integration/",
             "officialUrl": "https://www.7-11.com.tw/"
+        },
+
+        # --- 實體特賣會 / 廠拍 / 百貨 Outlet 清倉專區 ---
+        {
+            "id": "ext-outlet-mitsui",
+            "title": f"MITSUI OUTLET PARK 三井 Outlet（林口/台中港/台南）{today.month}月品牌清倉＆檔期特賣",
+            "brand": "三井 Outlet",
+            "tags": ["特賣會/廠拍", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "三井 MITSUI OUTLET PARK 全台三館集結運動休閒、日系服飾、精品家電常態 3 折起，當月限定品牌快閃特賣與聯名卡滿額贈禮券請見官方活動行事曆。",
+            "prizes": ["國際運動/精品品牌 3 折起", "指定專櫃滿額現抵優惠", "三井聯名卡免費停車與點數回饋"],
+            "imageUrl": "https://images.unsplash.com/photo-1483985988635-767283728c4e?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.mitsui-shopping-park.com.tw/mop/linkou/tw/index.html",
+            "officialUrl": "https://www.mitsui-shopping-park.com.tw/"
+        },
+        {
+            "id": "ext-outlet-gloria",
+            "title": f"華泰名品城 GLORIA OUTLETS {today.month}月國際精品/運動鞋服清倉特賣 2 折起",
+            "brand": "華泰名品城",
+            "tags": ["特賣會/廠拍", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "桃園青埔高鐵站旁華泰名品城，全區 285+ 國際品牌天天 Outlet 折扣價 2 折起，每月不定期推出限時換季出清與品牌聯合廠拍。",
+            "prizes": ["歐美日精品/鞋包 2 折起", "運動品牌零碼出清特惠", "會員專屬折上折優惠"],
+            "imageUrl": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.gloriaoutlets.com/chi/news/",
+            "officialUrl": "https://www.gloriaoutlets.com/"
+        },
+        {
+            "id": "ext-outlet-skm",
+            "title": f"新光三越百貨 {today.month}月全館檔期活動＆品牌特賣會・線上 DM 優惠情報",
+            "brand": "新光三越",
+            "tags": ["特賣會/廠拍", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "新光三越全台分店每月舉辦專櫃服飾、家電、美妝與運動用品特賣會及文化館展售會，綁定 skm pay / 貴賓卡可同步參加點數抽獎與滿額折抵。",
+            "prizes": ["各分店專櫃換季出清特賣", "家電/寢具聯合廠拍折扣", "skm points 扣點抽獎與兌換"],
+            "imageUrl": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.skm.com.tw/Event/List",
+            "officialUrl": "https://www.skm.com.tw/"
+        },
+        {
+            "id": "ext-outlet-sogo",
+            "title": f"遠東 SOGO 百貨 {today.month}月線上 DM ＆ 換季清倉特賣會／會員來店禮",
+            "brand": "遠東 SOGO",
+            "tags": ["特賣會/廠拍", "熱門好康"],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "遠東 SOGO 忠孝/復興/敦化/天母/中壢/新竹/高雄各館定期舉行男裝、女裝、童裝、運動與家電特賣會，HAPPY GO 會員消費享卡友來店禮與滿額贈券。",
+            "prizes": ["百貨各館會館特賣出清", "運動鞋服/家電福利品特價", "HAPPY GO 卡友專屬來店禮"],
+            "imageUrl": "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.sogo.com.tw/",
+            "officialUrl": "https://www.sogo.com.tw/"
         },
 
         # --- 人氣韓式炸雞連鎖專區（bb.q CHICKEN、起家雞） ---
@@ -1913,7 +1967,8 @@ def crawl_brand_official_and_news(today):
         '一風堂', '丸亀製麵', '屯京', '花月嵐', '山頭火', '樂麵屋', '三田製麵所', '勝博殿', '杏子豬排', '勝政', '勝勢', '吉豚屋', '大戶屋', '彌生軒', '開丼', '金子半之助',
         'Mo-Mo', '古拉爵', '薄多義', 'BELLINI', '貳樓', '金色三麥', 'TGI FRIDAYS', 'Texas Roadhouse', '莫凡彼', 'Woosa', 'LADY M',
         '瓦城', '時時香', '大心', '饗食天堂', '饗饗', '旭集', '開飯川食堂', '饗泰多', '漢來海港', '島語', '添好運', '點點心', '檀島', '鼎泰豐', '涓豆腐', '北村豆腐家', '段純貞', '三商巧福',
-        '全聯', '好市多', 'Costco', '家樂福', '大潤發', '愛買', '萊爾富', 'OK超商', '寶雅', '屈臣氏', '康是美'
+        '全聯', '好市多', 'Costco', '家樂福', '大潤發', '愛買', '萊爾富', 'OK超商', '寶雅', '屈臣氏', '康是美',
+        '新光三越', 'SOGO', '遠東百貨', '微風', '誠品', '台北101', '漢神', '夢時代', '華泰名品城', '三井', 'MITSUI OUTLET', '無印良品', 'UNIQLO', '特賣會', '廠拍'
     ]
     rss_feeds = [
         {
@@ -1945,18 +2000,44 @@ def crawl_brand_official_and_news(today):
             'limit': 6
         },
         {
-            'name': '全聯好市多量販超市每週特價',
-            'query': '買一送一 OR 特價 OR 優惠 OR 必買 OR 下殺 全聯 OR 好市多 OR Costco OR 家樂福 OR 大潤發 OR 愛買',
+            'name': '全聯每週買一送一與特價',
+            'query': '買一送一 OR 特價 OR 優惠 OR 必買 OR DM 全聯',
             'promo_group': 'supermarket',
+            'default_tags': ['每週特價'],
             'img': 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80',
-            'limit': 8
+            'limit': 6
+        },
+        {
+            'name': '好市多 Costco 每週特價與必買',
+            'query': '特價 OR 優惠 OR 折價 OR 必買 OR 黑五 好市多 OR Costco',
+            'promo_group': 'supermarket',
+            'default_tags': ['每週特價'],
+            'img': 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80',
+            'limit': 6
+        },
+        {
+            'name': '量販超市每週特價',
+            'query': '買一送一 OR 特價 OR 優惠 OR 下殺 家樂福 OR 大潤發 OR 愛買',
+            'promo_group': 'supermarket',
+            'default_tags': ['每週特價'],
+            'img': 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80',
+            'limit': 5
         },
         {
             'name': '超商藥妝週末特價',
             'query': '買一送一 OR 康康五 OR 第二件半價 OR 特價 "7-11" OR 全家 OR 萊爾富 OR 寶雅 OR 屈臣氏 OR 康是美',
             'promo_group': 'supermarket',
+            'default_tags': ['每週特價'],
             'img': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80',
             'limit': 6
+        },
+        {
+            'name': '實體特賣會廠拍清倉',
+            'query': '(特賣會 OR 廠拍 OR 出清 OR 清倉 OR 福利品) (百貨 OR 家電 OR 運動品牌 OR 服飾 OR 三井 OR 華泰 OR 新光三越 OR SOGO)',
+            'promo_group': None,
+            'default_tags': ['特賣會/廠拍'],
+            'img': 'https://images.unsplash.com/photo-1483985988635-767283728c4e?auto=format&fit=crop&w=600&q=80',
+            'limit': 8
         }
     ]
 
@@ -2003,10 +2084,16 @@ def crawl_brand_official_and_news(today):
                 seen_keys.add(dedup_key)
 
                 tags = ['熱門好康']
+                for dt in (feed.get('default_tags') or []):
+                    if dt not in tags:
+                        tags.insert(0, dt)
                 if any(k in title_clean for k in ['買一送一', '買1送1', '半價', '折', '優惠碼', '代碼', '神券']):
                     tags.insert(0, '買一送一')
                 if any(k in title_clean for k in ['壽星', '生日']):
                     tags.append('壽星好康')
+                if any(k in title_clean for k in ['特賣會', '廠拍', '清倉', '出清', '福利品', 'Outlet', 'OUTLET']):
+                    if '特賣會/廠拍' not in tags:
+                        tags.insert(0, '特賣會/廠拍')
 
                 dl = (today + timedelta(days=3)).strftime('%Y/%m/%d')
                 ev = {
