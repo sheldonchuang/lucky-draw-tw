@@ -241,3 +241,36 @@ create policy "僅分享者與核准領取者可讀取條碼圖片"
         and (c.owner_id = auth.uid() or c.claimed_by = auth.uid())
     )
   );
+
+-- ============================================================================
+-- 7. 社群開獎結果回報表（學獎一下：網友回報中獎名單連結＋站長審核）
+-- ============================================================================
+create table if not exists public.lottery_results (
+  id uuid primary key default gen_random_uuid(),
+  event_id text not null,
+  event_title text not null default '',
+  reporter_id uuid not null references public.profiles(id) on delete cascade,
+  result_url text not null,
+  note text default '',
+  status text not null default 'pending' check (status in ('pending', 'verified', 'rejected')),
+  created_at timestamptz not null default now()
+);
+
+alter table public.lottery_results enable row level security;
+
+create policy "公開讀取已核准開獎結果，站長與回報者可讀待審紀錄"
+  on public.lottery_results for select
+  using (
+    status = 'verified'
+    or auth.uid() = reporter_id
+    or lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com'
+  );
+
+create policy "登入會員可回報開獎結果"
+  on public.lottery_results for insert
+  with check (auth.uid() = reporter_id);
+
+create policy "僅站長可審核開獎結果狀態"
+  on public.lottery_results for update
+  using (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com')
+  with check (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com');

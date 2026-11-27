@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     :root {
       --bg: #F7F5F0;             /* 溫潤暖米紙色底 */
@@ -1140,6 +1141,23 @@
       color: #5C5549;
       border: 1px solid #E3DDD2;
     }
+    .lottery-verified-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #F59E0B;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+    .lottery-verified-pill:hover {
+      background: #FDE68A;
+    }
 
     /* 主內容區與統計 */
     main {
@@ -1980,9 +1998,40 @@
           <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem;">抽獎資格與辦法：</div>
           <div id="modalQual" style="font-size: 0.9rem; line-height: 1.6; color: var(--text); background: #F8FAFC; padding: 1rem; border-radius: 12px; border: 1px solid var(--border); white-space: pre-wrap;"></div>
         </div>
+        <div id="modalResultBanner" style="display:none; background:#FEF3C7; border:1px solid #F59E0B; padding:0.75rem 1rem; border-radius:12px; margin-bottom:1rem;">
+          <div style="font-size:0.82rem; font-weight:700; color:#92400E; margin-bottom:0.35rem;">🏆 社群回報・已核實開獎結果</div>
+          <a id="modalResultLink" href="#" target="_blank" rel="noopener noreferrer" style="color:#B45309; font-weight:700; font-size:0.88rem; text-decoration:underline;">查看官方中獎名單 ↗</a>
+          <div id="modalResultNote" style="font-size:0.78rem; color:#78350F; margin-top:0.25rem;"></div>
+        </div>
         <a id="modalDirectBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-direct" style="display: flex; padding: 0.875rem; font-size: 0.95rem; border-radius: 12px;">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往主辦官方活動頁登錄
         </a>
+        <button type="button" id="modalReportBtn" onclick="openReportModalFromDetail()" style="width:100%; margin-top:0.65rem; padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text-muted); font-size:0.85rem; font-weight:600; cursor:pointer;">
+          <i class="fa-solid fa-bullhorn"></i> 我看到開獎了！回報中獎名單連結
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 開獎結果回報 Modal（學獎一下） -->
+  <div class="modal-backdrop" id="reportResultModal" onclick="if(event.target===this) closeReportModal()">
+    <div class="modal-card" style="max-width:480px;">
+      <div class="modal-header">
+        <div style="font-size:0.9rem; font-weight:700; color:var(--primary);"><i class="fa-solid fa-trophy"></i> 回報開獎結果／中獎名單</div>
+        <button class="modal-close-btn" onclick="closeReportModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner">
+        <div id="reportEventTitle" style="font-size:0.92rem; font-weight:700; margin-bottom:0.85rem; color:var(--text);"></div>
+        <div id="reportAuthBox" style="background:#EBF1ED; border:1px solid #C8DDD0; padding:0.75rem 1rem; border-radius:10px; margin-bottom:1rem; font-size:0.84rem; color:var(--primary);"></div>
+        <div id="reportFormFields">
+          <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:0.35rem;">官方中獎名單網址 (URL) *</label>
+          <input type="url" id="reportUrlInput" placeholder="https://..." style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--border); border-radius:8px; margin-bottom:0.85rem; font-size:0.88rem;">
+          <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:0.35rem;">補充說明（選填，例如：11/28 已公布於粉專）</label>
+          <input type="text" id="reportNoteInput" placeholder="例：粉專已公告得獎名單，請對發票序號" style="width:100%; padding:0.6rem 0.75rem; border:1px solid var(--border); border-radius:8px; margin-bottom:1rem; font-size:0.88rem;">
+          <button type="button" id="reportSubmitBtn" onclick="submitLotteryReport()" class="btn-direct" style="width:100%; padding:0.75rem; border:none; border-radius:10px; cursor:pointer; font-size:0.92rem;">
+            <i class="fa-solid fa-paper-plane"></i> 送出開獎回報（經站長審核後公開顯示）
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -2209,6 +2258,10 @@
           .slice(0, 3)
           .map(et => `<span class="entry-badge">${ENTRY_TYPE_ICONS[et] || et}</span>`)
           .join('');
+        const verifiedResult = verifiedResultsMap[item.id];
+        const verifiedBannerHtml = verifiedResult
+          ? `<a href="${verifiedResult.result_url}" target="_blank" rel="noopener noreferrer" class="lottery-verified-pill"><i class="fa-solid fa-trophy"></i> 已開獎・查看中獎名單 ↗</a>`
+          : '';
         const mainPrize = item.prizes && item.prizes.length > 0 ? item.prizes[0] : '依官方公佈為準';
         const imgUrl = item.imageUrl || 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80';
         const targetUrl = item.activityUrl || item.officialUrl || '#';
@@ -2253,6 +2306,7 @@
             </div>
           </div>
           <div class="card-body">
+            ${verifiedBannerHtml}
             <div class="tag-list">${tagBadgesHtml}${entryBadgesHtml}</div>
             <h3 class="card-title" title="${item.title}">${item.title}</h3>
             
@@ -2401,6 +2455,17 @@
       const directBtn = document.getElementById('modalDirectBtn');
       directBtn.href = item.activityUrl || item.officialUrl || '#';
 
+      currentDetailEvent = item;
+      const verified = verifiedResultsMap[item.id];
+      const resultBanner = document.getElementById('modalResultBanner');
+      if (verified && resultBanner) {
+        resultBanner.style.display = 'block';
+        document.getElementById('modalResultLink').href = verified.result_url;
+        document.getElementById('modalResultNote').innerText = verified.note ? `備註：${verified.note}` : '';
+      } else if (resultBanner) {
+        resultBanner.style.display = 'none';
+      }
+
       document.getElementById('detailModal').classList.add('active');
     }
 
@@ -2539,6 +2604,105 @@
         }
       } catch (e) {}
     })();
+
+    // ==================== 開獎結果回報與核實顯示 (Supabase) ====================
+    const SUPABASE_URL = 'https://vqlsxubuluoedjcfapqr.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxbHN4dWJ1bHVvZWRqY2ZhcHFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU3NDQ0ODUsImV4cCI6MjExMTMyMDQ4NX0.1hZX7EV64NK40A-iJ-TTjBwUQCOoj5jcTzG3sRlQPXM';
+    const sbIndexClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+    let verifiedResultsMap = {};
+    let currentDetailEvent = null;
+    let currentIndexUser = null;
+
+    async function loadVerifiedLotteryResults() {
+      if (!sbIndexClient) return;
+      try {
+        const [{ data: sessionData }, { data, error }] = await Promise.all([
+          sbIndexClient.auth.getSession(),
+          sbIndexClient.from('lottery_results').select('event_id, result_url, note, created_at').eq('status', 'verified').order('created_at', { ascending: false })
+        ]);
+        currentIndexUser = sessionData?.session?.user || null;
+        if (!error && Array.isArray(data)) {
+          verifiedResultsMap = {};
+          data.forEach(r => {
+            if (!verifiedResultsMap[r.event_id]) verifiedResultsMap[r.event_id] = r;
+          });
+          if (allEvents.length > 0) renderEvents();
+        }
+      } catch (e) {}
+    }
+
+    function openReportModalFromDetail() {
+      if (!currentDetailEvent) return;
+      closeModal();
+      document.getElementById('reportEventTitle').innerText = `活動：${currentDetailEvent.title}`;
+      document.getElementById('reportUrlInput').value = '';
+      document.getElementById('reportNoteInput').value = '';
+      renderReportAuthBox();
+      document.getElementById('reportResultModal').classList.add('active');
+    }
+
+    function closeReportModal() {
+      document.getElementById('reportResultModal').classList.remove('active');
+    }
+
+    function renderReportAuthBox() {
+      const box = document.getElementById('reportAuthBox');
+      const form = document.getElementById('reportFormFields');
+      if (currentIndexUser) {
+        box.innerHTML = `<i class="fa-solid fa-circle-check"></i> 已登入：<strong>${currentIndexUser.user_metadata?.full_name || currentIndexUser.email}</strong>，送出後由站長審核上架。`;
+        form.style.display = 'block';
+      } else {
+        box.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap;">
+            <span><i class="fa-solid fa-shield-halved"></i> 為防止惡意假連結，請先登入 Google 帳號再回報開獎結果：</span>
+            <button type="button" onclick="signInIndexGoogle()" style="padding:0.4rem 0.85rem; border:none; border-radius:6px; background:var(--primary); color:#fff; font-weight:600; cursor:pointer;">
+              <i class="fa-brands fa-google"></i> Google 登入
+            </button>
+          </div>
+        `;
+        form.style.display = 'none';
+      }
+    }
+
+    async function signInIndexGoogle() {
+      if (!sbIndexClient) return;
+      await sbIndexClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.href.split('#')[0] }
+      });
+    }
+
+    async function submitLotteryReport() {
+      if (!sbIndexClient || !currentIndexUser || !currentDetailEvent) return;
+      const urlVal = document.getElementById('reportUrlInput').value.trim();
+      const noteVal = document.getElementById('reportNoteInput').value.trim();
+      if (!/^https?:\/\/.+/i.test(urlVal)) {
+        alert('請輸入完整的中獎名單網址（須以 https:// 或 http:// 開頭）');
+        return;
+      }
+      const btn = document.getElementById('reportSubmitBtn');
+      btn.disabled = true;
+      btn.innerText = '送出中...';
+      try {
+        const { error } = await sbIndexClient.from('lottery_results').insert({
+          event_id: currentDetailEvent.id,
+          event_title: currentDetailEvent.title,
+          reporter_id: currentIndexUser.id,
+          result_url: urlVal,
+          note: noteVal
+        });
+        if (error) throw error;
+        closeReportModal();
+        alert('✅ 感謝回報！已送交站長審核，核准後將公開顯示「🏆 已開獎・查看中獎名單」。');
+      } catch (err) {
+        alert('送出失敗：' + (err.message || err));
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> 送出開獎回報（經站長審核後公開顯示）';
+      }
+    }
+
+    loadVerifiedLotteryResults();
 
     // 載入資料 (優先使用 data.js 內建資料，若無則 fetch events.json)
     if (allEvents.length > 0) {

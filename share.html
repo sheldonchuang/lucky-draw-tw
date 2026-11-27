@@ -893,6 +893,34 @@
           </tbody>
         </table>
       </div>
+
+      <!-- 開獎結果回報審核區 -->
+      <div style="margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
+        <div class="panel-header" style="margin-bottom: 1rem; padding-bottom: 0.75rem;">
+          <div class="panel-title" style="font-size: 1.1rem;">
+            <i class="fa-solid fa-trophy" style="color: var(--accent);"></i> 網友開獎結果回報審核
+          </div>
+          <button class="quick-date-btn" onclick="loadLotteryReports()">
+            <i class="fa-solid fa-rotate"></i> 重新整理回報
+          </button>
+        </div>
+        <div class="table-container">
+          <table class="traffic-table">
+            <thead>
+              <tr>
+                <th>活動名稱</th>
+                <th>中獎名單網址</th>
+                <th>狀態</th>
+                <th>回報時間</th>
+                <th>審核操作</th>
+              </tr>
+            </thead>
+            <tbody id="lotteryReportsBody">
+              <tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">載入開獎回報中...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- ==================== 3. Threads 一鍵發文推廣區塊 ==================== -->
@@ -1984,10 +2012,64 @@
     }
 
     // 初始化頁面：預設載入開站至今 (2026-11-23 至 今日) 的真實流量與今日最新推廣文案
+    async function loadLotteryReports() {
+      const tbody = document.getElementById('lotteryReportsBody');
+      if (!sbClient || !tbody) return;
+      try {
+        const { data, error } = await sbClient
+          .from('lottery_results')
+          .select('id, event_id, event_title, result_url, note, status, created_at')
+          .order('created_at', { ascending: false })
+          .limit(50);
+        if (error) throw error;
+        if (!data || data.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">目前尚無網友回報的開獎結果。</td></tr>';
+          return;
+        }
+        const canEdit = isAuthorizedAdmin();
+        const statusMap = {
+          pending: '<span style="background:#FFF3E0;color:#B85D3B;padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;font-weight:700;">⏳ 待審核</span>',
+          verified: '<span style="background:#EAF2EC;color:#2D5A3C;padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;font-weight:700;">✅ 已核准</span>',
+          rejected: '<span style="background:#FCEAEA;color:#9E4540;padding:0.15rem 0.45rem;border-radius:999px;font-size:0.75rem;font-weight:700;">❌ 已駁回</span>'
+        };
+        tbody.innerHTML = data.map(r => `
+          <tr>
+            <td style="max-width:260px; white-space:normal; font-weight:600;">${escapeHtml(r.event_title || r.event_id)}</td>
+            <td style="max-width:240px; white-space:normal;">
+              <a href="${escapeHtml(r.result_url)}" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600; word-break:break-all;">查看連結 ↗</a>
+              ${r.note ? `<div style="font-size:0.75rem; color:var(--text-muted);">${escapeHtml(r.note)}</div>` : ''}
+            </td>
+            <td>${statusMap[r.status] || escapeHtml(r.status)}</td>
+            <td>${formatTaipeiTime(r.created_at)}</td>
+            <td>
+              ${canEdit ? `
+                <div style="display:flex; gap:0.3rem;">
+                  <button class="admin-mini-btn" onclick="reviewLotteryReport('${r.id}', 'verified')">✅ 核准</button>
+                  <button class="admin-mini-btn" onclick="reviewLotteryReport('${r.id}', 'rejected')">❌ 駁回</button>
+                </div>` : '<span style="font-size:0.75rem; color:var(--text-muted);">需登入站長帳號</span>'}
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:1.5rem; color:var(--text-muted);">尚未建立 lottery_results 資料表或無讀取權限</td></tr>`;
+      }
+    }
+
+    async function reviewLotteryReport(id, newStatus) {
+      if (!sbClient || !isAuthorizedAdmin()) return;
+      try {
+        const { error } = await sbClient.from('lottery_results').update({ status: newStatus }).eq('id', id);
+        if (error) throw error;
+        await loadLotteryReports();
+      } catch (err) {
+        alert('審核更新失敗：' + (err.message || err));
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       setLaunchRange();
       regenerateDailyPosts();
-      checkAdminSession();
+      checkAdminSession().then(() => loadLotteryReports());
       loadMembersData();
     });
   </script>
