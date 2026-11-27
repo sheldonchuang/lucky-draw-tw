@@ -66,5 +66,5 @@ lucky-draw-tw/
 
 ## 商務合作與廣告贊助
 
-- 聯絡信箱：`sheldonchuang@gmail.com`
+- 聯絡信箱：`scottsherlockwholmes@gmail.com`
 - 合作項目：活動推廣置頂、品牌廣告贊助、超商活動特輯合作。
