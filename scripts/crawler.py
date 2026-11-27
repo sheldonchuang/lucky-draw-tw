@@ -798,6 +798,264 @@ def get_dynamic_free_intelligence(today):
             "officialUrl": "https://www.grazie.com.tw/"
         },
 
+        # --- 一、百貨美食街常見餐飲品牌（日式麵食、丼飯咖哩、韓式、中台、港式南洋、鐵板燒鍋物、烘焙甜點冰品） ---
+        {
+            "id": "ext-fc-ramen-01",
+            "title": "美食街日式麵食／拉麵（丸亀製麵 / 山頭火 / 樂麵屋 / 大海拉麵 / 三田製麵所）・會員領券加料＆免費加麵",
+            "brand": "美食街日式麵食",
+            "tags": ["買一送一", "免消費即抽", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【丸亀製麵】官方 LINE 會員定期發送買一送一／半價烏龍麵與免費炸物券；【三田製麵所／樂麵屋／山頭火／大海拉麵】提供免費加麵（替玉）或加量不加價、集點贈溏心蛋／叉燒等美食街超值好康！",
+            "prizes": ["丸亀製麵 LINE 買一送一／炸物兌換券", "三田製麵所／樂麵屋免費加麵優惠", "山頭火／大海拉麵會員配料贈送"],
+            "imageUrl": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.marukame.com.tw/",
+            "officialUrl": "https://www.marukame.com.tw/"
+        },
+        {
+            "id": "ext-fc-donburi-01",
+            "title": "美食街丼飯／豬排／咖哩／定食（開丼 / 吉豚屋 / 松屋 / 金子半之助 / 天吉屋 / CoCo壹番屋 / 大戶屋 / 彌生軒）",
+            "brand": "美食街日式丼飯咖哩",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "涵蓋美食街人氣日系品牌：【開丼／吉豚屋／松屋／富士印】會員點數折抵與新品優惠；【金子半之助／天吉屋】香繼光／三商餐飲會員領券贈炸物；【CoCo壹番屋／日乃屋咖哩／魔法咖哩】壽星與平日加菜優惠；【大戶屋／彌生軒 YAYOI】享聚卡 APP 領券、白飯高麗菜絲免費續加！",
+            "prizes": ["大戶屋／彌生軒享聚卡會員贈菜券", "金子半之助／開丼／吉豚屋會員折價", "CoCo壹番屋／魔法咖哩／日乃屋壽星禮"],
+            "imageUrl": "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.ootoya.com.tw/",
+            "officialUrl": "https://www.yayoi.com.tw/"
+        },
+        {
+            "id": "ext-fc-korean-01",
+            "title": "美食街韓式料理（韓姜熙的小廚房 / 雪嶽山 / 韓鶴亭 / 豆腐村 / 北村豆腐家 / 兩餐）・豆腐煲免費贈菜與壽星禮",
+            "brand": "美食街韓式料理",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【北村豆腐家（豆府集團）／韓姜熙的小廚房】豆府鐵粉卡 APP 領入會禮、免費贈韓式炸雞／海鮮煎餅兌換券；【豆腐村／雪嶽山／韓鶴亭】小菜免費續加與套餐加價購優惠；【兩餐韓國年糕火鍋】壽星／學生／四人同行專屬折扣！",
+            "prizes": ["北村豆腐家豆府鐵粉卡免費贈菜券", "韓姜熙／豆腐村／雪嶽山／韓鶴亭套餐優惠", "兩餐年糕火鍋壽星與多人同行折扣"],
+            "imageUrl": "https://images.unsplash.com/photo-1583224964978-2257b960c3d3?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.hanoktofu.com.tw/",
+            "officialUrl": "https://www.tofuvillage.com.tw/"
+        },
+        {
+            "id": "ext-fc-twcn-01",
+            "title": "美食街中式／台式／炸物（朱記 / 大師兄銷魂麵舖 / 段純貞 / 三商巧福 / 頂呱呱 / 繼光香香雞 / 六星炸雞 / 小南門 / 度小月）",
+            "brand": "美食街中台麵點炸物",
+            "tags": ["買一送一", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【三商巧福／段純貞牛肉麵／朱記餡餅粥】三商 i美食卡 APP 定期發放牛肉麵特價與生日買一送一；【大師兄銷魂麵舖／小南門傳統豆花／度小月】百貨聯名優惠；【頂呱呱／繼光香香雞／六星炸雞】官方 LINE 會員券、每週炸雞買一送一或加價購優惠！",
+            "prizes": ["三商巧福／段純貞／朱記會員特價與生日禮", "頂呱呱／繼光香香雞／六星炸雞買一送一券", "大師兄銷魂麵舖／小南門／度小月超值組"],
+            "imageUrl": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.3375.com.tw/",
+            "officialUrl": "https://www.jgssg.com.tw/"
+        },
+        {
+            "id": "ext-fc-hksea-01",
+            "title": "美食街港式／南洋料理（檀島 / 添好運 / 點點心 / 了凡 / 誠記越南 / 越亮 / 瓦城大心 / 慶城・瑞記海南雞飯）",
+            "brand": "美食街港式南洋",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【添好運／了凡油雞飯麵】和億會員免費領港點兌換券與壽星禮；【點點心／檀島香港茶餐廳】緯豆/大成會員禮免費贈豬仔流沙包或蛋撻；【瓦城大心／誠記越南麵食館／越亮／慶城・瑞記海南雞飯】官方 LINE 領券贈飲料小菜或芝麻霜淇淋！",
+            "prizes": ["添好運／了凡／點點心／檀島港點兌換券", "瓦城大心 LINE 領券免費贈霜淇淋／小菜", "誠記／越亮／海南雞飯套餐超值折抵"],
+            "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.timhowan.com.tw/",
+            "officialUrl": "https://www.dimdimsum.tw/"
+        },
+        {
+            "id": "ext-fc-teppan-01",
+            "title": "美食街鐵板燒／排餐／快煮鍋（新悅鐵板燒 / 胡椒廚房 Pepper Lunch / 鐵火牛排 / 石二鍋 / 12MINI快煮鍋 / 三顧茅廬）",
+            "brand": "美食街鐵板燒鍋物",
+            "tags": ["買一送一", "免消費即抽", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【石二鍋／12MINI快煮鍋】王品瘋美食 APP 會員贈菜／加肉券與集點折抵；【胡椒廚房 Pepper Lunch／新悅鐵板燒／鐵火牛排】不定期推出會員加購優惠與套餐折抵；【三顧茅廬】LINE 會員滿額贈滷味或買一送一活動！",
+            "prizes": ["12MINI／石二鍋王品瘋美食贈菜券", "胡椒廚房／鐵火牛排／新悅鐵板燒會員優惠", "三顧茅廬 LINE 滿額免費加料"],
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.12mini.com.tw/",
+            "officialUrl": "https://www.pepperlunch.com.tw/"
+        },
+        {
+            "id": "ext-fc-dessert-01",
+            "title": "百貨烘焙／甜點／冰品飲品（Mister Donut / beard papa's / DONQ / Mini One / COLD STONE / 31冰淇淋 / Häagen-Dazs / CREMIA）",
+            "brand": "百貨甜點冰品烘焙",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【Mister Donut】統一集團常態甜甜圈買 5 送 2／買 6 送 2；【COLD STONE／31冰淇淋／Häagen-Dazs／CREMIA】每月 31 號 31% OFF、COLD STONE 桶裝/單球買一送一、LINE 好友券；【beard papa's／DONQ 東客麵包／Mini One】每月限定泡芙與可頌秤重優惠！",
+            "prizes": ["Mister Donut 甜甜圈買5送2／買6送2", "COLD STONE／Häagen-Dazs／31冰淇淋買一送一與31日折扣", "beard papa's／DONQ／Mini One／CREMIA 限定優惠"],
+            "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.misterdonut.com.tw/",
+            "officialUrl": "https://www.coldstone.com.tw/"
+        },
+        {
+            "id": "ext-fc-tea-02",
+            "title": "百貨人氣手搖茶館（春水堂 / 樺達奶茶 / 大茗本位製茶堂 / 日出茶太 Chatime）・會員領券與買一送一優惠",
+            "brand": "春水堂/樺達/大茗/日出茶太",
+            "tags": ["買一送一", "壽星好康", "熱門好康"],
+            "promo_group": "drinks",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【日出茶太 Chatime】六角美食通 APP 新會員贈飲料券、每月會員日買一送一與壽星專屬 8 折/買一送一；【春水堂／樺達奶茶／大茗本位製茶堂】搭配百貨 APP 美食券折抵、自備環保杯折 5 元起及不定期節慶買一送一！",
+            "prizes": ["日出茶太六角美食通買一送一＆壽星禮", "春水堂／樺達奶茶／大茗百貨美食券折抵", "環保杯折5元起＆指定飲品加價購"],
+            "imageUrl": "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.chunshuitang.com.tw/",
+            "officialUrl": "https://www.ichatime.com/"
+        },
+
+        # --- 二、百貨主題餐廳：各大連鎖餐飲集團 ---
+        {
+            "id": "ext-grp-eatogether",
+            "title": "饗賓餐旅集團（饗食天堂 / 饗饗 / 旭集 / 開飯川食堂 / 饗泰多 / 真珠 / 果然匯 / 小福利 / 朵頤牛排）・iEAT 壽星 95 折＆贈禮",
+            "brand": "饗賓餐旅集團",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "免費下載註冊「iEAT 饗愛吃」APP 成為會員，旗下【饗食天堂、饗饗 INPARADISE、旭集、開飯川食堂、饗泰多、真珠台灣佳味、果然匯、小福利麻辣鍋、朵頤牛排】全品牌通吃：當月壽星免費領 95 折優惠券與生日專屬贈禮，消費集點還可免費兌換餐券或折抵現金！",
+            "prizes": ["iEAT 會員當月壽星 95 折優惠券", "旭集／饗饗／饗食天堂會員點數折抵", "開飯／饗泰多／真珠／果然匯／小福利免費贈菜券"],
+            "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.ieat.tw/",
+            "officialUrl": "https://www.eatogether.com.tw/"
+        },
+        {
+            "id": "ext-grp-hilai",
+            "title": "漢來美食集團（漢來海港 / 島語 / 名人坊 / 上海湯包 / 溜溜酸菜魚 / 上菜片皮鴨 / 漢來蔬食）・來美食 APP 入會禮＆壽星禮",
+            "brand": "漢來美食集團",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載「來美食 APP」免費註冊即領 100 元以上電子折價券！適用於【漢來海港、島語自助餐廳、漢來名人坊、漢來上海湯包、溜溜酸菜魚、上菜片皮鴨、漢來蔬食】，漢來海港當日壽星再享平日 7 折／假日 85 折超狂優惠！",
+            "prizes": ["來美食 APP 新會員免費領 100 元折價券", "漢來海港當日壽星平日 7 折／假日 85 折", "島語／溜溜酸菜魚／上菜片皮鴨／上海湯包會員贈禮"],
+            "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.hilai-foods.com/",
+            "officialUrl": "https://www.hilai-foods.com/"
+        },
+        {
+            "id": "ext-grp-thaitown",
+            "title": "瓦城泰統集團（瓦城 / 非常泰 / 1010湘 / 時時香 / 大心 / YABI KITCHEN / 月月泰BBQ）・wa10 APP 壽星禮＆贈菜券",
+            "brand": "瓦城泰統集團",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載「wa10」APP 或加入【瓦城泰國料理、非常泰、1010湘、時時香、大心、YABI KITCHEN、月月泰BBQ】官方 LINE 會員，新會員贈入會禮與電子贈菜券（免費換摩摩喳喳／招牌小菜），當月壽星再贈免費生日專屬甜點或招待菜！",
+            "prizes": ["wa10 會員入會領免費贈菜／甜點券", "當月壽星免費贈摩摩喳喳或招牌菜", "瓦城／時時香／1010湘／YABI 消費集點折現"],
+            "imageUrl": "https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.thaitown.com.tw/",
+            "officialUrl": "https://www.thaitown.com.tw/"
+        },
+        {
+            "id": "ext-grp-wowprime",
+            "title": "王品集團全品牌（聚 / 石二鍋 / 青花驕 / 和牛涮 / 陶板屋 / 品田牧場 / 夏慕尼 / 阪前 / 就饗 / 享鴨 / 莆田 / 丰禾 / 肉次方）",
+            "brand": "王品集團",
+            "tags": ["買一送一", "免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載「王品瘋美食」APP 享全集團 13 大人氣品牌通用回饋：含鍋物（聚、石二鍋、青花驕、和牛涮）、日料西餐（陶板屋、品田牧場、夏慕尼、阪前、就饗鐵板燒）、中餐燒肉（享鴨、莆田、丰禾、肉次方），每月領免費贈菜／買一送一券，當月壽星享指定套餐 5 折或 88 折／免費招待！",
+            "prizes": ["夏慕尼／陶板屋／品田／肉次方當月壽星優惠券", "享鴨／莆田／丰禾／阪前／就饗免費贈菜券", "聚／青花驕／和牛涮／石二鍋瘋點數 1 點折 1 元"],
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://wowprime.com/",
+            "officialUrl": "https://wowprime.com/"
+        },
+        {
+            "id": "ext-grp-tofu",
+            "title": "豆府餐飲集團（涓豆腐 / 北村豆腐家 / 姜滿堂 / 帕泰家 / 飛機河粉 / 阿達師五星麵舖）・豆府鐵粉卡 APP 領免費餐點",
+            "brand": "豆府餐飲集團",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "下載「豆府鐵粉卡」APP 免費加入會員，新會員立即贈送入會點數與免費兌換券！適用於【涓豆腐、北村豆腐家、姜滿堂正宗韓國直火燒肉、帕泰家、飛機河粉、阿達師五星麵舖】，當月壽星更可領取專屬壽星免費贈菜券（韓式炸雞／泰式奶茶／海鮮煎餅等）！",
+            "prizes": ["豆府鐵粉卡入會免費贈料理兌換券", "當月壽星免費贈韓式炸雞／海鮮煎餅", "涓豆腐／姜滿堂／帕泰家跨品牌集點折抵"],
+            "imageUrl": "https://images.unsplash.com/photo-1583224964978-2257b960c3d3?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.dubuhouse.com.tw/",
+            "officialUrl": "https://www.dubuhouse.com.tw/"
+        },
+        {
+            "id": "ext-grp-kanpai-all",
+            "title": "乾杯集團全品牌（乾杯燒肉 / 老乾杯 / 黑毛屋 / 黑毛屋本家 / 麻辣45 / 高木和牛食堂）・壽星免費禮＆八點續杯",
+            "brand": "乾杯集團",
+            "tags": ["買一送一", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "加入「KANPAI GO！CLUB」LINE 會員，於【乾杯燒肉居酒屋、老乾杯、黑毛屋、黑毛屋本家、麻辣45、高木和牛食堂】消費累積點數直接兌換免費肉品／鍋料，當月壽星預約即贈專屬慶生甜點／精選肉品招待！",
+            "prizes": ["乾杯／老乾杯八點乾杯免費續杯活動", "黑毛屋／麻辣45／高木和牛會員贈肉券", "當月壽星專屬免費慶生招待"],
+            "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.kanpai.com.tw/",
+            "officialUrl": "https://www.kanpai.com.tw/"
+        },
+        {
+            "id": "ext-grp-mulino",
+            "title": "慕里諾＆雲雀餐飲集團（勝政 / 勝勢豬排 / 杏桃鬆餅屋 / 鳥丈 / 泰迪農園 / 石壁家 / 古拉爵 / 涮乃葉 / 藍屋 / 武藏野森珈琲 / SKYLARK）",
+            "brand": "慕里諾/雲雀集團",
+            "tags": ["免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【慕里諾集團】勝政日式豬排、勝勢日式豬排、杏桃鬆餅屋、鳥丈爐端燒、泰迪農園咖哩、石壁家 SPIGA 定期推出會員限定贈禮與新品優惠；【雲雀集團】加入官方會員即領古拉爵、涮乃葉、藍屋日本料理、武藏野森珈琲、SKYLARK 洋食芳鄰入會券＆壽星免費甜點券！",
+            "prizes": ["雲雀會員入會領涮乃葉／古拉爵／藍屋折價券", "勝政／勝勢豬排／杏桃鬆餅屋／石壁家優惠", "當月壽星專屬免費鬆餅／甜點招待"],
+            "imageUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.skylark.com.tw/",
+            "officialUrl": "https://www.mulino.tw/"
+        },
+
+        # --- 百貨高人氣主題餐廳（日式/壽司/燒肉、中港泰、美義歐陸早午餐） ---
+        {
+            "id": "ext-theme-jp-01",
+            "title": "百貨人氣日式／壽司／燒肉（合點壽司 / 美登利 / 欣葉日本料理 / 欣葉SHABU / 橘色 / 初魚 / うなぎ四代目菊川 / 雞三和 / 千房 / 胡同燒肉）",
+            "brand": "百貨日料壽司燒肉",
+            "tags": ["壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【欣葉集團（欣葉日本料理／欣葉 SHABU SHABU）】會員享壽星扭蛋抽獎與生日招待；【橘色涮涮屋／胡同燒肉（橘焱胡同會員）】當月壽星免費贈精緻甜品／牛五花等招待；【合點壽司／美登利壽司／初魚鉄板料亭／うなぎ四代目菊川／雞三和／千房大阪燒】搭配百貨 APP 餐飲抵用券與季節限定套餐優惠！",
+            "prizes": ["欣葉日本料理／SHABU 壽星扭蛋與專屬禮", "胡同燒肉／橘色涮涮屋當月壽星免費招待", "合點壽司／美登利／四代目菊川／雞三和／千房百貨優惠"],
+            "imageUrl": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.shinyeh.com.tw/",
+            "officialUrl": "https://www.hutong.com.tw/"
+        },
+        {
+            "id": "ext-theme-cntw-01",
+            "title": "百貨人氣中式／港式／泰式（鼎泰豐 / 點水樓 / 名人坊 / 鴨寮街 / NARA Thai / Lady nara / 飯BAR / 欣葉台菜 / 永心鳳茶）",
+            "brand": "百貨中港泰主題餐廳",
+            "tags": ["壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【NARA Thai Cuisine／Lady nara】加入會員免費贈泰式奶茶／飲品券，當月壽星享指定贈禮；【點水樓／名人坊／鴨寮街／飯BAR／欣葉台菜／永心鳳茶／鼎泰豐】搭配百貨公司（新光三越 skm points、遠百 APP、微風積點、SOGO）點數折現或聯名卡滿額優惠最划算！",
+            "prizes": ["NARA Thai／Lady nara 會員免費贈飲品與壽星禮", "點水樓／名人坊／鴨寮街／飯BAR 百貨折扣", "鼎泰豐／欣葉台菜／永心鳳茶百貨點數折抵"],
+            "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.narathai.com.tw/",
+            "officialUrl": "https://www.dintaifung.com.tw/"
+        },
+        {
+            "id": "ext-theme-west-01",
+            "title": "美式／義式／早午餐甜點（貳樓 / 金色三麥 / 布娜飛 / TGI FRIDAYS / Texas Roadhouse / 莫凡彼 / Woosa / Sarabeth's / LADY M / FLIPPER'S）",
+            "brand": "美義早午餐與名店甜點",
+            "tags": ["買一送一", "免消費即抽", "壽星好康", "熱門好康"],
+            "promo_group": "restaurant",
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "【貳樓 Second Floor／莫凡彼 Mövenpick】會員享壽星免費甜點或飲品優惠；【金色三麥／布娜飛比利時啤酒餐廳】當日壽星送 6 吋蛋糕／精釀啤酒招待；【TGI FRIDAYS／Texas Roadhouse 德州鮮切牛排】開展餐飲會員免費領開胃菜／週五指定飲品買一送一；【Woosa洋食鬆餅屋／Sarabeth's／LADY M／FLIPPER'S】當月壽星優惠與聯名下午茶特惠！",
+            "prizes": ["金色三麥當日壽星免費贈 6 吋蛋糕", "TGI FRIDAYS／Texas Roadhouse 會員免費贈菜＆週五買一送一", "貳樓／莫凡彼／Woosa／LADY M／FLIPPER'S 壽星與會員禮"],
+            "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.secondfloorcafe.com/",
+            "officialUrl": "https://www.lebledor.com/"
+        },
+
         # --- 速食與披薩隱藏優惠碼專區（麥當勞、肯德基、必勝客、漢堡王、摩斯漢堡） ---
         {
             "id": "ext-bogo-fast-01",
@@ -1523,30 +1781,42 @@ def crawl_brand_official_and_news(today):
     # 3. 即時爬取各大品牌每日優惠情報 RSS (僅保留近 5 日內最新新聞)
     brand_keywords = [
         '星巴克', '路易莎', '7-11', '7-ELEVEN', '全家', 'CoCo', '迷客夏', '麻古', '可不可', '珍煮丹', '50嵐', '清心',
-        '肯德基', '必勝客', '麥當勞', '漢堡王', '摩斯',
-        '爭鮮', '壽司郎', '藏壽司', '王品', '石二鍋', '築間', '肉多多', '馬辣', '海底撈',
-        '乾杯', '原燒', '屋馬', '牛角', '一風堂', '勝博殿', '杏子豬排', 'Mo-Mo', '古拉爵', '薄多義', '瓦城', '饗食天堂'
+        '春水堂', '樺達奶茶', '大茗', '日出茶太', 'Mister Donut', 'COLD STONE', '31冰淇淋', 'Häagen-Dazs', 'CREMIA', "beard papa's",
+        '肯德基', '必勝客', '麥當勞', '漢堡王', '摩斯', '頂呱呱', '繼光香香雞',
+        '爭鮮', '壽司郎', '藏壽司', '合點壽司', '美登利',
+        '王品', '石二鍋', '12MINI', '聚日式', '青花驕', '和牛涮', '陶板屋', '品田牧場', '夏慕尼', '享鴨', '肉次方', '築間', '肉多多', '馬辣', '海底撈', '涮乃葉',
+        '乾杯', '原燒', '屋馬', '牛角', '胡同燒肉', '姜滿堂', '黑毛屋', '麻辣45',
+        '一風堂', '丸亀製麵', '屯京', '花月嵐', '山頭火', '樂麵屋', '三田製麵所', '勝博殿', '杏子豬排', '勝政', '勝勢', '吉豚屋', '大戶屋', '彌生軒', '開丼', '金子半之助',
+        'Mo-Mo', '古拉爵', '薄多義', 'BELLINI', '貳樓', '金色三麥', 'TGI FRIDAYS', 'Texas Roadhouse', '莫凡彼', 'Woosa', 'LADY M',
+        '瓦城', '時時香', '大心', '饗食天堂', '饗饗', '旭集', '開飯川食堂', '饗泰多', '漢來海港', '島語', '添好運', '點點心', '檀島', '鼎泰豐', '涓豆腐', '北村豆腐家', '段純貞', '三商巧福'
     ]
     rss_feeds = [
         {
-            'name': '咖啡手搖優惠',
-            'query': '買一送一 OR 寄杯 星巴克 OR 路易莎 OR CoCo OR 迷客夏 OR 麻古 OR 可不可 OR 超商咖啡',
+            'name': '咖啡手搖甜點冰品',
+            'query': '買一送一 OR 寄杯 OR 優惠 星巴克 OR 路易莎 OR CoCo OR 迷客夏 OR 春水堂 OR "Mister Donut" OR "COLD STONE" OR 31冰淇淋',
             'promo_group': 'drinks',
             'img': 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80',
             'limit': 5
         },
         {
-            'name': '速食披薩優惠',
-            'query': '優惠碼 OR 買一送一 肯德基 OR 必勝客 OR 麥當勞 OR 漢堡王 OR 摩斯漢堡',
+            'name': '速食披薩炸雞優惠',
+            'query': '優惠碼 OR 買一送一 肯德基 OR 必勝客 OR 麥當勞 OR 漢堡王 OR 摩斯漢堡 OR 頂呱呱 OR 繼光香香雞',
             'promo_group': 'fastfood',
             'img': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80',
             'limit': 5
         },
         {
-            'name': '壽司火鍋燒肉餐廳',
-            'query': '優惠 OR 免費 OR 買一送一 爭鮮 OR 壽司郎 OR 藏壽司 OR 王品 OR 築間 OR 乾杯 OR 一風堂 OR 勝博殿 OR 薄多義',
-            'promo_group': None,
+            'name': '壽司火鍋燒肉拉麵豬排',
+            'query': '優惠 OR 免費 OR 買一送一 爭鮮 OR 壽司郎 OR 藏壽司 OR 王品 OR 築間 OR 乾杯 OR 一風堂 OR 丸亀製麵 OR 勝博殿 OR 涓豆腐',
+            'promo_group': 'restaurant',
             'img': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80',
+            'limit': 6
+        },
+        {
+            'name': '百貨主題餐廳與美食街',
+            'query': '優惠 OR 買一送一 OR 壽星 饗食天堂 OR 漢來海港 OR 瓦城 OR 添好運 OR 點點心 OR 貳樓 OR 金色三麥 OR "TGI FRIDAYS" OR 薄多義 OR 三商巧福',
+            'promo_group': 'restaurant',
+            'img': 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80',
             'limit': 6
         }
     ]
