@@ -1840,9 +1840,23 @@ def crawl_brand_official_and_news(today):
                 except Exception:
                     continue
                 age_days = (today - pub_dt).days
-                if age_days < 0 or age_days > 5:
+                if age_days < 0 or age_days > 3:
                     continue
                 title_clean = re.sub(r'\s+-\s+[^-]+$', '', raw_title).strip()
+                # 排除已過期的單日快閃新聞（例如昨日新聞標題寫「今天／今日買一送一」）
+                if age_days >= 1 and any(w in title_clean for w in ['今天', '今日', '今推', '今開搶', '僅此一天']):
+                    continue
+                # 若標題內含明確 M/D 日期（例如 11/23），且所有日期皆已早於今日，視為已截止
+                md_matches = re.findall(r'(?<!\d)(\d{1,2})/(\d{1,2})(?!\d)', title_clean)
+                if md_matches:
+                    parsed_md = []
+                    for mm, dd in md_matches:
+                        try:
+                            parsed_md.append(datetime(today.year, int(mm), int(dd)).date())
+                        except Exception:
+                            pass
+                    if parsed_md and max(parsed_md) < today:
+                        continue
                 matched_brand = next((b for b in brand_keywords if b.lower() in title_clean.lower()), feed['name'])
                 dedup_key = f"{matched_brand}:{title_clean[:10]}"
                 if dedup_key in seen_keys:

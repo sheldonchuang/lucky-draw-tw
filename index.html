@@ -1887,14 +1887,14 @@
     // 判斷活動是否已截止
     function isExpired(item) {
       if (!item) return false;
-      if (item.is_expired === true) return true;
-      if (item.is_expired === false) return false;
-
       const deadlineStr = typeof item === 'string' ? item : item.deadline;
       if (!deadlineStr) return true; // 無明確截止日期的舊活動一律視為已截止
 
       const days = getRemainingDays(deadlineStr);
-      return days !== null && days < 0;
+      if (days !== null && days < 0) return true;
+
+      if (item.is_expired === true) return true;
+      return false;
     }
 
     // 取得標籤樣式
