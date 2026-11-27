@@ -370,91 +370,71 @@
       50% { opacity: 0.3; transform: scale(1.2); }
     }
 
-    /* 贊助商下方：並排兩大快捷專區按鈕（點餐前必看 & 咖啡手搖卷） */
+    /* 頂部生活好康捷徑區：溫潤紙感與莫蘭迪大地色 */
     .quick-promo-section {
-      background: #EFECE5;
+      background: #F4F1EA;
       border-bottom: 1px solid var(--border);
-      padding: 0.9rem 1.25rem;
+      padding: 1.25rem 1.25rem 1.15rem;
     }
     .quick-promo-grid {
       max-width: 1120px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
+      gap: 0.85rem;
     }
     .quick-promo-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 0.85rem;
-      padding: 0.95rem 1.25rem;
-      border-radius: 14px;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
+      gap: 0.75rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid #E2DBD0;
+      background: #FFFEFB;
       cursor: pointer;
       text-align: left;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      box-shadow: 0 3px 10px rgba(45, 40, 30, 0.05);
+      box-shadow: 0 2px 6px rgba(45, 40, 30, 0.03);
       font-family: inherit;
       position: relative;
       overflow: hidden;
     }
     .quick-promo-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(45, 40, 30, 0.1);
+      box-shadow: 0 6px 16px rgba(45, 40, 30, 0.07);
+      border-color: #CBBFA9;
     }
-    .quick-promo-btn.promo-fastfood {
-      background: linear-gradient(135deg, #FFF9F4 0%, #FDF1E6 100%);
-      border-color: #E7C3A5;
-    }
-    .quick-promo-btn.promo-fastfood:hover {
-      border-color: #C77A44;
-    }
-    .quick-promo-btn.promo-drinks {
-      background: linear-gradient(135deg, #F4F9F6 0%, #E7F1EB 100%);
-      border-color: #B4CEBF;
-    }
-    .quick-promo-btn.promo-drinks:hover {
-      border-color: #2D4B3E;
-    }
-    .quick-promo-btn.promo-supermarket {
-      background: linear-gradient(135deg, #F2F7FB 0%, #E3EEF7 100%);
-      border-color: #AFCBE2;
-    }
-    .quick-promo-btn.promo-supermarket:hover {
-      border-color: #2A5C82;
-    }
+    .quick-promo-btn.promo-fastfood:hover { border-color: #C79A82; }
+    .quick-promo-btn.promo-drinks:hover { border-color: #8FB39E; }
+    .quick-promo-btn.promo-supermarket:hover { border-color: #8CA9C0; }
     .quick-promo-left {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.8rem;
       min-width: 0;
     }
     .quick-promo-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.45rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
     }
     .promo-fastfood .quick-promo-icon {
-      background: #B85D3B;
-      color: #FFFFFF;
-      box-shadow: 0 4px 10px rgba(184, 93, 59, 0.28);
+      background: #F9EFE8;
+      color: #9E5338;
     }
     .promo-drinks .quick-promo-icon {
-      background: #2D4B3E;
-      color: #FFFFFF;
-      box-shadow: 0 4px 10px rgba(45, 75, 62, 0.28);
+      background: #EAF1EC;
+      color: #2D4B3E;
     }
     .promo-supermarket .quick-promo-icon {
-      background: #2A5C82;
-      color: #FFFFFF;
-      box-shadow: 0 4px 10px rgba(42, 92, 130, 0.28);
+      background: #EAF0F5;
+      color: #355873;
     }
     .quick-promo-text {
       min-width: 0;
@@ -462,40 +442,40 @@
     .quick-promo-title-row {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
     }
     .quick-promo-title {
       font-family: var(--font-serif);
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.05rem;
+      font-weight: 700;
       color: var(--text);
       line-height: 1.25;
     }
     .quick-promo-hot {
       font-size: 0.68rem;
-      font-weight: 700;
-      padding: 0.12rem 0.45rem;
+      font-weight: 600;
+      padding: 0.1rem 0.45rem;
       border-radius: 999px;
       letter-spacing: 0.02em;
     }
     .promo-fastfood .quick-promo-hot {
-      background: #FCE3D2;
-      color: #9C4120;
+      background: #F6EAE2;
+      color: #8E472D;
     }
     .promo-drinks .quick-promo-hot {
-      background: #D8EAE0;
-      color: #1F3F31;
+      background: #E5EFE9;
+      color: #264537;
     }
     .promo-supermarket .quick-promo-hot {
-      background: #D6E7F5;
-      color: #1D4463;
+      background: #E4EDF4;
+      color: #2B4C66;
     }
     .quick-promo-sub {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
       margin-top: 0.22rem;
-      line-height: 1.35;
+      line-height: 1.4;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -503,164 +483,181 @@
     }
     .quick-promo-cta {
       flex-shrink: 0;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.38rem 0.75rem;
+      border-radius: 8px;
       white-space: nowrap;
-      transition: opacity 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
     .promo-fastfood .quick-promo-cta {
-      background: #B85D3B;
+      background: #F7ECE5;
+      color: #8E472D;
+    }
+    .promo-fastfood:hover .quick-promo-cta {
+      background: #9E5338;
       color: #FFFFFF;
     }
     .promo-drinks .quick-promo-cta {
+      background: #EBF1ED;
+      color: #2D4B3E;
+    }
+    .promo-drinks:hover .quick-promo-cta {
       background: #2D4B3E;
       color: #FFFFFF;
     }
     .promo-supermarket .quick-promo-cta {
-      background: #2A5C82;
+      background: #EAF0F5;
+      color: #355873;
+    }
+    .promo-supermarket:hover .quick-promo-cta {
+      background: #355873;
       color: #FFFFFF;
     }
 
-    /* 全新功能：三並排醒目大按鈕列（社群贈券牆 + 當月買一送一總整理 + 台灣電商折扣碼） */
+    /* 三並排文青書籤卡：社群贈券牆 + 當月買一送一總整理 + 台灣電商折扣碼 */
     .hero-banner-trio {
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem;
+      gap: 0.85rem;
+      margin-top: 0.15rem;
     }
     .community-hero-btn {
       grid-column: 1 / -1;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: stretch;
       justify-content: space-between;
-      gap: 1.1rem;
-      padding: 1.35rem 1.4rem;
-      border-radius: 16px;
-      border: 2px solid #D99B4E;
-      background: linear-gradient(135deg, #1B362B 0%, #2D4B3E 58%, #3B604F 100%);
-      color: #FFFFFF;
+      gap: 1rem;
+      padding: 1.25rem 1.35rem;
+      border-radius: 14px;
+      border: 1px solid #DED6C9;
+      border-top: 4px solid #2D4B3E;
+      background: #FFFEFB;
+      color: var(--text);
       text-decoration: none;
-      box-shadow: 0 10px 26px rgba(27, 54, 43, 0.22), 0 0 0 3px rgba(217, 155, 78, 0.14);
+      box-shadow: 0 2px 8px rgba(45, 40, 30, 0.04);
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       position: relative;
       overflow: hidden;
     }
     .hero-banner-trio .community-hero-btn {
       grid-column: auto;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.35rem 1.35rem;
-    }
-    .hero-banner-trio .community-hero-title {
-      font-size: 1.25rem;
-    }
-    .hero-banner-trio .community-hero-icon {
-      width: 56px;
-      height: 56px;
-      font-size: 1.6rem;
-    }
-    .hero-banner-trio .community-hero-cta {
-      text-align: center;
-      display: block;
-      width: 100%;
-      padding: 0.65rem 1.1rem;
-      font-size: 0.92rem;
-    }
-    .community-hero-btn.bogo-hero-btn {
-      border-color: #E89E5D;
-      background: linear-gradient(135deg, #8F3D26 0%, #B85432 58%, #CF6A3E 100%);
-      box-shadow: 0 10px 26px rgba(143, 61, 38, 0.22), 0 0 0 3px rgba(232, 158, 93, 0.16);
-    }
-    .community-hero-btn.bogo-hero-btn:hover {
-      border-color: #FFD09B;
-      box-shadow: 0 14px 32px rgba(143, 61, 38, 0.3), 0 0 0 4px rgba(255, 208, 155, 0.25);
-    }
-    .community-hero-btn.bogo-hero-btn .community-hero-icon {
-      background: linear-gradient(135deg, #FFD07B 0%, #F0983A 100%);
-      color: #5C2210;
-      box-shadow: 0 6px 16px rgba(92, 34, 16, 0.28);
-    }
-    .community-hero-btn.coupon-hero-btn {
-      border-color: #6BA3D6;
-      background: linear-gradient(135deg, #1B3654 0%, #244970 58%, #2E5C8A 100%);
-      box-shadow: 0 10px 26px rgba(27, 54, 84, 0.22), 0 0 0 3px rgba(107, 163, 214, 0.16);
-    }
-    .community-hero-btn.coupon-hero-btn:hover {
-      border-color: #A6D2FA;
-      box-shadow: 0 14px 32px rgba(27, 54, 84, 0.3), 0 0 0 4px rgba(166, 210, 250, 0.25);
-    }
-    .community-hero-btn.coupon-hero-btn .community-hero-icon {
-      background: linear-gradient(135deg, #FFD07B 0%, #E89D3C 100%);
-      color: #1B3654;
-      box-shadow: 0 6px 16px rgba(27, 54, 84, 0.28);
     }
     .community-hero-btn:hover {
       transform: translateY(-2px);
-      border-color: #F4C46B;
-      box-shadow: 0 14px 32px rgba(27, 54, 43, 0.3), 0 0 0 4px rgba(244, 196, 107, 0.25);
+      border-color: #BFB4A2;
+      border-top-color: #2D4B3E;
+      box-shadow: 0 8px 20px rgba(45, 40, 30, 0.08);
+    }
+    .community-hero-btn.bogo-hero-btn {
+      border-top-color: #B86843;
+    }
+    .community-hero-btn.bogo-hero-btn:hover {
+      border-top-color: #A0512D;
+    }
+    .community-hero-btn.coupon-hero-btn {
+      border-top-color: #466985;
+    }
+    .community-hero-btn.coupon-hero-btn:hover {
+      border-top-color: #32526B;
     }
     .community-hero-left {
       display: flex;
-      align-items: center;
-      gap: 1.15rem;
+      align-items: flex-start;
+      gap: 0.9rem;
       min-width: 0;
     }
     .community-hero-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, #F3B35A 0%, #D97A3E 100%);
-      color: #FFFFFF;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #EBF1ED;
+      color: #2D4B3E;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.85rem;
+      font-size: 1.35rem;
       flex-shrink: 0;
-      box-shadow: 0 6px 16px rgba(217, 122, 62, 0.38);
+    }
+    .community-hero-btn.bogo-hero-btn .community-hero-icon {
+      background: #F9EFE8;
+      color: #A85432;
+    }
+    .community-hero-btn.coupon-hero-btn .community-hero-icon {
+      background: #EAF0F5;
+      color: #355873;
     }
     .community-hero-title-row {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.45rem;
       flex-wrap: wrap;
     }
     .community-hero-title {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #FFFFFF;
-      line-height: 1.2;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
       letter-spacing: 0.01em;
     }
     .community-hero-badge {
-      background: #F6C86E;
-      color: #1B362B;
-      font-size: 0.74rem;
-      font-weight: 800;
-      padding: 0.2rem 0.65rem;
+      background: #F2ECE1;
+      color: #6B5B47;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.14rem 0.55rem;
       border-radius: 999px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
     .community-hero-sub {
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.88);
-      margin-top: 0.35rem;
-      line-height: 1.45;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-top: 0.32rem;
+      line-height: 1.5;
     }
     .community-hero-cta {
-      flex-shrink: 0;
-      background: linear-gradient(135deg, #F8D47C 0%, #E8AF48 100%);
-      color: #1B362B;
-      font-size: 0.98rem;
-      font-weight: 800;
-      padding: 0.78rem 1.4rem;
-      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      width: 100%;
+      background: #F3F6F4;
+      color: #2D4B3E;
+      border: 1px solid #D5E2DA;
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 0.6rem 1rem;
+      border-radius: 9px;
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .community-hero-btn:hover .community-hero-cta {
+      background: #2D4B3E;
+      color: #FFFFFF;
+      border-color: #2D4B3E;
+    }
+    .community-hero-btn.bogo-hero-btn .community-hero-cta {
+      background: #FAF2EC;
+      color: #9A4A28;
+      border-color: #EAD3C4;
+    }
+    .community-hero-btn.bogo-hero-btn:hover .community-hero-cta {
+      background: #A85432;
+      color: #FFFFFF;
+      border-color: #A85432;
+    }
+    .community-hero-btn.coupon-hero-btn .community-hero-cta {
+      background: #EFF4F8;
+      color: #355873;
+      border-color: #CEDCE7;
+    }
+    .community-hero-btn.coupon-hero-btn:hover .community-hero-cta {
+      background: #355873;
+      color: #FFFFFF;
+      border-color: #355873;
     }
 
     @media (max-width: 900px) {
@@ -670,68 +667,61 @@
       .quick-promo-btn.promo-supermarket {
         grid-column: 1 / -1;
       }
+      .hero-banner-trio {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 720px) {
       .quick-promo-section {
-        padding: 0.7rem 0.75rem;
+        padding: 0.85rem 0.75rem;
       }
       .quick-promo-grid {
-        gap: 0.55rem;
+        gap: 0.6rem;
       }
       .quick-promo-btn {
-        padding: 0.7rem 0.75rem;
+        padding: 0.75rem 0.8rem;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
+        gap: 0.55rem;
       }
       .quick-promo-icon {
         width: 36px;
         height: 36px;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         border-radius: 9px;
       }
       .quick-promo-title {
-        font-size: 0.98rem;
+        font-size: 0.96rem;
       }
       .quick-promo-sub {
-        font-size: 0.72rem;
+        font-size: 0.74rem;
       }
       .quick-promo-cta {
         width: 100%;
         text-align: center;
-        padding: 0.35rem 0.5rem;
-        font-size: 0.74rem;
-      }
-      .hero-banner-trio {
-        grid-template-columns: 1fr;
+        padding: 0.38rem 0.5rem;
+        font-size: 0.75rem;
       }
       .community-hero-btn {
-        padding: 1.1rem 1rem;
-        flex-direction: column;
-        align-items: stretch;
+        padding: 1.05rem 1rem;
         gap: 0.85rem;
       }
-      .community-hero-left {
-        gap: 0.8rem;
-      }
       .community-hero-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 1.4rem;
-        border-radius: 12px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        border-radius: 10px;
       }
       .community-hero-title {
-        font-size: 1.22rem;
+        font-size: 1.1rem;
       }
       .community-hero-sub {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
       }
       .community-hero-cta {
-        width: 100%;
-        text-align: center;
-        padding: 0.65rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.58rem 0.9rem;
+        font-size: 0.84rem;
       }
     }
 
