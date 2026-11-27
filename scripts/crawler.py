@@ -424,26 +424,28 @@ def get_dynamic_free_intelligence(today):
         # --- 超商與咖啡茶飲 ---
         {
             "id": "ext-bogo-101",
-            "title": "7-ELEVEN 超值五六日「週末特惠買一送一」・特大美式咖啡/現萃茶/哈根達斯限時半價",
+            "title": "7-ELEVEN 超值五六日「週末特惠買一送一」・CITY CAFE 特大美式咖啡/現萃茶寄杯優惠",
             "brand": "7-ELEVEN",
             "tags": ["買一送一", "超商專區"],
+            "promo_group": "drinks",
             "time": f"每週五六日限時登場 (本期至 {this_sunday_str})",
             "deadline": this_sunday_str,
-            "qualification": "全台 7-11 門市限時超值五六日活動，全品項指定 CITY CAFE 特大美式、精品美式、黑糖珍珠撞奶、指定進口冰品同品項買一送一，無須優惠券直接結帳即享折扣！",
-            "prizes": ["CITY CAFE 特大美式買一送一", "現萃茶全品項買一送一", "指定進口冰品買一送一"],
+            "qualification": "全台 7-11 門市限時超值五六日活動＋OPENPOINT 行動隨時取寄杯特惠！CITY CAFE 特大美式、精品美式、黑糖珍珠撞奶、現萃茶同品項買一送一或寄杯多組現省，無須優惠券直接結帳即享折扣！",
+            "prizes": ["CITY CAFE 特大美式買一送一", "OPENPOINT 咖啡寄杯優惠組", "現萃茶全品項買一送一"],
             "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.7-11.com.tw/",
             "officialUrl": "https://www.7-11.com.tw/"
         },
         {
             "id": "ext-bogo-102",
-            "title": "全家便利商店「康康5週末特惠」・Let's Café 特大拿鐵/雙口味霜淇淋任選買一送一",
+            "title": "全家便利商店「康康5週末特惠」・Let's Café 特大拿鐵寄杯/私品茶/霜淇淋任選買一送一",
             "brand": "全家",
             "tags": ["買一送一", "超商專區"],
+            "promo_group": "drinks",
             "time": f"每週五六日限時三天 (本期至 {this_sunday_str})",
             "deadline": this_sunday_str,
-            "qualification": "全家全台門市週末五六日「康康5」專屬優惠，特大杯 Let's Café 拿鐵、全家 Fami!ce 霜淇淋（不限口味）、私品茶仙女紅茶買一送一，冷熱不拘！",
-            "prizes": ["Let's Café 特大拿鐵買一送一", "Fami!ce 霜淇淋買一送一", "指定瓶裝茶飲買一送一"],
+            "qualification": "全家全台門市週末五六日「康康5」＆ APP 隨買跨店取咖啡寄杯專屬優惠！特大杯 Let's Café 拿鐵、Fami!ce 霜淇淋、私品茶仙女紅茶買一送一，冷熱不拘！",
+            "prizes": ["Let's Café 特大拿鐵買一送一", "隨買跨店取咖啡寄杯特惠", "Fami!ce 霜淇淋買一送一"],
             "imageUrl": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.family.com.tw/",
             "officialUrl": "https://www.family.com.tw/"
@@ -453,6 +455,7 @@ def get_dynamic_free_intelligence(today):
             "title": "星巴克 Starbucks 數位體驗線上刮刮樂・天天登入抽「全品項飲料買一送一」券",
             "brand": "星巴克",
             "tags": ["買一送一", "免消費即抽"],
+            "promo_group": "drinks",
             "time": f"即日起 ~ {(today + timedelta(days=12)).strftime('%Y/%m/%d')}",
             "deadline": (today + timedelta(days=12)).strftime('%Y/%m/%d'),
             "qualification": "進入星巴克官方 LINE 帳號或數位體驗活動網頁，登入即可每天免費玩刮刮樂一次，人人有獎保證獲得『全品項買一送一券』或『第二杯半價券』！",
@@ -466,6 +469,7 @@ def get_dynamic_free_intelligence(today):
             "title": "伯朗咖啡館 Mr. Brown・每週一卡友日「全品項飲品買一送一」・香醇義式咖啡現省一杯",
             "brand": "伯朗咖啡館",
             "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
             "time": f"每週一會員專屬日 (本期至 {month_end_str})",
             "deadline": month_end_str,
             "qualification": "每週一持伯朗 Lounge 卡至全台伯朗咖啡館門市消費，全品項飲品不限品項、冰熱皆享「買一送一」（結帳以高價者計）！無論是經典美式、香草拿鐵或季節限定飲品皆享超值折扣！",
@@ -479,6 +483,7 @@ def get_dynamic_free_intelligence(today):
             "title": "路易莎咖啡 Louisa Coffee・黑卡會員專屬月度優惠・指定精品手沖 / 拿鐵享 85 折優惠券與 11 點前早餐超值折抵",
             "brand": "路易莎咖啡",
             "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
             "time": f"黑卡專屬月度優惠 (本期至 {month_end_str})",
             "deadline": month_end_str,
             "qualification": "加入『路易莎黑卡』官方會員（LINE 帳號即可免費綁定），享每月指定單品手沖咖啡 75 折/85 折、上午 11:00 前超值活力早餐搭配任一飲品天天享折扣，黑卡消費再享點數翻倍累積！",
@@ -487,16 +492,35 @@ def get_dynamic_free_intelligence(today):
             "activityUrl": "https://www.louisacoffee.co/",
             "officialUrl": "https://www.louisacoffee.co/"
         },
+        {
+            "id": "ext-bogo-tea-01",
+            "title": "知名手搖飲聯合買一送一（CoCo都可 / 迷客夏 / 珍煮丹 / 麻古茶坊）・週三好友日與線上點餐領券特惠",
+            "brand": "手搖飲聯合",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "drinks",
+            "time": f"週週好友日＆線上領券 (本期至 {month_end_str})",
+            "deadline": month_end_str,
+            "qualification": "每週三 CoCo 都可 LINE 官方帳號『都可訂』領券享指定飲品買一送一 / 第二杯半價；迷客夏、珍煮丹、麻古茶坊透過『你訂 Nidin』或官方 LINE 會員綁定，不定期發放買一送一與折價神券！",
+            "prizes": ["CoCo 週三好友日買一送一 / 領券折價", "迷客夏／珍煮丹線上訂餐折價券", "麻古茶坊季節飲品第二杯半價"],
+            "imageUrl": "https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://order.nidin.shop/",
+            "officialUrl": "https://order.nidin.shop/"
+        },
 
-        # --- 速食巨頭專區（麥當勞、肯德基、摩斯漢堡、漢堡王） ---
+        # --- 速食與披薩隱藏優惠碼專區（麥當勞、肯德基、必勝客、漢堡王、摩斯漢堡） ---
         {
             "id": "ext-bogo-fast-01",
             "title": "麥當勞 McDonald's・APP 天天轉盤刮刮樂抽「大薯 / 麥克鷄塊 / 冰炫風買一送一」・歡樂送專屬優惠碼",
             "brand": "麥當勞",
             "tags": ["買一送一", "免消費即抽", "熱門好康"],
+            "promo_group": "fastfood",
+            "coupon_codes": [
+                {"code": "APP天天轉盤", "desc": "麥當勞 APP 每日免費抽大薯 / 4塊鷄塊買一送一"},
+                {"code": "歡樂送滿額贈", "desc": "歡樂送官網/APP 訂餐輸入當期代碼享買一送一"}
+            ],
             "time": f"即日起 ~ {month_end_str}",
             "deadline": month_end_str,
-            "qualification": "打開『麥當勞 APP』每天免費玩開運轉盤與刮刮樂，高機率現抽大薯買一送一、四塊麥克鷄塊買一送一、OREO 冰炫風買一送一券！歡樂送線上訂餐輸入專屬優惠代碼亦享大薯或雞塊同品項買一送一！",
+            "qualification": "打開『麥當勞 APP』每天免費玩開運轉盤與刮刮樂，高機率現抽大薯買一送一、四塊麥克鷄塊買一送一、OREO 冰炫風買一送一券！歡樂送線上訂餐亦享專屬優惠代碼折扣！",
             "prizes": ["大薯買一送一神券", "四塊麥克鷄塊買一送一券", "OREO 冰炫風買一送一券"],
             "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
             "activityUrl": "https://www.mcdonalds.com.tw/",
@@ -504,22 +528,51 @@ def get_dynamic_free_intelligence(today):
         },
         {
             "id": "ext-bogo-103",
-            "title": "肯德基 KFC 隱藏優惠代碼專區・神券【40565 / 40451】咔啦脆雞+原味蛋撻現省120元",
+            "title": "肯德基 KFC 隱藏優惠代碼專區・神券【40565 / 40451 / 40531】咔啦脆雞+原味蛋撻現省120元",
             "brand": "肯德基",
             "tags": ["買一送一", "熱門好康"],
+            "promo_group": "fastfood",
+            "coupon_codes": [
+                {"code": "40565", "desc": "咔啦脆雞×2 + 原味蛋撻×2 + 無糖綠茶 $149"},
+                {"code": "40451", "desc": "個人重量級獨享餐 半價特惠組"},
+                {"code": "40531", "desc": "咔啦雞腿堡 + 原味蛋撻 + 小薯 + 飲品超值組"}
+            ],
             "time": f"即日起 ~ {month_end_str}",
             "deadline": month_end_str,
-            "qualification": "於肯德基自助點餐機或官方線上點餐輸入隱藏優惠代碼【40565】享咔啦脆雞x2+原味蛋撻x2+飲品優惠價 149 元；輸入【40451】享個人重量級獨享餐半價特惠。",
+            "qualification": "於肯德基自助點餐機或官方線上點餐輸入隱藏優惠代碼【40565】享咔啦脆雞x2+原味蛋撻x2+飲品優惠價 149 元；輸入【40451】享個人重量級獨享餐半價特惠；輸入【40531】享漢堡蛋撻超值套餐！",
             "prizes": ["咔啦脆雞+蛋撻超殺神券特惠", "點心盒買一送一優惠碼", "原味蛋撻禮盒加價購優惠"],
             "imageUrl": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://www.kfcclub.com.tw/",
+            "activityUrl": "https://www.kfcclub.com.tw/Coupon",
             "officialUrl": "https://www.kfcclub.com.tw/"
+        },
+        {
+            "id": "ext-bogo-fast-pizzahut",
+            "title": "必勝客 Pizza Hut 隱藏優惠代碼・神券【24405 / 24416 / 14338】外帶買大送大＆個人比薩超值組",
+            "brand": "必勝客",
+            "tags": ["買一送一", "熱門好康"],
+            "promo_group": "fastfood",
+            "coupon_codes": [
+                {"code": "24405", "desc": "外帶 1 個小比薩 + 副食/飲品 超值特惠"},
+                {"code": "24416", "desc": "個人獨享比薩 + BBQ烤雞/薯金幣 組合優惠"},
+                {"code": "14338", "desc": "外帶買大送大 + 1.25L 大可樂超值聚餐組"}
+            ],
+            "time": f"即日起 ~ {month_end_str}",
+            "deadline": month_end_str,
+            "qualification": "至必勝客官方訂餐網站「優惠券專區」或 PK 雙饗卡 APP 輸入 5 碼隱藏優惠代碼，即可直接套用外帶買大送大、小比薩加副食特價或個人獨享比薩超殺組合價！",
+            "prizes": ["外帶比薩買大送大優惠", "個人比薩+副食超值神券", "聚餐大比薩特價優惠代碼"],
+            "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
+            "activityUrl": "https://www.pizzahut.com.tw/promotions/",
+            "officialUrl": "https://www.pizzahut.com.tw/"
         },
         {
             "id": "ext-bogo-fast-02",
             "title": "摩斯漢堡 MOS Burger・MOS Order APP 專屬折價券・摩斯冰紅茶買一送一與元氣早餐第2套半價",
             "brand": "摩斯漢堡",
             "tags": ["買一送一", "熱門好康"],
+            "promo_group": "fastfood",
+            "coupon_codes": [
+                {"code": "MOS Order APP", "desc": "會員專屬領券：大杯冰紅茶買一送一／早餐第2套半價"}
+            ],
             "time": f"即日起 ~ {month_end_str}",
             "deadline": month_end_str,
             "qualification": "下載『MOS Order』APP 免費會員，每週點擊『安心取溫馨送/專屬優惠券』專區，即可臨櫃或手機點餐兌換大杯摩斯冰紅茶買一送一、摩斯蒟蒻禮盒買一送一、元氣早餐第 2 套半價！",
@@ -530,15 +583,20 @@ def get_dynamic_free_intelligence(today):
         },
         {
             "id": "ext-bogo-105",
-            "title": "漢堡王 Burger King 歲末年終優惠神券・小華堡/經典脆雞堡/薯條大杯可樂買一送一",
+            "title": "漢堡王 Burger King 隱藏優惠代碼＆歲末神券・小華堡/經典脆雞堡/大薯買一送一",
             "brand": "漢堡王",
             "tags": ["買一送一"],
+            "promo_group": "fastfood",
+            "coupon_codes": [
+                {"code": "BOGO", "desc": "官網優惠專區：小華堡 / 經典脆雞堡 買一送一"},
+                {"code": "BK99", "desc": "點心超值選：大份薯條 / 洋蔥圈 / 雞塊優惠"}
+            ],
             "time": f"即日起 ~ {month_end_str}",
             "deadline": month_end_str,
-            "qualification": "全台漢堡王門市臨櫃出示手機優惠券畫面，或官網外帶預約輸入優惠碼，即享小華堡買一送一、經典脆雞堡買一送一、大份薯條與洋蔥圈買一送一！",
+            "qualification": "全台漢堡王門市臨櫃出示手機優惠券畫面，或官網外帶預約「優惠券專區」點選/輸入優惠碼，即享小華堡買一送一、經典脆雞堡買一送一、大份薯條與洋蔥圈買一送一！",
             "prizes": ["小華堡買一送一", "黃金脆雞堡買一送一", "大份美式薯條買一送一"],
             "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
-            "activityUrl": "https://www.burgerking.com.tw/",
+            "activityUrl": "https://www.burgerking.com.tw/category/4",
             "officialUrl": "https://www.burgerking.com.tw/"
         },
 

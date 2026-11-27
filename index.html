@@ -369,6 +369,411 @@
       50% { opacity: 0.3; transform: scale(1.2); }
     }
 
+    /* 贊助商下方：並排兩大快捷專區按鈕（點餐前必看 & 咖啡手搖卷） */
+    .quick-promo-section {
+      background: #EFECE5;
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.25rem;
+    }
+    .quick-promo-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+    .quick-promo-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      padding: 0.95rem 1.25rem;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 3px 10px rgba(45, 40, 30, 0.05);
+      font-family: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+    .quick-promo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(45, 40, 30, 0.1);
+    }
+    .quick-promo-btn.promo-fastfood {
+      background: linear-gradient(135deg, #FFF9F4 0%, #FDF1E6 100%);
+      border-color: #E7C3A5;
+    }
+    .quick-promo-btn.promo-fastfood:hover {
+      border-color: #C77A44;
+    }
+    .quick-promo-btn.promo-drinks {
+      background: linear-gradient(135deg, #F4F9F6 0%, #E7F1EB 100%);
+      border-color: #B4CEBF;
+    }
+    .quick-promo-btn.promo-drinks:hover {
+      border-color: #2D4B3E;
+    }
+    .quick-promo-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+    }
+    .quick-promo-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      flex-shrink: 0;
+    }
+    .promo-fastfood .quick-promo-icon {
+      background: #B85D3B;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(184, 93, 59, 0.28);
+    }
+    .promo-drinks .quick-promo-icon {
+      background: #2D4B3E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 10px rgba(45, 75, 62, 0.28);
+    }
+    .quick-promo-text {
+      min-width: 0;
+    }
+    .quick-promo-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .quick-promo-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    .quick-promo-hot {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+    .promo-fastfood .quick-promo-hot {
+      background: #FCE3D2;
+      color: #9C4120;
+    }
+    .promo-drinks .quick-promo-hot {
+      background: #D8EAE0;
+      color: #1F3F31;
+    }
+    .quick-promo-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.22rem;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .quick-promo-cta {
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .promo-fastfood .quick-promo-cta {
+      background: #B85D3B;
+      color: #FFFFFF;
+    }
+    .promo-drinks .quick-promo-cta {
+      background: #2D4B3E;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 720px) {
+      .quick-promo-section {
+        padding: 0.7rem 0.75rem;
+      }
+      .quick-promo-grid {
+        gap: 0.55rem;
+      }
+      .quick-promo-btn {
+        padding: 0.7rem 0.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .quick-promo-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+        border-radius: 9px;
+      }
+      .quick-promo-title {
+        font-size: 0.98rem;
+      }
+      .quick-promo-sub {
+        font-size: 0.72rem;
+      }
+      .quick-promo-cta {
+        width: 100%;
+        text-align: center;
+        padding: 0.35rem 0.5rem;
+        font-size: 0.74rem;
+      }
+    }
+
+    /* 快捷優惠碼彈窗 */
+    .qp-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 28, 26, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .qp-modal-backdrop.open {
+      display: flex;
+    }
+    .qp-modal {
+      background: var(--bg);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 760px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.22);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .qp-modal-header {
+      background: var(--surface);
+      padding: 1.1rem 1.35rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .qp-modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .qp-modal-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    .qp-modal-close {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .qp-modal-close:hover {
+      background: var(--border);
+    }
+    .qp-brand-tabs {
+      display: flex;
+      gap: 0.45rem;
+      padding: 0.75rem 1.35rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border-subtle);
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+    .qp-brand-tab {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .qp-brand-tab.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .qp-modal-body {
+      padding: 1rem 1.35rem 1.4rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .qp-item-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+    .qp-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+    }
+    .qp-brand-pill {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.18rem 0.6rem;
+      border-radius: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .qp-deadline {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+    .qp-item-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    .qp-item-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0.65rem;
+    }
+    .qp-codes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 0.75rem;
+    }
+    .qp-code-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      background: #FAF7F2;
+      border: 1px dashed #D8C7B2;
+      border-radius: 8px;
+      padding: 0.45rem 0.7rem;
+    }
+    .qp-code-info {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+    .qp-code-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.88rem;
+      font-weight: 800;
+      background: #FFF;
+      color: #9C4120;
+      border: 1px solid #E7C3A5;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+    .qp-code-desc {
+      font-size: 0.8rem;
+      color: var(--text);
+    }
+    .qp-copy-btn {
+      background: #B85D3B;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.32rem 0.72rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .qp-copy-btn:hover {
+      background: #9C4120;
+    }
+    .qp-copy-btn.copied {
+      background: #3F6E56;
+    }
+    .qp-item-footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .qp-go-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      background: var(--primary-light);
+    }
+    .qp-go-btn:hover {
+      background: #DCE7E0;
+    }
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #1F362C;
+      color: #fff;
+      padding: 0.65rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      z-index: 10001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* Hero 區域：書卷生活感雜誌標題 */
     .hero {
       background: linear-gradient(180deg, #F7F5F0 0%, #EDE9E1 100%);
@@ -1143,6 +1548,39 @@
     </div>
   </div>
 
+  <!-- 贊助商下方：並排兩大快捷專區按鈕 -->
+  <section class="quick-promo-section" aria-label="熱門快查專區">
+    <div class="quick-promo-grid">
+      <button type="button" class="quick-promo-btn promo-fastfood" onclick="openQuickPromo('fastfood')">
+        <div class="quick-promo-left">
+          <div class="quick-promo-icon"><i class="fa-solid fa-burger"></i></div>
+          <div class="quick-promo-text">
+            <div class="quick-promo-title-row">
+              <span class="quick-promo-title">點餐前必看</span>
+              <span class="quick-promo-hot">隱藏優惠碼</span>
+            </div>
+            <div class="quick-promo-sub">肯德基・必勝客・漢堡王・麥當勞 最新優惠代碼 一鍵複製</div>
+          </div>
+        </div>
+        <span class="quick-promo-cta">一鍵複製代碼 <i class="fa-solid fa-chevron-right"></i></span>
+      </button>
+
+      <button type="button" class="quick-promo-btn promo-drinks" onclick="openQuickPromo('drinks')">
+        <div class="quick-promo-left">
+          <div class="quick-promo-icon"><i class="fa-solid fa-mug-hot"></i></div>
+          <div class="quick-promo-text">
+            <div class="quick-promo-title-row">
+              <span class="quick-promo-title">咖啡手搖卷</span>
+              <span class="quick-promo-hot">上班族每日必領</span>
+            </div>
+            <div class="quick-promo-sub">星巴克・路易莎・超商咖啡寄杯・知名手搖飲 買一送一</div>
+          </div>
+        </div>
+        <span class="quick-promo-cta">領取買一送一 <i class="fa-solid fa-chevron-right"></i></span>
+      </button>
+    </div>
+  </section>
+
   <!-- Hero 區域 -->
   <section class="hero">
     <div class="hero-content">
@@ -1787,6 +2225,195 @@
           console.error('載入 events.json 失敗:', err);
         });
     }
+
+    // ==================== 並排快捷專區彈窗邏輯（點餐前必看 & 咖啡手搖卷） ====================
+    let currentQuickPromoType = 'fastfood';
+    let currentQuickPromoBrand = 'ALL';
+
+    const QUICK_PROMO_CONFIG = {
+      fastfood: {
+        title: '<i class="fa-solid fa-burger" style="color:#B85D3B;"></i> 點餐前必看｜速食與披薩隱藏優惠碼',
+        sub: '肯德基、必勝客、漢堡王、麥當勞、摩斯最新優惠代碼，點一下即可複製使用！每日 00:00 自動更新。',
+        brands: [
+          { key: 'ALL', label: '全部品牌' },
+          { key: '肯德基', label: '肯德基 KFC' },
+          { key: '必勝客', label: '必勝客 PizzaHut' },
+          { key: '漢堡王', label: '漢堡王' },
+          { key: '麥當勞', label: '麥當勞' },
+          { key: '摩斯', label: '摩斯漢堡' }
+        ],
+        match: (e) => {
+          if (e.promo_group === 'fastfood') return true;
+          const txt = `${e.brand || ''} ${e.title || ''}`;
+          return /肯德基|必勝客|漢堡王|麥當勞|摩斯/.test(txt) && (e.tags || []).includes('買一送一');
+        }
+      },
+      drinks: {
+        title: '<i class="fa-solid fa-mug-hot" style="color:#2D4B3E;"></i> 咖啡手搖卷｜買一送一與寄杯優惠',
+        sub: '星巴克、路易莎、伯朗、7-11／全家超商咖啡寄杯、知名手搖飲買一送一，每天早上準時開喝！',
+        brands: [
+          { key: 'ALL', label: '全部飲品' },
+          { key: '星巴克', label: '星巴克' },
+          { key: '路易莎|伯朗', label: '路易莎 / 伯朗' },
+          { key: '7-ELEVEN|全家|超商', label: '超商咖啡寄杯' },
+          { key: '手搖|CoCo|迷客夏|珍煮丹|麻古|50嵐', label: '知名手搖飲' }
+        ],
+        match: (e) => {
+          if (e.promo_group === 'drinks') return true;
+          const txt = `${e.brand || ''} ${e.title || ''}`;
+          return /星巴克|路易莎|伯朗|手搖|CoCo|迷客夏|珍煮丹|麻古|咖啡|現萃茶/.test(txt) && (e.tags || []).includes('買一送一');
+        }
+      }
+    };
+
+    function openQuickPromo(type) {
+      currentQuickPromoType = type;
+      currentQuickPromoBrand = 'ALL';
+      const cfg = QUICK_PROMO_CONFIG[type];
+      document.getElementById('qpModalTitle').innerHTML = cfg.title;
+      document.getElementById('qpModalSub').innerText = cfg.sub;
+      renderQuickPromoTabs();
+      renderQuickPromoList();
+      document.getElementById('quickPromoModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuickPromo(evt) {
+      if (evt && evt.target !== evt.currentTarget) return;
+      document.getElementById('quickPromoModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function filterQuickPromoBrand(brandKey) {
+      currentQuickPromoBrand = brandKey;
+      renderQuickPromoTabs();
+      renderQuickPromoList();
+    }
+
+    function renderQuickPromoTabs() {
+      const cfg = QUICK_PROMO_CONFIG[currentQuickPromoType];
+      const tabsEl = document.getElementById('qpBrandTabs');
+      tabsEl.innerHTML = cfg.brands.map(b => `
+        <button type="button" class="qp-brand-tab ${currentQuickPromoBrand === b.key ? 'active' : ''}" onclick="filterQuickPromoBrand('${b.key}')">${b.label}</button>
+      `).join('');
+    }
+
+    function renderQuickPromoList() {
+      const cfg = QUICK_PROMO_CONFIG[currentQuickPromoType];
+      const bodyEl = document.getElementById('qpModalBody');
+      const activeList = allEvents.filter(e => !isExpired(e) && cfg.match(e));
+
+      const filtered = currentQuickPromoBrand === 'ALL'
+        ? activeList
+        : activeList.filter(e => {
+            const regex = new RegExp(currentQuickPromoBrand, 'i');
+            return regex.test(`${e.brand || ''} ${e.title || ''} ${e.qualification || ''}`);
+          });
+
+      if (filtered.length === 0) {
+        bodyEl.innerHTML = `<div style="text-align:center; padding:2rem; color:var(--text-muted);">目前此品牌暫無進行中優惠，請切換「全部」查看其他好康！</div>`;
+        return;
+      }
+
+      bodyEl.innerHTML = filtered.map(item => {
+        const codesHtml = Array.isArray(item.coupon_codes) && item.coupon_codes.length > 0
+          ? `<div class="qp-codes-list">
+              ${item.coupon_codes.map(c => `
+                <div class="qp-code-row">
+                  <div class="qp-code-info">
+                    <span class="qp-code-badge">${c.code}</span>
+                    <span class="qp-code-desc">${c.desc}</span>
+                  </div>
+                  <button type="button" class="qp-copy-btn" onclick="copyCouponCode('${String(c.code).replace(/'/g, "\\'")}', this)">
+                    <i class="fa-regular fa-copy"></i> 一鍵複製
+                  </button>
+                </div>
+              `).join('')}
+            </div>`
+          : '';
+
+        const targetUrl = item.activityUrl || item.officialUrl || '#';
+        return `
+          <div class="qp-item-card">
+            <div class="qp-item-head">
+              <span class="qp-brand-pill">${item.brand || '精選品牌'}</span>
+              <span class="qp-deadline"><i class="fa-regular fa-clock"></i> ${item.time || (item.deadline ? '至 ' + item.deadline : '限時活動')}</span>
+            </div>
+            <div class="qp-item-title">${item.title}</div>
+            <div class="qp-item-desc">${item.qualification || ''}</div>
+            ${codesHtml}
+            <div class="qp-item-footer">
+              <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="qp-go-btn">
+                前往官網點餐 / 領券 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function copyCouponCode(code, btnEl) {
+      const done = () => {
+        if (btnEl) {
+          const orig = btnEl.innerHTML;
+          btnEl.classList.add('copied');
+          btnEl.innerHTML = '<i class="fa-solid fa-check"></i> 已複製';
+          setTimeout(() => {
+            btnEl.classList.remove('copied');
+            btnEl.innerHTML = orig;
+          }, 1800);
+        }
+        const toast = document.getElementById('copyToast');
+        if (toast) {
+          toast.innerText = `✅ 已複製優惠代碼：${code}`;
+          toast.classList.add('show');
+          clearTimeout(window._copyToastTimer);
+          window._copyToastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done).catch(() => {
+          fallbackCopy(code);
+          done();
+        });
+      } else {
+        fallbackCopy(code);
+        done();
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeQuickPromo();
+    });
   </script>
+
+  <!-- 快捷專區彈窗（點餐前必看 & 咖啡手搖卷） -->
+  <div id="quickPromoModal" class="qp-modal-backdrop" onclick="closeQuickPromo(event)" role="dialog" aria-modal="true">
+    <div class="qp-modal" onclick="event.stopPropagation()">
+      <div class="qp-modal-header">
+        <div>
+          <div class="qp-modal-title" id="qpModalTitle"></div>
+          <div class="qp-modal-sub" id="qpModalSub"></div>
+        </div>
+        <button type="button" class="qp-modal-close" onclick="closeQuickPromo()" aria-label="關閉視窗">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="qp-brand-tabs" id="qpBrandTabs"></div>
+      <div class="qp-modal-body" id="qpModalBody"></div>
+    </div>
+  </div>
+  <div id="copyToast" class="copy-toast"></div>
 </body>
 </html>
