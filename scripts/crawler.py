@@ -5,6 +5,9 @@ import json
 import time
 import os
 import calendar
+import hashlib
+import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 from datetime import datetime, timedelta
 from html import unescape
 
@@ -1431,6 +1434,183 @@ def get_remaining_days(deadline_str, base_date):
             return -99999
     return -99999
 
+def crawl_brand_official_and_news(today):
+    """每日即時抓取台灣各大品牌官網最新消息＋即時優惠新聞情報"""
+    print("=== 正在即時抓取各大品牌官網與每日優惠情報 ===")
+    events = []
+    seen_keys = set()
+
+    # 1. 直接爬取：藏壽司官網最新活動
+    try:
+        html = fetch_url('https://www.kurasushi.tw/activities')
+        if html:
+            matches = re.findall(r'href=[\"\'](/activities/\d+)[\"\'][^>]*>(.*?)</a>', html, re.S)
+            count = 0
+            for path, raw in matches:
+                text = re.sub(r'\s+', ' ', clean_text(raw)).strip()
+                if not text or '中獎名單' in text:
+                    continue
+                dm = re.search(r'(20\d{2})\.(\d{2})\.(\d{2})', text)
+                if not dm:
+                    continue
+                pub_date = datetime(int(dm.group(1)), int(dm.group(2)), int(dm.group(3))).date()
+                if (today - pub_date).days > 30:
+                    continue
+                title_clean = re.sub(r'20\d{2}\.\d{2}\.\d{2}', '', text).strip()
+                dl = (pub_date + timedelta(days=21)).strftime('%Y/%m/%d')
+                events.append({
+                    'id': f"live-kura-{path.split('/')[-1]}",
+                    'title': f"【藏壽司官網】{title_clean}",
+                    'brand': '藏壽司',
+                    'tags': ['買一送一' if '買一送一' in title_clean or '折' in title_clean else '熱門好康'],
+                    'time': f"官網公告 ({pub_date.strftime('%Y/%m/%d')} ~ {dl})",
+                    'deadline': dl,
+                    'qualification': f"來源：藏壽司台灣官方網站即時活動公告（{pub_date.strftime('%Y/%m/%d')} 發布）。點擊前往官網查看活動詳情與門市適用規定。",
+                    'prizes': ['藏壽司官方限定活動／優惠'],
+                    'imageUrl': 'https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=600&q=80',
+                    'activityUrl': f"https://www.kurasushi.tw{path}",
+                    'officialUrl': 'https://www.kurasushi.tw/activities'
+                })
+                count += 1
+                if count >= 3:
+                    break
+            print(f"  藏壽司官網取得 {count} 檔最新活動")
+    except Exception as ex:
+        print(f"  爬取藏壽司官網失敗: {ex}")
+
+    # 2. 直接爬取：迷客夏官網優惠活動
+    try:
+        html = fetch_url('https://www.milksha.com/news.php?cID=1')
+        if html:
+            matches = re.findall(r'href=[\"\'](news_detail\.php\?Key=(\d+)[^\"\']*)[\"\'][^>]*>(.*?)</a>', html, re.S)
+            count = 0
+            for rel_url, key_id, raw in matches:
+                text = re.sub(r'\s+', ' ', clean_text(raw)).strip()
+                if not text:
+                    continue
+                dm = re.search(r'([A-Za-z]{3}\s+\d{1,2}\s+20\d{2})', text)
+                if not dm:
+                    continue
+                try:
+                    pub_date = datetime.strptime(dm.group(1), '%b %d %Y').date()
+                except Exception:
+                    continue
+                if (today - pub_date).days > 30:
+                    continue
+                title_clean = text.replace(dm.group(1), '').strip()
+                dl = (pub_date + timedelta(days=21)).strftime('%Y/%m/%d')
+                events.append({
+                    'id': f"live-milksha-{key_id}",
+                    'title': f"【迷客夏官網】{title_clean}",
+                    'brand': '迷客夏',
+                    'tags': ['買一送一' if '買一送一' in title_clean or '免費' in title_clean or '折' in title_clean else '熱門好康'],
+                    'promo_group': 'drinks',
+                    'time': f"官網優惠 ({pub_date.strftime('%Y/%m/%d')} ~ {dl})",
+                    'deadline': dl,
+                    'qualification': f"來源：迷客夏官方網站即時優惠活動（{pub_date.strftime('%Y/%m/%d')} 發布）。點擊前往官網查看門市與迷點優惠詳情。",
+                    'prizes': ['迷客夏官方門市／線上優惠'],
+                    'imageUrl': 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80',
+                    'activityUrl': f"https://www.milksha.com/{rel_url.replace('&amp;', '&')}",
+                    'officialUrl': 'https://www.milksha.com/news.php?cID=1'
+                })
+                count += 1
+                if count >= 3:
+                    break
+            print(f"  迷客夏官網取得 {count} 檔最新優惠")
+    except Exception as ex:
+        print(f"  爬取迷客夏官網失敗: {ex}")
+
+    # 3. 即時爬取各大品牌每日優惠情報 RSS (僅保留近 5 日內最新新聞)
+    brand_keywords = [
+        '星巴克', '路易莎', '7-11', '7-ELEVEN', '全家', 'CoCo', '迷客夏', '麻古', '可不可', '珍煮丹', '50嵐', '清心',
+        '肯德基', '必勝客', '麥當勞', '漢堡王', '摩斯',
+        '爭鮮', '壽司郎', '藏壽司', '王品', '石二鍋', '築間', '肉多多', '馬辣', '海底撈',
+        '乾杯', '原燒', '屋馬', '牛角', '一風堂', '勝博殿', '杏子豬排', 'Mo-Mo', '古拉爵', '薄多義', '瓦城', '饗食天堂'
+    ]
+    rss_feeds = [
+        {
+            'name': '咖啡手搖優惠',
+            'query': '買一送一 OR 寄杯 星巴克 OR 路易莎 OR CoCo OR 迷客夏 OR 麻古 OR 可不可 OR 超商咖啡',
+            'promo_group': 'drinks',
+            'img': 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80',
+            'limit': 5
+        },
+        {
+            'name': '速食披薩優惠',
+            'query': '優惠碼 OR 買一送一 肯德基 OR 必勝客 OR 麥當勞 OR 漢堡王 OR 摩斯漢堡',
+            'promo_group': 'fastfood',
+            'img': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80',
+            'limit': 5
+        },
+        {
+            'name': '壽司火鍋燒肉餐廳',
+            'query': '優惠 OR 免費 OR 買一送一 爭鮮 OR 壽司郎 OR 藏壽司 OR 王品 OR 築間 OR 乾杯 OR 一風堂 OR 勝博殿 OR 薄多義',
+            'promo_group': None,
+            'img': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80',
+            'limit': 6
+        }
+    ]
+
+    for feed in rss_feeds:
+        try:
+            q = urllib.parse.quote(feed['query'])
+            url = f"https://news.google.com/rss/search?q={q}&hl=zh-TW&gl=TW&ceid=TW:zh-Hant"
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            xml_data = urllib.request.urlopen(req, timeout=8).read()
+            root = ET.fromstring(xml_data)
+            added = 0
+            for item in root.findall('.//item'):
+                raw_title = (item.findtext('title') or '').strip()
+                link = (item.findtext('link') or '').strip()
+                pub_str = (item.findtext('pubDate') or '').strip()
+                if not raw_title or not link or not pub_str:
+                    continue
+                try:
+                    pub_dt = parsedate_to_datetime(pub_str).date()
+                except Exception:
+                    continue
+                age_days = (today - pub_dt).days
+                if age_days < 0 or age_days > 5:
+                    continue
+                title_clean = re.sub(r'\s+-\s+[^-]+$', '', raw_title).strip()
+                matched_brand = next((b for b in brand_keywords if b.lower() in title_clean.lower()), feed['name'])
+                dedup_key = f"{matched_brand}:{title_clean[:10]}"
+                if dedup_key in seen_keys:
+                    continue
+                seen_keys.add(dedup_key)
+
+                tags = ['熱門好康']
+                if any(k in title_clean for k in ['買一送一', '買1送1', '半價', '折', '優惠碼', '代碼', '神券']):
+                    tags.insert(0, '買一送一')
+                if any(k in title_clean for k in ['壽星', '生日']):
+                    tags.append('壽星好康')
+
+                dl = (today + timedelta(days=3)).strftime('%Y/%m/%d')
+                ev = {
+                    'id': f"news-{hashlib.md5(dedup_key.encode('utf-8')).hexdigest()[:8]}",
+                    'title': f"【即時情報】{title_clean}",
+                    'brand': matched_brand,
+                    'tags': list(dict.fromkeys(tags)),
+                    'time': f"即時追蹤 ({pub_dt.strftime('%m/%d')} 發布，追蹤至 {dl})",
+                    'deadline': dl,
+                    'qualification': f"每日即時情報追蹤（{pub_dt.strftime('%Y/%m/%d')} 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+                    'prizes': ['每日即時優惠情報'],
+                    'imageUrl': feed['img'],
+                    'activityUrl': link,
+                    'officialUrl': link
+                }
+                if feed['promo_group']:
+                    ev['promo_group'] = feed['promo_group']
+                events.append(ev)
+                added += 1
+                if added >= feed['limit']:
+                    break
+            print(f"  即時情報 [{feed['name']}] 取得 {added} 則近 5 日最新優惠")
+        except Exception as ex:
+            print(f"  爬取即時情報 [{feed['name']}] 失敗: {ex}")
+
+    return events
+
 if __name__ == '__main__':
     today = datetime.now().date()
     print(f"=== 開始執行每日自動更新流程，當前基準日期: {today} ===")
@@ -1461,6 +1641,9 @@ if __name__ == '__main__':
     # 2. 自動連線抓取 Epic Games Store 官方即時正版限免遊戲 API
     live_epic_events = fetch_live_epic_games(today)
 
+    # 2.5 即時爬取各大品牌官網與每日優惠情報
+    live_brand_events = crawl_brand_official_and_news(today)
+
     # 3. 動態生成當日最新生活情報（買一送一、壽星好康、每日賺點、稅捐處發票換禮券）
     dynamic_intelligence_events = get_dynamic_free_intelligence(today)
 
@@ -1471,8 +1654,8 @@ if __name__ == '__main__':
     seen_ids = set()
     combined_events = []
     
-    # 優先加入即時限免遊戲與動態情報
-    for e in live_epic_events + dynamic_intelligence_events + additional_events:
+    # 優先加入即時限免遊戲、品牌官網即時活動與動態情報
+    for e in live_epic_events + live_brand_events + dynamic_intelligence_events + additional_events:
         if e['id'] not in seen_ids:
             seen_ids.add(e['id'])
             combined_events.append(e)
