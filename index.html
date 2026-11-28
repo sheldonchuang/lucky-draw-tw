@@ -2103,6 +2103,65 @@
       .btn-track-header span.track-label-text { display: none; }
     }
 
+    /* ===== 已參加標記與分享文案 (Phase 3.5) ===== */
+    .event-card.is-joined {
+      border-color: #B9D0C1;
+      background: #FCFDFC;
+    }
+    .event-card.is-joined .card-thumb {
+      filter: saturate(0.78);
+    }
+    .btn-joined {
+      padding: 0.55rem 0.65rem;
+      background: var(--surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.28rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-joined:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: #B9D0C1;
+    }
+    .btn-joined.is-joined {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-color: #9EC1AA;
+    }
+    .hide-joined-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.68rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .hide-joined-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .hide-joined-toggle.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FAF7F2;
+    }
+
     /* ===== 每日好康推薦與幸運轉盤 (Phase 3) ===== */
     .daily-lucky-strip {
       grid-column: 1 / -1;
@@ -2808,7 +2867,13 @@
   <!-- 主內容列表 -->
   <main>
     <div class="status-bar">
-      <div>顯示中的活動：<strong id="currentCount" style="color: var(--primary);">0</strong> 個</div>
+      <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+        <div>顯示中的活動：<strong id="currentCount" style="color: var(--primary);">0</strong> 個</div>
+        <button type="button" id="hideJoinedToggleBtn" class="hide-joined-toggle" onclick="toggleHideJoined()" title="隱藏您已標記參加過的活動">
+          <i class="fa-regular fa-square-check"></i>
+          <span>隱藏已參加 (<span id="joinedCountText">0</span>)</span>
+        </button>
+      </div>
       <div style="font-size: 0.8rem;">※ 點擊「前往官方活動」直達品牌官網登錄</div>
     </div>
 
@@ -2852,11 +2917,17 @@
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往主辦官方活動頁登錄
         </a>
         <div style="display:flex; gap:0.5rem; margin-top:0.65rem; flex-wrap:wrap;">
-          <button type="button" id="modalFavBtn" onclick="toggleFavoriteFromDetail()" style="flex:1; min-width:140px; padding:0.65rem; border-radius:10px; border:1px solid #E8CFCB; background:#FFF6F5; color:#A83834; font-size:0.85rem; font-weight:700; cursor:pointer;">
+          <button type="button" id="modalFavBtn" onclick="toggleFavoriteFromDetail()" style="flex:1; min-width:130px; padding:0.65rem; border-radius:10px; border:1px solid #E8CFCB; background:#FFF6F5; color:#A83834; font-size:0.84rem; font-weight:700; cursor:pointer;">
             <i class="fa-regular fa-heart"></i> 加入收藏清單
           </button>
-          <button type="button" id="modalReportBtn" onclick="openReportModalFromDetail()" style="flex:1; min-width:170px; padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text-muted); font-size:0.85rem; font-weight:600; cursor:pointer;">
-            <i class="fa-solid fa-bullhorn"></i> 回報中獎名單連結
+          <button type="button" id="modalJoinedBtn" onclick="toggleJoinedFromDetail()" style="flex:1; min-width:130px; padding:0.65rem; border-radius:10px; border:1px solid #C8DDD0; background:#F4F9F6; color:var(--primary); font-size:0.84rem; font-weight:700; cursor:pointer;">
+            <i class="fa-regular fa-circle-check"></i> 標記我已參加
+          </button>
+          <button type="button" id="modalShareCopyBtn" onclick="copyEventShareText()" style="flex:1; min-width:140px; padding:0.65rem; border-radius:10px; border:1px solid #E8D5C4; background:var(--accent-light); color:#8A5A2B; font-size:0.84rem; font-weight:700; cursor:pointer;">
+            <i class="fa-solid fa-share-nodes"></i> 複製分享文案
+          </button>
+          <button type="button" id="modalReportBtn" onclick="openReportModalFromDetail()" style="flex:1; min-width:140px; padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text-muted); font-size:0.84rem; font-weight:600; cursor:pointer;">
+            <i class="fa-solid fa-bullhorn"></i> 回報中獎名單
           </button>
         </div>
       </div>
@@ -3102,6 +3173,7 @@
   <script>
     let allEvents = window.INITIAL_EVENTS || [];
     let currentFilter = 'ALL';
+    let hideJoinedEvents = false;
     let currentEntryFilter = 'ALL';
     let currentIndustryFilter = 'ALL';
     let searchQuery = '';
@@ -3317,6 +3389,11 @@
           if (!matchIndustry(event, currentIndustryFilter)) return false;
         }
 
+        // 隱藏已參加活動過濾
+        if (hideJoinedEvents && isEventJoined(event.id)) {
+          return false;
+        }
+
         return true;
       });
 
@@ -3432,7 +3509,8 @@
              </button>`
           : '';
         const card = document.createElement('div');
-        card.className = `event-card ${expired ? 'is-expired' : ''}`;
+        const isJoined = isEventJoined(item.id);
+        card.className = `event-card ${expired ? 'is-expired' : ''} ${isJoined ? 'is-joined' : ''}`;
         card.innerHTML = `
           <div class="card-thumb-wrapper">
             <img src="${imgUrl}" alt="${item.title}" class="card-thumb" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80';">
@@ -3460,8 +3538,11 @@
             <p class="qual-desc">${item.qualification || '請前往官方活動頁查看完整詳細資訊。'}</p>
 
             <div class="card-actions">
+              <button type="button" class="btn-joined ${isJoined ? 'is-joined' : ''}" data-joined-id="${item.id}" onclick="toggleJoinedEvent('${item.id}', event)" title="${isJoined ? '取消已參加標記' : '標記我已參加'}">
+                <i class="${isJoined ? 'fa-solid' : 'fa-regular'} fa-circle-check"></i> ${isJoined ? '已參加' : '參加'}
+              </button>
               <button class="btn-detail" onclick="openModal('${item.id}')">
-                <i class="fa-solid fa-circle-info"></i> 詳情規則
+                <i class="fa-solid fa-circle-info"></i> 詳情
               </button>
               <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="btn-direct">
                 <i class="fa-solid ${directBtnIcon}"></i> ${directBtnText}
@@ -3612,6 +3693,11 @@
       }
 
       updateModalFavBtn(item.id);
+      updateModalJoinedBtn(item.id);
+      const shareBtn = document.getElementById('modalShareCopyBtn');
+      if (shareBtn) {
+        shareBtn.innerHTML = '<i class="fa-solid fa-share-nodes"></i> 複製分享文案';
+      }
       document.getElementById('detailModal').classList.add('active');
     }
 
@@ -4995,12 +5081,138 @@
       `;
     }
 
+    // ==================== 「我已參加」標記 ＋ 一鍵複製分享文案 ====================
+    const JOINED_EVENTS_KEY = 'luckygo_joined_events_v1';
+
+    function getJoinedSet() {
+      try {
+        const raw = localStorage.getItem(JOINED_EVENTS_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        return new Set(Array.isArray(arr) ? arr : []);
+      } catch (e) { return new Set(); }
+    }
+
+    function saveJoinedSet(setObj) {
+      try { localStorage.setItem(JOINED_EVENTS_KEY, JSON.stringify(Array.from(setObj).slice(-500))); } catch (e) {}
+    }
+
+    function isEventJoined(eventId) {
+      return getJoinedSet().has(eventId);
+    }
+
+    function toggleJoinedEvent(eventId, evt) {
+      if (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+      }
+      const setObj = getJoinedSet();
+      const willJoin = !setObj.has(eventId);
+      if (willJoin) {
+        setObj.add(eventId);
+        if (window.gtag) gtag('event', 'mark_event_joined', { event_id: eventId });
+      } else {
+        setObj.delete(eventId);
+      }
+      saveJoinedSet(setObj);
+      updateJoinedUI();
+      if (currentDetailEvent && currentDetailEvent.id === eventId) {
+        updateModalJoinedBtn(eventId);
+      }
+      if (hideJoinedEvents && willJoin) {
+        renderEvents();
+      }
+    }
+
+    function toggleJoinedFromDetail() {
+      if (!currentDetailEvent) return;
+      toggleJoinedEvent(currentDetailEvent.id);
+    }
+
+    function updateModalJoinedBtn(eventId) {
+      const btn = document.getElementById('modalJoinedBtn');
+      if (!btn) return;
+      const joined = isEventJoined(eventId);
+      if (joined) {
+        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> 已標記參加';
+        btn.style.background = 'var(--primary)';
+        btn.style.color = '#FAF7F2';
+        btn.style.borderColor = 'var(--primary)';
+      } else {
+        btn.innerHTML = '<i class="fa-regular fa-circle-check"></i> 標記我已參加';
+        btn.style.background = '#F4F9F6';
+        btn.style.color = 'var(--primary)';
+        btn.style.borderColor = '#C8DDD0';
+      }
+    }
+
+    function toggleHideJoined() {
+      hideJoinedEvents = !hideJoinedEvents;
+      const btn = document.getElementById('hideJoinedToggleBtn');
+      if (btn) btn.classList.toggle('active', hideJoinedEvents);
+      currentPage = 1;
+      renderEvents();
+    }
+
+    function updateJoinedUI() {
+      const setObj = getJoinedSet();
+      const countEl = document.getElementById('joinedCountText');
+      if (countEl) countEl.innerText = setObj.size;
+
+      document.querySelectorAll('.btn-joined[data-joined-id]').forEach(btn => {
+        const id = btn.getAttribute('data-joined-id');
+        const joined = setObj.has(id);
+        btn.classList.toggle('is-joined', joined);
+        btn.title = joined ? '取消已參加標記' : '標記我已參加';
+        btn.innerHTML = `<i class="${joined ? 'fa-solid' : 'fa-regular'} fa-circle-check"></i> ${joined ? '已參加' : '參加'}`;
+        const card = btn.closest('.event-card');
+        if (card) card.classList.toggle('is-joined', joined);
+      });
+    }
+
+    async function copyEventShareText() {
+      if (!currentDetailEvent) return;
+      const ev = currentDetailEvent;
+      const prize = ev.prizes && ev.prizes.length > 0 ? ev.prizes[0] : '依官方公佈為準';
+      const deadlineText = ev.deadline ? `⏰ 活動截止：${ev.deadline}` : '⏰ 活動期間：請見官方頁';
+      const url = ev.activityUrl || ev.officialUrl || window.location.href;
+      const shareText = [
+        `🎁 【${ev.brand || '精選好康'}】${ev.title}`,
+        `🏆 焦點好康：${prize}`,
+        deadlineText,
+        `👉 官方活動頁：${url}`,
+        `📌 更多台灣真實抽獎與買一送一：https://luckygo-b74.pages.dev/`
+      ].join('\n');
+
+      try {
+        await navigator.clipboard.writeText(shareText);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = shareText;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+
+      const btn = document.getElementById('modalShareCopyBtn');
+      if (btn) {
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> 已複製文案！';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-solid fa-share-nodes"></i> 複製分享文案';
+        }, 2000);
+      }
+      if (window.gtag) gtag('event', 'share_event_copy', { event_id: ev.id, brand: ev.brand });
+    }
+
     // 載入資料 (優先使用 data.js 內建資料，若無則 fetch events.json)
     if (allEvents.length > 0) {
       updateCounts();
       renderEvents();
       initBrandTracking();
       initDailyLuckyWidget();
+      updateJoinedUI();
     } else {
       fetch('./events.json')
         .then(r => r.json())
@@ -5010,6 +5222,7 @@
           renderEvents();
           initBrandTracking();
           initDailyLuckyWidget();
+          updateJoinedUI();
         })
         .catch(err => {
           console.error('載入 events.json 失敗:', err);
