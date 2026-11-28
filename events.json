@@ -198,22 +198,22 @@
     "is_expired": false
   },
   {
-    "id": "news-f9f3aaa2",
-    "title": "【即時情報】感恩節手搖飲優惠！ CoCo大杯珍奶「買1送1」 大苑子、顏太煮推新品＋雙杯特價清心送咖波提袋",
+    "id": "news-d9e32218",
+    "title": "【即時情報】投票日CoCo買一送一！翰林珍奶40元、珍煮丹2杯69元　麻古、萬波",
     "brand": "CoCo",
     "tags": [
       "買一送一",
       "熱門好康"
     ],
-    "time": "即時追蹤 (11/25 發布，追蹤至 2026/11/30)",
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
     "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/25 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
     "prizes": [
       "每日即時優惠情報"
     ],
     "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1reDIzOTIyM3p5TURIdVFPN2xzS0trZ1gtVERmZU1pUnVDZnJhTXZnUW11Nm1yT1A5MGY1UkNXN0pUdm1jX2xwSmlxeXFwQ1pOTXlUb3A5UFRlNHR3?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1reDIzOTIyM3p5TURIdVFPN2xzS0trZ1gtVERmZU1pUnVDZnJhTXZnUW11Nm1yT1A5MGY1UkNXN0pUdm1jX2xwSmlxeXFwQ1pOTXlUb3A5UFRlNHR3?oc=5",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9lWEpULVFxMUZvODBNNWVmRG1oMkg4YzdqWEpGTTlDaDhDazVuWHRTYlFwYlRoYzNQRjBIYkFDel9wNGYtSXV4c2JtSVHSAVJBVV95cUxNYnV2YVBPeDdCUGZ4QVdMbFo3NEFaaEswMEwwZE5Ub09GMDRxUThJSk9zWUtZeUh5YzZYalBtR2VUWngwM0JTSlZUWDRkR1VtT093?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9lWEpULVFxMUZvODBNNWVmRG1oMkg4YzdqWEpGTTlDaDhDazVuWHRTYlFwYlRoYzNQRjBIYkFDel9wNGYtSXV4c2JtSVHSAVJBVV95cUxNYnV2YVBPeDdCUGZ4QVdMbFo3NEFaaEswMEwwZE5Ub09GMDRxUThJSk9zWUtZeUh5YzZYalBtR2VUWngwM0JTSlZUWDRkR1VtT093?oc=5",
     "promo_group": "drinks",
     "entry_types": [
       "追蹤帳號",
@@ -246,10 +246,59 @@
     "is_expired": false
   },
   {
-    "id": "news-60c04e00",
-    "title": "【即時情報】咖啡店竟然開健身房！路易莎進駐大巨蛋，每分鐘２元、還能自帶教練",
-    "brand": "路易莎",
+    "id": "news-f9f3aaa2",
+    "title": "【即時情報】感恩節手搖飲優惠！ CoCo大杯珍奶「買1送1」 大苑子、顏太煮推新品＋雙杯特價清心送咖波提袋",
+    "brand": "CoCo",
     "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/25 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/25 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1reDIzOTIyM3p5TURIdVFPN2xzS0trZ1gtVERmZU1pUnVDZnJhTXZnUW11Nm1yT1A5MGY1UkNXN0pUdm1jX2xwSmlxeXFwQ1pOTXlUb3A5UFRlNHR3?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1reDIzOTIyM3p5TURIdVFPN2xzS0trZ1gtVERmZU1pUnVDZnJhTXZnUW11Nm1yT1A5MGY1UkNXN0pUdm1jX2xwSmlxeXFwQ1pOTXlUb3A5UFRlNHR3?oc=5",
+    "promo_group": "drinks",
+    "entry_types": [
+      "追蹤帳號",
+      "免消費"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-e3858306",
+    "title": "【即時情報】星巴克買1送1！今歡慶感恩節　那堤、星冰樂爽爽喝",
+    "brand": "星巴克",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5qUW81aHVZVFVwX1cxS3JOYUxQRjI0UXJac1lncUVMdmdhOFgxMEluT24zY0dqYUo0NVlFUENkNkR2eHhZZjk4WtIBTEFVX3lxTE80X2VIb09Dd0NtMnAxcUpyU0JkZnNQTmlNTWNEaHJjalQ4ZjJQTlc2NnktUE1oc01DUUhlRnM5eExvbjNWYXR1LUVxVE0?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5qUW81aHVZVFVwX1cxS3JOYUxQRjI0UXJac1lncUVMdmdhOFgxMEluT24zY0dqYUo0NVlFUENkNkR2eHhZZjk4WtIBTEFVX3lxTE80X2VIb09Dd0NtMnAxcUpyU0JkZnNQTmlNTWNEaHJjalQ4ZjJQTlc2NnktUE1oc01DUUhlRnM5eExvbjNWYXR1LUVxVE0?oc=5",
+    "promo_group": "drinks",
+    "entry_types": [
+      "追蹤帳號",
+      "免消費"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-4682f5ed",
+    "title": "【即時情報】投票日麥當勞、肯德基買一送一！必勝客買1送3　福勝亭豬排188元",
+    "brand": "肯德基",
+    "tags": [
+      "買一送一",
       "熱門好康"
     ],
     "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
@@ -258,33 +307,10 @@
     "prizes": [
       "每日即時優惠情報"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBsVjR6R0hpMXFtWXZ3WHpmdnU3VGx5YTl5dmxoN1lIOEhIOEtOdXJubDR1ejMyMlBQTzlmY3pBYVhHQi1GRXZ4U3hRQ2NVVnhNSk5B?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBsVjR6R0hpMXFtWXZ3WHpmdnU3VGx5YTl5dmxoN1lIOEhIOEtOdXJubDR1ejMyMlBQTzlmY3pBYVhHQi1GRXZ4U3hRQ2NVVnhNSk5B?oc=5",
-    "promo_group": "drinks",
-    "entry_types": [
-      "追蹤帳號"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-ebae3ae9",
-    "title": "【即時情報】2杯65元！CoCo珍奶連2天買1送1 清心送咖波提袋3手搖祭優惠- 生活",
-    "brand": "CoCo",
-    "tags": [
-      "買一送一",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/24 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/24 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5Fc2cxUXdVMktCWU9ubHpEWHc2MXZvNFJ6UmgxTy1nWEU0cFFDQkEzRHltRXFXQWN4NnFqN2lac2d2Rm81aWtlZHF0MkM1cWY0aUl2cEtpQ2VpaGwwWFlr?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5Fc2cxUXdVMktCWU9ubHpEWHc2MXZvNFJ6UmgxTy1nWEU0cFFDQkEzRHltRXFXQWN4NnFqN2lac2d2Rm81aWtlZHF0MkM1cWY0aUl2cEtpQ2VpaGwwWFlr?oc=5",
-    "promo_group": "drinks",
+    "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE93ZGs4ZEtmUVdKUWtPM0E5V2VLY2o1R0tkamJWMk0tTFBJYzdkSVF3Y3hZN01yWmVjUGtBTEVZNk1kMk9oMXRIY3puenbSAVJBVV95cUxObG9OcV8ycDQ5bDBlaGZJLTBTZHQwNHlNS0VIbzB6N1ptcnBiQVBTbGtmdkNhS2xaVTgyUDIxRGVmQ1JnVTMzQ01GaVJQc0d4Unhn?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE93ZGs4ZEtmUVdKUWtPM0E5V2VLY2o1R0tkamJWMk0tTFBJYzdkSVF3Y3hZN01yWmVjUGtBTEVZNk1kMk9oMXRIY3puenbSAVJBVV95cUxObG9OcV8ycDQ5bDBlaGZJLTBTZHQwNHlNS0VIbzB6N1ptcnBiQVBTbGtmdkNhS2xaVTgyUDIxRGVmQ1JnVTMzQ01GaVJQc0d4Unhn?oc=5",
+    "promo_group": "fastfood",
     "entry_types": [
       "追蹤帳號",
       "免消費"
@@ -388,26 +414,26 @@
     "is_expired": false
   },
   {
-    "id": "news-fab1fef4",
-    "title": "【即時情報】繼光香香雞買一送一限時８天！消費滿百送印尼蝦餅，Q Burger多力多滋聯名噴香",
-    "brand": "繼光香香雞",
+    "id": "news-83dc4067",
+    "title": "【即時情報】Uber Eats十週年！王品鍋物買一送一、全聯火鍋食材6折",
+    "brand": "王品",
     "tags": [
       "買一送一",
       "熱門好康"
     ],
-    "time": "即時追蹤 (11/25 發布，追蹤至 2026/11/30)",
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
     "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/25 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
     "prizes": [
       "每日即時優惠情報"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8xNElWb2hweHhiZm5falp2QkxfcWFnMmdOUzJHSFFDcW1qdkN6YmZPZjY4c0hXSE5RLUUzeEt4SnFpMzZiXzZOWXVmcjEycnYtUy00Uw?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8xNElWb2hweHhiZm5falp2QkxfcWFnMmdOUzJHSFFDcW1qdkN6YmZPZjY4c0hXSE5RLUUzeEt4SnFpMzZiXzZOWXVmcjEycnYtUy00Uw?oc=5",
-    "promo_group": "fastfood",
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9HOU8yaTYwRU9DMy1Ieklod1lHZV9RLWVTNzEtSjB0Ui1jQU0ybU1xWDFsY1prMGxVUnNScXBFTXpVa0w1dVRwdtIBTEFVX3lxTFBKdEtDRjB6ZktDMGlnQnFucVZ2emhENENoM2RGY3VhWXpIaGVQSWR6VU1seHN0bU9ldGZuXy1iQkpnMHV6X2hyRmJPZlQ?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9HOU8yaTYwRU9DMy1Ieklod1lHZV9RLWVTNzEtSjB0Ui1jQU0ybU1xWDFsY1prMGxVUnNScXBFTXpVa0w1dVRwdtIBTEFVX3lxTFBKdEtDRjB6ZktDMGlnQnFucVZ2emhENENoM2RGY3VhWXpIaGVQSWR6VU1seHN0bU9ldGZuXy1iQkpnMHV6X2hyRmJPZlQ?oc=5",
+    "promo_group": "restaurant",
     "entry_types": [
       "追蹤帳號",
-      "消費登錄"
+      "免消費"
     ],
     "is_expired": false
   },
@@ -448,8 +474,32 @@
       "每日即時優惠情報"
     ],
     "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONXhKRGYxc3lRckJTWU5haTF1UVNTaml3U3ZlUzJvTk1KREFlWmJuZG1qdFIwd0FadTVmcUZad2x5WTlZODdXc3RsczJqRE1OR0lIRXZ4aGpydm1yNDFOX0JVeWVPd1Q3ZjFXMVhZQ0ZOMkU4bGM5RHV6blo2QTNwVNIBVkFVX3lxTE0tRmh5bXpSdjRrb1h1RzhZMmpMdXlZWWpTMkVNV2RsbFdWN0xDRjVEeS1kNEdBMXMtaFdQN3diSzRmd1hrcnVUZHBoWng5SUlvSzZsaldR?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMigAFBVV95cUxONXhKRGYxc3lRckJTWU5haTF1UVNTaml3U3ZlUzJvTk1KREFlWmJuZG1qdFIwd0FadTVmcUZad2x5WTlZODdXc3RsczJqRE1OR0lIRXZ4aGpydm1yNDFOX0JVeWVPd1Q3ZjFXMVhZQ0ZOMkU4bGM5RHV6blo2QTNwVNIBVkFVX3lxTE0tRmh5bXpSdjRrb1h1RzhZMmpMdXlZWWpTMkVNV2RsbFdWN0xDRjVEeS1kNEdBMXMtaFdQN3diSzRmd1hrcnVUZHBoWng5SUlvSzZsaldR?oc=5",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBlSXBFUFJYazVFT2w4MGlwdXFvUkZLcm9jN2lPNE1wSGZzbjk4M3F5RnVsZXJFTDdKUWd0V25CNzExR2lqWHE1NXcwUW54ZlBVUkVyUi1GejFiR2R4WlNj0gFfQVVfeXFMUGVJcEVQUlhrNUVPbDgwaXB1cW9SRktyb2M3aU80TXBIZnNuOTgzcXlGdWxlckVMN0pRZ3RXbkI3MTFHaWpYcTU1dzBRbnhmUFVSRXJSLUZ6MWJHZHhaU2M?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBlSXBFUFJYazVFT2w4MGlwdXFvUkZLcm9jN2lPNE1wSGZzbjk4M3F5RnVsZXJFTDdKUWd0V25CNzExR2lqWHE1NXcwUW54ZlBVUkVyUi1GejFiR2R4WlNj0gFfQVVfeXFMUGVJcEVQUlhrNUVPbDgwaXB1cW9SRktyb2M3aU80TXBIZnNuOTgzcXlGdWxlckVMN0pRZ3RXbkI3MTFHaWpYcTU1dzBRbnhmUFVSRXJSLUZ6MWJHZHhaU2M?oc=5",
+    "promo_group": "restaurant",
+    "entry_types": [
+      "追蹤帳號",
+      "免消費"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-ef38ac46",
+    "title": "【即時情報】不出門也能吃火鍋！王品買一送一、石二鍋８折，全聯指定湯底也免費多１份",
+    "brand": "王品",
+    "tags": [
+      "買一送一",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5EeEh3Vml1dW5odmFMVzRNa3pERkNlMTBDRkJVOThYazZzUVBmNXBZc2ZyVnVhMWJJcmFDX09HekQxbE9JX3dkdnRrMTBwQThZSkpJMg?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5EeEh3Vml1dW5odmFMVzRNa3pERkNlMTBDRkJVOThYazZzUVBmNXBZc2ZyVnVhMWJJcmFDX09HekQxbE9JX3dkdnRrMTBwQThZSkpJMg?oc=5",
     "promo_group": "restaurant",
     "entry_types": [
       "追蹤帳號",
@@ -480,30 +530,6 @@
     "is_expired": false
   },
   {
-    "id": "news-3fec53d4",
-    "title": "【即時情報】7-11名店鍋物來暖胃 Uber Eats火鍋買1送1",
-    "brand": "7-11",
-    "tags": [
-      "買一送一",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOM2xiOVBVeWlBdzdER1RvSk9UU0cyc3NsMk5ka2lIREJhT2I1MHBmYXdPMzZweEV4YllsT1NiUVQ3NjBzUEl3MV82YXloWW84NWhwdk5pamZra0tDa1g3dkNUWTVoYjlpN0lNQWdueDRzTXYtNXZUSVNvOGsyMERLZmhGbjNRbHJQ?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOM2xiOVBVeWlBdzdER1RvSk9UU0cyc3NsMk5ka2lIREJhT2I1MHBmYXdPMzZweEV4YllsT1NiUVQ3NjBzUEl3MV82YXloWW84NWhwdk5pamZra0tDa1g3dkNUWTVoYjlpN0lNQWdueDRzTXYtNXZUSVNvOGsyMERLZmhGbjNRbHJQ?oc=5",
-    "promo_group": "restaurant",
-    "entry_types": [
-      "追蹤帳號",
-      "免消費"
-    ],
-    "is_expired": false
-  },
-  {
     "id": "news-13e2c454",
     "title": "【即時情報】壽司郎「進擊的巨人聯名周邊」12/1正式開賣，10款聯名餐點、38款周邊、6家主題店、7家限定點餐螢幕一次看",
     "brand": "壽司郎",
@@ -526,26 +552,24 @@
     "is_expired": false
   },
   {
-    "id": "news-7ed0efc9",
-    "title": "【即時情報】Uber Eats首攜全聯、王品推外送火鍋季　指定餐點買一送一、跨品牌折100元",
-    "brand": "王品",
+    "id": "news-53956e23",
+    "title": "【即時情報】添好運「港點吃到飽」12月開放訂位！北中南５門市限定，699元起無限續點",
+    "brand": "添好運",
     "tags": [
-      "買一送一",
       "熱門好康"
     ],
-    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
     "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
     "prizes": [
       "每日即時優惠情報"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE4xMkY1RzlSZV8xUnV6bVBRbE9RNUc5UzZGNDdpRXpqbGhYRkk3ckN2d3Zoak5UeWUzM2RRRGU0LTlDYm1VNjVIT1ltR0_SAUxBVV95cUxOMTJGNUc5UmVfMVJ1em1QUWxPUTVHOVM2RjQ3aUV6amxoWEZJN3JDdnd2aGpOVHllMzNkUURlNC05Q2JtVTY1SE9ZbUdP?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE4xMkY1RzlSZV8xUnV6bVBRbE9RNUc5UzZGNDdpRXpqbGhYRkk3ckN2d3Zoak5UeWUzM2RRRGU0LTlDYm1VNjVIT1ltR0_SAUxBVV95cUxOMTJGNUc5UmVfMVJ1em1QUWxPUTVHOVM2RjQ3aUV6amxoWEZJN3JDdnd2aGpOVHllMzNkUURlNC05Q2JtVTY1SE9ZbUdP?oc=5",
+    "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9hTWcyZnJqSWdWdkUwb2FWTEhGUFVpQldKSG02YkhmbE9vOTJCQ2tvd1Y5SE5Ud2F1a2V1YTlNcFJVdTJRWXh5aUJTa2FGNVh6U0R3Nw?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9hTWcyZnJqSWdWdkUwb2FWTEhGUFVpQldKSG02YkhmbE9vOTJCQ2tvd1Y5SE5Ud2F1a2V1YTlNcFJVdTJRWXh5aUJTa2FGNVh6U0R3Nw?oc=5",
     "promo_group": "restaurant",
     "entry_types": [
-      "追蹤帳號",
-      "免消費"
+      "追蹤帳號"
     ],
     "is_expired": false
   },
@@ -565,8 +589,8 @@
       "每日即時優惠情報"
     ],
     "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1sbzhfY0tTTEstMU1fLVBIeEVLcmZDQnRWZF93aFJBemtTcGZrTWxxQUdjN0xXcDF1YzZ2NFVLcWMxOGU0Q05sYmlzd2VNc2VFV3fSAVJBVV95cUxNbG84X2NLU0xLLTFNXy1QSHhFS3JmQ0J0VmRfd2hSQXprU3Bma01scUFHYzdMV3AxdWM2djRVS3FjMThlNENObGJpc3dlTXNlRVd3?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1sbzhfY0tTTEstMU1fLVBIeEVLcmZDQnRWZF93aFJBemtTcGZrTWxxQUdjN0xXcDF1YzZ2NFVLcWMxOGU0Q05sYmlzd2VNc2VFV3fSAVJBVV95cUxNbG84X2NLU0xLLTFNXy1QSHhFS3JmQ0J0VmRfd2hSQXprU3Bma01scUFHYzdMV3AxdWM2djRVS3FjMThlNENObGJpc3dlTXNlRVd3?oc=5",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE4ya3VXTjBQaUFmS1pTN3pqMldIdm5KanozaGFydkM4a3VxVXpYaUNoVVB4UUlvVXVmY0h5ZWwtYzJjVFpxckZ5bFMzcUnSAVJBVV95cUxNbG84X2NLU0xLLTFNXy1QSHhFS3JmQ0J0VmRfd2hSQXprU3Bma01scUFHYzdMV3AxdWM2djRVS3FjMThlNENObGJpc3dlTXNlRVd3?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE4ya3VXTjBQaUFmS1pTN3pqMldIdm5KanozaGFydkM4a3VxVXpYaUNoVVB4UUlvVXVmY0h5ZWwtYzJjVFpxckZ5bFMzcUnSAVJBVV95cUxNbG84X2NLU0xLLTFNXy1QSHhFS3JmQ0J0VmRfd2hSQXprU3Bma01scUFHYzdMV3AxdWM2djRVS3FjMThlNENObGJpc3dlTXNlRVd3?oc=5",
     "promo_group": "restaurant",
     "entry_types": [
       "追蹤帳號",
@@ -621,28 +645,6 @@
     "is_expired": false
   },
   {
-    "id": "news-0e70c765",
-    "title": "【即時情報】「貳樓」免費送兒童餐、巧克力蛋糕！６大隱藏優惠曝光，必嗑辣蜂蜜歐姆蛋",
-    "brand": "貳樓",
-    "tags": [
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/24 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/24 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5jSnBmLWY3M2ZYWU9PWFE0Wl9od1dxbEF1d2h2WXhDZHQxLThTc2t4XzBHdHc2ZHRhc2hHYnZVWE9teGVFV05EeUg1ZkdkOTZUT200eg?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5jSnBmLWY3M2ZYWU9PWFE0Wl9od1dxbEF1d2h2WXhDZHQxLThTc2t4XzBHdHc2ZHRhc2hHYnZVWE9teGVFV05EeUg1ZkdkOTZUT200eg?oc=5",
-    "promo_group": "restaurant",
-    "entry_types": [
-      "追蹤帳號"
-    ],
-    "is_expired": false
-  },
-  {
     "id": "news-a0c8da3a",
     "title": "【即時情報】貳樓菜單2026完整攻略！北中南特色分店、貳樓早午餐必吃推薦",
     "brand": "貳樓",
@@ -665,50 +667,27 @@
     "is_expired": false
   },
   {
-    "id": "news-ef38ac46",
-    "title": "【即時情報】不出門也能吃火鍋！王品買一送一、石二鍋８折，全聯指定湯底也免費多１份",
-    "brand": "王品",
+    "id": "news-403b7d10",
+    "title": "【即時情報】火鍋食材優惠接力！全聯湯底第2件5折大全聯生鮮滿588元贈50元券- 生活新聞",
+    "brand": "全聯",
     "tags": [
       "買一送一",
       "每週特價",
       "熱門好康"
     ],
-    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
+    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
     "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
     "prizes": [
       "每日即時優惠情報"
     ],
     "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5EeEh3Vml1dW5odmFMVzRNa3pERkNlMTBDRkJVOThYazZzUVBmNXBZc2ZyVnVhMWJJcmFDX09HekQxbE9JX3dkdnRrMTBwQThZSkpJMg?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5EeEh3Vml1dW5odmFMVzRNa3pERkNlMTBDRkJVOThYazZzUVBmNXBZc2ZyVnVhMWJJcmFDX09HekQxbE9JX3dkdnRrMTBwQThZSkpJMg?oc=5",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdTFONjg1OVEwQWxsTllUbzJsSDFWRVNaZmQ0bnEyUlRTWlh0UUhmckk4QVN0UlpYbjZUNXJhTjMwbXZvTDRGaHBHU2dFdTkxUTVGQ3d5dTZQTHZaTko1Y2k1VXpPR3dUYlJ6cS1tWXpjall4ZkpzdzN6aHRlUDU1bFNkZWpsODNh?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdTFONjg1OVEwQWxsTllUbzJsSDFWRVNaZmQ0bnEyUlRTWlh0UUhmckk4QVN0UlpYbjZUNXJhTjMwbXZvTDRGaHBHU2dFdTkxUTVGQ3d5dTZQTHZaTko1Y2k1VXpPR3dUYlJ6cS1tWXpjall4ZkpzdzN6aHRlUDU1bFNkZWpsODNh?oc=5",
     "promo_group": "supermarket",
     "entry_types": [
       "追蹤帳號",
       "免消費"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-ec654b99",
-    "title": "【即時情報】王品迎百萬外送訂單里程碑攜手Uber Eats、全聯打造外送火鍋季- 生活",
-    "brand": "王品",
-    "tags": [
-      "每週特價",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lNXFHMTRXQU1IWjlzTlJlMG1fZHBCTkRxZDJRUmNtSjlmY0NwNnRYSGRxRl9sQ2R3cDc1YmtzakdySDhyS1ZMbFV5VE50RERlNm5QbDJKVGt6RnJNTkdN?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lNXFHMTRXQU1IWjlzTlJlMG1fZHBCTkRxZDJRUmNtSjlmY0NwNnRYSGRxRl9sQ2R3cDc1YmtzakdySDhyS1ZMbFV5VE50RERlNm5QbDJKVGt6RnJNTkdN?oc=5",
-    "promo_group": "supermarket",
-    "entry_types": [
-      "追蹤帳號"
     ],
     "is_expired": false
   },
@@ -738,9 +717,9 @@
     "is_expired": false
   },
   {
-    "id": "news-403b7d10",
-    "title": "【即時情報】火鍋食材優惠接力！全聯湯底第2件5折大全聯生鮮滿588元贈50元券- 生活新聞",
-    "brand": "全聯",
+    "id": "news-7ed0efc9",
+    "title": "【即時情報】Uber Eats首攜全聯、王品推外送火鍋季 指定餐點買一送一、跨品牌折100元",
+    "brand": "王品",
     "tags": [
       "買一送一",
       "每週特價",
@@ -753,8 +732,8 @@
       "每日即時優惠情報"
     ],
     "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdTFONjg1OVEwQWxsTllUbzJsSDFWRVNaZmQ0bnEyUlRTWlh0UUhmckk4QVN0UlpYbjZUNXJhTjMwbXZvTDRGaHBHU2dFdTkxUTVGQ3d5dTZQTHZaTko1Y2k1VXpPR3dUYlJ6cS1tWXpjall4ZkpzdzN6aHRlUDU1bFNkZWpsODNh?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdTFONjg1OVEwQWxsTllUbzJsSDFWRVNaZmQ0bnEyUlRTWlh0UUhmckk4QVN0UlpYbjZUNXJhTjMwbXZvTDRGaHBHU2dFdTkxUTVGQ3d5dTZQTHZaTko1Y2k1VXpPR3dUYlJ6cS1tWXpjall4ZkpzdzN6aHRlUDU1bFNkZWpsODNh?oc=5",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxNaWk2RHVzb3BNQy12VkNQZ1hNZEI2N3NzSGZKNlFuSnZFWGZlcklqTVowZmIxVXU3SUxjd0ZSWDRRNVBRM1phOXptM2hQeDZSZFZEMURrYnJSa0YwZzRXdGpxQVlFWEs5NUVubjRZeDNFOTZfRG1uem9ONUF1TVBMcFpTQmwwWUNtYjVjZS1XLUhkM21FZ0RibFN2YWhaOXY5by1NMFEtUTIzNlVKSmpuTVhQb2FiUktGUElTZXcxV0xJUUwzdEo0ZnFESWJLek9hVkRJNll6UmladFNCQnVwZTNEN0MtQXdCWnNBazlOa3JMOWh2Ujk0TkF5ZlhGTUxWX1J2MHRja3hUa0t6T3JWV3JoWmlOVHM3MHRiTGk2OUdIMDRWMHgydjB0YU10OWk2eXNrRFd4RHRpckE?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxNaWk2RHVzb3BNQy12VkNQZ1hNZEI2N3NzSGZKNlFuSnZFWGZlcklqTVowZmIxVXU3SUxjd0ZSWDRRNVBRM1phOXptM2hQeDZSZFZEMURrYnJSa0YwZzRXdGpxQVlFWEs5NUVubjRZeDNFOTZfRG1uem9ONUF1TVBMcFpTQmwwWUNtYjVjZS1XLUhkM21FZ0RibFN2YWhaOXY5by1NMFEtUTIzNlVKSmpuTVhQb2FiUktGUElTZXcxV0xJUUwzdEo0ZnFESWJLek9hVkRJNll6UmladFNCQnVwZTNEN0MtQXdCWnNBazlOa3JMOWh2Ujk0TkF5ZlhGTUxWX1J2MHRja3hUa0t6T3JWV3JoWmlOVHM3MHRiTGk2OUdIMDRWMHgydjB0YU10OWk2eXNrRFd4RHRpckE?oc=5",
     "promo_group": "supermarket",
     "entry_types": [
       "追蹤帳號",
@@ -788,6 +767,29 @@
     "is_expired": false
   },
   {
+    "id": "news-ec654b99",
+    "title": "【即時情報】王品迎百萬外送訂單里程碑攜手Uber Eats、全聯打造外送火鍋季- 生活",
+    "brand": "王品",
+    "tags": [
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lNXFHMTRXQU1IWjlzTlJlMG1fZHBCTkRxZDJRUmNtSjlmY0NwNnRYSGRxRl9sQ2R3cDc1YmtzakdySDhyS1ZMbFV5VE50RERlNm5QbDJKVGt6RnJNTkdN?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5lNXFHMTRXQU1IWjlzTlJlMG1fZHBCTkRxZDJRUmNtSjlmY0NwNnRYSGRxRl9sQ2R3cDc1YmtzakdySDhyS1ZMbFV5VE50RERlNm5QbDJKVGt6RnJNTkdN?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號"
+    ],
+    "is_expired": false
+  },
+  {
     "id": "news-949359fb",
     "title": "【即時情報】全聯砸81億元 在大直總部300公尺內掃整棟新商辦",
     "brand": "全聯",
@@ -812,7 +814,7 @@
   },
   {
     "id": "news-7fe10bfa",
-    "title": "【即時情報】好市多黑五必買商品》11/27優惠商品整理！2026 首次連辦14天！(持續更新)",
+    "title": "【即時情報】好市多黑五必買商品》11/28優惠商品整理！2026 首次連辦14天！(持續更新)",
     "brand": "好市多",
     "tags": [
       "每週特價",
@@ -827,6 +829,52 @@
     "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CQzVPOTZocVlCTnNubm5VLWhlOF95NVppNEJjQ1pfdmZ5em43Z2NMb3hlcXN3bHktenNXSFlnRDVUVndYWjY2M3daY2VPd3NibEZQZnBJMHFYZlVX?oc=5",
     "officialUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CQzVPOTZocVlCTnNubm5VLWhlOF95NVppNEJjQ1pfdmZ5em43Z2NMb3hlcXN3bHktenNXSFlnRDVUVndYWjY2M3daY2VPd3NibEZQZnBJMHFYZlVX?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-eb773684",
+    "title": "【即時情報】好市多黑色星期五11/27優惠商品清單！第5天隱藏版特價整理（持續更新）",
+    "brand": "好市多",
+    "tags": [
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBqY3QydUhveEctajdSemEtT3BaRUN5YXNrYlZsVWFLZF9TZGs3aFBtNUROZjFoTTN6alI3cWRWT2Y0cktUZEVPRW5xOW1kX1F1dzRCTmZZQjdhU0JDZHdKUGx6TEZMTVlw?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBqY3QydUhveEctajdSemEtT3BaRUN5YXNrYlZsVWFLZF9TZGs3aFBtNUROZjFoTTN6alI3cWRWT2Y0cktUZEVPRW5xOW1kX1F1dzRCTmZZQjdhU0JDZHdKUGx6TEZMTVlw?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-a141ddec",
+    "title": "【即時情報】好市多黑五2026》11/28第六天優惠整理！多款現場隱藏商品限時降價",
+    "brand": "好市多",
+    "tags": [
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE42dlo5ZXh2Q1E1dmxxX181S2lreldCa29JclRlNXRidS1BRXZfWnZjTjVNQ2NZSTFtYlQtODZvS0R2NzJ1clM2RHJtUmhqZWVUMGVnbVQ4eEFBazRQeHVJNDBYRUdLdUpE?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE42dlo5ZXh2Q1E1dmxxX181S2lreldCa29JclRlNXRidS1BRXZfWnZjTjVNQ2NZSTFtYlQtODZvS0R2NzJ1clM2RHJtUmhqZWVUMGVnbVQ4eEFBazRQeHVJNDBYRUdLdUpE?oc=5",
     "promo_group": "supermarket",
     "entry_types": [
       "追蹤帳號"
@@ -859,6 +907,29 @@
     "is_expired": false
   },
   {
+    "id": "news-51d3298b",
+    "title": "【即時情報】好市多黑五購物節》2026 首次連辦14天，優惠商品搶先看！",
+    "brand": "好市多",
+    "tags": [
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/25 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/25 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBvMjBPZzRLa2s0TXByQXJZa1dtck1QS3M5NDhsbDA2OXJ1UXY1ZThKd0JsQlVwdXpHRUdwdmdhRkp0R29yQW1sZEFNd1ZyZ2JlWUxmaVVIRzltNDlN?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBvMjBPZzRLa2s0TXByQXJZa1dtck1QS3M5NDhsbDA2OXJ1UXY1ZThKd0JsQlVwdXpHRUdwdmdhRkp0R29yQW1sZEFNd1ZyZ2JlWUxmaVVIRzltNDlN?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號"
+    ],
+    "is_expired": false
+  },
+  {
     "id": "news-b2f95762",
     "title": "【即時情報】2026好市多黑五》每日優惠商品、入場時間、黑鑽卡回饋一次看",
     "brand": "好市多",
@@ -882,9 +953,9 @@
     "is_expired": false
   },
   {
-    "id": "news-25f5e611",
-    "title": "【即時情報】2026好市多黑五起跑！要買什麼？回饋優惠多少？特價商品一次看（不斷更新）",
-    "brand": "好市多",
+    "id": "news-0d275a95",
+    "title": "【即時情報】白海豚逼近！萬家福、愛買備貨量增3倍　蔬菜下殺快搶",
+    "brand": "愛買",
     "tags": [
       "每週特價",
       "熱門好康"
@@ -895,55 +966,9 @@
     "prizes": [
       "每日即時優惠情報"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1fMFZLZmJIc19oRG9Ic3AyOFpFMF9jYkxtalpZZ0FONlZVQjAxX3BEVHgySEhjRmtHQ3owQWh3ZVBSeV90aWhteXJiSEQ0dw?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1fMFZLZmJIc19oRG9Ic3AyOFpFMF9jYkxtalpZZ0FONlZVQjAxX3BEVHgySEhjRmtHQ3owQWh3ZVBSeV90aWhteXJiSEQ0dw?oc=5",
-    "promo_group": "supermarket",
-    "entry_types": [
-      "追蹤帳號"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-5fd094e1",
-    "title": "【即時情報】好市多黑五Day5優惠商品！鑽石項鍊便宜1.7萬、電競筆電省1.3萬…黑鑽卡黑五回饋、營業時間「14天攻略」",
-    "brand": "好市多",
-    "tags": [
-      "每週特價",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQTWRPQ3V5bTYwQUoxSllBZXhoRGhaMkcxOGtIT1BBRC1XMEo0NnJTZXJTcF93SWxCWjVNbmtxUDY2UDROVkdlMXZHZVJPbzVpZmIyU0tPN2ZLbFhPcVpMUFdFeGNRQlpDQ05oUm9IWXQzRWxaT0poT0JzMncwcEQ4OQ?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQTWRPQ3V5bTYwQUoxSllBZXhoRGhaMkcxOGtIT1BBRC1XMEo0NnJTZXJTcF93SWxCWjVNbmtxUDY2UDROVkdlMXZHZVJPbzVpZmIyU0tPN2ZLbFhPcVpMUFdFeGNRQlpDQ05oUm9IWXQzRWxaT0poT0JzMncwcEQ4OQ?oc=5",
-    "promo_group": "supermarket",
-    "entry_types": [
-      "追蹤帳號"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-da87ee5c",
-    "title": "【即時情報】好市多黑五Day6省3萬！LG除濕機、黃金特價等到了　11/28優惠清單",
-    "brand": "好市多",
-    "tags": [
-      "每週特價",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1Ydi02M1JCd0NUX2E2WXZHOVNydk1TX0dSTE9fQTJuLTFMaHp3UXNJNlBMM0owSzRzX0V0bXZQUl9aYVNJYThzSFdRannSAVJBVV95cUxPNUpBQUxqUGk5THRHNl85TlVpaTdqU0c0OUJxYUVyYWc0aWMxMVlBSWdRVUpTVTdlMUNnaUYydkRxSHU5SXpDcmNLZ01KRENmWjhR?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1Ydi02M1JCd0NUX2E2WXZHOVNydk1TX0dSTE9fQTJuLTFMaHp3UXNJNlBMM0owSzRzX0V0bXZQUl9aYVNJYThzSFdRannSAVJBVV95cUxPNUpBQUxqUGk5THRHNl85TlVpaTdqU0c0OUJxYUVyYWc0aWMxMVlBSWdRVUpTVTdlMUNnaUYydkRxSHU5SXpDcmNLZ01KRENmWjhR?oc=5",
+    "imageUrl": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBqQzVteTBGbS1BN3hsSW14OFpWLXE4MGtKb1RUcmc3am5ySTcxaVBRckE5ZVQwTm5TZk5YQ0xMVjE2eEJjQmpXYtIBTEFVX3lxTE1FTll3VWZ4TU45aEdTbWJMRHlHUHVZSXE0azhzemdtS0tpLVFVdmhiVHQ4LW1pZUk1TGNvTlBNRHg2czdsenRWaUZoNnI?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBqQzVteTBGbS1BN3hsSW14OFpWLXE4MGtKb1RUcmc3am5ySTcxaVBRckE5ZVQwTm5TZk5YQ0xMVjE2eEJjQmpXYtIBTEFVX3lxTE1FTll3VWZ4TU45aEdTbWJMRHlHUHVZSXE0azhzemdtS0tpLVFVdmhiVHQ4LW1pZUk1TGNvTlBNRHg2czdsenRWaUZoNnI?oc=5",
     "promo_group": "supermarket",
     "entry_types": [
       "追蹤帳號"
@@ -967,6 +992,29 @@
     "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1EQVY1Vm9CMzRmNDJCUGlRM1c2d0lEdXUyOGFCODhXelNyYnFnZU5wQTRkWmlSYnRSb1hJT3lJTzFHNDZGQmpkWktkLWbSAVJBVV95cUxOMDFJRVVkTURROXg5a09ObjVCbjRtVU1KaU5BdFVONEk3WE91amNSUkRUdEpSZUJISnljRHdDREJlSzNVTjlKZ0lTeHFSQ2c0b2xR?oc=5",
     "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE1EQVY1Vm9CMzRmNDJCUGlRM1c2d0lEdXUyOGFCODhXelNyYnFnZU5wQTRkWmlSYnRSb1hJT3lJTzFHNDZGQmpkWktkLWbSAVJBVV95cUxOMDFJRVVkTURROXg5a09ObjVCbjRtVU1KaU5BdFVONEk3WE91amNSUkRUdEpSZUJISnljRHdDREJlSzNVTjlKZ0lTeHFSQ2c0b2xR?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-48d65ee9",
+    "title": "【即時情報】４大超商週末優惠！咖啡買11送11、霜淇淋第２支６元，7-11推潮牌聯名",
+    "brand": "7-11",
+    "tags": [
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5KUjlWbV9PMC1YTENKdFdpaFNNZnRkSFF0QzJ4b0VPNHdwa0h2VncxWVc3UldHZjNQSUFrV2pzYzJrSVh3T0ltdUMzNnN3RU54LWR5Qg?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5KUjlWbV9PMC1YTENKdFdpaFNNZnRkSFF0QzJ4b0VPNHdwa0h2VncxWVc3UldHZjNQSUFrV2pzYzJrSVh3T0ltdUMzNnN3RU54LWR5Qg?oc=5",
     "promo_group": "supermarket",
     "entry_types": [
       "追蹤帳號"
@@ -999,6 +1047,56 @@
     "is_expired": false
   },
   {
+    "id": "news-3fec53d4",
+    "title": "【即時情報】7-11名店鍋物來暖胃 Uber Eats火鍋買1送1",
+    "brand": "7-11",
+    "tags": [
+      "買一送一",
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBqc2pYaDdmaE0tWHc0QTdzM01RNlR5aVYteE1WcUNQOFpRX0FYTHliRENnSnVsa0Y3MnFBZzgyQ1pYbnpzX05zRHRZSG5TVEwyU25uT1ZzYkxvZw?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBqc2pYaDdmaE0tWHc0QTdzM01RNlR5aVYteE1WcUNQOFpRX0FYTHliRENnSnVsa0Y3MnFBZzgyQ1pYbnpzX05zRHRZSG5TVEwyU25uT1ZzYkxvZw?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號",
+      "免消費"
+    ],
+    "is_expired": false
+  },
+  {
+    "id": "news-e313d7a2",
+    "title": "【即時情報】4大超商「咖啡買1送1」陪你返鄉投票！",
+    "brand": "超商藥妝週末特價",
+    "tags": [
+      "買一送一",
+      "每週特價",
+      "熱門好康"
+    ],
+    "time": "即時追蹤 (11/27 發布，追蹤至 2026/11/30)",
+    "deadline": "2026/11/30",
+    "qualification": "每日即時情報追蹤（2026/11/27 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
+    "prizes": [
+      "每日即時優惠情報"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
+    "activityUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE93OW9xR1VwTWZTeUcwNUo5aDFpWDV3cXppUEJOQWRUNlJyVUpyX1VrMW93eXh4dU5qZDlxVVBMdFluZnNfWGVZLWVtcUtIdkZSVEF0djBXZWlHOEdn?oc=5",
+    "officialUrl": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE93OW9xR1VwTWZTeUcwNUo5aDFpWDV3cXppUEJOQWRUNlJyVUpyX1VrMW93eXh4dU5qZDlxVVBMdFluZnNfWGVZLWVtcUtIdkZSVEF0djBXZWlHOEdn?oc=5",
+    "promo_group": "supermarket",
+    "entry_types": [
+      "追蹤帳號",
+      "免消費"
+    ],
+    "is_expired": false
+  },
+  {
     "id": "news-981c05cd",
     "title": "【即時情報】感恩節超商優惠開搶！萊爾富咖啡買11送11、全家第２杯10元，7-11寄杯特價",
     "brand": "7-11",
@@ -1015,80 +1113,6 @@
     "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
     "activityUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9wMjVZYUhJd3psRVBqUmxfTVpadERSVXl2aDcxa0syd1FWcXJDR0tkMXI0dThlc0JYb2VxQWQzaHBhbUpJNjljak5zRW1TOTdZRkMzQw?oc=5",
     "officialUrl": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9wMjVZYUhJd3psRVBqUmxfTVpadERSVXl2aDcxa0syd1FWcXJDR0tkMXI0dThlc0JYb2VxQWQzaHBhbUpJNjljak5zRW1TOTdZRkMzQw?oc=5",
-    "promo_group": "supermarket",
-    "entry_types": [
-      "追蹤帳號",
-      "免消費"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-cc598931",
-    "title": "【即時情報】全家拿鐵10元「只有5天」！柳丁橙柚綠10元　7-11美式拿鐵買1送1",
-    "brand": "7-11",
-    "tags": [
-      "買一送一",
-      "每週特價",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/25 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/25 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFAxMWc2cFg1dkJROTZ0WlB1TUV6VE5nbDNuSWt1TFJTZ04yUDdpREpzSU9KMkhMNG5iSGFpclV1dmVFd1dHd2ctMDJIMk_SAVJBVV95cUxNZVJGYjRzb2tnUG1EYmFjb1RxR1lrQVRYMlo5eVl2TUZ2RGNIek5NaTFtd2hBZnBXX0lOYWVpQVR2VGQ3M2o1dkctZzBsSFdpaHln?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFAxMWc2cFg1dkJROTZ0WlB1TUV6VE5nbDNuSWt1TFJTZ04yUDdpREpzSU9KMkhMNG5iSGFpclV1dmVFd1dHd2ctMDJIMk_SAVJBVV95cUxNZVJGYjRzb2tnUG1EYmFjb1RxR1lrQVRYMlo5eVl2TUZ2RGNIek5NaTFtd2hBZnBXX0lOYWVpQVR2VGQ3M2o1dkctZzBsSFdpaHln?oc=5",
-    "promo_group": "supermarket",
-    "entry_types": [
-      "追蹤帳號",
-      "免消費"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-802ebcba",
-    "title": "【即時情報】感恩節咖啡「買11送11」　超商連5天「買1送1」優惠一次看",
-    "brand": "超商藥妝週末特價",
-    "tags": [
-      "買一送一",
-      "每週特價",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/25 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/25 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9NeTVRdzVMRG5vTHhXTDNoZENiQWZfTnlaamZOeFJnV0d1ejRJOHR5Y2FYMVdsTndiMVdmcW5JekZwbkJZVS1aRTFXM3I0d3p5VFBTWFVaLWFvQl9IX2fSAUtBVV95cUxQS1ZHV1liSUVLZGdLemI1UDZ1R0RGRm54d0hVeHVxQnlnTjduR1pzTTlMMVFibDcwV0JjZkhBMDlrZHlfTkRPdFRQckE?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9NeTVRdzVMRG5vTHhXTDNoZENiQWZfTnlaamZOeFJnV0d1ejRJOHR5Y2FYMVdsTndiMVdmcW5JekZwbkJZVS1aRTFXM3I0d3p5VFBTWFVaLWFvQl9IX2fSAUtBVV95cUxQS1ZHV1liSUVLZGdLemI1UDZ1R0RGRm54d0hVeHVxQnlnTjduR1pzTTlMMVFibDcwV0JjZkhBMDlrZHlfTkRPdFRQckE?oc=5",
-    "promo_group": "supermarket",
-    "entry_types": [
-      "追蹤帳號",
-      "免消費"
-    ],
-    "is_expired": false
-  },
-  {
-    "id": "news-9f32e019",
-    "title": "【即時情報】全家投票日幫補給！特大拿鐵39元、10元多一杯　7-11咖啡買12送12",
-    "brand": "7-11",
-    "tags": [
-      "每週特價",
-      "熱門好康"
-    ],
-    "time": "即時追蹤 (11/26 發布，追蹤至 2026/11/30)",
-    "deadline": "2026/11/30",
-    "qualification": "每日即時情報追蹤（2026/11/26 最新報導）：點擊前往查看完整優惠代碼、活動期間與適用門市。",
-    "prizes": [
-      "每日即時優惠情報"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80",
-    "activityUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9JTDV2TGxyTTZ2TERncFR0bjVXekk4UTVfbFNDWlgzS25NSW9WUWxJZ2NNQkRqbUZ1eVl5YWwwalFydXNKWENkVnBNWljSAVJBVV95cUxOZjNuaHNNSzF1eDBvcDRZb1pxWG9HSkdtQVZxTmdXS0haZGNPZnc3WmFNLVNIV1F6cTQzZUd6Wmg1cHl6bWdXUnB0ZFRoOVAxR0ZR?oc=5",
-    "officialUrl": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9JTDV2TGxyTTZ2TERncFR0bjVXekk4UTVfbFNDWlgzS25NSW9WUWxJZ2NNQkRqbUZ1eVl5YWwwalFydXNKWENkVnBNWljSAVJBVV95cUxOZjNuaHNNSzF1eDBvcDRZb1pxWG9HSkdtQVZxTmdXS0haZGNPZnc3WmFNLVNIV1F6cTQzZUd6Wmg1cHl6bWdXUnB0ZFRoOVAxR0ZR?oc=5",
     "promo_group": "supermarket",
     "entry_types": [
       "追蹤帳號",
@@ -3267,7 +3291,7 @@
     "is_expired": false
   },
   {
-    "id": "epic-live-7067",
+    "id": "epic-live-8368",
     "title": "Epic Games 本週限時免費正版遊戲・《火之石 – 英雄放置點擊RPG》0元永久入庫收藏",
     "brand": "Epic Games",
     "tags": [
@@ -3292,7 +3316,7 @@
     "is_expired": false
   },
   {
-    "id": "epic-live-9616",
+    "id": "epic-live-8615",
     "title": "Epic Games 本週限時免費正版遊戲・《Bread and Fred》0元永久入庫收藏",
     "brand": "Epic Games",
     "tags": [
@@ -5079,48 +5103,6 @@
     "is_expired": true
   },
   {
-    "id": "22445",
-    "title": "全家抽獎隨買跨店取共享轉贈商品抽百杯特濃拿鐵",
-    "brand": "全家",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22445b.jpg",
-    "activityUrl": "https://nevent.family.com.tw/20261111ecdiscount/",
-    "officialUrl": "https://www.family.com.tw/",
-    "entry_types": [
-      "免消費"
-    ],
-    "is_expired": true
-  },
-  {
-    "id": "22444",
-    "title": "全家抽獎史上最狂雙11抽元寶小金豆",
-    "brand": "全家",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "2026/10/28(三) ~ 2026/11/24(二)",
-    "deadline": "2026/11/24",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22444b.jpg",
-    "activityUrl": "https://nevent.family.com.tw/2026_1111/",
-    "officialUrl": "https://www.family.com.tw/",
-    "entry_types": [
-      "免消費"
-    ],
-    "is_expired": true
-  },
-  {
     "id": "22426",
     "title": "光泉抽奬卡厄思夢境X光泉調味乳飲抽三星旗艦手機",
     "brand": "光泉",
@@ -5781,29 +5763,6 @@
     "imageUrl": "https://onelife.tw/img/a/22289b.png",
     "activityUrl": "https://www.kuangchuan.com/draw/2026061593301",
     "officialUrl": "http://www.kuangchuan.com/",
-    "entry_types": [
-      "免消費"
-    ],
-    "is_expired": true
-  },
-  {
-    "id": "22395",
-    "title": "全家棒球俱樂部MLB冠軍預測抽10萬旅遊金",
-    "brand": "全家",
-    "tags": [
-      "超商專區",
-      "抽機票",
-      "抽現金"
-    ],
-    "time": "2026/9/30(三) ~ 2026/10/13(二)",
-    "deadline": "2026/10/13",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22395b.jpg",
-    "activityUrl": "https://www.family.com.tw/Marketing/zh",
-    "officialUrl": "https://www.family.com.tw/",
     "entry_types": [
       "免消費"
     ],
@@ -14246,27 +14205,6 @@
     "imageUrl": "https://onelife.tw/img/a/16564b.jpg",
     "activityUrl": "https://www.kfcclub.com.tw/tw/Brand/NewsDetail-200715.html",
     "officialUrl": "http://www.kfcclub.com.tw/",
-    "entry_types": [
-      "免消費"
-    ],
-    "is_expired": true
-  },
-  {
-    "id": "22442",
-    "title": "一日五食早點來全家優惠組合餐49元起全家超級配89元起",
-    "brand": "全家",
-    "tags": [
-      "超商專區"
-    ],
-    "time": "",
-    "deadline": "",
-    "qualification": "",
-    "prizes": [
-      "官方大獎（詳見活動官網）"
-    ],
-    "imageUrl": "https://onelife.tw/img/a/22442b.jpg",
-    "activityUrl": "https://nevent.family.com.tw/freshfood/",
-    "officialUrl": "https://www.family.com.tw/",
     "entry_types": [
       "免消費"
     ],
