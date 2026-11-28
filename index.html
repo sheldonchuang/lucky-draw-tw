@@ -168,6 +168,10 @@
       background: #2E8B57;
       color: #FFFFFF;
     }
+    .sponsor-badge-orchid {
+      background: #6E8B3D;
+      color: #FFFFFF;
+    }
 
     /* 顯眼加粗字體 */
     .sponsor-title-link {
@@ -2350,6 +2354,35 @@
             </div>
           </div>
 
+          <!-- 贊助商 4: 芸蘭國際 Crown Orchid -->
+          <div class="sponsor-slide">
+            <div class="sponsor-brand">
+              <a href="https://crown-orchid.com/" target="_blank" rel="noopener noreferrer" title="芸蘭國際 Crown Orchid">
+                <img src="assets/crown-orchid-logo.svg" alt="芸蘭國際 Crown Orchid Logo" class="sponsor-medal-img sponsor-logo-img" onerror="this.onerror=null;this.src='https://crown-orchid.com/wp-content/uploads/2026/11/crown-orchid-logo.svg';">
+              </a>
+              <div>
+                <div class="sponsor-title-row">
+                  <span class="sponsor-badge sponsor-badge-orchid"><i class="fa-solid fa-spa"></i> 植萃科研贊助</span>
+                  <a href="https://crown-orchid.com/" target="_blank" rel="noopener noreferrer" class="sponsor-title-link">
+                    芸蘭國際 Crown Orchid ｜ 台灣蘭花原料・蘭花精油與植萃研發
+                    <i class="fa-solid fa-arrow-up-right-from-square title-ext-icon"></i>
+                  </a>
+                </div>
+                <div class="sponsor-desc">以成功大學 20 年蘭花學術研究為基礎，提供功能性植萃原料、蘭花精油與 ODM/OEM 客製化研發</div>
+              </div>
+            </div>
+
+            <div class="sponsor-actions">
+              <div class="sponsor-contact-text">
+                活動刊登・廣告贊助：
+                <a href="mailto:scottsherlockwholmes@gmail.com?subject=LuckyGo%20廣告贊助洽詢" class="sponsor-contact-email">scottsherlockwholmes@gmail.com</a>
+              </div>
+              <a href="https://crown-orchid.com/" target="_blank" rel="noopener noreferrer" class="btn-sponsor-visit">
+                前往官方網站 ↗
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -2364,6 +2397,7 @@
       <button class="sponsor-dot active" onclick="goToSponsor(0)" aria-label="切換至 Nutrition Selections"></button>
       <button class="sponsor-dot" onclick="goToSponsor(1)" aria-label="切換至 大江戶健康物語"></button>
       <button class="sponsor-dot" onclick="goToSponsor(2)" aria-label="切換至 壹品藥局"></button>
+      <button class="sponsor-dot" onclick="goToSponsor(3)" aria-label="切換至 芸蘭國際"></button>
     </div>
   </div>
 
@@ -3400,7 +3434,7 @@
 
     // 頂部贊助商 3 秒自動平滑輪播機制
     let currentSponsorIndex = 0;
-    const totalSponsors = 3;
+    const totalSponsors = 4;
     let sponsorAutoTimer = null;
 
     function updateSponsorSlide() {
