@@ -2103,6 +2103,165 @@
       .btn-track-header span.track-label-text { display: none; }
     }
 
+    /* ===== 每日好康推薦與幸運轉盤 (Phase 3) ===== */
+    .daily-lucky-strip {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      padding: 0.72rem 1.05rem;
+      background: #FAF8F3;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      margin-top: 0.15rem;
+      flex-wrap: wrap;
+    }
+    .daily-lucky-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex: 1;
+      min-width: 220px;
+    }
+    .daily-lucky-badge {
+      background: var(--accent-light);
+      color: #8A5A2B;
+      border: 1px solid #E8D5C4;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .daily-lucky-pick-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: color 0.15s;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .daily-lucky-pick-title:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    .daily-lucky-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+    .btn-wheel-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.44rem 0.9rem;
+      background: var(--primary);
+      color: #FAF7F2;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-wheel-open:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .wheel-pool-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .wheel-pool-tab {
+      padding: 0.34rem 0.72rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .wheel-pool-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FAF7F2;
+    }
+    .wheel-stage {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wheel-pointer {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 20px solid #9E4540;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+      z-index: 5;
+    }
+    .wheel-center-btn {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #FAF7F2;
+      border: 3px solid var(--primary);
+      color: var(--primary);
+      font-family: var(--font-serif);
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 4;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+      transition: transform 0.15s ease, background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .wheel-center-btn:hover:not(:disabled) {
+      transform: scale(1.06);
+      background: var(--primary);
+      color: #FAF7F2;
+    }
+    .wheel-center-btn:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .wheel-result-card {
+      background: #FAF8F3;
+      border: 1px solid #E2D9C8;
+      border-radius: 12px;
+      padding: 0.95rem 1.05rem;
+      margin-top: 0.5rem;
+      animation: fadeSlideUp 0.25s ease;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ===== 開獎通知中心 (Phase 2) ===== */
     .btn-noti-header {
       position: relative;
@@ -2489,6 +2648,19 @@
           <span class="community-hero-cta">立即查折扣碼 <i class="fa-solid fa-arrow-right"></i></span>
         </a>
       </div>
+
+      <!-- 每日好康推薦 ＋ 幸運轉盤入口 -->
+      <div class="daily-lucky-strip" id="dailyLuckyStrip">
+        <div class="daily-lucky-left">
+          <span class="daily-lucky-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> 今日手氣推薦</span>
+          <span class="daily-lucky-pick-title" id="dailyLuckyTitle" onclick="openDailyPickDetail()">正在為您挑選今日精選好康...</span>
+        </div>
+        <div class="daily-lucky-actions">
+          <button type="button" class="btn-wheel-open" onclick="openLuckyWheelModal()">
+            <i class="fa-solid fa-dharmachakra"></i> 幸運好康轉盤
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2803,6 +2975,45 @@
           </div>
           <div class="track-brand-grid" id="popularBrandsGrid"></div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幸運好康轉盤 Modal (Phase 3) -->
+  <div class="modal-backdrop" id="luckyWheelModal" onclick="if(event.target===this) closeLuckyWheelModal()">
+    <div class="modal-card" style="max-width:500px;">
+      <div class="modal-header">
+        <div style="font-size:0.95rem; font-weight:800; color:var(--primary);"><i class="fa-solid fa-dharmachakra"></i> 幸運好康轉盤・今日靈感抽獎</div>
+        <button class="modal-close-btn" onclick="closeLuckyWheelModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner" style="max-height:82vh; overflow-y:auto;">
+        <div style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">
+          不知道今天要抽哪一檔？選好偏好後轉動轉盤，幫你決定今天的幸運好康！
+        </div>
+
+        <div class="wheel-pool-tabs" id="wheelPoolTabs">
+          <button type="button" class="wheel-pool-tab active" data-pool="all" onclick="setWheelPool('all')">全部好康</button>
+          <button type="button" class="wheel-pool-tab" data-pool="free" onclick="setWheelPool('free')">免消費即抽</button>
+          <button type="button" class="wheel-pool-tab" data-pool="bogo" onclick="setWheelPool('bogo')">買一送一</button>
+          <button type="button" class="wheel-pool-tab" data-pool="urgent" onclick="setWheelPool('urgent')">即將截止</button>
+        </div>
+
+        <div class="wheel-stage">
+          <div class="wheel-pointer"></div>
+          <canvas id="luckyWheelCanvas" width="300" height="300"></canvas>
+          <button type="button" class="wheel-center-btn" id="wheelSpinBtn" onclick="spinLuckyWheel()">轉動</button>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:0.55rem; margin-bottom:0.75rem;">
+          <button type="button" onclick="shuffleWheelSlices()" style="padding:0.38rem 0.8rem; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:0.78rem; font-weight:600; cursor:pointer;">
+            <i class="fa-solid fa-shuffle"></i> 換一批選項
+          </button>
+          <button type="button" onclick="spinLuckyWheel()" style="padding:0.38rem 0.95rem; border-radius:8px; border:none; background:var(--accent); color:#fff; font-size:0.78rem; font-weight:700; cursor:pointer;">
+            <i class="fa-solid fa-play"></i> 開始轉動
+          </button>
+        </div>
+
+        <div id="wheelResultContainer"></div>
       </div>
     </div>
   </div>
@@ -4547,11 +4758,249 @@
       dispatchBrandBrowserNotifications();
     }
 
+    // ==================== 每日好康推薦 ＋ 幸運轉盤 (Phase 3) ====================
+    const WHEEL_COLORS = ['#2D4B3E', '#B8834F', '#5F7A6A', '#9E6240', '#5E7485', '#8C7A6B'];
+    let dailyPickEvent = null;
+    let currentWheelPool = 'all';
+    let wheelSlices = [];
+    let wheelAngle = 0;
+    let isWheelSpinning = false;
+
+    function getDailyPickEvent() {
+      const active = (allEvents || []).filter(e => !isExpired(e));
+      if (active.length === 0) return null;
+      const preferred = active.filter(e =>
+        (e.tags || []).some(t => ['免消費即抽', '買一送一', '抽機票', '抽3C', '限免遊戲'].includes(t))
+      );
+      const pool = preferred.length >= 5 ? preferred : active;
+      const now = new Date();
+      const dateStr = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+      let hash = 0;
+      for (let i = 0; i < dateStr.length; i++) {
+        hash = ((hash << 5) - hash) + dateStr.charCodeAt(i);
+        hash |= 0;
+      }
+      return pool[Math.abs(hash) % pool.length];
+    }
+
+    function initDailyLuckyWidget() {
+      dailyPickEvent = getDailyPickEvent();
+      const titleEl = document.getElementById('dailyLuckyTitle');
+      if (titleEl) {
+        if (dailyPickEvent) {
+          titleEl.innerText = `【${dailyPickEvent.brand}】${dailyPickEvent.title}`;
+        } else {
+          titleEl.innerText = '點擊右側轉盤，立即抽取今日幸運好康！';
+        }
+      }
+    }
+
+    function openDailyPickDetail() {
+      if (dailyPickEvent && dailyPickEvent.id) {
+        openModal(dailyPickEvent.id);
+      } else {
+        openLuckyWheelModal();
+      }
+    }
+
+    function getWheelCandidates(poolType) {
+      const active = (allEvents || []).filter(e => !isExpired(e));
+      let filtered = active;
+      if (poolType === 'free') {
+        filtered = active.filter(e => (e.tags || []).includes('免消費即抽') || getEventEntryTypes(e).includes('免消費'));
+      } else if (poolType === 'bogo') {
+        filtered = active.filter(e => (e.tags || []).includes('買一送一'));
+      } else if (poolType === 'urgent') {
+        filtered = active.filter(e => {
+          const d = getRemainingDays(e.deadline);
+          return d !== null && d >= 0 && d <= 5;
+        });
+      }
+      return filtered.length >= 4 ? filtered : active;
+    }
+
+    function shuffleWheelSlices() {
+      if (isWheelSpinning) return;
+      const candidates = [...getWheelCandidates(currentWheelPool)];
+      for (let i = candidates.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+      }
+      wheelSlices = candidates.slice(0, Math.min(6, candidates.length));
+      const resBox = document.getElementById('wheelResultContainer');
+      if (resBox) resBox.innerHTML = '';
+      drawLuckyWheel(wheelAngle);
+    }
+
+    function setWheelPool(poolType) {
+      if (isWheelSpinning) return;
+      currentWheelPool = poolType;
+      document.querySelectorAll('#wheelPoolTabs .wheel-pool-tab').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-pool') === poolType);
+      });
+      shuffleWheelSlices();
+    }
+
+    function openLuckyWheelModal() {
+      if (wheelSlices.length === 0) shuffleWheelSlices();
+      else drawLuckyWheel(wheelAngle);
+      document.getElementById('luckyWheelModal').classList.add('active');
+      if (window.gtag) gtag('event', 'open_lucky_wheel');
+    }
+
+    function closeLuckyWheelModal() {
+      document.getElementById('luckyWheelModal').classList.remove('active');
+    }
+
+    function drawLuckyWheel(angleRad) {
+      const canvas = document.getElementById('luckyWheelCanvas');
+      if (!canvas) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const size = 300;
+      if (canvas.width !== size * dpr) {
+        canvas.width = size * dpr;
+        canvas.height = size * dpr;
+        canvas.style.width = size + 'px';
+        canvas.style.height = size + 'px';
+      }
+      const ctx = canvas.getContext('2d');
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, size, size);
+
+      const cx = size / 2;
+      const cy = size / 2;
+      const radius = size / 2 - 6;
+      const count = wheelSlices.length || 1;
+      const sliceArc = (Math.PI * 2) / count;
+
+      for (let i = 0; i < count; i++) {
+        const start = angleRad + i * sliceArc;
+        const end = start + sliceArc;
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, start, end);
+        ctx.closePath();
+        ctx.fillStyle = WHEEL_COLORS[i % WHEEL_COLORS.length];
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#FAF7F2';
+        ctx.stroke();
+
+        // 繪製扇區文字
+        const ev = wheelSlices[i];
+        const label = ev ? (ev.brand && ev.brand !== '精選品牌' ? ev.brand : ev.title.slice(0, 6)) : '好康';
+        const shortLabel = label.length > 7 ? label.slice(0, 6) + '…' : label;
+        const subText = ev && ev.prizes && ev.prizes[0] ? ev.prizes[0] : '';
+        const shortSub = subText.length > 8 ? subText.slice(0, 7) + '…' : subText;
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(start + sliceArc / 2);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#FAF7F2';
+        ctx.font = 'bold 12px "Plus Jakarta Sans", "Noto Sans TC", sans-serif';
+        ctx.fillText(shortLabel, radius - 16, -2);
+        if (shortSub) {
+          ctx.fillStyle = 'rgba(250, 247, 242, 0.85)';
+          ctx.font = '10px "Plus Jakarta Sans", "Noto Sans TC", sans-serif';
+          ctx.fillText(shortSub, radius - 16, 12);
+        }
+        ctx.restore();
+      }
+
+      // 外框裝飾環
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = '#E5E0D8';
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function spinLuckyWheel() {
+      if (isWheelSpinning || wheelSlices.length === 0) return;
+      isWheelSpinning = true;
+      const spinBtn = document.getElementById('wheelSpinBtn');
+      if (spinBtn) spinBtn.disabled = true;
+
+      const resBox = document.getElementById('wheelResultContainer');
+      if (resBox) resBox.innerHTML = '';
+
+      const startAngle = wheelAngle;
+      const extraSpins = (5 + Math.floor(Math.random() * 3)) * Math.PI * 2;
+      const randomOffset = Math.random() * Math.PI * 2;
+      const targetAngle = startAngle + extraSpins + randomOffset;
+      const duration = 3500;
+      const startTime = performance.now();
+
+      function animate(now) {
+        const elapsed = now - startTime;
+        const t = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        wheelAngle = startAngle + (targetAngle - startAngle) * eased;
+        drawLuckyWheel(wheelAngle);
+
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          wheelAngle = wheelAngle % (Math.PI * 2);
+          isWheelSpinning = false;
+          if (spinBtn) spinBtn.disabled = false;
+
+          // 計算頂部指針 (-PI/2) 所指的扇區
+          const count = wheelSlices.length;
+          const sliceArc = (Math.PI * 2) / count;
+          let rel = (-Math.PI / 2 - wheelAngle) % (Math.PI * 2);
+          if (rel < 0) rel += Math.PI * 2;
+          const winIdx = Math.floor(rel / sliceArc) % count;
+          showWheelResult(wheelSlices[winIdx]);
+          if (window.gtag) gtag('event', 'spin_lucky_wheel', { pool: currentWheelPool });
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function showWheelResult(ev) {
+      const resBox = document.getElementById('wheelResultContainer');
+      if (!resBox || !ev) return;
+      const prize = ev.prizes && ev.prizes[0] ? ev.prizes[0] : '依官方公佈為準';
+      const url = ev.activityUrl || ev.officialUrl || '#';
+      resBox.innerHTML = `
+        <div class="wheel-result-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; margin-bottom:0.4rem;">
+            <span style="background:var(--primary-light); color:var(--primary); font-size:0.74rem; font-weight:700; padding:0.16rem 0.55rem; border-radius:6px;">
+              🎉 抽中好康・${ev.brand || '精選品牌'}
+            </span>
+            <span style="font-size:0.74rem; color:var(--text-muted);">${ev.deadline ? `截止：${ev.deadline}` : '進行中'}</span>
+          </div>
+          <div style="font-family:var(--font-serif); font-size:0.96rem; font-weight:700; color:var(--text); margin-bottom:0.35rem; line-height:1.45;">
+            ${ev.title}
+          </div>
+          <div style="font-size:0.8rem; color:#8A5A2B; margin-bottom:0.75rem;">
+            <i class="fa-solid fa-trophy"></i> ${prize}
+          </div>
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" onclick="closeLuckyWheelModal(); openModal('${ev.id}');" style="flex:1; padding:0.5rem; border-radius:8px; border:1px solid var(--border); background:#fff; color:var(--text); font-size:0.8rem; font-weight:600; cursor:pointer;">
+              <i class="fa-solid fa-circle-info"></i> 詳情規則
+            </button>
+            <a href="${url}" target="_blank" rel="noopener noreferrer" style="flex:1.4; padding:0.5rem; border-radius:8px; background:var(--primary); color:#FAF7F2; font-size:0.8rem; font-weight:600; text-decoration:none; text-align:center;">
+              前往活動 ↗
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
     // 載入資料 (優先使用 data.js 內建資料，若無則 fetch events.json)
     if (allEvents.length > 0) {
       updateCounts();
       renderEvents();
       initBrandTracking();
+      initDailyLuckyWidget();
     } else {
       fetch('./events.json')
         .then(r => r.json())
@@ -4560,6 +5009,7 @@
           updateCounts();
           renderEvents();
           initBrandTracking();
+          initDailyLuckyWidget();
         })
         .catch(err => {
           console.error('載入 events.json 失敗:', err);
