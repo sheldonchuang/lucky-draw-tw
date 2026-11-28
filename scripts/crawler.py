@@ -2288,7 +2288,7 @@ if __name__ == '__main__':
 
     # 8. 自動更新 HTML 頁面的快取版本標記，保證訪客手機即時讀取最新資料
     v_str = today.strftime('%Y%m%d%H%M')
-    for html_file in ['index.html', 'share.html', 'bogo-monthly.html', 'coupons.html']:
+    for html_file in ['index.html', 'share.html', 'bogo-monthly.html', 'birthday-monthly.html', 'coupons.html']:
         h_path = os.path.join(repo_dir, html_file)
         if os.path.exists(h_path):
             try:

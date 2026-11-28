@@ -526,11 +526,11 @@
       color: #FFFFFF;
     }
 
-    /* 三並排文青書籤卡：社群贈券牆 + 當月買一送一總整理 + 台灣電商折扣碼 */
+    /* 四並排文青書籤卡：社群贈券牆 + 當月買一送一總整理 + 當月壽星優惠 + 台灣電商折扣碼 */
     .hero-banner-trio {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.85rem;
       margin-top: 0.15rem;
     }
@@ -573,6 +573,26 @@
     }
     .community-hero-btn.coupon-hero-btn:hover {
       border-top-color: #32526B;
+    }
+    .community-hero-btn.birthday-hero-btn {
+      border-top-color: #9E4570;
+    }
+    .community-hero-btn.birthday-hero-btn:hover {
+      border-top-color: #7D3357;
+    }
+    .community-hero-btn.birthday-hero-btn .community-hero-icon {
+      background: #FDF2F7;
+      color: #9E4570;
+    }
+    .community-hero-btn.birthday-hero-btn .community-hero-cta {
+      background: #FDF2F7;
+      color: #9E4570;
+      border-color: #EBC8D9;
+    }
+    .community-hero-btn.birthday-hero-btn:hover .community-hero-cta {
+      background: #9E4570;
+      color: #FFFFFF;
+      border-color: #9E4570;
     }
     .community-hero-left {
       display: flex;
@@ -669,6 +689,12 @@
       background: #355873;
       color: #FFFFFF;
       border-color: #355873;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-banner-trio {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 900px) {
@@ -1802,6 +1828,114 @@
     .btn-fav-header:hover .fav-count-badge {
       background: rgba(255, 255, 255, 0.24);
     }
+
+    /* ===== 首頁會員登入 / Google 一鍵登入 ===== */
+    .btn-auth-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #C8DDD0;
+      background: #EBF1ED;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-auth-header:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .btn-auth-header.logged-in {
+      background: #FFFFFF;
+      border-color: var(--border);
+      color: var(--text);
+      padding: 0.3rem 0.78rem 0.3rem 0.35rem;
+    }
+    .btn-auth-header.logged-in:hover {
+      background: var(--surface-subtle);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .auth-header-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--primary-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .auth-google-btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .auth-google-btn:hover {
+      background: #FAF8F5;
+      border-color: #BFB4A2;
+      transform: translateY(-1px);
+    }
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      margin: 1rem 0;
+    }
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+    .auth-mode-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      background: var(--surface-subtle);
+      padding: 0.25rem;
+      border-radius: 10px;
+      margin-bottom: 0.9rem;
+    }
+    .auth-mode-tab {
+      border: none;
+      background: transparent;
+      padding: 0.45rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .auth-mode-tab.active {
+      background: #FFFFFF;
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
     .card-fav-btn {
       position: absolute;
       bottom: 0.6rem;
@@ -2466,6 +2600,10 @@
           <i class="fa-solid fa-bell"></i>
           <span class="noti-dot-badge" id="notiCountBadge">0</span>
         </button>
+        <button type="button" class="btn-auth-header" id="headerAuthBtn" onclick="openAuthModal()" title="會員登入／Google 一鍵登入">
+          <i class="fa-brands fa-google"></i>
+          <span>會員登入 / 註冊</span>
+        </button>
         <a href="mailto:scottsherlockwholmes@gmail.com?subject=LuckyGo%20廣告贊助與合作洽詢" class="btn-sponsor">
           <i class="fa-solid fa-envelope"></i> 廣告贊助洽詢
         </a>
@@ -2691,6 +2829,20 @@
             </div>
           </div>
           <span class="community-hero-cta">看完整懶人包 <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a href="./birthday-monthly.html" class="community-hero-btn birthday-hero-btn">
+          <div class="community-hero-left">
+            <div class="community-hero-icon"><i class="fa-solid fa-cake-candles"></i></div>
+            <div>
+              <div class="community-hero-title-row">
+                <span class="community-hero-title">🎂 當月壽星優惠懶人包</span>
+                <span class="community-hero-badge">生日必看</span>
+              </div>
+              <div class="community-hero-sub">火鍋加菜・燒肉招待・Buffet折扣・遊樂園免費入園</div>
+            </div>
+          </div>
+          <span class="community-hero-cta">看壽星專屬好康 <i class="fa-solid fa-arrow-right"></i></span>
         </a>
 
         <a href="./coupons.html" class="community-hero-btn coupon-hero-btn">
@@ -2934,6 +3086,78 @@
     </div>
   </div>
 
+  <!-- 會員登入 / 免費註冊 Modal (首頁入口) -->
+  <div class="modal-backdrop" id="authModal" onclick="if(event.target===this) closeAuthModal()">
+    <div class="modal-card" style="max-width:440px;">
+      <div class="modal-header">
+        <div style="font-size:0.95rem; font-weight:700; color:var(--primary);"><i class="fa-solid fa-user-check"></i> LuckyGo 會員中心</div>
+        <button class="modal-close-btn" onclick="closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner" id="authModalBody">
+        <!-- 未登入視圖 -->
+        <div id="authLoggedOutView">
+          <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.55;">
+            登入會員即可雲端同步個人收藏清單、參與社群贈券牆領券／換券、投稿抽獎情報與回報開獎名單！
+          </p>
+          <button type="button" class="auth-google-btn" onclick="signInIndexGoogle()">
+            <i class="fa-brands fa-google" style="color:#DB4437; font-size:1.05rem;"></i>
+            <span>Google 一鍵快速登入 / 註冊</span>
+          </button>
+
+          <div class="auth-divider">或使用 Email 登入／註冊</div>
+
+          <div class="auth-mode-tabs">
+            <button type="button" class="auth-mode-tab active" id="authTabLogin" onclick="switchAuthMode('login')">Email 登入</button>
+            <button type="button" class="auth-mode-tab" id="authTabRegister" onclick="switchAuthMode('register')">免費註冊帳號</button>
+          </div>
+
+          <div id="authNicknameWrap" style="display:none; margin-bottom:0.65rem;">
+            <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">顯示暱稱 *</label>
+            <input type="text" id="authNicknameInput" placeholder="例：省錢小達人" style="width:100%; padding:0.55rem 0.75rem; border:1px solid var(--border); border-radius:8px; font-size:0.88rem;">
+          </div>
+
+          <div style="margin-bottom:0.65rem;">
+            <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">電子信箱 (Email) *</label>
+            <input type="email" id="authEmailInput" placeholder="name@example.com" style="width:100%; padding:0.55rem 0.75rem; border:1px solid var(--border); border-radius:8px; font-size:0.88rem;">
+          </div>
+
+          <div style="margin-bottom:0.9rem;">
+            <label style="display:block; font-size:0.8rem; font-weight:600; margin-bottom:0.25rem;">密碼（至少 6 碼）*</label>
+            <input type="password" id="authPasswordInput" placeholder="請輸入密碼" style="width:100%; padding:0.55rem 0.75rem; border:1px solid var(--border); border-radius:8px; font-size:0.88rem;">
+          </div>
+
+          <div id="authStatusMsg" style="display:none; font-size:0.8rem; padding:0.55rem 0.75rem; border-radius:8px; margin-bottom:0.75rem;"></div>
+
+          <button type="button" id="authEmailSubmitBtn" onclick="handleIndexEmailAuth()" class="btn-direct" style="width:100%; padding:0.72rem; border:none; border-radius:10px; cursor:pointer; font-size:0.92rem;">
+            登入會員
+          </button>
+        </div>
+
+        <!-- 已登入視圖 -->
+        <div id="authLoggedInView" style="display:none;">
+          <div style="display:flex; align-items:center; gap:0.85rem; padding:0.85rem 1rem; background:#F4F9F6; border:1px solid #C8DDD0; border-radius:12px; margin-bottom:1rem;">
+            <div id="authProfileAvatar" style="width:44px; height:44px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:700; overflow:hidden; flex-shrink:0;"></div>
+            <div style="min-width:0; flex:1;">
+              <div id="authProfileName" style="font-weight:700; font-size:0.98rem; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></div>
+              <div id="authProfileEmail" style="font-size:0.78rem; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"></div>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.65rem; margin-bottom:1rem;">
+            <button type="button" onclick="closeAuthModal(); openFavoritesModal();" style="padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text); font-size:0.84rem; font-weight:600; cursor:pointer;">
+              <i class="fa-solid fa-heart" style="color:#A83834;"></i> 我的雲端收藏
+            </button>
+            <a href="./community.html" style="padding:0.65rem; border-radius:10px; border:1px solid var(--border); background:#FAF8F5; color:var(--text); font-size:0.84rem; font-weight:600; text-decoration:none; text-align:center;">
+              <i class="fa-solid fa-hand-holding-heart" style="color:var(--primary);"></i> 社群贈券牆
+            </a>
+          </div>
+          <button type="button" onclick="signOutIndexGoogle(); closeAuthModal();" style="width:100%; padding:0.65rem; border-radius:10px; border:1px solid #E8CFCB; background:#FFF6F5; color:#9E4540; font-size:0.86rem; font-weight:700; cursor:pointer;">
+            <i class="fa-solid fa-right-from-bracket"></i> 登出會員帳號
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 開獎結果回報 Modal（學獎一下） -->
   <div class="modal-backdrop" id="reportResultModal" onclick="if(event.target===this) closeReportModal()">
     <div class="modal-card" style="max-width:480px;">
@@ -3160,6 +3384,8 @@
     </div>
     <div style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
       <a href="bogo-monthly.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500;">🏷️ 當月買一送一總整理</a>
+      <span style="margin: 0 0.5rem; color: var(--border);">·</span>
+      <a href="birthday-monthly.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500;">🎂 當月壽星優惠懶人包</a>
       <a href="coupons.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500;">🎟️ 電商折扣碼資料庫</a>
       <a href="guide.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500;">📖 抽獎新手指南</a>
       <a href="contact.html" style="color: var(--accent); text-decoration: none; font-size: 0.85rem; font-weight: 500;">📝 資訊更正回報</a>
@@ -3989,9 +4215,167 @@
     }
 
     loadVerifiedLotteryResults().then(() => {
+      renderHeaderAuthBtn();
       loadFavorites();
       loadApprovedSubmissions();
     });
+
+    if (sbIndexClient) {
+      sbIndexClient.auth.onAuthStateChange((_event, session) => {
+        currentIndexUser = session?.user || null;
+        renderHeaderAuthBtn();
+      });
+    }
+
+    let indexAuthMode = 'login';
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[s]));
+    }
+
+    function renderHeaderAuthBtn() {
+      const btn = document.getElementById('headerAuthBtn');
+      if (!btn) return;
+      if (currentIndexUser) {
+        const displayName = currentIndexUser.user_metadata?.full_name || currentIndexUser.user_metadata?.name || (currentIndexUser.email || '').split('@')[0] || '會員';
+        const avatarUrl = currentIndexUser.user_metadata?.avatar_url;
+        const avatarHtml = avatarUrl
+          ? `<img src="${avatarUrl}" alt="會員頭像" class="auth-header-avatar">`
+          : `<span class="auth-header-avatar">${escapeHtml(displayName.charAt(0).toUpperCase())}</span>`;
+        btn.classList.add('logged-in');
+        btn.innerHTML = `${avatarHtml}<span>${escapeHtml(displayName)}</span>`;
+        btn.title = '查看會員中心／登出';
+      } else {
+        btn.classList.remove('logged-in');
+        btn.innerHTML = `<i class="fa-brands fa-google"></i><span>會員登入 / 註冊</span>`;
+        btn.title = '會員登入／Google 一鍵登入';
+      }
+    }
+
+    function openAuthModal() {
+      const loggedOut = document.getElementById('authLoggedOutView');
+      const loggedIn = document.getElementById('authLoggedInView');
+      const msgEl = document.getElementById('authStatusMsg');
+      if (msgEl) msgEl.style.display = 'none';
+
+      if (currentIndexUser) {
+        loggedOut.style.display = 'none';
+        loggedIn.style.display = 'block';
+        const name = currentIndexUser.user_metadata?.full_name || currentIndexUser.user_metadata?.name || (currentIndexUser.email || '').split('@')[0] || 'LuckyGo 會員';
+        const avatarUrl = currentIndexUser.user_metadata?.avatar_url;
+        const avatarEl = document.getElementById('authProfileAvatar');
+        if (avatarEl) {
+          avatarEl.innerHTML = avatarUrl
+            ? `<img src="${avatarUrl}" alt="會員頭像" style="width:100%;height:100%;object-fit:cover;">`
+            : escapeHtml(name.charAt(0).toUpperCase());
+        }
+        const nameEl = document.getElementById('authProfileName');
+        const emailEl = document.getElementById('authProfileEmail');
+        if (nameEl) nameEl.innerText = name;
+        if (emailEl) emailEl.innerText = currentIndexUser.email || '';
+      } else {
+        loggedOut.style.display = 'block';
+        loggedIn.style.display = 'none';
+      }
+      document.getElementById('authModal').classList.add('active');
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.remove('active');
+    }
+
+    function switchAuthMode(mode) {
+      indexAuthMode = mode;
+      const loginTab = document.getElementById('authTabLogin');
+      const regTab = document.getElementById('authTabRegister');
+      const nickWrap = document.getElementById('authNicknameWrap');
+      const submitBtn = document.getElementById('authEmailSubmitBtn');
+      const msgEl = document.getElementById('authStatusMsg');
+      if (msgEl) msgEl.style.display = 'none';
+
+      if (mode === 'register') {
+        loginTab.classList.remove('active');
+        regTab.classList.add('active');
+        nickWrap.style.display = 'block';
+        submitBtn.innerText = '免費註冊成為會員';
+      } else {
+        loginTab.classList.add('active');
+        regTab.classList.remove('active');
+        nickWrap.style.display = 'none';
+        submitBtn.innerText = '登入會員';
+      }
+    }
+
+    async function handleIndexEmailAuth() {
+      if (!sbIndexClient) {
+        alert('會員系統初始化中，請稍後再試。');
+        return;
+      }
+      const email = (document.getElementById('authEmailInput')?.value || '').trim();
+      const password = document.getElementById('authPasswordInput')?.value || '';
+      const nickname = (document.getElementById('authNicknameInput')?.value || '').trim();
+      const msgEl = document.getElementById('authStatusMsg');
+      const btn = document.getElementById('authEmailSubmitBtn');
+
+      const showMsg = (text, isErr) => {
+        msgEl.style.display = 'block';
+        msgEl.style.background = isErr ? '#FDF2F2' : '#EBF1ED';
+        msgEl.style.color = isErr ? '#9E4540' : '#2D4B3E';
+        msgEl.style.border = isErr ? '1px solid #E8CFCB' : '1px solid #C8DDD0';
+        msgEl.innerText = text;
+      };
+
+      if (!email || !email.includes('@')) {
+        showMsg('請輸入有效的電子信箱。', true);
+        return;
+      }
+      if (password.length < 6) {
+        showMsg('密碼長度需至少 6 碼。', true);
+        return;
+      }
+      if (indexAuthMode === 'register' && !nickname) {
+        showMsg('請填寫顯示暱稱。', true);
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerText = '處理中...';
+      try {
+        if (indexAuthMode === 'register') {
+          const { data, error } = await sbIndexClient.auth.signUp({
+            email,
+            password,
+            options: {
+              data: { full_name: nickname, name: nickname },
+              emailRedirectTo: window.location.href.split('#')[0]
+            }
+          });
+          if (error) throw error;
+          if (data?.session?.user) {
+            currentIndexUser = data.session.user;
+            renderHeaderAuthBtn();
+            await loadFavorites();
+            showMsg('註冊成功並已自動登入！', false);
+            setTimeout(() => closeAuthModal(), 800);
+          } else {
+            showMsg('註冊成功！請至信箱點擊驗證連結完成啟用。', false);
+          }
+        } else {
+          const { data, error } = await sbIndexClient.auth.signInWithPassword({ email, password });
+          if (error) throw error;
+          currentIndexUser = data?.user || null;
+          renderHeaderAuthBtn();
+          await loadFavorites();
+          showMsg('登入成功！', false);
+          setTimeout(() => closeAuthModal(), 600);
+        }
+      } catch (err) {
+        showMsg('操作失敗：' + (err?.message || err), true);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = indexAuthMode === 'register' ? '免費註冊成為會員' : '登入會員';
+      }
+    }
 
     // ==================== 網友情報投稿與上架 (Phase 2) ====================
     async function loadApprovedSubmissions() {
@@ -4307,6 +4691,7 @@
       if (!sbIndexClient) return;
       await sbIndexClient.auth.signOut();
       currentIndexUser = null;
+      renderHeaderAuthBtn();
       await loadFavorites();
       renderFavAuthBar();
       renderFavoritesModalList();

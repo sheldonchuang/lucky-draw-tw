@@ -340,3 +340,28 @@ create policy "僅站長可審核網友投稿狀態"
   on public.user_submissions for update
   using (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com')
   with check (lower(coalesce(auth.jwt()->>'email', '')) = 'sheldonchuang@gmail.com');
+
+-- ============================================================================
+-- 10. 角色權限授權（必備：PostgREST 需先具備表級權限，RLS 規則才會生效）
+-- ============================================================================
+grant usage on schema public to anon, authenticated;
+
+grant select on public.profiles to anon, authenticated;
+grant update on public.profiles to authenticated;
+
+grant select on public.coupons to anon, authenticated;
+grant insert, update on public.coupons to authenticated;
+
+grant select, insert on public.coupon_secrets to authenticated;
+grant select, insert on public.coupon_requests to authenticated;
+
+grant select on public.lottery_results to anon, authenticated;
+grant insert, update on public.lottery_results to authenticated;
+
+grant select, insert, delete on public.user_favorites to authenticated;
+
+grant select on public.user_submissions to anon, authenticated;
+grant insert, update on public.user_submissions to authenticated;
+
+grant execute on function public.approve_coupon_request(uuid) to authenticated;
+grant execute on function public.admin_update_member(uuid, integer, boolean) to authenticated;

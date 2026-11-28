@@ -2461,12 +2461,17 @@
         renderMembersTable();
       } catch (err) {
         console.error('載入會員失敗:', err);
+        const isPermErr = String(err?.code || '') === '42501' || String(err?.message || '').toLowerCase().includes('permission denied');
         if (syncBadge) {
-          syncBadge.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> 同步失敗，請稍後重試';
+          syncBadge.innerHTML = isPermErr
+            ? '<i class="fa-solid fa-lock"></i> Supabase 權限未開通 (需執行 GRANT)'
+            : '<i class="fa-solid fa-triangle-exclamation"></i> 同步失敗，請稍後重試';
         }
         const tbody = document.getElementById('membersTableBody');
         if (tbody) {
-          tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#9E4540;">載入會員資料失敗：${escapeHtml(err.message || err)}</td></tr>`;
+          tbody.innerHTML = isPermErr
+            ? `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#9E4540; line-height:1.7;"><strong>Supabase 資料表權限未開放讀取（42501 permission denied）</strong><br>請至 Supabase Dashboard → SQL Editor 執行 <code>supabase/schema.sql</code> 第 10 節的 <code>GRANT SELECT ON public.profiles TO anon, authenticated;</code> 後重新整理即可顯示。</td></tr>`
+            : `<tr><td colspan="6" style="text-align:center; padding:2rem; color:#9E4540;">載入會員資料失敗：${escapeHtml(err.message || err)}</td></tr>`;
         }
       }
     }
