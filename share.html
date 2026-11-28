@@ -780,6 +780,75 @@
       min-height: 1.2em;
     }
     body.locked > *:not(.gate-overlay) { display: none !important; }
+    /* 熱門點擊排行 TOP 10 & 分類熱度 */
+    .hot-clicks-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    @media (max-width: 860px) {
+      .hot-clicks-section { grid-template-columns: 1fr; }
+    }
+    .hot-panel-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .hot-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .hot-panel-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tag-heat-row {
+      margin-bottom: 0.65rem;
+    }
+    .tag-heat-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+    .tag-heat-track {
+      height: 8px;
+      background: var(--surface-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .tag-heat-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2D4B3E, #B8834F);
+      border-radius: 4px;
+      transition: width 0.35s ease;
+    }
+    .hot-rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--surface-subtle);
+      color: var(--text-muted);
+    }
+    .hot-rank-badge.top1 { background: #FEF3C7; color: #B45309; }
+    .hot-rank-badge.top2 { background: #EBF1ED; color: #2D4B3E; }
+    .hot-rank-badge.top3 { background: #F9F3EC; color: #8A5A2B; }
   </style>
 </head>
 <body class="locked">
@@ -965,6 +1034,45 @@
             <!-- 由 JS 動態生成 -->
           </tbody>
         </table>
+      </div>
+
+      <!-- 熱門點擊活動 TOP 10 & 分類熱度排行 -->
+      <div class="hot-clicks-section">
+        <!-- 分類點擊熱度 -->
+        <div class="hot-panel-card">
+          <div class="hot-panel-header">
+            <div class="hot-panel-title"><i class="fa-solid fa-fire" style="color:#B8834F;"></i> 分類點擊熱度</div>
+            <span id="tagHeatStatus" style="font-size:0.72rem; color:var(--text-muted);">同步中...</span>
+          </div>
+          <div id="tagHeatContainer">
+            <div style="color:var(--text-muted); font-size:0.82rem; text-align:center; padding:1.5rem 0;">載入分類統計中...</div>
+          </div>
+        </div>
+
+        <!-- 熱門活動 TOP 10 -->
+        <div class="hot-panel-card">
+          <div class="hot-panel-header">
+            <div class="hot-panel-title"><i class="fa-solid fa-trophy" style="color:var(--primary);"></i> 熱門點擊活動 TOP 10</div>
+            <button type="button" id="syncHotEventsBtn" onclick="syncCloudHotAnalytics(true)" style="padding:0.32rem 0.72rem; border-radius:8px; border:1px solid var(--border); background:#FAF8F5; color:var(--primary); font-size:0.75rem; font-weight:600; cursor:pointer;">
+              <i class="fa-solid fa-rotate"></i> 同步雲端最新熱度
+            </button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="traffic-table">
+              <thead>
+                <tr>
+                  <th style="width:52px;">名次</th>
+                  <th>品牌</th>
+                  <th>活動標題</th>
+                  <th style="width:95px;">累計點擊</th>
+                </tr>
+              </thead>
+              <tbody id="hotEventsTableBody">
+                <tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding:1.5rem;">載入中...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1728,6 +1836,181 @@
       renderAnalytics(s, e);
     }
 
+    // ==================== 熱門點擊活動 TOP 10 & 分類熱度排行 ====================
+    const HOT_CACHE_KEY = 'luckygo_cloud_hot_cache_v1';
+    const TAG_HEAT_DEFS = [
+      { label: '買一送一', key: 'bogo' },
+      { label: '免消費即抽', key: 'free' },
+      { label: '抽機票', key: 'flight' },
+      { label: '抽3C', key: '3c' },
+      { label: '登錄發票即抽', key: 'invoice' },
+      { label: '壽星好康', key: 'birthday' },
+      { label: '限免遊戲', key: 'game' },
+      { label: '免費領點', key: 'points' },
+      { label: '每週特價', key: 'weekly' },
+      { label: '特賣會/廠拍', key: 'outlet' }
+    ];
+
+    function sanitizeCloudId(id) {
+      return String(id || '').replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 48);
+    }
+
+    function readHotCache() {
+      try {
+        return JSON.parse(localStorage.getItem(HOT_CACHE_KEY) || '{}');
+      } catch (e) { return {}; }
+    }
+
+    function saveHotCache(cache) {
+      try {
+        localStorage.setItem(HOT_CACHE_KEY, JSON.stringify(cache));
+      } catch (e) {}
+    }
+
+    function renderHotClicksFromData() {
+      const cache = readHotCache();
+      const cloudTags = cache.tags || {};
+      const cloudEvents = cache.events || {};
+      const localClicks = (() => {
+        try { return JSON.parse(localStorage.getItem('luckygo_event_clicks_v1') || '{}'); } catch (e) { return {}; }
+      })();
+
+      // 1. 渲染分類熱度
+      const tagRows = TAG_HEAT_DEFS.map(t => {
+        const cloudVal = Number(cloudTags[t.key] || 0);
+        return { label: t.label, key: t.key, count: cloudVal };
+      }).sort((a, b) => b.count - a.count);
+
+      const maxTagCount = Math.max(...tagRows.map(r => r.count), 1);
+      const tagContainer = document.getElementById('tagHeatContainer');
+      if (tagContainer) {
+        if (tagRows.every(r => r.count === 0)) {
+          tagContainer.innerHTML = '<div style="color:var(--text-muted); font-size:0.8rem; text-align:center; padding:1.5rem 0;">累積點擊數據中，點擊首頁活動後即會自動累計。</div>';
+        } else {
+          tagContainer.innerHTML = tagRows.map(r => {
+            const pct = Math.round((r.count / maxTagCount) * 100);
+            return `
+              <div class="tag-heat-row">
+                <div class="tag-heat-label-row">
+                  <span>${r.label}</span>
+                  <strong>${r.count.toLocaleString()} 次</strong>
+                </div>
+                <div class="tag-heat-track">
+                  <div class="tag-heat-fill" style="width:${r.count > 0 ? Math.max(6, pct) : 0}%"></div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      // 2. 合併本機與雲端事件點擊數並取 TOP 10
+      const mergedMap = new Map();
+      (allEvents || []).forEach(ev => {
+        const cVal = Number(cloudEvents[ev.id] || 0);
+        const lVal = Number(localClicks[ev.id]?.count || 0);
+        const total = Math.max(cVal, lVal);
+        if (total > 0) {
+          mergedMap.set(ev.id, {
+            id: ev.id,
+            brand: ev.brand || '精選品牌',
+            title: ev.title || ev.id,
+            url: ev.activityUrl || ev.officialUrl || '#',
+            clicks: total
+          });
+        }
+      });
+
+      // 納入本機有紀錄但可能已不在 allEvents 前列的活動
+      Object.entries(localClicks).forEach(([id, info]) => {
+        if (!mergedMap.has(id) && info && info.count > 0) {
+          mergedMap.set(id, {
+            id,
+            brand: info.brand || '精選品牌',
+            title: info.title || id,
+            url: '#',
+            clicks: info.count
+          });
+        }
+      });
+
+      const top10 = Array.from(mergedMap.values())
+        .sort((a, b) => b.clicks - a.clicks)
+        .slice(0, 10);
+
+      const tbody = document.getElementById('hotEventsTableBody');
+      if (tbody) {
+        if (top10.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding:1.5rem;">尚無活動點擊紀錄，請點擊右上「同步雲端最新熱度」或在首頁點擊活動後重新整理。</td></tr>';
+        } else {
+          tbody.innerHTML = top10.map((item, idx) => {
+            const rankClass = idx === 0 ? 'top1' : (idx === 1 ? 'top2' : (idx === 2 ? 'top3' : ''));
+            return `
+              <tr>
+                <td><span class="hot-rank-badge ${rankClass}">${idx + 1}</span></td>
+                <td style="font-weight:600; color:var(--primary); white-space:nowrap;">${item.brand}</td>
+                <td>
+                  <a href="${item.url}" target="_blank" rel="noopener noreferrer" style="color:var(--text); text-decoration:none; font-weight:500;">
+                    ${item.title}
+                  </a>
+                </td>
+                <td><strong>${item.clicks.toLocaleString()}</strong> 次</td>
+              </tr>
+            `;
+          }).join('');
+        }
+      }
+    }
+
+    async function syncCloudHotAnalytics(forceFull = false) {
+      const statusEl = document.getElementById('tagHeatStatus');
+      const btn = document.getElementById('syncHotEventsBtn');
+      const cache = readHotCache();
+      if (!cache.tags) cache.tags = {};
+      if (!cache.events) cache.events = {};
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 同步中...';
+      }
+      if (statusEl) statusEl.innerText = '同步雲端中...';
+
+      // 1. 查詢 10 個分類熱度
+      await Promise.all(TAG_HEAT_DEFS.map(async t => {
+        const val = await fetchCloudValue(`tag-${t.key}`);
+        if (val !== null) cache.tags[t.key] = Math.max(cache.tags[t.key] || 0, val);
+      }));
+
+      saveHotCache(cache);
+      renderHotClicksFromData();
+
+      // 2. 分批查詢進行中活動前 35 檔 + 本機有紀錄活動（每批 5 個並發避免 429）
+      const activeList = (allEvents || []).filter(e => !isExpired(e)).slice(0, forceFull ? 45 : 25);
+      const batchSize = 5;
+      for (let i = 0; i < activeList.length; i += batchSize) {
+        const chunk = activeList.slice(i, i + batchSize);
+        await Promise.all(chunk.map(async ev => {
+          const val = await fetchCloudValue(`ev-${sanitizeCloudId(ev.id)}`, 0);
+          if (val !== null && val > 0) {
+            cache.events[ev.id] = Math.max(cache.events[ev.id] || 0, val);
+          }
+        }));
+      }
+
+      cache.updatedAt = Date.now();
+      saveHotCache(cache);
+      renderHotClicksFromData();
+
+      if (statusEl) {
+        const d = new Date();
+        statusEl.innerText = `已更新 ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+      }
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-rotate"></i> 同步雲端最新熱度';
+      }
+    }
+
     // 切換分頁看板 (數據統計 vs 會員管理 vs Threads 發文)
     function switchSection(type) {
       const tabs = document.querySelectorAll('.nav-tab-btn');
@@ -2454,6 +2737,8 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       setLaunchRange();
+      renderHotClicksFromData();
+      syncCloudHotAnalytics();
       regenerateDailyPosts();
       checkAdminSession().then(() => {
         loadLotteryReports();

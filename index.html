@@ -2913,7 +2913,7 @@
           <a id="modalResultLink" href="#" target="_blank" rel="noopener noreferrer" style="color:#B45309; font-weight:700; font-size:0.88rem; text-decoration:underline;">查看官方中獎名單 ↗</a>
           <div id="modalResultNote" style="font-size:0.78rem; color:#78350F; margin-top:0.25rem;"></div>
         </div>
-        <a id="modalDirectBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-direct" style="display: flex; padding: 0.875rem; font-size: 0.95rem; border-radius: 12px;">
+        <a id="modalDirectBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-direct" onclick="if(currentDetailEvent) trackEventClick(currentDetailEvent.id, 'modal_direct')" style="display: flex; padding: 0.875rem; font-size: 0.95rem; border-radius: 12px;">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 前往主辦官方活動頁登錄
         </a>
         <div style="display:flex; gap:0.5rem; margin-top:0.65rem; flex-wrap:wrap;">
@@ -3544,7 +3544,7 @@
               <button class="btn-detail" onclick="openModal('${item.id}')">
                 <i class="fa-solid fa-circle-info"></i> 詳情
               </button>
-              <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="btn-direct">
+              <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="btn-direct" onclick="trackEventClick('${item.id}', 'card_direct')">
                 <i class="fa-solid ${directBtnIcon}"></i> ${directBtnText}
               </a>
             </div>
@@ -3671,6 +3671,7 @@
     function openModal(id) {
       const item = allEvents.find(e => e.id === id);
       if (!item) return;
+      trackEventClick(id, 'modal_open');
 
       document.getElementById('modalBrand').innerText = `${item.brand} 官方主辦活動`;
       document.getElementById('modalTitle').innerText = item.title;
@@ -3836,6 +3837,59 @@
         }
       } catch (e) {}
     })();
+
+    // 熱門活動與分類點擊統計 (本機 + Abacus 雲端)
+    const TAG_CLOUD_KEYS = {
+      '買一送一': 'bogo',
+      '免消費即抽': 'free',
+      '抽機票': 'flight',
+      '抽3C': '3c',
+      '登錄發票即抽': 'invoice',
+      '壽星好康': 'birthday',
+      '限免遊戲': 'game',
+      '免費領點': 'points',
+      '每週特價': 'weekly',
+      '特賣會/廠拍': 'outlet'
+    };
+
+    function sanitizeCloudId(id) {
+      return String(id || '').replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 48);
+    }
+
+    function trackEventClick(eventId, source) {
+      try {
+        if (!eventId) return;
+        const ev = (allEvents || []).find(e => e.id === eventId);
+
+        // 1. 本機點擊記錄
+        const raw = localStorage.getItem('luckygo_event_clicks_v1');
+        const map = raw ? JSON.parse(raw) : {};
+        const prev = map[eventId] || { count: 0 };
+        map[eventId] = {
+          count: (prev.count || 0) + 1,
+          lastAt: Date.now(),
+          title: ev ? ev.title : (prev.title || ''),
+          brand: ev ? ev.brand : (prev.brand || '')
+        };
+        localStorage.setItem('luckygo_event_clicks_v1', JSON.stringify(map));
+
+        // 2. 雲端同步（同一個 session 同一活動僅計一次雲端 hit，避免連點灌水）
+        const sessKey = `lg_hit_${eventId}`;
+        if (!sessionStorage.getItem(sessKey)) {
+          sessionStorage.setItem(sessKey, '1');
+          const safeId = sanitizeCloudId(eventId);
+          fetch(`https://abacus.jasoncameron.dev/hit/luckygo-tw/ev-${safeId}`, { mode: 'cors', keepalive: true }).catch(() => {});
+
+          if (ev && Array.isArray(ev.tags)) {
+            const matchedTag = ev.tags.find(t => TAG_CLOUD_KEYS[t]);
+            if (matchedTag) {
+              fetch(`https://abacus.jasoncameron.dev/hit/luckygo-tw/tag-${TAG_CLOUD_KEYS[matchedTag]}`, { mode: 'cors', keepalive: true }).catch(() => {});
+            }
+          }
+        }
+        if (window.gtag) gtag('event', 'click_activity', { event_id: eventId, source: source || 'unknown' });
+      } catch (e) {}
+    }
 
     // ==================== 開獎結果回報與核實顯示 (Supabase) ====================
     const SUPABASE_URL = 'https://vqlsxubuluoedjcfapqr.supabase.co';
