@@ -1919,6 +1919,186 @@
       border-color: var(--primary);
     }
 
+    /* ===== 品牌追蹤系統 (Phase 3) ===== */
+    .brand-follow-btn {
+      pointer-events: auto;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.18rem 0.42rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .brand-follow-btn:hover { background: rgba(255,255,255,0.95); color: var(--primary); }
+    .brand-follow-btn.is-following {
+      background: var(--primary);
+      color: #FAF7F2;
+    }
+    .brand-follow-btn.is-following:hover {
+      background: var(--danger);
+    }
+
+    .btn-track-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.65rem;
+      background: #FAF8F5;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      text-decoration: none;
+    }
+    .btn-track-header:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .track-count-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .track-count-badge.show { display: inline-flex; }
+
+    /* 追蹤品牌 Modal */
+    .track-brand-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+    }
+    .track-brand-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.38rem 0.7rem;
+      background: var(--primary-light);
+      border: 1px solid #C8DDD0;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: default;
+      transition: all 0.2s ease;
+    }
+    .track-brand-chip .chip-remove {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .track-brand-chip .chip-remove:hover { color: var(--danger); }
+
+    .track-new-event-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.65rem 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.15s;
+    }
+    .track-new-event-item:hover { background: var(--surface-subtle); }
+    .track-new-event-item:last-child { border-bottom: none; }
+    .track-new-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.4rem;
+    }
+    .track-new-dot.read { background: var(--border); }
+    .track-event-info { flex: 1; min-width: 0; }
+    .track-event-brand {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.15rem;
+    }
+    .track-event-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .track-event-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .track-event-link {
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: center;
+    }
+    .track-event-link:hover { text-decoration: underline; }
+
+    /* 熱門品牌推薦快捷選單 */
+    .popular-brands-section {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .popular-brand-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.32rem 0.6rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .popular-brand-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .popular-brand-btn.already-tracked {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      .btn-track-header span.track-label-text { display: none; }
+    }
+
     /* ===== 開獎通知中心 (Phase 2) ===== */
     .btn-noti-header {
       position: relative;
@@ -1988,6 +2168,7 @@
     .noti-type-result { background: #FEF3C7; color: #B45309; }
     .noti-type-urgent { background: #FEE2E2; color: #B91C1C; }
     .noti-type-global { background: #EBF1ED; color: var(--primary); }
+    .noti-type-brand { background: #F9F3EC; color: #8A5A2B; }
     .noti-title {
       font-size: 0.9rem;
       font-weight: 700;
@@ -2048,6 +2229,11 @@
         <button type="button" class="btn-submit-header" onclick="openSubmitEventModal()" title="投稿新抽獎／買一送一情報">
           <i class="fa-solid fa-bullhorn"></i>
           <span class="submit-label-text">投稿情報</span>
+        </button>
+        <button type="button" class="btn-track-header" onclick="openBrandTrackModal()" title="品牌追蹤・新活動提醒">
+          <i class="fa-solid fa-bookmark"></i>
+          <span class="track-label-text">追蹤品牌</span>
+          <span class="track-count-badge" id="trackCountBadge">0</span>
         </button>
         <button type="button" class="btn-fav-header" onclick="openFavoritesModal()" title="查看個人活動收藏清單">
           <i class="fa-solid fa-heart"></i>
@@ -2533,6 +2719,60 @@
     </div>
   </div>
 
+  <!-- 品牌追蹤 Modal (Phase 3) -->
+  <div class="modal-backdrop" id="brandTrackModal" onclick="if(event.target===this) closeBrandTrackModal()">
+    <div class="modal-card" style="max-width:580px;">
+      <div class="modal-header">
+        <div style="font-size:0.95rem; font-weight:800; color:var(--primary);"><i class="fa-solid fa-bookmark"></i> 品牌追蹤・新活動即時提醒</div>
+        <button class="modal-close-btn" onclick="closeBrandTrackModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content-inner" style="max-height:78vh; overflow-y:auto;">
+        <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem; line-height:1.6;">
+          追蹤喜愛的品牌，有新活動上線時自動推播通知！點選卡片上的 <i class="fa-solid fa-bookmark" style="color:var(--primary);"></i> 或從下方熱門品牌快速加入。
+        </div>
+
+        <!-- 我的追蹤品牌 -->
+        <div style="font-size:0.82rem; font-weight:700; color:var(--text); margin-bottom:0.4rem;">
+          <i class="fa-solid fa-heart" style="color:var(--accent);"></i> 我的追蹤品牌
+          <span id="trackBrandCount" style="font-weight:400; color:var(--text-muted); font-size:0.76rem;"></span>
+        </div>
+        <div class="track-brand-grid" id="trackedBrandsGrid">
+          <span style="color:var(--text-muted); font-size:0.8rem;">尚未追蹤任何品牌</span>
+        </div>
+
+        <!-- 瀏覽器推播開關 -->
+        <div id="pushPermissionBar" style="display:none; background:var(--accent-light); border:1px solid #E8D5C4; padding:0.6rem 0.8rem; border-radius:10px; margin-bottom:0.85rem; font-size:0.8rem; display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+          <div style="flex:1; min-width:180px;">
+            <div style="font-weight:700; color:var(--text); margin-bottom:0.15rem;"><i class="fa-solid fa-bell"></i> 開啟瀏覽器推播通知</div>
+            <div style="font-size:0.74rem; color:var(--text-muted);">追蹤品牌有新活動時，即使沒開網頁也會收到通知</div>
+          </div>
+          <button type="button" id="enablePushBtn" onclick="requestNotificationPermission()" style="padding:0.4rem 0.9rem; border-radius:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; font-size:0.78rem; font-weight:700; cursor:pointer; white-space:nowrap;">
+            <i class="fa-solid fa-bell"></i> 開啟通知
+          </button>
+        </div>
+
+        <!-- 追蹤品牌新活動 -->
+        <div style="font-size:0.82rem; font-weight:700; color:var(--text); margin-top:0.5rem; margin-bottom:0.4rem;">
+          <i class="fa-solid fa-sparkles" style="color:var(--success);"></i> 追蹤品牌最新活動
+        </div>
+        <div id="trackNewEventsList" style="background:var(--surface); border:1px solid var(--border-subtle); border-radius:10px; overflow:hidden;">
+          <div style="text-align:center; padding:1.5rem 1rem; color:var(--text-muted); font-size:0.82rem;">
+            <i class="fa-regular fa-bookmark" style="font-size:1.5rem; opacity:0.4; display:block; margin-bottom:0.4rem;"></i>
+            先追蹤品牌，就能在這裡看到最新活動！
+          </div>
+        </div>
+
+        <!-- 熱門品牌推薦 -->
+        <div class="popular-brands-section">
+          <div style="font-size:0.82rem; font-weight:700; color:var(--text); margin-bottom:0.45rem;">
+            <i class="fa-solid fa-fire" style="color:var(--danger);"></i> 熱門品牌・一鍵追蹤
+          </div>
+          <div class="track-brand-grid" id="popularBrandsGrid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 網友情報投稿 Modal (Phase 2) -->
   <div class="modal-backdrop" id="submitEventModal" onclick="if(event.target===this) closeSubmitEventModal()">
     <div class="modal-card" style="max-width:520px;">
@@ -2935,13 +3175,27 @@
         }
 
         const isFav = isFavoriteEvent(item.id);
+        const brandName = (item.brand || '').trim();
+        const canFollowBrand = brandName && brandName !== '精選品牌';
+        const isFollowingBrand = canFollowBrand && isBrandTracked(brandName);
+        const safeBrandAttr = brandName.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+        const safeBrandJs = brandName.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        const followBtnHtml = canFollowBrand
+          ? `<button type="button" class="brand-follow-btn ${isFollowingBrand ? 'is-following' : ''}" data-track-brand="${safeBrandAttr}" onclick="toggleTrackBrand('${safeBrandJs}', event)" title="${isFollowingBrand ? '取消追蹤此品牌' : '追蹤此品牌新活動'}">
+               <i class="${isFollowingBrand ? 'fa-solid' : 'fa-regular'} fa-bookmark"></i>
+               <span>${isFollowingBrand ? '已追蹤' : '追蹤'}</span>
+             </button>`
+          : '';
         const card = document.createElement('div');
         card.className = `event-card ${expired ? 'is-expired' : ''}`;
         card.innerHTML = `
           <div class="card-thumb-wrapper">
             <img src="${imgUrl}" alt="${item.title}" class="card-thumb" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80';">
             <div class="card-overlay-badges">
-              <span class="brand-pill">${item.brand}</span>
+              <div style="display:inline-flex; align-items:center; gap:0.3rem; flex-wrap:wrap;">
+                <span class="brand-pill">${item.brand}</span>
+                ${followBtnHtml}
+              </div>
               ${countdownHtml}
             </div>
             <button type="button" class="card-fav-btn ${isFav ? 'is-fav' : ''}" data-fav-id="${item.id}" onclick="toggleFavorite('${item.id}', event)" title="${isFav ? '取消收藏' : '加入收藏清單'}">
@@ -3813,7 +4067,25 @@
         }
       });
 
-      // 3. 全站最新已核實開獎快訊（排除已列在個人收藏者，最多補齊至 5 筆）
+      // 3. 追蹤品牌最新活動通知
+      if (typeof getTrackedBrandNewEvents === 'function') {
+        const trackedNew = getTrackedBrandNewEvents();
+        trackedNew.slice(0, 8).forEach(ev => {
+          const key = `brand_new_${ev.id}`;
+          notis.push({
+            key,
+            type: 'brand',
+            badge: `🏷️ 追蹤品牌「${ev.brand}」新活動`,
+            title: ev.title,
+            sub: ev.deadline ? `截止日：${ev.deadline}｜${(ev.qualification || '').slice(0, 50)}` : '點擊前往活動頁面查看完整內容',
+            url: ev.activityUrl || ev.officialUrl || '#',
+            actionText: '立即查看活動 ↗',
+            unread: !readSet.has(key)
+          });
+        });
+      }
+
+      // 4. 全站最新已核實開獎快訊（排除已列在個人收藏者，最多補齊至 5 筆）
       Object.entries(verifiedResultsMap).forEach(([eventId, res]) => {
         if (seenFavResults.has(eventId)) return;
         const ev = allEvents.find(e => e.id === eventId);
@@ -3886,7 +4158,9 @@
       }
 
       container.innerHTML = notis.map(n => {
-        const pillClass = n.type === 'result' ? 'noti-type-result' : (n.type === 'urgent' ? 'noti-type-urgent' : 'noti-type-global');
+        const pillClass = n.type === 'result'
+          ? 'noti-type-result'
+          : (n.type === 'urgent' ? 'noti-type-urgent' : (n.type === 'brand' ? 'noti-type-brand' : 'noti-type-global'));
         return `
           <div class="noti-item ${n.unread ? 'unread' : ''}">
             <div class="noti-item-top">
@@ -3906,10 +4180,344 @@
       }).join('');
     }
 
+    // ==================== 品牌追蹤 ＋ 站內／瀏覽器推播提醒 (Phase 3) ====================
+    const TRACKED_BRANDS_KEY = 'luckygo_tracked_brands_v1';
+    const BRAND_BASELINE_KEY = 'luckygo_brand_baseline_ids_v1';
+    const BRAND_PUSHED_KEY = 'luckygo_brand_pushed_ids_v1';
+
+    const POPULAR_TRACK_BRANDS = [
+      '7-ELEVEN', '全家', '全聯', '好市多', '星巴克',
+      '麥當勞', '肯德基', '必勝客', '王品集團', '藏壽司',
+      '可口可樂', '蝦皮購物', 'MOMO購物網', 'Epic Games'
+    ];
+
+    const BRAND_ALIAS_GROUPS = [
+      ['7-11', '7-ELEVEN', '統一超商'],
+      ['全家', '全家便利商店'],
+      ['王品', '王品集團'],
+      ['好市多', 'COSTCO'],
+      ['MOMO', 'MOMO購物網'],
+      ['全聯', '全聯福利中心'],
+      ['爭鮮', '爭鮮迴轉壽司']
+    ];
+
+    function normalizeBrandKey(b) {
+      return (b || '').trim().toUpperCase();
+    }
+
+    function isSameBrand(a, b) {
+      const na = normalizeBrandKey(a);
+      const nb = normalizeBrandKey(b);
+      if (!na || !nb) return false;
+      if (na === nb) return true;
+      for (const group of BRAND_ALIAS_GROUPS) {
+        const up = group.map(x => x.toUpperCase());
+        if (up.includes(na) && up.includes(nb)) return true;
+      }
+      return false;
+    }
+
+    function getTrackedBrands() {
+      try {
+        const raw = localStorage.getItem(TRACKED_BRANDS_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) { return []; }
+    }
+
+    function saveTrackedBrands(arr) {
+      try { localStorage.setItem(TRACKED_BRANDS_KEY, JSON.stringify(arr)); } catch (e) {}
+    }
+
+    function getBrandIdSet(storageKey) {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        const arr = raw ? JSON.parse(raw) : [];
+        return new Set(Array.isArray(arr) ? arr : []);
+      } catch (e) { return new Set(); }
+    }
+
+    function saveBrandIdSet(storageKey, setObj) {
+      try { localStorage.setItem(storageKey, JSON.stringify(Array.from(setObj).slice(-500))); } catch (e) {}
+    }
+
+    function isBrandTracked(brand) {
+      const list = getTrackedBrands();
+      return list.some(b => isSameBrand(b, brand));
+    }
+
+    function getTrackedBrandActiveEvents() {
+      const tracked = getTrackedBrands();
+      if (tracked.length === 0 || !Array.isArray(allEvents)) return [];
+      return allEvents.filter(ev => {
+        if (isExpired(ev)) return false;
+        const b = (ev.brand || '').trim();
+        return tracked.some(tb => isSameBrand(tb, b));
+      });
+    }
+
+    function getTrackedBrandNewEvents() {
+      const active = getTrackedBrandActiveEvents();
+      const baseline = getBrandIdSet(BRAND_BASELINE_KEY);
+      return active.filter(ev => !baseline.has(ev.id));
+    }
+
+    function toggleTrackBrand(brand, evt) {
+      if (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+      }
+      const cleanBrand = (brand || '').trim();
+      if (!cleanBrand || cleanBrand === '精選品牌') return;
+
+      let list = getTrackedBrands();
+      const exists = list.some(b => isSameBrand(b, cleanBrand));
+      if (exists) {
+        list = list.filter(b => !isSameBrand(b, cleanBrand));
+        saveTrackedBrands(list);
+      } else {
+        list.push(cleanBrand);
+        saveTrackedBrands(list);
+        // 將目前既有的有效活動加入 baseline，之後新抓取上架的活動才會跳推播提醒
+        const baseline = getBrandIdSet(BRAND_BASELINE_KEY);
+        allEvents.forEach(ev => {
+          if (!isExpired(ev) && isSameBrand(ev.brand, cleanBrand)) {
+            baseline.add(ev.id);
+          }
+        });
+        saveBrandIdSet(BRAND_BASELINE_KEY, baseline);
+        if (window.gtag) gtag('event', 'track_brand', { brand: cleanBrand });
+      }
+      refreshBrandTrackUI();
+      refreshNotifications();
+    }
+
+    function refreshBrandTrackUI() {
+      const tracked = getTrackedBrands();
+      const newEvents = getTrackedBrandNewEvents();
+      const badge = document.getElementById('trackCountBadge');
+      if (badge) {
+        const count = newEvents.length > 0 ? newEvents.length : tracked.length;
+        badge.innerText = count > 99 ? '99+' : count;
+        badge.classList.toggle('show', tracked.length > 0);
+        badge.style.background = newEvents.length > 0 ? '#C93B36' : 'var(--accent)';
+        badge.title = newEvents.length > 0 ? `${newEvents.length} 則追蹤品牌新活動` : `已追蹤 ${tracked.length} 個品牌`;
+      }
+
+      document.querySelectorAll('.brand-follow-btn[data-track-brand]').forEach(btn => {
+        const b = btn.getAttribute('data-track-brand');
+        const following = isBrandTracked(b);
+        btn.classList.toggle('is-following', following);
+        btn.title = following ? '取消追蹤此品牌' : '追蹤此品牌新活動';
+        const icon = btn.querySelector('i');
+        const span = btn.querySelector('span');
+        if (icon) icon.className = `${following ? 'fa-solid' : 'fa-regular'} fa-bookmark`;
+        if (span) span.innerText = following ? '已追蹤' : '追蹤';
+      });
+
+      if (document.getElementById('brandTrackModal')?.classList.contains('active')) {
+        renderBrandTrackModal();
+      }
+    }
+
+    function updatePushPermissionBar() {
+      const bar = document.getElementById('pushPermissionBar');
+      const btn = document.getElementById('enablePushBtn');
+      if (!bar || !btn) return;
+      if (!('Notification' in window)) {
+        bar.style.display = 'none';
+        return;
+      }
+      if (Notification.permission === 'granted') {
+        bar.style.display = 'flex';
+        bar.style.background = '#EBF1ED';
+        bar.style.borderColor = '#C8DDD0';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> 已開啟推播';
+        btn.style.background = 'var(--success)';
+        btn.style.borderColor = 'var(--success)';
+        btn.disabled = true;
+      } else if (Notification.permission === 'denied') {
+        bar.style.display = 'flex';
+        bar.style.background = '#F9F3EC';
+        bar.style.borderColor = '#E8D5C4';
+        btn.innerHTML = '<i class="fa-solid fa-ban"></i> 瀏覽器已封鎖';
+        btn.style.background = 'var(--text-muted)';
+        btn.style.borderColor = 'var(--text-muted)';
+        btn.disabled = true;
+      } else {
+        bar.style.display = 'flex';
+        bar.style.background = 'var(--accent-light)';
+        bar.style.borderColor = '#E8D5C4';
+        btn.innerHTML = '<i class="fa-solid fa-bell"></i> 開啟通知';
+        btn.style.background = 'var(--accent)';
+        btn.style.borderColor = 'var(--accent)';
+        btn.disabled = false;
+      }
+    }
+
+    async function requestNotificationPermission() {
+      if (!('Notification' in window)) return;
+      try {
+        const perm = await Notification.requestPermission();
+        updatePushPermissionBar();
+        if (perm === 'granted') {
+          new Notification('LuckyGo 品牌追蹤通知已開啟 🎉', {
+            body: '當您追蹤的品牌有最新抽獎或買一送一活動時，我們會立即通知您！',
+            icon: './assets/icon-192.png'
+          });
+          if (window.gtag) gtag('event', 'enable_brand_push');
+        }
+      } catch (e) {
+        console.warn('請求通知權限失敗:', e);
+      }
+    }
+
+    function dispatchBrandBrowserNotifications() {
+      if (!('Notification' in window) || Notification.permission !== 'granted') return;
+      const newEvents = getTrackedBrandNewEvents();
+      if (newEvents.length === 0) return;
+
+      const pushed = getBrandIdSet(BRAND_PUSHED_KEY);
+      const toPush = newEvents.filter(ev => !pushed.has(ev.id));
+      if (toPush.length === 0) return;
+
+      if (toPush.length <= 2) {
+        toPush.forEach(ev => {
+          const n = new Notification(`🏷️ ${ev.brand} 有新好康！`, {
+            body: ev.title,
+            icon: './assets/icon-192.png',
+            tag: `luckygo-brand-${ev.id}`
+          });
+          n.onclick = () => {
+            window.focus();
+            if (ev.activityUrl || ev.officialUrl) {
+              window.open(ev.activityUrl || ev.officialUrl, '_blank', 'noopener');
+            }
+          };
+        });
+      } else {
+        const brands = Array.from(new Set(toPush.map(e => e.brand))).slice(0, 3).join('、');
+        const n = new Notification(`🎁 您追蹤的品牌有 ${toPush.length} 則新活動！`, {
+          body: `${brands} 等品牌剛上架最新好康，點擊立即查看`,
+          icon: './assets/icon-192.png',
+          tag: 'luckygo-brand-batch'
+        });
+        n.onclick = () => {
+          window.focus();
+          openBrandTrackModal();
+        };
+      }
+
+      toPush.forEach(ev => pushed.add(ev.id));
+      saveBrandIdSet(BRAND_PUSHED_KEY, pushed);
+    }
+
+    function openBrandTrackModal() {
+      renderBrandTrackModal();
+      updatePushPermissionBar();
+      document.getElementById('brandTrackModal').classList.add('active');
+      if (window.gtag) gtag('event', 'open_brand_track_modal');
+    }
+
+    function closeBrandTrackModal() {
+      // 關閉時將目前顯示的新活動標記為已看過（更新 baseline），避免下次重複提醒
+      const newEvents = getTrackedBrandNewEvents();
+      if (newEvents.length > 0) {
+        const baseline = getBrandIdSet(BRAND_BASELINE_KEY);
+        newEvents.forEach(ev => baseline.add(ev.id));
+        saveBrandIdSet(BRAND_BASELINE_KEY, baseline);
+        refreshBrandTrackUI();
+        refreshNotifications();
+      }
+      document.getElementById('brandTrackModal').classList.remove('active');
+    }
+
+    function renderBrandTrackModal() {
+      const tracked = getTrackedBrands();
+      const countEl = document.getElementById('trackBrandCount');
+      const brandsGrid = document.getElementById('trackedBrandsGrid');
+      const eventsList = document.getElementById('trackNewEventsList');
+      const popularGrid = document.getElementById('popularBrandsGrid');
+
+      if (countEl) countEl.innerText = tracked.length > 0 ? `（已追蹤 ${tracked.length} 個）` : '';
+
+      if (brandsGrid) {
+        if (tracked.length === 0) {
+          brandsGrid.innerHTML = '<span style="color:var(--text-muted); font-size:0.8rem;">尚未追蹤任何品牌，可點擊下方熱門品牌或活動卡片上的「追蹤」按鈕。</span>';
+        } else {
+          brandsGrid.innerHTML = tracked.map(b => {
+            const safeJs = b.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+            return `
+              <span class="track-brand-chip">
+                <span>${b}</span>
+                <button type="button" class="chip-remove" onclick="toggleTrackBrand('${safeJs}')" title="取消追蹤 ${b}">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </span>
+            `;
+          }).join('');
+        }
+      }
+
+      if (eventsList) {
+        const activeEvents = getTrackedBrandActiveEvents();
+        const baseline = getBrandIdSet(BRAND_BASELINE_KEY);
+        if (tracked.length === 0) {
+          eventsList.innerHTML = `
+            <div style="text-align:center; padding:1.5rem 1rem; color:var(--text-muted); font-size:0.82rem;">
+              <i class="fa-regular fa-bookmark" style="font-size:1.5rem; opacity:0.4; display:block; margin-bottom:0.4rem;"></i>
+              先追蹤品牌，就能在這裡集中查看最新活動！
+            </div>
+          `;
+        } else if (activeEvents.length === 0) {
+          eventsList.innerHTML = `
+            <div style="text-align:center; padding:1.5rem 1rem; color:var(--text-muted); font-size:0.82rem;">
+              目前追蹤的品牌暫無進行中活動，有新活動上架時會第一時間通知您！
+            </div>
+          `;
+        } else {
+          eventsList.innerHTML = activeEvents.slice(0, 20).map(ev => {
+            const isNew = !baseline.has(ev.id);
+            const url = ev.activityUrl || ev.officialUrl || '#';
+            return `
+              <div class="track-new-event-item">
+                <span class="track-new-dot ${isNew ? '' : 'read'}" title="${isNew ? '新上架活動' : '進行中活動'}"></span>
+                <div class="track-event-info">
+                  <div class="track-event-brand">${ev.brand}${isNew ? ' <span style="background:#FEE2E2; color:#B91C1C; padding:0.05rem 0.35rem; border-radius:4px; font-size:0.65rem; margin-left:0.25rem;">NEW</span>' : ''}</div>
+                  <div class="track-event-title">${ev.title}</div>
+                  <div class="track-event-meta">${ev.deadline ? `截止：${ev.deadline}` : '長期／近期活動'}</div>
+                </div>
+                <a href="${url}" target="_blank" rel="noopener noreferrer" class="track-event-link">前往 ↗</a>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      if (popularGrid) {
+        popularGrid.innerHTML = POPULAR_TRACK_BRANDS.map(b => {
+          const already = isBrandTracked(b);
+          const safeJs = b.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+          return `
+            <button type="button" class="popular-brand-btn ${already ? 'already-tracked' : ''}" onclick="toggleTrackBrand('${safeJs}')">
+              <i class="fa-solid ${already ? 'fa-check' : 'fa-plus'}"></i> ${b}
+            </button>
+          `;
+        }).join('');
+      }
+    }
+
+    function initBrandTracking() {
+      refreshBrandTrackUI();
+      refreshNotifications();
+      dispatchBrandBrowserNotifications();
+    }
+
     // 載入資料 (優先使用 data.js 內建資料，若無則 fetch events.json)
     if (allEvents.length > 0) {
       updateCounts();
       renderEvents();
+      initBrandTracking();
     } else {
       fetch('./events.json')
         .then(r => r.json())
@@ -3917,6 +4525,7 @@
           allEvents = data;
           updateCounts();
           renderEvents();
+          initBrandTracking();
         })
         .catch(err => {
           console.error('載入 events.json 失敗:', err);
