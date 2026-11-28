@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
 from datetime import datetime, timedelta
 from html import unescape
+from difflib import SequenceMatcher
 
 def clean_text(text):
     if not text:
@@ -2063,6 +2064,9 @@ def crawl_brand_official_and_news(today):
                 if age_days < 0 or age_days > 3:
                     continue
                 title_clean = re.sub(r'\s+-\s+[^-]+$', '', raw_title).strip()
+                # 排除純財經、地產商辦新聞（無實質消費者優惠）
+                if re.search(r'億元|商辦|掃整棟|股價|財報|法說會|董事會|營收', title_clean) and not re.search(r'優惠|特價|買一送一|買1送1|折扣|折價|禮券|抽獎|免費', title_clean):
+                    continue
                 # 排除已過期的單日快閃新聞（例如昨日新聞標題寫「今天／今日買一送一」）
                 if age_days >= 1 and any(w in title_clean for w in ['今天', '今日', '今推', '今開搶', '僅此一天']):
                     continue
@@ -2119,7 +2123,78 @@ def crawl_brand_official_and_news(today):
         except Exception as ex:
             print(f"  爬取即時情報 [{feed['name']}] 失敗: {ex}")
 
-    return events
+    return smart_deduplicate_news(events)
+
+
+def smart_deduplicate_news(events):
+    """智慧去重：合併同品牌、同檔期或高語意重疊的即時新聞（保留官方官網活動不變）"""
+    def norm_title(t):
+        t = re.sub(r'^【即時情報】', '', t or '')
+        t = re.sub(r'202[4-9]|\d{1,2}/\d{1,2}|Day\s*\d+', ' ', t, flags=re.I)
+        for noise in ['持續更新', '不斷更新', '一次看', '懶人包', '生活新聞', '生活', '頭條', '攻略', '開跑', '登場', '搶客']:
+            t = t.replace(noise, ' ')
+        return re.sub(r'[^\w\u4e00-\u9fff]+', '', t).lower()
+
+    def bigrams(s):
+        return {s[i:i + 2] for i in range(max(1, len(s) - 1))}
+
+    topics = ['黑五', '火鍋季', '投票日', '感恩節', '好友分享', '買一送一', '康康五', '雙11', '雙12', '週年慶']
+
+    def get_topics(t):
+        t_norm = (t or '').replace('買1送1', '買一送一').replace('康康5', '康康五')
+        return {tp for tp in topics if tp in t_norm}
+
+    non_news = [e for e in events if not str(e.get('id', '')).startswith('news-')]
+    news_items = [e for e in events if str(e.get('id', '')).startswith('news-')]
+
+    kept = []
+    merged_total = 0
+    for ev in news_items:
+        nt = norm_title(ev.get('title', ''))
+        bg = bigrams(nt)
+        ev_topics = get_topics(ev.get('title', ''))
+        ev_brand = (ev.get('brand') or '').lower()
+
+        matched = None
+        for k in kept:
+            k_brand = (k.get('brand') or '').lower()
+            if ev_brand == k_brand and (ev_topics & k['_topics']):
+                matched = k
+                break
+            if '投票日' in ev_topics and '投票日' in k['_topics'] and '咖啡' in nt and '咖啡' in k['_nt']:
+                matched = k
+                break
+            overlap = len(bg & k['_bg']) / max(1, min(len(bg), len(k['_bg'])))
+            if overlap >= 0.45 or SequenceMatcher(None, nt, k['_nt']).ratio() >= 0.55:
+                matched = k
+                break
+
+        if matched:
+            merged_total += 1
+            matched['_merged_count'] += 1
+            for tag in (ev.get('tags') or []):
+                if tag not in matched['tags']:
+                    matched['tags'].append(tag)
+        else:
+            ev_copy = dict(ev)
+            ev_copy['_nt'] = nt
+            ev_copy['_bg'] = bg
+            ev_copy['_topics'] = ev_topics
+            ev_copy['_merged_count'] = 0
+            kept.append(ev_copy)
+
+    for k in kept:
+        mc = k.pop('_merged_count', 0)
+        k.pop('_nt', None)
+        k.pop('_bg', None)
+        k.pop('_topics', None)
+        if mc > 0:
+            k['qualification'] = f"{k.get('qualification', '')}（已智慧整併 {mc + 1} 篇同檔期媒體報導，避免重複洗版）"
+
+    if merged_total > 0:
+        print(f"  [智慧去重] 成功合併 {merged_total} 則同品牌/同檔期重疊新聞，保留 {len(kept)} 則精選情報")
+
+    return non_news + kept
 
 if __name__ == '__main__':
     today = datetime.now().date()
